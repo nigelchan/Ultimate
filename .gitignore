@@ -25,3 +25,11 @@
 *.maf
 *.mtc
 *.mtc0
+*.swp
+*.swn
+*.swo
+*.nls
+*.DS_Store
+*.itmp
+*.btmp
+*.pdf

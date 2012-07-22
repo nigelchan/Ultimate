@@ -1,0 +1,61 @@
+\newcommand{\PdfPsText}[2]{
+  \ifpdf
+     #1
+  \else
+     #2
+  \fi
+}
+
+\newcommand{\IncludeGraphicsH}[3]{
+  \PdfPsText{\includegraphics[height=#2]{#1}}{\includegraphics[bb = #3, height=#2]{#1}}
+}
+
+\newcommand{\IncludeGraphicsW}[3]{
+  \PdfPsText{\includegraphics[width=#2]{#1}}{\includegraphics[bb = #3, width=#2]{#1}}
+}
+
+\newcommand{\InsertFig}[3]{
+  \begin{figure}[!htbp]
+    \begin{center}
+      \leavevmode
+      #1
+      \caption{#2}
+      \label{#3}
+    \end{center}
+  \end{figure}
+}
+
+\newcommand{\no}{\nonumber}
+\newcommand{\ov}{\overline}
+\newcommand{\ep}{\epsilon}
+\newcommand{\la}{\label}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\bestar}{\begin{eqnarray*}}
+\newcommand{\eestar}{\end{eqnarray*}}
+\newcommand{\lam}{\lambda}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\al}{\alpha}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\Th}{\Theta}
+\newcommand{\pa}{\parallel}
+\newcommand{\ka}{\kappa}
+\newcommand{\E}{\mathbb E}
+\newcommand{\F}{\mathcal F}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{cor}{Corollary}[chapter]
+\newtheorem{lem}{Lemma}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{rem}{Remark}[chapter]
+\newtheorem{assump}{Assumption}[chapter]
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/Documents/LaTeX/CUEDThesisPSnPDF/thesis"
+%%% End: 

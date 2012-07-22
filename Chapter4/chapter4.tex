@@ -1,0 +1,135 @@
+\chapter{Application to Nonlinear Cointegration Model}
+\ifpdf
+    \graphicspath{{Chapter3/Chapter3Figs/PNG/}{Chapter3/Chapter3Figs/PDF/}{Chapter3/Chapter3Figs/}}
+\else
+    \graphicspath{{Chapter3/Chapter3Figs/EPS/}{Chapter3/Chapter3Figs/}}
+\fi
+
+\section{Introduction}
+
+Consider a non-linear cointegrating regression model:
+\begin{equation}
+y_{t}=m(x_{t})+u_{t},\quad t=1,2,...,n,  \label{mo1}
+\end{equation}%
+where $u_{t}$ is a stationary error process and $x_{t}$ is a
+non-stationary
+regressor. Let $K(x)$ be a non-negative real function and set $%
+K_{h}(s)=h^{-1}K(s/h)$ where $h\equiv h_{n}\rightarrow 0$. The
+conventional kernel estimate of $m(x)$ in model (\ref{mo1}) is given
+by
+\begin{equation}
+\hat{m}(x)=\frac{\sum_{t=1}^{n}y_{t}K_{h}(x_{t}-x)}{%
+\sum_{t=1}^{n}K_{h}(x_{t}-x)}.  \label{add9}
+\end{equation}%
+The point-wise  limit behavior of $\hat{m}(x)$ has currently been investigated
+by many authors. Among them, Karlsen, et al. (2007) discussed the situation where $x_{t}$ is a recurrent Markov chain.  Wang and Phillips (2009a, 2011) and Cai, et al.
+(2009) considered an alternative treatment by making use of local
+time limit theory and, instead of recurrent Markov chains, worked
+with partial
+ sum representations of the type
+ $x_t=\sum_{j=1}^t\xi_j$ where $\xi_j$ is a general linear process.
+ In  another paper, Wang and Phillips (2009b) considered
+  the errors $u_t$  to be serially dependent and
+ cross correlated with the regressor $x_t$ for small lags.  Also, see Phillips and Park (1998), Karlsen and Tj\o stheim (2001), Guerre (2004) and Bandi (2004) for
+related work on non-linear, non-stationary autoregressions.
+
+This section provides a uniform convergence for the  $\hat{m}(x)$ by making direct use of Theorems 2.1 and 2.3 in developing the asymptotics. 
+
+\section{Main Results}
+For reading convenience, we list the assumptions as follows.
+\vskip 0.3cm
+ \textbf{Assumption 3.1.} (i) $\{x_k\}_{k\ge 0}$ is a $\beta$-regular Harris recurrent Markov chain defined as in Section 3,
+where   the invariant measure $\pi$ has a bounded  density function $p(s)$ on $R$;
+(ii) $\{u_t, {\mathcal F}_t\}_{t\ge 1}$ is a martingale difference, where ${\mathcal F}_t=\si (x_1, ..., x_{t+1}, u_1,...,u_t)$, satisfying
+ $E(u_t^2\mid {\mathcal F}_{t-1})\to_{a.s.} \si^2<\infty$ and $ \sup_{t\ge 1}E(|u_t|^{2p}\mid {\mathcal F}_{t-1})<\infty$, where  $p\ge 1+1/\ep_0$ for some $0<\ep_0<\beta$.
+
+
+
+ \vskip 0.3cm \textbf{Assumption 3.2.} The kernel $K$ satisfies that $\int_{-\infty}^{\infty}K(s)ds<\infty$, $\sup_xK(x)<\infty$
+ and for any $x, y \in R$,
+$$
+|K(x)-K(y)| \le C\, |x-y|.
+$$
+
+\vskip 0.3cm \textbf{Assumption 3.3.}
+There   exists a real positive function $g(x)$ such that
+\bestar
+|m(y)-m(x)| &\leq& C\,|y-x|^{\alpha} g(x),\eestar
+uniformly for some $0<\al\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficient small and
+$
+\Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}.
+$
+
+
+\vskip 0.3cm
+Assumption 3.1 is similar to, but weaker than  those appeared in Karlsen, et al. (2007), where  the authors considered the point-wise convergence in distribution.
+
+Assumption 3.2 is a standard condition on $K(x)$  as in the stationary
+situation. The Lipschitz condition on $K(x)$ is not necessary if we
+only investigate the point-wise asymptotics. See Remark 3.2 for
+further details.
+
+Assumption 3.3 requires a Lipschitz-type condition in a small
+neighborhood of the targeted  set for the functionals to be
+estimated. This condition is quite weak, which may host a wide set
+of functionals. Typical examples  include that $m(x)=\theta_1+\theta_2x+...+\theta_kx^{k-1}$;
+ $m(x)=\al+ \beta\, x^{\gamma}$;
+ $m(x)=x(1+\theta x)^{-1}I(x\ge 0)$;
+ $m(x)=(\al+\beta\, e^{x})/(1+e^x)$.
+
+
+
+\medskip
+
+We have the following asymptotic results.
+
+\begin{thm} \la {th31} Suppose Assumptions 3.1-3.3 hold, $h\to 0$ and $n^{-\ep_0}a(n)h\to \infty$ where $0<\ep_0<\beta$  is given as in Assumption 3.1.
+It follows that
+\begin{equation}
+\sup_{|x|\le b_n'}|\hat{m}(x)-m(x)|=
+O_{P}\left\{\big[a(n)h\big]^{-1/2}\,\log^{1/2}n
++h^{\alpha}\, \delta_n\right\},
+\label{q1}\end{equation}
+where $b_n'\le b_n$, $\delta_n=\sup_{|x|\le b_n'}g(x)$ and $b_n$ satisfies that
+\bestar
+\inf_{|x|\le b_n+1}  \sum_{k=1}^n E K[(x_k+x)/h]\ge a(n)\, h/C_0,
+\eestar
+for some $C_0>0$ and all $n$ sufficiently large. In particular, for the random walk $x_t$  defined as in Corollary \ref {th3}, we have
+\begin{equation}
+\sup_{|x|\le b_n'}|\hat{m}(x)-m(x)|=
+O_{P}\left\{\big(nh^{2}\big)^{-1/4}\,\log^{1/2}n
++h^{\alpha}\, \delta_n\right\},
+\label{q1a}\end{equation}
+where $b_n'\le M_0\sqrt n$ for a fixed $M_0>0$ and $\delta_n=\sup_{|x|\le b_n'}g(x)$.
+\end{thm}
+
+\medskip
+\begin{rem} When a high moment exists on the error $u_t$,
+the $\ep_0$ can be chosen sufficient small so that there are more bandwidth choices  in practice. It is understandable that the results (\ref {q1})
+ and (\ref {q1a}) are meaningful if only $h^{\al}\delta_n\to 0$, which depends on the tail of the unknown regression function $m(x)$, the bandwidth $h$ and the range $|x|\le b_n'$.
+When $m(x)$ has a light tail such as $m(x)=(\al+\beta\, e^{x})/(1+e^x)$, $\delta_n$ may be bounded by a constant. In this situation, the $b_n'$ in (\ref {q1a}) can be chosen to be $M_0\sqrt n$ for some fixed $M_0>0$.
+In contrast to Theorem 2.3 and Remark 2.3, this kind of range $|x|\le M_0\sqrt n$ might be optimal, that is, the $b_n'$ cannot be extended to $b_n'/\sqrt n \to\infty$ to establish the same rate of convergence as in (\ref {q1a}).
+
+\end{rem}
+
+\medskip
+\begin{rem} Both results (\ref {q1}) and (\ref {q1a}) are sharp. However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\hat m(x)$. For instance, as in Wang and Phillips (2009a,
+b) with minor modification, we may show that, for each  $x$, \be \hat m(x)-m(x) &=& O_{P}
+\left\{(nh^2)^{-1/4}+h^{\alpha}\right\},\ee
+whenever  $x_t$ is a random walk defined as in Corollary \ref {th3}.
+Furthermore $\hat m(x)$ has an asymptotic distribution that is
+mixing normal, under minor additional conditions. More details are  referred to Wang and Phillips (2009a, b).
+
+\end{rem}
+
+\medskip
+\begin{rem} Wang and Wang (2011) established a similar result to (\ref {q1a}) with the $x_t$ being a partial sum of linear process, but only for the $x$ being a compact support and imposing  a bounded condition on $u_t$. The setting on the $x_t$ in this paper is similar to that given in Gao, et al. (2011), but our result provides the optimal range
+ for the uniform convergence holding true and removes  the independence between the error $u_t$ and $x_t$ required by Gao, et al. (2011).
+
+\end{rem}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 
