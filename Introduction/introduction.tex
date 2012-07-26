@@ -6,14 +6,87 @@
     \graphicspath{{Introduction/IntroductionFigs/EPS/}{Introduction/IntroductionFigs/}}
 \fi
 
-And this is how I would like to introduce my piece of work ...
+Since the cointegration idea was introduced by Engle and Granger (1987), cointegration model has been widely used in empirical analysis in various disciplines, including economics, finance and environmental research. In the past few decades, significant developments have been focused on cointegration models with linear structure. Whilst it is convenient for practical implementation, nonetheless, it is restrictive, especially in the context of economics, often suggesting nonlinear responses with some unknown parameters.  A simple example will be the class of Douglas-Cobb function production theory. The following Solow model production function is often used by economists:
+\be
+  Y_t = A_t K_t^a L_t^a
+\ee
+where $Y_t$ is the total production output, $K_t$ is flow of service from capital, $L_t$ is flow of service from labour and $A_t$ is the technological shifter. To handle the nonlinearity, it is common to take logarithm transformation such that standard techniques used in linear cointegrating can be applied. However, such method does not apply when the model becomes more complicated. For instance, Arrow et. al. (1961) later proposed a more generalized production function with the property of constant elasticity of substitution (CES), (see, e.g. Wagner and M\"{u}ller-F\"{u}rstenberger (2005)). The CES model is given by
+\be
+	Y_t = A_t [\de K_t^{-\rho} + (1 - \de)  L_t^{-\rho}]^{ - 1 / \rho}
+\ee
+for some constants $\de$ and $\rho$. It is easy to see that the (x.x) is not linear in logarithm and hence ordinary linear cointegration model methodologies do not apply. Another example will be the Carbon Kurznets Curve (CKC) used to study the relationship between economic activities and CO$_2$ emission in environmental science. The CKC curve is given by
+\be
+\log (y_{t}) = \al + \gamma t + \beta_1 \log (x_t) + \beta_2 (\log (x_t))^2 + u_t
+\ee
+where $y_t$ is per capita GDP, $x_t$ is the per capita CO$_2$ emissions and $u_t$ is stochastic error sequence. Further examples of nonlinear economic models can be found in \cite{grangerterasvirta1993}, as well as \cite{terasvirtatjostheimgranger2010}.
+
+These examples show that advanced technique to analyse nonlinear structure of cointegrating models are necessary. These motivate us to consider the following nonlinear cointegrating models
+\be
+y_t = f(x_t) + u_t
+\ee
+where $f$ is a nonlinear function and $x_t$ is a nonstationary time series. An important problem arises from the model will be the estimation of $f(x)$. One popular way will be nonparametric approach, which frees practitioners from imposing particular form of function on $f(x)$. 
+
+There are extensive research results in the literature concentrated on the point-wise estimation and inference of the unknown $f(\cdot)$, under different assumptions on $x_t$. When $x_t$ is stationary time series, H\"{a}rdle et al. (1997) provides a comprehensive review of the literature. For nonstationary situation, Phillips and Park (1998) studied the model in the context of a random walk. Karlsen and Tj\o stheim (2001) and Guerre (2004) studied the problem in the framework of recurrent Markov chains. More recently,  Wang and Phillips (2009a, 2009b, 2011) and Cai, et al. (2009) worked with partial sum representations of general linear process.
+ 
+The previous papers established consistency of the estimator of $f(x)$ for a particular fixed $x$. Results for the uniform convergence of the estimator of $f(x)$ however is scare. Therefore, we intend to establish uniform convergence with rates for the Nadaraya-Watson estimator $\hat{f}(x)$ of $f(x)$ in the non-linear cointegrating model. The estimator is defined by
+\be
+  \hat{f}(x) = \frac{\sum_{t = 1}^n y_t K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)}
+\ee
+where $K_h(\cdot) = K(\cdot / h)/h$ with $h$ denoting the bandwidth. In the development of uniform convergence of the nonlinear function estimator $\hat{f}(x)$, asymptotic theory of certain summation functionals are necessary. To illustrate this, note that the estimation difference can be decomposed in the following way
+\bestar
+	\hat{f}(x)-f(x) &=& \frac{\sum_{t=1}^{n}u_{t}K_{h}(x_{t}-x)}{%
+	\sum_{t=1}^{n}K_{h}(x_{t}-x)}+\frac{\sum_{t=1}^{n}\big[f(x_{t})-f(x)\big]%
+	\,K_{h}(x_{t}-x)}{\sum_{t=1}^{n}K_{h}(x_{t}-x)}
+\eestar
+The second term relates to the bias of the estimation and is very easy to handle with. The key is to establish uniform convergence results for the first term. Thus, the following two terms play crucial roles in establishing the convergence.
+\be
+  S_{1n}(x) = \sum_{t = 1}^n g\big [c_n(x_t - x) \big], \qquad S_{2n}(x) = \sum_{t = 1}^n u_t g\big [c_n(x_t - x) \big]
+\ee
+where $c_n\to \infty$ is a certain sequence of positive constants and $g(x)$ is a real integrable function on $R$. The first term $S_{1n}(x)$ is the sample average functional while the second term $S_{2n}(x)$ is the sample covariance functional.
+
+This thesis will systematically derive the upper and lower of $S_{1n}(x)$ and $S_{2n}(x)$ uniform in $x$ over a slowly expanding set. While our framework allows a wide selection of regressor $x_t$, we focus primarily the case where $x_t$ is nonstationary, and in particular, is a partial sum of general linear process and Harris Recurrent Markov chain.
+
+% ----------------Unit root testing--------------------------
 
 
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+
+
+
+
+
+% ----------------Other Applications--------------------------
+In addition to applying to nonlinear cointegration model, the uniform convergence of the sample average functionals $S_{1n}(x)$ and the sample covariance functionals $S_{2n}(x)$ has applications in other econometric models. For instance, the consistency results of the kernel estimate of the nonlinear function has application in unit root testing with nonstationary volatility. In this thesis, we would propose a unit root testing procedure which makes use of the kernel to estimate the nonstationary volatility. Further examples would be the semiparametric least square estimation of the class of single index model. This class includes many popular econometric models such as binary choice models, duration models and censored Tobit models, see, e.g., Ichimura (2003).
+
+% ----------------Parametric--------------------------
+In the last part of the thesis, we also consider estimating the cointegration model with parametric approach. A typical non-linear parametric cointegrating
+regression model has the form
+ \be y_t&=&
+f(x_t, \theta_0)+\,  u_t, \quad t=1,...,n\la {intro.eqn1}.
+\ee
+where  $f:\mathbb{R} \times \mathbb{R}^m \rightarrow \mathbb{R}$ is a known nonlinear function,
+$x_t$ and  $u_t$ are regressor and regression errors, and   $\theta_0$ is an $m$-dimensional true parameter vector that lies in the parameter set $\Theta$. With the observed data $\{y_t, x_t\}_{t=1}^n$, which may include non-stationary components, this paper is concerned with the nonlinear least square (NLS) estimation of the unknown parameters $\theta\in \Theta$.
+
+We intend to make some significant improvements to existing results in the literature.
+
+Endogeneity -- nominal interest rate exhibits a persistent serial correlation. nominal interest rate is non stationary, Bae, Kakkar and Ogaki (2004, 2006) models $i_t$ as $I(1)$. The money demand function is given by,
+\be
+m_t = \al + \beta \log \big ( \frac{1 + |i_t|}{|i_t|} \big ) + u_t
+\ee
+where $m_t$ is the logarithm of the real money balance and $i_t$ is the nominal interest rate. The nominal interest rate $i_t$ the error sequence $u_t$ are cross dependent and $u_t$ is serially correlated.
+
+
+
+% ----------------Hea--------------------------
+Below, we briefly introduce the content of Chapter 2-6.
+Chapter 2 mainly concerns with establishing the uniform convergence of a class of martingale.
 
 %%% ----------------------------------------------------------------------
 
 
+% ------------------------------------------------------------
+% The application of cointegration model are not limited to business and economics. For instance, in environmental research,
+
+%cointegration models is used to study the   This model is particular related to this thesis as the regressor $x_t$ is GDP, which is commonly agreed that it exhibits nonstationary behavior.
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "../thesis"

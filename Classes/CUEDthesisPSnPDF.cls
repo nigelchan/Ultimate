@@ -218,7 +218,7 @@
 %  \null\vfill
   \begin{center}
     { \Huge {\bfseries {\@title}} \par}
-{\large \vspace*{35mm} {{\@crest} \par} \vspace*{25mm}}
+{\large \vspace*{25mm} {{\@crest} \par} \vspace*{25mm}}
 {
 \vspace*{1ex}
     {{A Dissertation} \par}

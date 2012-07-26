@@ -9,8 +9,7 @@
 
 \section{Introduction}
 The past few decades has witnessed significant developments in cointegration analysis.
- In particular, extensive researches  have been focused on cointegration models with linear structure. Whilst it is convenient for practical implementation, nonetheless, it is restrictive, especially in the context of economics, often suggesting nonlinear responses with some unknown parameters.
-For empirical examples, we refer to   \cite{grangerterasvirta1993} as well as \cite{terasvirtatjostheimgranger2010}. In this situation, it is expected that nonlinear cointegration captures the features of many long-run relationships
+ In particular, extensive researches  have been focused on cointegration models with linear structure. Whilst it is convenient for practical implementation, nonetheless, it is restrictive, especially in the context of economics, often suggesting nonlinear responses with some unknown parameters. For empirical examples, we refer to   \cite{grangerterasvirta1993} as well as \cite{terasvirtatjostheimgranger2010}. In this situation, it is expected that nonlinear cointegration captures the features of many long-run relationships
 in a more realistic manner.
 
 A typical non-linear parametric cointegrating regression model has the form
@@ -34,7 +33,7 @@ This section considers the estimation of the unknown parameters $\theta$ in mode
 Let $Q_n(\theta) = \sum_{t = 1}^n ( y_t - f(x_t, \theta))^2$. The NLS estimator $\hat\theta_n$ of $\theta$
 is defined to be the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$, that is,
 \be
-\hat{\theta}_n = \arg{\min}_{\theta \in \Theta} Q_n(\theta) , \la{eqn:6:sad2}
+\hat{\theta}_n = \arg{\min}_{\theta \in \Theta} Q_n(\theta) , \la{eqn:6:sassump:6:ad2}
 \ee
 and the error estimate is defined by $\hat{\si}_n^2 = n^{-1} \sum_{t = 1}^n \hat{u}_t^2$, where $\hat{u}_t = y_t - f(x_t, \hat{\theta}_n)$. To investigate the weak consistency for the NLS estimator $\hat\theta_n$,
 this section assumes the  regression model (\ref {eqn:6:intro}) having a martingale structure.
@@ -59,8 +58,8 @@ difference sequence satisfying
 $E(|u_t|^2|\mathcal{F}_{t-1}) = \si^2$, $\sup_{1\leq t\leq n}E(|u_{t}|^{2q}|\mathcal{F}_{t-1})<\infty$ a.s., where $q > 1$; (ii) $x_t$ is adapted to $\F_{t - 1}$, $t = 1, ..., n$.
 \end{assump}
 
-\begin{assump} \la{eqn:6:assumpLowerBound} There exists an increasing sequence $0<\kappa_n \to \infty$ such that
- \be\kappa_n^{-2} \sum_{t = 1}^n [T(x_t) + T^2(x_t)] = O_P(1), \la{20}\ee and for any $0<\eta<1$ and $\theta \ne \theta_0$, where $\theta, \theta_0\in \Theta$, there exist
+\begin{assump} \la{assump:6:LowerBound} There exists an increasing sequence $0<\kappa_n \to \infty$ such that
+ \be\kappa_n^{-2} \sum_{t = 1}^n [T(x_t) + T^2(x_t)] = O_P(1), \la{eqn:6:20}\ee and for any $0<\eta<1$ and $\theta \ne \theta_0$, where $\theta, \theta_0\in \Theta$, there exist
  $n_0 > 0$ and $M_1>0$ such that
 \be
 P \Big ( \sum_{t = 1}^n ( f(x_t, \theta) - f(x_t, \theta_0))^2 \ge \kappa_n^2\,/ M_1 \Big ) \ge 1 - \eta, \la{eqn:6:21}
@@ -106,7 +105,7 @@ where $c_\mu = 1 / ((1 - \mu)(3-2\mu )) \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} 
 
 We have the following result.
 
-\begin{thm} \la{thmLinearConsistency} If $T(x)$ is bounded and integrable and
+\begin{thm} \la{thm:6:LinearConsistency} If $T(x)$ is bounded and integrable and
 $
 \int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 ds>0
 $
@@ -114,7 +113,7 @@ for all $\theta\not=\theta_0$, then (\ref {eqn:6:20}) and (\ref {eqn:6:21}) hold
 \end{thm}
 
 
-  Theorem 2.2  improves Theorem 4.1 of PP in two folds.
+  Theorem \ref{thm:6:LinearConsistency}  improves Theorem 4.1 of PP in two folds.
 First we allow for more general regressor. The result under {\bf C1} is new, which allows $x_t$ to be long memory process, including the fractionally integrated process as an example. PP only allows $x_t$ to satisfy {\bf C2} with additional conditions on $\phi_k$, that is, requires $x_t$ to be a partial sum of short memory process. Secondly we remove the part (b) required in the definition of I-regular function given in their Definition 3.3. PP requires $f(x, \theta)$ to be piecewise smooth and we only require the $[f(s, \theta)-f(s, \theta_0)]^2$ to be integrable.
 
 
@@ -142,7 +141,7 @@ a(t) &=& \pi^{-1}(D)\sum_{k=1}^{[t]}\nu P^k(D), \quad t\ge 0.
 \eestar
  By recurrence, $a(t)\to\infty$. Here and below, we set the state space to be the real space, that is $(E, \mathcal{E}) = (R, \mathcal{R})$. We have the following result.
 
-\begin{thm} \la {thmMarkovConsistency}If $T(x)$ is bounded and $\int_{-\infty}^{\infty} |T(x)|\pi(dx) < \infty$ and
+\begin{thm} \la {thm:6:MarkovConsistency}If $T(x)$ is bounded and $\int_{-\infty}^{\infty} |T(x)|\pi(dx) < \infty$ and
 $
 \int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 \pi(ds)>0
 $
@@ -150,8 +149,8 @@ for all $\theta\not=\theta_0$, then (\ref {eqn:6:20}) and (\ref {eqn:6:21}) hold
 
 \end{thm}
 
-Theorem \ref {thmMarkovConsistency} seems to be new to literature. By virtue of (\ref {eqn:6:1.3}), the asymptotic order of $a(t)$ depends only on $\{x_k\}_{k\ge 0}$.
-It is interesting to notice that Theorem \ref {thmMarkovConsistency} does not impose the $\beta$-regular condition as common used in literature. The Harris recurrent Markov chain $\{x_k\}_{k\ge 0}$  is called $\beta$-regular if
+Theorem \ref {thm:6:MarkovConsistency} seems to be new to literature. By virtue of (\ref {eqn:6:1.3}), the asymptotic order of $a(t)$ depends only on $\{x_k\}_{k\ge 0}$.
+It is interesting to notice that Theorem \ref {thm:6:MarkovConsistency} does not impose the $\beta$-regular condition as common used in literature. The Harris recurrent Markov chain $\{x_k\}_{k\ge 0}$  is called $\beta$-regular if
 \be
 \lim_{\lam\to \infty} a(\lam t)/a(\lam) &=&t^\beta,\quad \forall t>0, \la{eqn:6:d1}
 \ee
@@ -171,7 +170,7 @@ However, some modifications to our Theorem 2.1 are necessary for establishing th
 
 Let $f:\mathbb{R} \times \Theta \rightarrow \mathbb{R} $ have the structure:
  \be
- f(\lambda x, \theta) = v(\lambda, \theta) h(x,\theta) + b(\lambda, \theta)\, A(x, \theta)\, B(\lambda x, \theta), \la{eqn:6:sad1}
+ f(\lambda x, \theta) = v(\lambda, \theta) h(x,\theta) + b(\lambda, \theta)\, A(x, \theta)\, B(\lambda x, \theta), \la{eqn:6:sassump:6:ad1}
  \ee
  where $\sup_{\theta\in \Theta}|b(\lambda, \theta)\, v^{-1}(\lambda, \theta)|\to 0$, as $\lambda\to \infty$; $\sup_{\theta\in \Theta}|A(x, \theta)|$ is locally bounded, that is, bounded on bounded intervals;
  $\sup_{\theta\in \Theta} |B(\lambda x, \theta)|$ is bounded on $R$; $h(x, \theta)$ is regular on $\Theta$ (see Appendix for definition of regularity) and $v(\lambda, \theta)$ belongs to one of the following cases:
@@ -185,15 +184,15 @@ Let $f:\mathbb{R} \times \Theta \rightarrow \mathbb{R} $ have the structure:
 (ii) for all $\theta \ne \theta_0$ and $\de > 0$, $\int_{|s| \le \de} h^2(s, \theta)  ds > 0$.
 
 
-\begin{thm} \la {thmHomoConsistent1} Suppose that $f(x, \theta)$ in model (\ref {eqn:6:intro}) has the structure (\ref {eqn:6:sad1}), and in addition to Assumption 2.2, there exists a continuous Gaussian process $G(t)$ such that $x_{[nt], n} \Rightarrow_D G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers. Then,
- the NLS estimator $\hat{\theta}_n$ defined by (\ref {eqn:6:sad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
+\begin{thm} \la {thm:6:HomoConsistent1} Suppose that $f(x, \theta)$ in model (\ref {eqn:6:intro}) has the structure (\ref {eqn:6:sassump:6:ad1}), and in addition to Assumption \ref{assump:6:Martingale} there exists a continuous Gaussian process $G(t)$ such that $x_{[nt], n} \Rightarrow_D G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers. Then,
+ the NLS estimator $\hat{\theta}_n$ defined by (\ref {eqn:6:sassump:6:ad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
 \end{thm}
 
 
 
 
 
-\begin{rem} The conditions on $f(x, \theta)$ given in Theorem \ref {thmHomoConsistent1} are the same as in PP, which is quite general including many commonly used regression functions. For example, $f(x, \theta) = \theta e^{x}/(1 + e^x), \theta \log |x|, \theta |x|^\al$ and $(|x|^\theta - 1)/\theta$.  Our condition on the regressor $x_t$ is much general than that of PP, where we only requires $x_t / d_n$ converges to a continuous Gaussian  process. This kind of weak convergence condition is quite weak and very likely close to necessary.
+\begin{rem} The conditions on $f(x, \theta)$ given in Theorem \ref {thm:6:HomoConsistent1} are the same as in PP, which is quite general including many commonly used regression functions. For example, $f(x, \theta) = \theta e^{x}/(1 + e^x), \theta \log |x|, \theta |x|^\al$ and $(|x|^\theta - 1)/\theta$.  Our condition on the regressor $x_t$ is much general than that of PP, where we only requires $x_t / d_n$ converges to a continuous Gaussian  process. This kind of weak convergence condition is quite weak and very likely close to necessary.
 \end{rem}
 
 
@@ -205,25 +204,22 @@ This section considers the limit distribution of $\hat{\theta}_n$. To what follo
 \ee
 where $\theta_n$ lies in the line segment joining $\hat{\theta}_n$ and $\theta_0$.
 
-We start with some heuristic arguments in establishing the limit distribution of $\hat{\theta}_n$. To this end, assume that
- $\hat \theta_n$ satisfies (\ref {eqn:6:sad2}), is an interior point of $\Theta$ and  a consistency estimator of $\theta$.
- Under these assumptions, we have  $\dot{Q}_n(\hat{\theta}_n) = 0$. On the other hand, it is readily seen that
-\be \la{rmkProofOutline.eqn1}
-\dot{Q}_n(\theta_0) &=& - \sum_{t=1}^n \dot{f}(x_t, \theta_0) (y_t - f(x_t, \theta_0)) = - \sum_{t=1}^n \dot{f}(x_t, \theta_0) u_t, \no\\
-\ddot{Q}_n(\theta) &=& - \sum_{t=1}^n \dot{f}(x_t, \theta) \dot{f}(x_t, \theta)' - \sum_{t=1}^n \ddot{f}(x_t, \theta)( y_t - f(x_t, \theta)), \no
+We start with some heuristic arguments in establishing the limit distribution of $\hat{\theta}_n$. To this end, assume that $\hat \theta_n$ satisfies (\ref {eqn:6:sassump:6:ad2}), is an interior point of $\Theta$ and  a consistency estimator of $\theta$. Under these assumptions, we have  $\dot{Q}_n(\hat{\theta}_n) = 0$. On the other hand, it is readily seen that
+\be
+  \dot{Q}_n(\theta_0) &=& - \sum_{t=1}^n \dot{f}(x_t, \theta_0) (y_t - f(x_t, \theta_0)) = - \sum_{t=1}^n \dot{f}(x_t, \theta_0) u_t, \no\\
+  \ddot{Q}_n(\theta) &=& - \sum_{t=1}^n \dot{f}(x_t, \theta) \dot{f}(x_t, \theta)' - \sum_{t=1}^n \ddot{f}(x_t, \theta)( y_t - f(x_t, \theta)), \no
 \ee
- for any $\theta\in \Theta$. Suppose there exists a sequence of constants $0<\kappa_n \to \infty$ such that
- \be
-\frac{1}{\kappa_n^2} \parallel \sum_{t=1}^n \big[\dot{f}(x_t, \theta_n) \dot{f}(x_t, \theta_n)'-\dot{f}(x_t, \theta_0) \dot{f}(x_t, \theta_0)'\big]\parallel &=& o_P(1); \la{rmk1.1} \\
-\frac{1}{\kappa_n^2} \parallel \sum_{t=1}^n \ddot{f}(x_t, \theta_n) \big[f(x_t, \theta_n)-f(x_t, \theta_0)\big]\parallel &=& o_P(1); \la{rmk1.2} \\
-\frac{1}{\kappa_n^2} \parallel \sum_{t=1}^n  \ddot{f}(x_t, \theta_n)\, u_t\parallel &=& o_P(1); \la{rmk1.3} \\
-\Big \{ \kappa_n^{-1}\,\sum_{t=1}^n \al'\, \dot{f}(x_t, \theta_0) u_t ,\,\kappa_n^{-2}\sum_{t=1}^n f(x_t, \theta_0) \Big \} &
- \rightarrow_D&  \Big \{\al'  \,Y, \, Z\Big \}  \la{rmk1.4}
+for any $\theta\in \Theta$. Suppose there exists a sequence of constants $0<\kappa_n \to \infty$ such that
+\be
+  \frac{1}{\kappa_n^2} \parallel \sum_{t=1}^n \big[\dot{f}(x_t, \theta_n) \dot{f}(x_t, \theta_n)'-\dot{f}(x_t, \theta_0) \dot{f}(x_t, \theta_0)'\big]\parallel &=& o_P(1); \la{eqn:6:rmk1.1} \\
+  \frac{1}{\kappa_n^2} \parallel \sum_{t=1}^n \ddot{f}(x_t, \theta_n) \big[f(x_t, \theta_n)-f(x_t, \theta_0)\big]\parallel &=& o_P(1); \la{eqn:6:rmk1.2} \\
+  \frac{1}{\kappa_n^2} \parallel \sum_{t=1}^n  \ddot{f}(x_t, \theta_n)\, u_t\parallel &=& o_P(1); \la{eqn:6:rmk1.3} \\
+  \Big \{ \kappa_n^{-1}\,\sum_{t=1}^n \al'\, \dot{f}(x_t, \theta_0) u_t ,\,\kappa_n^{-2}\sum_{t=1}^n f(x_t, \theta_0) \Big \} & \rightarrow_D&  \Big \{\al'  \,Y, \, Z\Big \}  \la{eqn:6:rmk1.4}
 \ee
 for any $\al'=(\al_1, ..., \al_m)\in R^m$;
  and
 \be
-&\Big \{  \kappa_n^{-2}\sum_{t=1}^n  \dot{f}_i(x_t, \theta_0)\dot{ f}_j(x_t, \theta_0),\,  \kappa_n^{-2}\sum_{t=1}^n f(x_t, \theta_0)\Big \}  \rightarrow_D \Big \{ c_{i,j}\,Z, Z\Big \}, \la{rmk1.5}
+&\Big \{  \kappa_n^{-2}\sum_{t=1}^n  \dot{f}_i(x_t, \theta_0)\dot{ f}_j(x_t, \theta_0),\,  \kappa_n^{-2}\sum_{t=1}^n f(x_t, \theta_0)\Big \}  \rightarrow_D \Big \{ c_{i,j}\,Z, Z\Big \}, \la{eqn:6:rmk1.5}
 \ee
 for all $1\le i,j\le m$, where $\dot{f}_i=\partial f/\partial \theta_j$,  $c_{i,j}$ are  constants, $Y$ is a random vector and $Z$ is a positive random variable. We then have
 \be
@@ -258,14 +254,14 @@ where $A^{-1}(\theta_0)$ is an inverse matrices of $A(\theta_0)$ defined by $A(\
 
 We remark that the routine in this paper to establish the limit distribution of $\hat\theta_n$ is different from PP. In comparison to the  paper mentioned, their condition AD3 requires proving convergence in probability of (\ref {eqn:6:rmk1.5}). It is equivalent to say that, under the PP's routine,
 one requires to show (at least under an enlarged probability space)
-\be \la{eqnConvergeP}
+\be \la{eqn:6:ConvergeP}
 \frac{1}{\sqrt{n}} \sum_{t=1}^n g(x_t) \to_P \int_{-\infty}^{\infty} g(s) ds\, L_W(1,0)
 \ee
 where  $x_t$ is an integrated process, $g$ is a real integrable function and $L_W(t,s)$ is the local time of the standard Brownian Motion $W(t)$\footnote{
 Here and below, the local time process $L_G(t, s)$ of a Gaussian process $G(t)$ is defined by
 \bestar
 L_G(t,s) = \lim_{\ep \to 0} \frac{1}{2\ep} \int_0^t I \big \{ | G(r) - s| \le \ep \big \} dr.
-\eestar}.  The convergence in probability is usually hard or impossible to establish without enlarging the probability space. Our routine essentially reduces the  convergence in probability to less restrictive convergence in distribution. Explicitly, in comparison  to (\ref {eqn:6:eqnConvergeP}), we only need to show that
+\eestar}.  The convergence in probability is usually hard or impossible to establish without enlarging the probability space. Our routine essentially reduces the  convergence in probability to less restrictive convergence in distribution. Explicitly, in comparison  to (\ref {eqn:6:ConvergeP}), we only need to show that
 \be
 \frac{1}{\sqrt{n}} \sum_{t=1}^n g(x_t) \to_D \int_{-\infty}^{\infty} g(s) ds\, L_W(1,0)
 \ee
@@ -275,7 +271,7 @@ This allows to extend the nonlinear regression to much wider class of nonstaiona
 
 We now establish our results on convergence in distribution for the $\hat{\theta}_n$, mainly settling the conditions to ensure (\ref {eqn:6:rmk1.1})--(\ref {eqn:6:rmk1.5}) hold. First consider the situation that  $f(x, \theta)$ is  an integrable function, together with  some additional conditions on $x_t$ and $ u_t$.
 
-\begin{assump}\la {ad1} (i) $x_t$ is defined as in Example 1, that is,
+\begin{assump}\la {assump:6:ad1} (i) $x_t$ is defined as in Example 1, that is,
 $x_t=\sum_{j=1}^t\xi_j$, where $\xi_j$ satisfies (\ref {eqn:6:sec2.f1});
  (ii) $\mathcal F_k$ is a sequence of  increasing $\si$-fields such that
 $\ep_k\in \mathcal F_k$ and $\ep_{k+1}$ is independent of $\mathcal F_k$ for all $k\ge 1$,
@@ -292,15 +288,15 @@ $
 \end{assump}
 
 
-\begin{assump}\la {ad2} (i)   $f(x, \theta_0),\dot{f}_i(x, \theta_0)$ and $\ddot{f}_{ij}(x, \theta_0)$, $1\le i,j\le m$, are bounded and integrable real functions; (ii) $\Sigma = \int_{-\infty}^{\infty} \dot{f}(s, \theta_0) \dot{f}(s, \theta_0)' ds>0$ and $
+\begin{assump}\la {assump:6:ad2} (i)   $f(x, \theta_0),\dot{f}_i(x, \theta_0)$ and $\ddot{f}_{ij}(x, \theta_0)$, $1\le i,j\le m$, are bounded and integrable real functions; (ii) $\Sigma = \int_{-\infty}^{\infty} \dot{f}(s, \theta_0) \dot{f}(s, \theta_0)' ds>0$ and $
 \int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 ds>0
 $
-for all $\theta\not=\theta_0$;  (iii) in addition to Assumption 2.1,
+for all $\theta\not=\theta_0$;  (iii) in addition to Assumption \ref{assump:6:Convex},
   $\dot{f}_i$ and $\ddot{f}_{ij}$, $1\le i,j\le m$,  satisfy (\ref {eqn:6:45}) with  $T(x)$ being bounded and integrable.
 \end{assump}
 
 
-\begin{thm} \la{thmIntegrablelimit} Under Assumptions \ref {ad1} and \ref {ad2}, we have
+\begin{thm} \la{thmIntegrablelimit} Under Assumptions \ref {assump:6:ad1} and \ref {assump:6:ad2}, we have
 \be \la{thmIntegrablelimit.eqn1}
 \sqrt{n/d_n} ( \hat{\theta}_n - \theta_0) \rightarrow_D \Sigma^{-1/2}\,  \text{{\bf N}}\, L_{G}^{-1/2}(1,0),
 \ee
@@ -332,10 +328,10 @@ Theorem \ref{thmIntegrablelimit} improves Theorem 5.1 of PP by allowing $x_t$ to
 Using the same routine and slight modification of assumptions, we have the following limit distribution when $x_t$ is a $\beta$-regular Harris recurrent Markov chain.
 
 
-\newenvironment{assump_ad1}{ \par \medskip\noindent  {\bf ASSUMPTION \ref{ad1}*.}\begin{itshape}}{\end{itshape}\par\medskip}
-\newenvironment{assump_ad2}{ \par \medskip\noindent  {\bf ASSUMPTION \ref{ad2}*.}\begin{itshape}}{\end{itshape}\par\medskip}
+\newenvironment{assump_assump:6:ad1}{ \par \medskip\noindent  {\bf ASSUMPTION \ref{assump:6:ad1}*.}\begin{itshape}}{\end{itshape}\par\medskip}
+\newenvironment{assump_assump:6:ad2}{ \par \medskip\noindent  {\bf ASSUMPTION \ref{assump:6:ad2}*.}\begin{itshape}}{\end{itshape}\par\medskip}
 
-\begin{assump_ad1} (i) $x_t$ is defined as in Example 2, (ii) $x_t$ satisfies (\ref{eqn:6:d1}), that is, $x_t$ is a $\beta$-regular Harris recurrent Markov chain. (iii) $\{u_k, \mathcal F_k\}_{k\ge 1}$ forms a martingale difference (iv)
+\begin{assump_assump:6:ad1} (i) $x_t$ is defined as in Example 2, (ii) $x_t$ satisfies (\ref{eqn:6:d1}), that is, $x_t$ is a $\beta$-regular Harris recurrent Markov chain. (iii) $\{u_k, \mathcal F_k\}_{k\ge 1}$ forms a martingale difference (iv)
  $
 \max_{k\ge m}|E(u_{k+1}^2\mid \mathcal F_{nk})-1|\to 0,  a.s.
  $
@@ -346,16 +342,16 @@ $
 $ and $E(u_k\mid \F_{nk})=0$ for any $1\le k\le n$, $n \ge 1$, where $\F_{nk} = \si( \F_k, x_1, ..., x_n)$.
 
 
-\end{assump_ad1}
+\end{assump_assump:6:ad1}
 
-\begin{assump_ad2} (i) $f(x, \theta_0),\dot{f}_i(x, \theta_0)$ and $\ddot{f}_{ij}(x, \theta_0)$, $1\le i,j\le m$, are bounded and integrable (w.r.t. invariant measure $\pi$) real functions; (ii) $\Sigma_\pi = \int_{-\infty}^{\infty} \dot{f}(s, \theta_0) \dot{f}(s, \theta_0)' \pi(ds)>0$ and $
+\begin{assump_assump:6:ad2} (i) $f(x, \theta_0),\dot{f}_i(x, \theta_0)$ and $\ddot{f}_{ij}(x, \theta_0)$, $1\le i,j\le m$, are bounded and integrable (w.r.t. invariant measure $\pi$) real functions; (ii) $\Sigma_\pi = \int_{-\infty}^{\infty} \dot{f}(s, \theta_0) \dot{f}(s, \theta_0)' \pi(ds)>0$ and $
 \int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 \pi(ds)>0
 $
-for all $\theta\not=\theta_0$;  (iii) in addition to Assumption 2.1,
+for all $\theta\not=\theta_0$;  (iii) in addition to Assumption \ref{assump:6:Convex},
   $\dot{f}_i$ and $\ddot{f}_{ij}$, $1\le i,j\le m$,  satisfy (\ref {eqn:6:45}) with  $T(x)$ being bounded and $\int_{-\infty}^{\infty} |T(x)| \pi(dx) < \infty$.
-\end{assump_ad2}
+\end{assump_assump:6:ad2}
 \begin{thm} \la{thmIntegrablelimit1}
-Under Assumptions \ref {ad1}* and \ref {ad2}* we have
+Under Assumptions \ref {assump:6:ad1}* and \ref {assump:6:ad2}* we have
 \be \la{thmIntegrablelimit.eqn1}
 \sqrt{a(n)} ( \hat{\theta}_n - \theta_0) \rightarrow_D \Sigma_\pi^{-1/2}\,  \text{{\bf N}}\, \Pi_\beta^{-1/2}
 \ee
@@ -369,16 +365,16 @@ where   $\text{{\bf N}}$ is a standard normal random vector, which is independen
 Theorem \ref{thmIntegrablelimit1} is new, even for the stationary case ($\beta = 1$) in which $a(n) = n$ and the NLS estimator $\hat{\theta}_n$ converges to a normal variate. The random variable $\Pi_{\beta}$ in the limit distribution, after scaled by a factor of $\Gamma(\beta+1)^{-1}$, is a Mittag-Leffler random variable with parameter $\beta$, which is closely related to stable random variable. For details regarding the properties of this distribution, see page 453 of \cite{feller1971} or Theorem 3.2 of \cite{karlsentjostheim2001}.
 \end{rem}
 
-\begin{rem} Assumption \ref{ad1}* (iv) imposes a strong orthogonal property between the regressor $x_t$ and the error sequence $u_t$. It is not clear at the moment whether such condition can be relaxed to a less restrictive one where $x_t$ is adapted to $\F_{nt}$ and $x_{t+1}$ is independent of $\F_{nt}$ for all $1 \le t \le n$. We leave this for future research.
+\begin{rem} Assumption \ref{assump:6:ad1}* (iv) imposes a strong orthogonal property between the regressor $x_t$ and the error sequence $u_t$. It is not clear at the moment whether such condition can be relaxed to a less restrictive one where $x_t$ is adapted to $\F_{nt}$ and $x_{t+1}$ is independent of $\F_{nt}$ for all $1 \le t \le n$. We leave this for future research.
 
 \end{rem}
 
 We next consider the limit distribution of $\hat{\theta}_n$ when regression function is asymptotically homogeneous function. In this regard, the result is essentially the same as in PP,
 except we use more general regressor $x_t$. We list here for convenience of reading. The technical proofs  are very similar to those of PP and hence  the details are omitted.
 
-\begin{thm} \la{thmHomoLimit1} Suppose that $f, \dot{f}$ and $ \ddot{f}$ all have the structure (\ref {eqn:6:sad1}) under Case 1, and in addition to Assumptions 2.2, there exists a vector of continuous Gaussian process $(G, U)$ such that $(x_{[nt], n}, n^{-1}\sum_{i = 1}^{[nt]} u_i) \Rightarrow_D (G,U)$, on $D[0,1]^2$, where $x_{t,n}=x_t/d_n$ with $d_n^2=var (x_n)\to \infty$.
+\begin{thm} \la{thmHomoLimit1} Suppose that $f, \dot{f}$ and $ \ddot{f}$ all have the structure (\ref {eqn:6:sassump:6:ad1}) under Case 1, and in addition to Assumptions \ref{assump:6:Martingale}, there exists a vector of continuous Gaussian process $(G, U)$ such that $(x_{[nt], n}, n^{-1}\sum_{i = 1}^{[nt]} u_i) \Rightarrow_D (G,U)$, on $D[0,1]^2$, where $x_{t,n}=x_t/d_n$ with $d_n^2=var (x_n)\to \infty$.
  Further assume that $\|(\dot v \otimes \dot v)^{-1} v \ddot v\|<\infty$ and $\int_{|s| \le \de} \dot h(s,\theta_0) \dot h(s, \theta_0)' ds > 0$ for all $\de > 0$. Then  we have
-\be \la{thmHomoLimit1.eqn1}
+\be \la{eqn:6:thmHomoLimit1.1}
 \sqrt{n} \dot v(d_n)' ( \hat{\theta}_n - \theta_0) \rightarrow_D \Big( \int_0^1 \Psi(t) \Psi(t)' dt \Big )^{-1} \int_{0}^1 \Psi(t)\, dU(t)
 \ee
 on $D[0,1]$, as $n \to \infty$, where $\Psi(t)  =  \dot h(G(t), \theta_0) $.
@@ -390,11 +386,11 @@ on $D[0,1]$, as $n \to \infty$, where $\Psi(t)  =  \dot h(G(t), \theta_0) $.
 \be
 \frac{1}{\sqrt{n} \dot {v}(d_n)} \sum_{t = 1}^n \dot {f}(x_{t}, \theta_0)u_t \to_D \int_{0}^1 \dot{h}(G(t), \theta_0)dU(t)
 \ee
-on $D[0,1]$, which is required in the proof of (\ref {eqn:6:thmHomoLimit1.eqn1}). See, e.g., \cite{kurtzprotter1991} and \cite{hansen1992}.
+on $D[0,1]$, which is required in the proof of (\ref {eqn:6:thmHomoLimit1.1}). See, e.g., \cite{kurtzprotter1991} and \cite{hansen1992}.
 \end{rem}
 
 \begin{rem}
-If we further assume that the $U(t)$ and $G(t)$ is asymptotic independent, that is, the long run relationship between the regressor sequence $x_t$ and the innovative sequence $u_t$ vanishes asymptotically, the limiting distribution in (\ref{eqn:6:thmHomoLimit1.eqn1}) will become mixed normal, specifically, we will have,
+If we further assume that the $U(t)$ and $G(t)$ is asymptotic independent, that is, the long run relationship between the regressor sequence $x_t$ and the innovative sequence $u_t$ vanishes asymptotically, the limiting distribution in (\ref{eqn:6:thmHomoLimit1.1}) will become mixed normal, specifically, we will have,
 \be
 \sqrt{n} \dot v(d_n)' ( \hat{\theta}_n - \theta_0) \rightarrow_D \Big( \int_0^1 \Psi(t) \Psi(t)' dt \Big )^{-1/2}  \text{{\bf N}}
 \ee
@@ -415,7 +411,7 @@ where $\mathcal N(\ep, \lambda) = \{\theta: \| \dot v (\lambda, \theta_0)' (\the
 \medskip
 
 \begin{thm} \la{thmHomoLimit2}
-Suppose that $f, \dot{f}$ and $ \ddot{f}$ all have the structure (\ref {eqn:6:sad1}) under Case  3, and in addition to Assumptions 2.2, there exists a vector of continuous Gaussian process $(G, U)$ such that $(x_{[nt], n}, n^{-1}\sum_{i = 1}^{[nt]} u_i) \Rightarrow_D (G,U)$, on $D[0,1]^2$,
+Suppose that $f, \dot{f}$ and $ \ddot{f}$ all have the structure (\ref {eqn:6:sassump:6:ad1}) under Case  3, and in addition to Assumptions \ref{assump:6:Martingale}, there exists a vector of continuous Gaussian process $(G, U)$ such that $(x_{[nt], n}, n^{-1}\sum_{i = 1}^{[nt]} u_i) \Rightarrow_D (G,U)$, on $D[0,1]^2$,
  where $x_{t,n}=x_t/d_n$ with $d_n^2=var (x_n)\to \infty$. Further assume that $\int_{|s| \le c} \dot h(s,\theta_0) \dot h(s, \theta_0)' ds > 0$ for all $c > 0$.
 Then we have
 \be \la{thmHomoLimit2.eqn1}
@@ -430,7 +426,7 @@ on $D[0,1]$, as $n \to \infty$, where $\tau  =  \int_{0}^1 \dot h(G(s), \theta_0
 
 \section{Extension to endogeneity }
 
-Assumption 2.2 ensures the model (\ref {eqn:6:intro}) having a martingale structure.
+Assumption \ref{assump:6:Martingale} ensures the model (\ref {eqn:6:intro}) having a martingale structure.
 The result in this regard is now well known. However, there is little work
 on allowing for contemporaneous correlation between the regressors and regression errors.
 Using a nonparametric approach, \cite{wangphillips2009} considered kernel estimate of $f$ and allowed the equation error $u_t$ to be serially dependent and cross correlated with $x_s$ for $|t-s|<m_0$, thereby inducing endogeneity in the regressor, i.e., $cov (u_t, x_t)\not=0$. In relation to present paper \cite{dejong2002} considered model (\ref{eqn:6:intro}) without exogeneity, and assuming certain mixing conditions. \cite{changpark2010} considered a simple prototypical model, where the regressor and regression error are driven by iid innovations. In this section we provide some significant  extension to these works.
@@ -451,14 +447,14 @@ the endogeneity in the model (\ref {eqn:6:intro}), which is much general than th
 
 We have the following result.
 
-\begin{thm} \la {11} Let $f(x, \theta)$ in model (\ref {eqn:6:intro}) satisfy Assumption 2.1 with $T(x)$ being bounded and  integrable. Then, under Assumption \ref {4.1}, the NLS estimator $\hat{\theta}_n$ defined by (\ref {eqn:6:sad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
+\begin{thm} \la {11} Let $f(x, \theta)$ in model (\ref {eqn:6:intro}) satisfy Assumption \ref{assump:6:Convex} with $T(x)$ being bounded and  integrable. Then, under Assumption \ref {4.1}, the NLS estimator $\hat{\theta}_n$ defined by (\ref {eqn:6:sassump:6:ad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
 
-If in addition Assumption \ref{ad2}, the limit distribution of $\hat{\theta}_n$ is given by
-\be \la{thmInfLaglimit.eqn1}
+If in addition Assumption \ref{assump:6:ad2}, the limit distribution of $\hat{\theta}_n$ is given by
+\be \la{eqn:6:thmInfLaglimit.1}
 \sqrt{n/d_n} ( \hat{\theta}_n - \theta_0) \rightarrow_D \Sigma^{-1}\, \Lambda^{1/2}\, \text{{\bf N}}\,L^{-1/2}_{G}(1,0),
 \ee
 as $n \to \infty$, where
-\be\la{thmInfLaglimit.eqn2}
+\be\la{eqn:6:thmInfLaglimit.2}
 \Lambda &= (2\pi)^{-1}\int\widehat{\dot{f}}(\mu)\widehat{\dot{f}}(\mu)' [ Eu_0^2 + 2 \sum_{r = 1}^{\infty}E(u_0u_r e^{-i\mu x_r})]\,d\mu
 \ee
 and $\widehat{\dot{f}}(\mu) = \int e^{i\mu x} \dot{f}(x, \theta_0)dx$ and $\text{{\bf N}}$ is a standard normal random vector.
@@ -496,7 +492,7 @@ where $\{w_t\}$ and $\{\ep_t\}$ are i.i.d standard normal variable, and $\rho$ i
 \medskip
 \noindent Scenario {\bf S1} is considered by \cite{changpark2010}, which eliminates the case which $u_t$ is serially correlated. Scenarios {\bf S2} and {\bf S3} introduce self-dependence to the error sequence. The decay rate of {\bf S2} is faster than that of {\bf S3}, which implies that the level of self dependence of $u_t$ increases from {\bf S1} to {\bf S3}.
 
-In our simulation, we drawn samples of size  $n = 200, 500$ to estimate NLS estimator and its $t$-ratios. Each simulation is run for 10,000 times, and the density of the NLS estimator is estimated using kernel method with normal kernel function. Our results are presented in three tables. Table 1 is the estimated density of centered distribution of NLS estimator. Table 2 is the estimated density of centered distribution scaled by the convergence rate of $n^{1/4}$. Table 3 is the $t$-ratios of the NLS estimator. In all tables, the left columns are simulation results base on 200 samples, while the right columns base on 500 samples. We expect that as $\rho$ increases, the degree of endogeneity increases, and therefore the variance of the distribution will increase due to (\ref{eqn:6:thmInfLaglimit.eqn1}). We also expect that the more serial correlation of $u_t$, the higher the variance of the limit distribution  due to the cross term appeared in (\ref{eqn:6:thmInfLaglimit.eqn2}).
+In our simulation, we drawn samples of size  $n = 200, 500$ to estimate NLS estimator and its $t$-ratios. Each simulation is run for 10,000 times, and the density of the NLS estimator is estimated using kernel method with normal kernel function. Our results are presented in three tables. Table 1 is the estimated density of centered distribution of NLS estimator. Table 2 is the estimated density of centered distribution scaled by the convergence rate of $n^{1/4}$. Table 3 is the $t$-ratios of the NLS estimator. In all tables, the left columns are simulation results base on 200 samples, while the right columns base on 500 samples. We expect that as $\rho$ increases, the degree of endogeneity increases, and therefore the variance of the distribution will increase due to (\ref{eqn:6:thmInfLaglimit.1}). We also expect that the more serial correlation of $u_t$, the higher the variance of the limit distribution  due to the cross term appeared in (\ref{eqn:6:thmInfLaglimit.2}).
 
 Our simulation results largely corroborate with our theoretical results in Section 4. Firstly, comparing the S1--S3 curves in each plots, we can see that as the shape S3 curves have fat tails and lower peak than that of S1-S2. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Secondly, comparing the shape of the curves for different values of $\rho$, we can see that the curves with $\rho = 0$ have highest peak, and the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase.
 
@@ -564,11 +560,11 @@ This section provides proofs of the main results. We start with some preliminari
 Denote $\mathcal N_{\de}(\pi_0) = \{ \theta: \| \theta - \pi_0\| < \de\}$, where $\pi_0 \in \Theta$ is fixed.
 \begin{lem} \la{lemClose}
  Under (\ref {eqn:6:20}) and Assumption \ref{assump:6:Convex},   we have
-\be \la{lemClose.eqn0}
+\be 
 \sup_{\theta \in \mathcal N_{\de}(\pi_0)} \kappa_n^{-2} \sum_{t = 1}^n \big(|f(x_t, \theta) - f(x_t, \pi_0)| + |f(x_t, \theta) - f(x_t, \pi_0)|^2\big)  &\to_P& 0
 \ee
 as $n\to\infty$ first and then $\de \to 0$. If in addition Assumption \ref{assump:6:Martingale}, then
-\be \la{lemClose.eqn1}
+\be \la{eqn:6:lemClose.1}
 \sup_{\theta \in \mathcal N_{\de}(\pi_0)}  \kappa_n^{-2} \sum_{t = 1}^n |[f(x_t, \theta) - f(x_t, \pi_0)]|\, |u_t|  \to_P 0
 \ee
 as $n\to\infty$ first and then $\de \to 0$.
@@ -577,23 +573,23 @@ as $n\to\infty$ first and then $\de \to 0$.
 {\it Proof.} Simple and the details are omitted. $\Box$
 
 \begin{lem} \la{lemC}
- Under Assumptions \ref{ad1} (i) and  \ref {ad2},   we have
-\be \la{lemC.eqn1}
+ Under Assumptions \ref{assump:6:ad1} (i) and  \ref {assump:6:ad2},   we have
+\be \la{eqn:6:lemC.1}
 \frac {d_n}n\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}
 \sum_{t = 1}^n \big|\dot f_i(x_t, \theta)\,\dot f_j(x_t, \theta) - \dot f_i(x_t, \theta_0)\,\dot f_j(x_t, \theta_0)\big|  &\to_P& 0, \\
-\frac {d_n}n\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}\la{lemC.eqn2}
+\frac {d_n}n\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}\la{eqn:6:lemC.2}
 \sum_{t = 1}^n \big|\ddot f_{ij}(x_t, \theta)\,[ f(x_t, \theta) -  f(x_t, \theta_0)]\big|  &\to_P& 0.
 \ee
-as $n\to\infty$ first and then $\de \to 0$,  for any $1\le i, j\le m$. If in addition Assumption \ref{ad1} (ii)--(iii), then
-\be\la{lemC.eqn3}
+as $n\to\infty$ first and then $\de \to 0$,  for any $1\le i, j\le m$. If in addition Assumption \ref{assump:6:ad1} (ii)--(iii), then
+\be\la{eqn:6:lemC.3}
 \frac {d_n}n\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}\big| \sum_{t = 1}^n\ddot f_{ij}(x_t, \theta)\,u_t \big| \to_P 0
 \ee
 as $n\to\infty$ first and then $\de \to 0$,  for any $1\le i, j\le m$.
 
-The results are still true if Assumption \ref{ad1} (i) and \ref{ad2} are replaced by \ref{ad1}* (i) and \ref{ad2}* respectively, and $d_n / n$ is replaced by $a(n)^{-1}$.
+The results are still true if Assumption \ref{assump:6:ad1} (i) and \ref{assump:6:ad2} are replaced by \ref{assump:6:ad1}* (i) and \ref{assump:6:ad2}* respectively, and $d_n / n$ is replaced by $a(n)^{-1}$.
 \end{lem}
 
-{\it Proof.} First note that, by Assumption \ref{ad2},
+{\it Proof.} First note that, by Assumption \ref{assump:6:ad2},
 \begin{align}
 \sup_{\theta \in \Theta} |f_i(x_t, \theta)| &\le \sup_{\theta \in \Theta} |\dot{f}_i(x_t, \theta)-\dot{f}_i(x_t, \theta_0)| + |\dot{f}_i(x_t, \theta_0)| \no\\
  &\le \sup_{\theta \in \Theta} h(\| \theta - \theta_0\|)T(x_t) + |\dot{f}_i(x_t, \theta_0)| \le C \no
@@ -604,36 +600,36 @@ It follows that
 &\le& \big|\dot f_i(x_t, \theta) \big |\big|\dot f_j(x_t, \theta)- \dot f_j(x_t, \theta_0)\big| + \big|\dot f_j(x_t, \theta_0) \big |\big|\dot f_i(x_t, \theta) - \dot f_i(x_t, \theta_0)\big| \no\\
 &\le& C\big|\dot f_j(x_t, \theta)- \dot f_j(x_t, \theta_0)\big| +C_1\big|\dot f_i(x_t, \theta) - \dot f_i(x_t, \theta_0)\big|
 \eestar
-Therefore, (\ref{eqn:6:lemC.eqn1}) follows immediately from Lemma \ref{lemClose}. (\ref{eqn:6:lemC.eqn2}) is similar to (\ref{eqn:6:lemC.eqn1}) and thus we omit the details.
+Therefore, (\ref{eqn:6:lemC.1}) follows immediately from Lemma \ref{lemClose}. (\ref{eqn:6:lemC.2}) is similar to (\ref{eqn:6:lemC.1}) and thus we omit the details.
 
-For (\ref{eqn:6:lemC.eqn3}), note that, for any $\theta \in \mathcal N_{\de}(\theta_0)$, $1 \le i, j \le m$,
+For (\ref{eqn:6:lemC.3}), note that, for any $\theta \in \mathcal N_{\de}(\theta_0)$, $1 \le i, j \le m$,
 \bestar
 \Big |  \sum_{t = 1}^n \ddot{f}_{ij}(x_t, \theta) u_t \Big | &\le& \Big |   \sum_{t = 1}^n [\ddot{f}_{ij}(x_t, \theta) - \ddot{f}_{ij}(x_t, \theta_0)]\, u_t \Big |  + \Big |   \sum_{t = 1}^n  \ddot{f}_{ij}(x_t, \theta_0) u_t\Big | \no
 \eestar
-Then by (\ref{eqn:6:lemClose.eqn1}) in Lemma \ref{lemClose} (with $\pi_0  = \theta_0$) and Lemma \ref{lemJoint} below, we obtain the required (\ref{eqn:6:lemC.eqn3}).
+Then by (\ref{eqn:6:lemClose.1}) in Lemma \ref{lemClose} (with $\pi_0  = \theta_0$) and Lemma \ref{lemJoint} below, we obtain the required (\ref{eqn:6:lemC.3}).
 
- Finally, it can be easily seen that if Assumption \ref{ad1} (i) and \ref{ad2} are replaced by \ref{ad1}* (i) and \ref{ad2}* and $d_n / n$ replaced by $a(n)^{-1}$, the above arguments will hold true, due to Lemma \ref{lemMarkov} instead of Lemma \ref{lemJoint}.
+ Finally, it can be easily seen that if Assumption \ref{assump:6:ad1} (i) and \ref{assump:6:ad2} are replaced by \ref{assump:6:ad1}* (i) and \ref{assump:6:ad2}* and $d_n / n$ replaced by $a(n)^{-1}$, the above arguments will hold true, due to Lemma \ref{lemMarkov} instead of Lemma \ref{lemJoint}.
  $\Box$
 
-\begin{lem} \la{lemJoint} Suppose Assumption \ref{ad1} holds. Then, for any $g(x)$ and $g_1(x)$ satisfying
+\begin{lem} \la{lemJoint} Suppose Assumption \ref{assump:6:ad1} holds. Then, for any $g(x)$ and $g_1(x)$ satisfying
  $\int_{-\infty}^{\infty} (|g(x)|+|g(x)|^{4+\gamma})dx < \infty$ for some $\gamma > 0$,
   $\int_{-\infty}^{\infty} (|g_1(x)|+|g_1(x)|^{2})dx < \infty$,
  $\int_{-\infty}^{\infty} g(x) dx  \ne 0$ and $\int_{-\infty}^{\infty} g_1(x) dx  \ne 0$, we have
-\be \la{lemJoint.eqn1}
+\be \la{eqn:6:lemJoint.1}
 \Big \{ \big(\frac {d_n}n\big)^{1/2}\sum_{t=1}^n g(x_t) u_t ,\, \frac {d_n}n\sum_{t=1}^n g_1(x_t) \Big \} &\rightarrow_D& \Big \{\tau_1 \, N \, L^{1/2}_{G}(1,0), \tau_2\, L_{G}(1,0) \Big \},
 \ee
  where $\tau_1^2 = \int_{-\infty}^{\infty} g^2(s) ds$, $\tau_2= \int_{-\infty}^{\infty} g_1(s) ds$ and $N$ is a standard normal variate independent of $G(t)$.
 \end{lem}
 
-{\it Proof.}   Theorem 2.2 of \cite{wang2011} provides  (\ref {eqn:6:lemJoint.eqn1}) with $g_1(x)=g^2(x)$. It is not difficult to see that (\ref {eqn:6:lemJoint.eqn1}) still holds for general $g_1(x)$. We omit the details.  $\Box$
+{\it Proof.}   Theorem 2.2 of \cite{wang2011} provides  (\ref {eqn:6:lemJoint.1}) with $g_1(x)=g^2(x)$. It is not difficult to see that (\ref {eqn:6:lemJoint.1}) still holds for general $g_1(x)$. We omit the details.  $\Box$
 
 \begin{lem} \la{lemLagJoint} Under Assumption \ref {4.1}, for any bounded $g_i(x), i=1,2,$
 satisfying $\int_{-\infty}^{\infty} |g_i(x)|dx < \infty$ and $\int_{-\infty}^{\infty} g_i(x) dx  \ne 0$, then
-\be \la{lemLagJoint.eqn1}
+\be \la{eqn:6:lemLagJoint.1}
  \sum_{t = 1}^n g_1(x_t) |u_t| = O_P(n / d_n)
 \ee
 and
-\be \la{lemLagJoint.eqn2}
+\be \la{eqn:6:lemLagJoint.2}
 &\Big \{ (n/d_n)^{-1/2}\sum_{t=1}^n g_1(x_t) u_t ,\, (n/d_n)^{-1}\sum_{t=1}^n g_2(x_t) \Big \} \no\\
 &\quad \rightarrow_D \Big \{\tau_3 \, N \, L^{1/2}_{G}(1,0), \tau_4 L_{G}(1,0) \Big \}
 \ee
@@ -642,25 +638,25 @@ and
 
 {\it Proof.} See Theorem 3 and 5 of \cite{jaganathan2008}. $\Box$
 
-\begin{lem} \la{lemMarkov} Under Assumption \ref {ad1}* (i), for any $g$ such that $\int_{-\infty}^{\infty} |g(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g(x) \pi(dx) \ne 0$, we have
+\begin{lem} \la{lemMarkov} Under Assumption \ref {assump:6:ad1}* (i), for any $g$ such that $\int_{-\infty}^{\infty} |g(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g(x) \pi(dx) \ne 0$, we have
 \be
 \sum_{t = 1}^n g(x_t) &=& O_P[a(n)], \quad
 \big [\sum_{t = 1}^n g(x_t)\big ]^{-1} = O_P[a(n)^{-1}] \la{eqn:6:ty}
 \ee
-If in addition Assumption \ref{ad1}* (ii)--(iv), for any bounded $g_i(x), i=1,2,$
+If in addition Assumption \ref{assump:6:ad1}* (ii)--(iv), for any bounded $g_i(x), i=1,2,$
 satisfying $\int_{-\infty}^{\infty} |g_i(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g_i(x) \pi(dx)  \ne 0$, we have
-\be \la{lemMarkov.eqn2}
+\be \la{eqn:6:lemMarkov.2}
 \Big \{ a(n)^{-1/2}\sum_{t=1}^n g_1(x_t) u_t ,\, a(n)^{-1}\sum_{t=1}^n g_2(x_t) \Big \}  \rightarrow_D   \Big \{\tau_5 \, N \, \Pi^{1/2}_{\beta}, \tau_6\,\Pi_\beta \Big \}
 \ee
  where $\tau_5^2 = \int_{-\infty}^{\infty} g_1^2(s) \pi(ds)$, $\tau_6= \int_{-\infty}^{\infty} g_2(s) \pi(ds)$ and $N$ is a standard normal variate independent of $\Pi$.
 \end{lem}
 
-{\it Proof.} The proof of (\ref {eqn:6:ty}) sees Theorem 2.1 of \cite{chen1999}. To prove (\ref{eqn:6:lemMarkov.eqn2}), we first impose an additional assumption that $g_2(x) = g_1^2(x)$. Denote
+{\it Proof.} The proof of (\ref {eqn:6:ty}) sees Theorem 2.1 of \cite{chen1999}. To prove (\ref{eqn:6:lemMarkov.2}), we first impose an additional assumption that $g_2(x) = g_1^2(x)$. Denote
 \be
 \Delta^2_n = a(n)^{-1}\sum_{t = 1}^n g_1^2(x_t), \quad Z_{nt} = a(n)^{-1/2}g_1(x_t) \Delta_n^{-1}, \quad W_n = \sum_{t = 1}^n Z_{nt} u_k
 \ee
-Recalling that $E(u_t|\F_{nt}) = 0$, it is readily seen that given $\{x_1, ..., x_n\}$, $\{Z_{nt} u_t, \F_{nt}\}_{t = 1}^n$ forms a martingale difference sequence. The result (\ref{eqn:6:lemMarkov.eqn2}) will follow if we prove, 
-\be \la{prfMarkov.eqn1}
+Recalling that $E(u_t|\F_{nt}) = 0$, it is readily seen that given $\{x_1, ..., x_n\}$, $\{Z_{nt} u_t, \F_{nt}\}_{t = 1}^n$ forms a martingale difference sequence. The result (\ref{eqn:6:lemMarkov.2}) will follow if we prove, 
+\be \la{eqn:6:prfMarkov.1}
 \sup_{x} \big | P\big ( W_n \le x \, | \, x_1, ..., x_n \big ) - \Phi(x) \big | \to_P 0
 \ee
 %\begin{align}
@@ -674,7 +670,7 @@ Recalling that $E(u_t|\F_{nt}) = 0$, it is readily seen that given $\{x_1, ..., 
 &\big |E \big [ e^{i  \al  W_n + i \beta \Delta_n^2} \big ] - e^{-\frac{1}{2} \al^2 } \, E\big [e^{i \beta \tau_5 \Pi_\gamma} \big ] \big| \no\\
 &\le E \Big |E \big ( e^{i \al W_n } |\, x_1, ..., x_n \big ) - e^{-\frac{1}{2}\al^2 } \,  \Big| +e^{-\frac{1}{2}\al^2}\Big| Ee^{i \gamma \Delta_n^2} - Ee^{i \gamma \tau_5 \Pi_\beta} \Big | \to 0 \no
 \end{align}
-by dominated convergence theorem, due to (\ref{eqn:6:prfMarkov.eqn1}) and $\Delta_n^2 \to_D \tau_5 \Pi_\beta$ (see, e.g., Theorem 2.3 of \cite{chen1999}). This implies that
+by dominated convergence theorem, due to (\ref{eqn:6:prfMarkov.1}) and $\Delta_n^2 \to_D \tau_5 \Pi_\beta$ (see, e.g., Theorem 2.3 of \cite{chen1999}). This implies that
 \bestar
 \{ W_n, \Delta_n^2 \} \to_D \{N, \tau_5\Pi_\beta\}
 \eestar
@@ -682,9 +678,9 @@ where $N$ is a standard normal random variable independent of $\Pi_\beta$. Hence
 \bestar
 \Big \{ a(n)^{-1/2}\sum_{t=1}^n g_1(x_t) u_t ,\, a(n)^{-1}\sum_{t=1}^n g_1^2(x_t) \Big \} = \Big \{ \Delta_n W_n, \Delta_n^2\Big \}\to_D \{\tau_5^{1/2} N\Pi_\beta^{1/2}, \tau_5\Pi_\beta\}
 \eestar
-which implies the required (\ref{eqn:6:lemMarkov.eqn2}).
+which implies the required (\ref{eqn:6:lemMarkov.2}).
 
-We now prove (\ref{eqn:6:prfMarkov.eqn1}). By Theorem 3.9 ((3.75) there) in \cite{hallheyde1980} with $\de = q/2 - 1$ that
+We now prove (\ref{eqn:6:prfMarkov.1}). By Theorem 3.9 ((3.75) there) in \cite{hallheyde1980} with $\de = q/2 - 1$ that
 \bestar
 \sup_{x} \big | P\big ( W_n \le x \, | \, x_1, ..., x_n \big ) - \Phi(x) \big | \le A(\de) \mathcal L_n^{1 / (1 + q)}  \quad a.s.
 \eestar
@@ -692,7 +688,7 @@ where $A(\de)$ is a constant depending only on $\de$ and $q > 2$, and (set $\F^*
 \bestar
 \mathcal L_n = \Delta_n^{-q} \sum_{k = 1}^n |Z_{nk}|^q E(|u_k|^q | \F^*_{n}) + E \Big [ \big | \Delta_n^{-2} \sum_{k = 1}^n Z_{nk}^2 [E(u_k^2 | \F_{nk}) - 1] \big|^{q/2} \Big | \, \F^*_{n} \Big].
 \eestar
-Recall from Assumption \ref{ad2} (iv) and the fact that $\Delta_n^2 = \sum_{k = 1}^n Z^2_{nk}$, we have,
+Recall from Assumption \ref{assump:6:ad2} (iv) and the fact that $\Delta_n^2 = \sum_{k = 1}^n Z^2_{nk}$, we have,
 \bestar
 E \Big [ \big | \Delta_n^{-2} \sum_{k = 1}^n Z_{nk}^2 [E(u_k^2 | \F_{nk}) - 1] \big|^{q/2} \Big | \, \F^*_{n} \Big] \to_P 0
 \eestar
@@ -700,7 +696,7 @@ by dominated convergence theorem. Hence,  routine calculations show that
 \bestar
 \mathcal L_n \le C\,\Delta_n^{-(q-2)} \,a(n)^{-(q-2)/2} + o_P(1) = o_P(1)
 \eestar
-because $\Delta_n^{-2}=O_P(1)$ by (\ref{eqn:6:ty}) and $q > 2$. This proves (\ref{eqn:6:prfMarkov.eqn1}), which implies that (\ref{eqn:6:lemMarkov.eqn2}) holds true with $g_2(x) = g_1^2(x)$. Finally, note that, for any $a$, $b \in R$,
+because $\Delta_n^{-2}=O_P(1)$ by (\ref{eqn:6:ty}) and $q > 2$. This proves (\ref{eqn:6:prfMarkov.1}), which implies that (\ref{eqn:6:lemMarkov.2}) holds true with $g_2(x) = g_1^2(x)$. Finally, note that, for any $a$, $b \in R$,
 \bestar
 a(n)^{-1} \sum_{t = 1}^n \big \{ a g_1^2(x_t) + bg_2(x_t)\big  \}  \to_D  \int_{-\infty}^{\infty} \big [a g_1^2(s) + bg_2(s) \big ] \pi(ds)\, \Pi_\beta
 \eestar
@@ -712,7 +708,7 @@ Hence, by continuous mapping theorem,
 \bestar
 \frac{ \sum_{t=1}^n g_1^2(x_t) }{\sum_{t=1}^n g_2(x_t)} \to_P \int_{-\infty}^{\infty} g_1^2(s)\,  \pi(ds) \Big /  \int_{-\infty}^{\infty} g_2(s) \, \pi(ds) 
 \eestar
-This shows that (\ref{eqn:6:lemMarkov.eqn2}) is still true with general $g_2(x)$. $\Box$
+This shows that (\ref{eqn:6:lemMarkov.2}) is still true with general $g_2(x)$. $\Box$
 
 \begin{lem} \la{lemWu} Let $D_n(\theta, \theta_0) =  Q_n(\theta) - Q_n(\theta_0)$.
  Suppose that, for any $\de > 0$,
@@ -730,29 +726,29 @@ This shows that (\ref{eqn:6:lemMarkov.eqn2}) is still true with general $g_2(x)$
 
 {\bf Proof of Theorem \ref {thmConsistency}.} Let $\mathcal N$ be any open subset of $\Theta$ containing $\theta_0$. Since $\hat{\theta}_n$ is the minimizer of $Q_n(\theta)$ in $\Theta$, therefore, by Lemma \ref{lemWu}, proving consistency is equivalent to showing that, for any $0<\eta<1$ and $\theta \ne \theta_0$, where $\theta, \theta_0\in \Theta$, there exist
  $n_0 > 0$ and $M_1>0$ such that
-\be \la{prfConsistency.eqn1}
+\be \la{eqn:6:prfConsistency.1}
 P \Big ( \inf_{\theta \in \Theta \cap \mathcal N^c}\, D_n(\theta, \theta_0) \ge  \kappa^2_n /M_1 \Big ) \ge 1 - \eta
 \ee
 for all $n > n_0$.
 
-Denote $\mathcal N_{\de}(\pi_0) = \{ \theta: \| \theta - \pi_0\| < \de\}$. Note that $\Theta \cap \mathcal N^c$ is compact, by the finite covering property of compact set, (\ref{eqn:6:prfConsistency.eqn1}) will follow if we prove that, for any fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
-\be \la{prfConsistency.eqn2}
+Denote $\mathcal N_{\de}(\pi_0) = \{ \theta: \| \theta - \pi_0\| < \de\}$. Note that $\Theta \cap \mathcal N^c$ is compact, by the finite covering property of compact set, (\ref{eqn:6:prfConsistency.1}) will follow if we prove that, for any fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
+\be \la{eqn:6:prfConsistency.2}
 \sup_{\theta \in \mathcal N_{\de}(\pi_0)} \kappa_n^{-2} \Big | D_n(\theta, \theta_0) - D_n(\pi_0, \theta_0) \Big | \to_P 0
 \ee
 as $n\to\infty$ first and then $\de \to 0$, and for $\forall \ep>0$, there exists $M_1 > 0$ and $n > n_0$ such that for all $n > n_0$,
-\be \la{prfConsistency.eqn3}
+\be \la{eqn:6:prfConsistency.3}
 P\Big ( D_n(\pi_0, \theta_0) \ge \kappa^2_n/M_1 \Big ) \ge 1 -2 \eta.
 \ee
-The result  (\ref{eqn:6:prfConsistency.eqn2}) is simple. Indeed, by Lemma \ref{lemClose}, it follows that, for each fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
+The result  (\ref{eqn:6:prfConsistency.2}) is simple. Indeed, by Lemma \ref{lemClose}, it follows that, for each fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
 \begin{align}
 &\sup_{\theta \in \mathcal N_{\de}(\pi_0)}\kappa_n^{-2}\Big | D_n(\theta, \theta_0) - D_n(\pi_0, \theta_0) \Big | \no\\
 &=\sup_{\theta \in \mathcal N_{\de}(\pi_0)} \kappa_n^{-2}\sum_{t=1}^n (f(x_t, \theta) - f(x_t, \pi_0))^2 \no\\
 &\hskip 3.5cm - \sup_{\theta \in \mathcal N_{\de}(\pi_0)}\kappa_n^{-2} \sum_{t = 1}^n |f(x_t, \theta) - f(x_t, \pi_0)|| u_t|\no\\
 &\to_P 0
 \end{align}
-as $n\to\infty$ first and then $\de \to 0$, which yields (\ref {eqn:6:prfConsistency.eqn2}).
+as $n\to\infty$ first and then $\de \to 0$, which yields (\ref {eqn:6:prfConsistency.2}).
 
-To prove (\ref{eqn:6:prfConsistency.eqn3}), we  write
+To prove (\ref{eqn:6:prfConsistency.3}), we  write
 \bestar
 D_n(\pi_0, \theta_0) =  \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0))^2 -  \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0)) u_t
 \eestar
@@ -766,9 +762,9 @@ Hence, it follows from Assumption \ref{assump:6:LowerBound} that,
 P\Big ( D_n(\pi_0, \theta_0) \ge M_1^{-1} \Big ) &\ge P \Big ( \sum_{t = 1}^n ( f(x_t, \pi_0) - f(x_t, \theta_0))^2 \ge \kappa^2_n\, M_1^{-1}/2 \Big ) - \eta \no\\
 &\ge1 -2 \eta \no
 \end{align}
-which implies (\ref{eqn:6:prfConsistency.eqn3}).
+which implies (\ref{eqn:6:prfConsistency.3}).
 
-Finally for the error estimate $\hat{\si}_n^2$, note that by Assumption \ref{assump:6:Martingale} and strong law of large number, $Q(\theta_0) = n^{-1} \sum_{t = 1}^n u_t^2 \to_P \si^2$. Then it immediately follows from the consistency of $\hat{\theta}_n$ and (\ref{eqn:6:prfConsistency.eqn2}) that 
+Finally for the error estimate $\hat{\si}_n^2$, note that by Assumption \ref{assump:6:Martingale} and strong law of large number, $Q(\theta_0) = n^{-1} \sum_{t = 1}^n u_t^2 \to_P \si^2$. Then it immediately follows from the consistency of $\hat{\theta}_n$ and (\ref{eqn:6:prfConsistency.2}) that 
 \bestar
 |\hat{\si}_n^2 - \si^2| \le C \kappa_n^{-2} |Q_n(\hat{\theta}_n) - Q_n(\theta_0)| + o_P(1) = o_P(1).
 \eestar
@@ -776,7 +772,7 @@ $\Box$
 
 
 \medskip
-{\bf Proof of Theorem \ref {thmLinearConsistency}.}
+{\bf Proof of Theorem \ref {thm:6:LinearConsistency}.}
  It follows from Lemma \ref{lemJoint} that
 \bestar
 \frac{d_n}{n} \sum_{t = 1}^n (f(x_t, \theta) - f(x_t, \theta_0))^2  \rightarrow_D \Big ( \int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 ds \Big ) L_{G}(1,0)
@@ -797,19 +793,19 @@ which implies (\ref {eqn:6:20}). $\Box$
 
 
 \medskip
-{\bf Proof of Theorem \ref {thmMarkovConsistency}.} The results (\ref {eqn:6:20}) and (\ref {eqn:6:21}) follow from Lemma \ref{lemMarkov} with $g(x)=T(x)+T^2(x)$ and $g(x)=(f(x, \theta)-f(x, \theta_0))^2$, respectively. $\Box$
+{\bf Proof of Theorem \ref {thm:6:MarkovConsistency}.} The results (\ref {eqn:6:20}) and (\ref {eqn:6:21}) follow from Lemma \ref{lemMarkov} with $g(x)=T(x)+T^2(x)$ and $g(x)=(f(x, \theta)-f(x, \theta_0))^2$, respectively. $\Box$
 
 
 \medskip
-{\bf Proof of Theorem \ref {thmHomoConsistent1}.} The proof  is essentially the same as that given in Theorems 4.2 and 4.3 of PP. We only provide a outline for $f(x, \theta)$
+{\bf Proof of Theorem \ref {thm:6:HomoConsistent1}.} The proof  is essentially the same as that given in Theorems 4.2 and 4.3 of PP. We only provide a outline for $f(x, \theta)$
 satisfying the {\bf Case 2}, which is related to the verification of the conditions in Lemma \ref{lemWu}.
 
  Let $\Theta_0 = \{ \| \theta - \theta_0 \| \ge \de \}$ where  $\de>0$ is a constant.
 By virtue of Lemma \ref{lemWu},   it suffices to prove that, for any $\eta, M_0 >0$, there exist a $n_0 >0$ such that, for all $n > n_0$,
-\be \la{prfHomoConsistent2.eqn1}
+\be \la{eqn:6:prfHomoConsistent2.1}
 P \Big (n^{-1} \inf_{\theta \in \Theta_0} D_n(\theta, \theta_0) > M_0 \Big ) > 1-  \eta.
 \ee
-To prove (\ref{eqn:6:prfHomoConsistent2.eqn1}),  first note that  $\sum_{t=1}^nu_t^2/n\le M_0$ in probability, for some $M_0>0$, due to the Assumption 2.2 (i). This, together with Cauchy-Schwarz Inequality, yields that
+To prove (\ref{eqn:6:prfHomoConsistent2.1}),  first note that  $\sum_{t=1}^nu_t^2/n\le M_0$ in probability, for some $M_0>0$, due to the Assumption 2.2 (i). This, together with Cauchy-Schwarz Inequality, yields that
 \begin{align}
 &n^{-1}D_n(\theta, \theta_0) \no\\
 & \quad = \frac{1}{n} \sum_{t = 1}^n (f(x_t, \theta) - f(x_t, \theta_0))^2 - \frac{2}{n} \sum_{t = 1}^n (f(x_t, \theta) - f(x_t, \theta_0))u_t  \no\\
@@ -833,7 +829,7 @@ Skorohod-Dudley-Wichura representation theorem (e.g., \cite[][p. 49, Remark 2]{s
 	\sup_{0\le t\le 1}|x_{[nt]}^*/d_n-G(t)| &=&o_P(1). \la{eqn:6:a17}
 \ee
 For this equivalent process $x_t^*$, it follows from the structure of $f(x,\theta)$  that
-\be \la{190}
+\be \la{eqn:6:190}
 m(d_n, \theta)^2 &:=& \frac{1}{n v(d_n, \theta)^2} \sum_{t = 1}^n f(x_t^*, \theta)^2\no\\
 &=&\frac{1}{n } \sum_{t = 1}^n h(x_t^*/d_n, \theta)^2 +o_P(1) \no\\
 &=&  \int_0^1 h(x_{[ns]}^*/d_n, \theta)^2ds+o_P(1) \no\\
@@ -843,7 +839,7 @@ uniformly in $\theta\in\Theta$. Due to (\ref {eqn:6:190}), the same arguments as
 \bestar
 \inf_{\theta \in \Theta_0}M_n^*(\theta, \theta_0) \to \infty, \quad \mbox{in probability,}
 \eestar
-which, together with (\ref {eqn:6:14}), implies (\ref {eqn:6:prfHomoConsistent2.eqn1}).
+which, together with (\ref {eqn:6:14}), implies (\ref {eqn:6:prfHomoConsistent2.1}).
 $\Box$
 
 
@@ -856,7 +852,7 @@ $\Box$
 Y &=& \Sigma^{1/2} \, \mbox{{\bf N}}L_G^{1/2}(1,0), \quad
 Z = \int_{-\infty}^{\infty} f(s, \theta_0) ds\, L_G(1,0),
 \eestar
-under Assumptions \ref {ad1} and \ref {ad2}.
+under Assumptions \ref {assump:6:ad1} and \ref {assump:6:ad2}.
 
  Recalling $\hat\theta_n\to_P\theta_0$ due to Theorems 2.1 and 2.2,  $\hat{\theta}_n$
  falls in $\mathcal N_{\de}(\theta_0) = \{ \theta: \| \theta - \theta_0\| < \de\}$ in probability. This, together with Lemma \ref {lemC}, yields  (\ref{eqn:6:rmk1.1})--(\ref{eqn:6:rmk1.3}).
@@ -892,30 +888,30 @@ $\Box$
 Y &=& \Sigma_\pi^{1/2} \, \mbox{{\bf N}}\Pi_\beta, \quad
 Z = \int_{-\infty}^{\infty} f(s, \theta_0) \pi(ds)\, \Pi_\beta,
 \eestar
-under Assumptions \ref {ad1}* and \ref {ad2}*. The details are similar to that of Theorem \ref{thmIntegrablelimit}, with Lemma \ref{lemJoint} replaced by Lemma \ref{lemMarkov}, and hence are omitted. $\Box$
+under Assumptions \ref {assump:6:ad1}* and \ref {assump:6:ad2}*. The details are similar to that of Theorem \ref{thmIntegrablelimit}, with Lemma \ref{lemJoint} replaced by Lemma \ref{lemMarkov}, and hence are omitted. $\Box$
 
 \medskip
 {\bf Proof of Theorem \ref {11}.} We first establish the consistency result. The proof goes along the same line as in Theorem \ref{thmConsistency}. It suffices to show that for any fixed $\pi_0 \in \Theta \cap \mathcal N^c$, 
-\be \la{prf11.eqn1}
+\be \la{eqn:6:prf11.1}
 \sup_{\theta \in \mathcal N_{\de}(\pi_0)} \frac{d_n}{n} \sum_{t = 1}^n |[f(x_t, \theta) - f(x_t, \pi_0)]u_t|  \to_P 0
 \ee
 as $\de\to 0$ uniformly for all large $n$, and
-\be\la{prf11.eqn2}
+\be\la{eqn:6:prf11.2}
 \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0)) u_t = o_P(n/d_n).
 \ee
 
-For (\ref{eqn:6:prf11.eqn1}). By (\ref{eqn:6:lemLagJoint.eqn1}) in Lemma \ref{lemLagJoint} with $g_1(x) = |T(x)|$, we have,
+For (\ref{eqn:6:prf11.1}). By (\ref{eqn:6:lemLagJoint.1}) in Lemma \ref{lemLagJoint} with $g_1(x) = |T(x)|$, we have,
 \begin{align}
 \sup_{\theta \in \mathcal N_{\de}(\pi_0)}\frac{d_n}{n} \sum_{t = 1}^n |[f(x_t, \theta) - f(x_t, \pi_0)]u_t| &\le \sup_{\theta \in \mathcal N_{\de}(\pi_0)} h(\|\theta- \pi_0\|) \,  \frac{d_n}{n} \sum_{t = 1}^n|T(x_t)|| u_t| \no\\
 &\le C\, \sup_{\theta \in \mathcal N_{\de}(\pi_0)}h(\|\theta- \pi_0\|)\, O_P(1) \to_P 0 \no
 \end{align}
 as $\de \to 0$.
 
-Also, by (\ref{eqn:6:lemLagJoint.eqn2}) in Lemma \ref{lemLagJoint} with $g_1(x) = f(x, \pi_0) - f(x, \theta_0)$, we have that
+Also, by (\ref{eqn:6:lemLagJoint.2}) in Lemma \ref{lemLagJoint} with $g_1(x) = f(x, \pi_0) - f(x, \theta_0)$, we have that
 \bestar
 \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0)) u_t = O_P[(n/d_n)^{1/2}]
 \eestar
-which implies the required (\ref{eqn:6:prf11.eqn2}) immediately.
+which implies the required (\ref{eqn:6:prf11.2}) immediately.
 
 We next give the limit distribution. As in Theorem \ref{thmIntegrablelimit}, we need to verify the conditions (\ref{eqn:6:rmk1.1})--(\ref{eqn:6:rmk1.5}), but with
 \bestar
@@ -927,7 +923,7 @@ under Assumptions \ref {4.1}.
 
 The proof for (\ref{eqn:6:rmk1.1}), (\ref{eqn:6:rmk1.2}) and (\ref{eqn:6:rmk1.5}) are exactly same as that of Theorem \ref{thmIntegrablelimit}, and using similar arguments, (\ref{eqn:6:rmk1.4}) will follow from Lemma \ref{lemJoint}.
 
-For (\ref{eqn:6:rmk1.3}). Because $\hat{\theta}_n \to_P \theta_0$, by (\ref{eqn:6:prf11.eqn1}) with $\pi_0 = \theta_0$, and (\ref{eqn:6:prf11.eqn2}), we have, for any $1 \le i,j \le m$,
+For (\ref{eqn:6:rmk1.3}). Because $\hat{\theta}_n \to_P \theta_0$, by (\ref{eqn:6:prf11.1}) with $\pi_0 = \theta_0$, and (\ref{eqn:6:prf11.2}), we have, for any $1 \le i,j \le m$,
 \bestar
 \Big |\frac{d_n}{n}  \sum_{t = 1}^n \ddot{f}_{ij}(x_t, \theta_n) u_t \Big | &\le& \Big | \frac{d_n}{n}  \sum_{t = 1}^n [\ddot{f}_{ij}(x_t, \theta_n) - \ddot{f}_{ij}(x_t, \theta_0)]\, u_t \Big |  + \Big | \frac{d_n}{n}  \sum_{t = 1}^n  \ddot{f}_{ij}(x_t, \theta_0) u_t\Big | \no\\
 &=& o_P(1)
