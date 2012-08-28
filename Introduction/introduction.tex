@@ -6,32 +6,81 @@
     \graphicspath{{Introduction/IntroductionFigs/EPS/}{Introduction/IntroductionFigs/}}
 \fi
 
-Since the cointegration idea was introduced by Engle and Granger (1987), cointegration model has been widely used in empirical analysis in various disciplines, including economics, finance and environmental research. In the past few decades, significant developments have been focused on cointegration models with linear structure. Whilst it is convenient for practical implementation, nonetheless, it is restrictive, especially in the context of economics, often suggesting nonlinear responses with some unknown parameters.  A simple example will be the class of Douglas-Cobb function production theory. The following Solow model production function is often used by economists:
-\be
-  Y_t = A_t K_t^a L_t^a
-\ee
-where $Y_t$ is the total production output, $K_t$ is flow of service from capital, $L_t$ is flow of service from labour and $A_t$ is the technological shifter. To handle the nonlinearity, it is common to take logarithm transformation such that standard techniques used in linear cointegrating can be applied. However, such method does not apply when the model becomes more complicated. For instance, Arrow et. al. (1961) later proposed a more generalized production function with the property of constant elasticity of substitution (CES), (see, e.g. Wagner and M\"{u}ller-F\"{u}rstenberger (2005)). The CES model is given by
-\be
-	Y_t = A_t [\de K_t^{-\rho} + (1 - \de)  L_t^{-\rho}]^{ - 1 / \rho}
-\ee
+It is common for econometrician to study the relationship between the dynamics of multiple time series. One of the popular approaches is the look at the coefficient of correlation $R^2$ value and perform ordinary regression analysis. However, Granger and Newbold (1974) showed that this might lead to wrong conclusion. Consider the case when $y_t$ and $x_t$ are two independent first order autogressive processes. It is possible to reject the hypothesis of testing regression coefficients are all zero, i.e., there is significant relation between the two series even though there is none. This phenomenon is called spurious regression. Granger (1987) later proposed the concept of cointegration to study long run relationship between multiple series, and he suggested that there may exist a linear combination of multiple integrated time series to be stationary. For instance, for two $I(1)$ processes $y_t$ and $x_t$, they are said to be cointegrated if there exists a constant $\al$ such that $y_t - \al x_t$ is a stationary process. To formally test for existence of cointegration, Engle and Granger (1987) proposed procedures to check whether the residual series is stationary by testing the existence of a unit root.
+
+Since then, cointegration model has been widely used in empirical analysis in various disciplines, including economics, finance and environmental research. In the past few decades, significant developments have been focused on cointegration models with linear structure. Although the linear structure is convenient for practical implementation, it is too restrictive. In particular, it is common to observe nonlinear responses with some unknown parameters in the context of economics.  A simple example will be the class of Douglas-Cobb function used in production theory of macroeconomics. The function is given by
+\bestar
+  y_t = a_t k_t^\al l_t^\al
+\eestar
+where $y_t$ is the total production output, $k_t$ is flow of service from capital, $l_t$ is flow of service from labour and $a_t$ is the technological shifter. To handle the nonlinearity, it is common to take logarithm transformation such that standard techniques used in linear cointegrating can be applied. However, such method does not apply when the model becomes more complicated. For instance, Arrow et. al. (1961) later proposed a more generalized production function, which is given by
+\bestar
+	y_t = a_t [\de\, k_t^{-\rho} + (1 - \de) \,  l_t^{-\rho}]^{ - 1 / \rho}
+\eestar
 for some constants $\de$ and $\rho$. It is easy to see that the (x.x) is not linear in logarithm and hence ordinary linear cointegration model methodologies do not apply. Another example will be the Carbon Kurznets Curve (CKC) used to study the relationship between economic activities and CO$_2$ emission in environmental science. The CKC curve is given by
-\be
-\log (y_{t}) = \al + \gamma t + \beta_1 \log (x_t) + \beta_2 (\log (x_t))^2 + u_t
-\ee
-where $y_t$ is per capita GDP, $x_t$ is the per capita CO$_2$ emissions and $u_t$ is stochastic error sequence. Further examples of nonlinear economic models can be found in \cite{grangerterasvirta1993}, as well as \cite{terasvirtatjostheimgranger2010}.
+\bestar
+\log (y_{t}) = \al + \gamma t + \beta_1 \log (x_t) + \beta_2 (\log (x_t))^2
+\eestar
+where $y_t$ is per capita GDP and $x_t$ is the per capita CO$_2$ emissions. Further examples of nonlinear models can be found in \cite{grangerterasvirta1993}, as well as \cite{terasvirtatjostheimgranger2010}.
 
-These examples show that advanced technique to analyse nonlinear structure of cointegrating models are necessary. These motivate us to consider the following nonlinear cointegrating models
+These examples show that advanced technique to analyze nonlinear structure of cointegrating models are necessary. These motivate us to consider the following nonlinear cointegrating model
 \be
-y_t = f(x_t) + u_t
+y_t = f(x_t) + u_t, \quad t = 1, ..., n
 \ee
-where $f$ is a nonlinear function and $x_t$ is a nonstationary time series. An important problem arises from the model will be the estimation of $f(x)$. One popular way will be nonparametric approach, which frees practitioners from imposing particular form of function on $f(x)$. 
+where $f$ is a nonlinear function, $x_t$ is a nonstationary time series and $u_t$ is a stochastic error sequence. An important problem arises from the model will be the estimation of nonlinear regression function $f$. There are two popular ways to perform estimation, namely parametric and nonparametric approaches. These two methods are complementary of each other. Parametric method provides the data analysts with insights about the dynamics of the underlying data generating process. However, it is powerful only when the true model or good approximation of it is correctly specified, and therefore practitioners will run into the risk of mis-specification. For nonparametric approach, it is not necessary to impose a specific mathematical structure on $f$ other than some regularity conditions. Also, it is a useful to suggest new parametric models and valid the existing ones.
 
-There are extensive research results in the literature concentrated on the point-wise estimation and inference of the unknown $f(\cdot)$, under different assumptions on $x_t$. When $x_t$ is stationary time series, H\"{a}rdle et al. (1997) provides a comprehensive review of the literature. For nonstationary situation, Phillips and Park (1998) studied the model in the context of a random walk. Karlsen and Tj\o stheim (2001) and Guerre (2004) studied the problem in the framework of recurrent Markov chains. More recently,  Wang and Phillips (2009a, 2009b, 2011) and Cai, et al. (2009) worked with partial sum representations of general linear process.
- 
-The previous papers established consistency of the estimator of $f(x)$ for a particular fixed $x$. Results for the uniform convergence of the estimator of $f(x)$ however is scare. Therefore, we intend to establish uniform convergence with rates for the Nadaraya-Watson estimator $\hat{f}(x)$ of $f(x)$ in the non-linear cointegrating model. The estimator is defined by
-\be
+In the area of nonparametric estimation, one popular nonparametric estimator adopted in the literature is the Nadaraya-Watson estimator
+\bestar
   \hat{f}(x) = \frac{\sum_{t = 1}^n y_t K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)}
-\ee
+\eestar
+of the regression function $f$. There are extensive research results in the literature concentrated on the point-wise estimation and inference of the NW estimator $\hat{f}$, that is, for any fixed $x \in R$,
+\bestar
+\hat{f}(x) \to_P f(x),
+\eestar
+under different assumptions on $x_t$. For example, when $x_t$ is stationary time series, H\"{a}rdle et al. (1997) provides a comprehensive review of the literature. When $x_t$ is a nonstationary process, Phillips and Park (1998) studied the model in the context of a random walk. Karlsen and Tj\o stheim (2001) assumes $x_t$ is recurrent Markov chains and Wang and Phillips (2009a, 2009b, 2011) worked with partial sum representations of general linear process. 
+
+Although there are fruitful results in establishing consistency of nonparametric estimator of $\hat{f}$ for a particular fixed $x$, results for the uniform convergence of the estimator is scarce. Explicitly,
+\bestar
+\sup_{x \in \mathcal{X}} | \hat{f}(x) - f(x) | \to_P 0
+\eestar
+Uniform convergence results of $\hat{f}$ are useful in many areas. As an illustration, we will give a few examples. Firstly, it can used to estimate heterogeneity generating function in a regression model with non-linear nonstationary heteroskedastic error processes. Consider the model
+\bestar
+y_t = f(x_t) + \si(x_t) u_t, \quad t = 1, ..., n
+\eestar
+where $\si$ is a heterogeneity generating function (HGF). This model is a generalization of model (x.x) by incorporating a time heterogeneity in the error structure. The conventional kernel estimator of the HGF is given by
+\bestar
+\hat{\si}^2(x) = \frac{\sum_{t = 1}^n [y_t  - \hat{f}(x_t) ]^2 K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)}
+\eestar
+In order to show point-wise consistency, that is, $\hat{\si}(x) \to_P \si(x)$ for each fixed $x$, we split the estimation error in the following way
+\begin{align}
+&\hat{\si}^2(x) - \si^2(x) \no\\
+&=\frac{\sum_{t = 1}^n \si^2(x) (u_t^2 - 1) K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)} + \frac{\sum_{t = 1}^n [\si^2(x_t) \si^2(x) ] u_t^2 K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)} \no\\
+&+\frac{\sum_{t = 1}^n (f(x_t) - \hat{f}(x_t))^2 K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)} + \frac{2\sum_{t = 1}^n \si(x_t) u_t (f(x_t) - \hat{f}(x_t))  K_h(x_t - x)}{\sum_{t = 1}^n K_h(x_t - x)} \no\\
+&:= I_{1n}(x) + I_{2n}(x) + I_{3n}(x) + I_{4n}(x) \no
+\end{align}
+The uniform convergence result of $\hat{f}$ can be used to establish the convergence of $I_{3n}(x)$ and $I_{4n}(x)$. Under the assumption that the kernel function has compact support and the bandwidth $h \to 0$, for each fixed $x$, there exists a $C_0 > 0$ such that $K_h(x_t - x) = 0$ if $|x_t - x| \ge h\,C$. Therefore, this implies that, as $n\to \infty$
+\bestar
+|I_{3n}(x)| \le C  \sup_{y \in \Omega_\ep} | \hat{f}(y) - f(y)|^2 = o_P(1)
+\eestar
+for some $\ep > 0$, where $\Omega_\ep = \{y : |y - x | \le \ep, $ where $ x \in R\}$. An extensive exposition of model (x.x) can be found in Wang and Wang (2009). In addition, uniform convergence of $\hat{f}$ can also be applied to the semiparametric least square estimation of the class of single index model. This class includes many popular econometric models such as binary choice models, duration models and censored Tobit models, see, e.g., Ichimura (2003). Consider the simple case which the model is given by
+\bestar
+y_t = f(x_t^T\beta) + u_t, \quad t = 1, ..., n
+\eestar
+where $x_t$ is a $p \times 1$ vector with nonstationary components and $\beta \in R^p$. We denote the two objective functions
+\bestar
+Q_n(\beta) = \sum_{t = 1}^n (y_t - \hat{f}(x_t^T\beta))^2 \quad \mbox{and} \quad \tilde{Q}_n(\beta) = \sum_{t = 1}^n (y_t - f(x_t^T\beta))^2
+\eestar
+
+Moreover, the asymptotic distributional theory of $\sup_{x \in \mathcal{X}} |\hat{f}(x) - f(x)|$ can be used construct the simultaneous confidence band (SCB) for the estimator $\hat{f}$ over the interval $\mathcal{X}$. To obtain the $100 (1 - \al)\%$, $\al \in (0,1)$, ???
+\bestar
+ P \big \{ | \hat{f}(x) -  f(x) |  \le b_n(x, z) \quad  \mbox{for all}\quad  x \in \mathcal{X} \big \}  \to F(z)
+\eestar
+where $F(z)$ is certain distribution function.
+
+Last but not least, the uniform convergence of $\hat{f}$ has application in unit root testing with nonstationary volatility. In this thesis, we would propose a unit root testing procedure which makes use of the kernel to estimate the nonstationary volatility. 
+
+
+
+Therefore, we intend to establish uniform convergence with rates for the Nadaraya-Watson estimator $\hat{f}(x)$ of $f(x)$ in the non-linear cointegrating model. The estimator is defined by
 where $K_h(\cdot) = K(\cdot / h)/h$ with $h$ denoting the bandwidth. In the development of uniform convergence of the nonlinear function estimator $\hat{f}(x)$, asymptotic theory of certain summation functionals are necessary. To illustrate this, note that the estimation difference can be decomposed in the following way
 \bestar
 	\hat{f}(x)-f(x) &=& \frac{\sum_{t=1}^{n}u_{t}K_{h}(x_{t}-x)}{%
@@ -46,6 +95,12 @@ where $c_n\to \infty$ is a certain sequence of positive constants and $g(x)$ is 
 
 This thesis will systematically derive the upper and lower of $S_{1n}(x)$ and $S_{2n}(x)$ uniform in $x$ over a slowly expanding set. While our framework allows a wide selection of regressor $x_t$, we focus primarily the case where $x_t$ is nonstationary, and in particular, is a partial sum of general linear process and Harris Recurrent Markov chain.
 
+% ----------------Note--------------------------
+Ratio of two random variables
+An approximate $(1 - \al) \times 100\%$ confidence band over an interval $[a,b]$
+
+
+
 % ----------------Unit root testing--------------------------
 
 
@@ -55,8 +110,6 @@ This thesis will systematically derive the upper and lower of $S_{1n}(x)$ and $S
 
 
 % ----------------Other Applications--------------------------
-In addition to applying to nonlinear cointegration model, the uniform convergence of the sample average functionals $S_{1n}(x)$ and the sample covariance functionals $S_{2n}(x)$ has applications in other econometric models. For instance, the consistency results of the kernel estimate of the nonlinear function has application in unit root testing with nonstationary volatility. In this thesis, we would propose a unit root testing procedure which makes use of the kernel to estimate the nonstationary volatility. Further examples would be the semiparametric least square estimation of the class of single index model. This class includes many popular econometric models such as binary choice models, duration models and censored Tobit models, see, e.g., Ichimura (2003).
-
 % ----------------Parametric--------------------------
 In the last part of the thesis, we also consider estimating the cointegration model with parametric approach. A typical non-linear parametric cointegrating
 regression model has the form
