@@ -1,3 +1,4 @@
+
 \chapter{Uniform Bounds for Functionals of Non-stationary Time Series}
 \ifpdf
     \graphicspath{{Chapter2/Chapter2Figs/PNG/}{Chapter2/Chapter2Figs/PDF/}{Chapter2/Chapter2Figs/}}
@@ -5,38 +6,62 @@
     \graphicspath{{Chapter2/Chapter2Figs/EPS/}{Chapter2/Chapter2Figs/}}
 \fi
 
+In this chapter, sharp upper and lower uniform bounds are established for a general class of functionals of integrated and fractionally integrated time series.  
+
 \section{Introduction}
 Consider a triangular array ${x_{k,n},1\leq k\leq n,n\geq
 1}$ constructed from some underlying time series.
 In most practical situations, $x_{k,n}$ is equal to $x_k/d_n$, where $x_k$
 is a partial sum and $0 < d_n\to \infty$ in such a way that $x_n/d_n$ has a limit distribution.  The functional of interest $
-S_{n}$ of $x_{k,n}$ is defined by the sample average
+S_{2n}(x)$ of $x_{k,n}$ is defined by the sample average
 \bestar
-S_{n} (x)=\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)], \quad x\in R,
+S_{2n} (x)=\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)], \quad x\in R,
 \eestar
 where $c_{n}$ is a certain sequence of positive constants and $g$ is
 a real function on $R$. Such functionals commonly arise in
 non-linear regression with integrated time series [\citet[][\citeyear{parkphillips2001}]{parkphillips1999}] and non-parametric estimation in relation to nonlinear cointegration models [\cite{phillipspark1998}, \cite{karlsentjostheim2001}, \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}]{wangphillips2009}]. The limit
-behavior of $S_{n}(x)$ in the situation that $c_{n}\rightarrow \infty $ and $%
+behavior of $S_{2n}(x)$ in the situation that $c_{n}\rightarrow \infty $ and $%
 n/c_{n}\rightarrow \infty $ is particularly interesting and
 important for practical applications as it provides a setting that
 accommodates a sufficiently wide range of bandwidth choices to be
 relevant for non-parametric kernel estimation.
 
-For a fixed $x$, the limit distribution of $S_n(x)$ has been established by \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}]{wangphillips2009} under very general setting on $x_{k,n}$. The aim of this section is investigate the uniform (upper and lower) bound  for $S_n(x)$ on a compact set or on $R$. As discussed in {\bf \color{red} Section 2}, these results will be useful in the investigation of uniform convergence for kernel estimates in a non-linear cointegrating regression. 
+For a fixed $x$, the limit distribution of $S_{2n}(x)$ has been established by \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}]{wangphillips2009} under very general setting on $x_{k,n}$. The aim of this chapter is to investigate the uniform (upper and lower) bound  for $S_{2n}(x)$ on a compact set or on $R$. As discussed in the introduction of this thesis, these results will be useful in the investigation of uniform convergence for kernel estimates in a non-linear cointegrating regression.
 
+In this regard, for a near $I(1)$ regressor $x_t$, \cite{wangwang2012} established uniform consistency for  both the regression and the volatility functions under  a compact set. Without the compact set restriction,  \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where the $x_k$ is a null recurrent Markov chain,  but  imposed the independence between $u_k$ and $x_k$. The independence condition in \cite{gaolitjostheim2011} was removed in our chapter 1, where we also investigate the uniform convergence for a class of martingales.
+
+ The present paper has a similar goal to \cite{gaolitjostheim2011} and chapter 1. However, instead of the null recurrent Markov chain, we work on the
+  general non-stationary regressor $x_k$ that is similar to \cite{wangphillips2010a}, including a partial sum of general linear process. As noticed in \cite{wangphillips2010a}, this kind of regressor has an essential difference from the null recurrent Markov chain, and is more natural for econometric applications. Furthermore  our uniform convergence rates are sharp and may be optimal.
+
+ As in point-wise asymptotics (see, for instance, \cite{wangphillips2010a}), the starting point in our development is to show the uniform (upper and lower) bounds for a general class of  functionals  of non-stationary time series. The functional class is designed to include the type of kernel averages that appear in standard kernel density estimation, in particular, to include the lower bound for $\inf_{|x| \le B_n}\sum_{t=1}^{n}K[(x_{t}-x)/h]$, where $0< B_n\to \infty$ is a sequence of constants and $K$ is a kernel function. This kind of lower bound is crucial to establish the uniform convergence for the estimator of the nonlinear link function in a nonlinear cointegration model, and also is useful in other areas such as nonlinear regression with nonlinear non-stationary heteroskedastic (NNH) errors. For the latter case, we refer to \cite{wangwang2012} and the reference therein for more details.
+
+This chapter is organized as follow. Section 2 presents the uniform (upper and lower) bounds for a class of functionals  of non-stationary time series. Technical proofs are postponed to Section 4.
+
+Throughout this chapter, we denote constants by $C, C_1, C_2,...$ which may be different at each appearance. The local time process  $L_G(t,s)$ of a stochastic process $G(x)$ is defined by
+\bestar
+L_G(t,s) = \lim_{\ep \to 0} \frac{1}{2\ep} \int_0^t I \big \{ | G(r) - s| \le \ep \big \} dr.
+\eestar
+A fractional Brownian motion $W_{\beta}(t)$ on $D[0,1]$ with $0<\beta<1$  is defined by
+\begin{eqnarray*}
+W_{\beta}(t)= \frac 1{A(\beta)}\ \big [ \int_{-\infty}^0\Big[(t-s)^{%
+\beta-1/2}-(-s)^{\beta-1/2}\Big]dW(s)+
+\int_{0}^t(t-s)^{\beta-1/2}dW(s)\big ],
+\end{eqnarray*}
+where $W(s)$ is a standard Brownian motion and
+\begin{equation*}
+A(\beta)=\Big (\frac 1{2\beta}+\int_{0}^{\infty}\Big[(1+s)^{\beta-1/2}-s^{%
+\beta-1/2}\Big]^2ds\Big)^{1/2}.
+\end{equation*}
 
 \section{Main results}
 
 We make use of the following assumptions in the development of main results.
 
-\medskip
 \begin{assump} \la{assump:2:lipschitz}
 	$\sup_x|g(x)|<\infty$, $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ \textit{and }\textit{\
 	$|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficient small on }$R$.
 \end{assump}
 
-\medskip
 \begin{assump} \la{assump:2:weakConvergence}
 \textit{There exists a stochastic process }%
 $G(t)$\textit{\ having a continuous local time
@@ -46,7 +71,6 @@ weak convergence is understood w.r.t the Skorohod topology on the space }$%
 D[0,1]$\textit{.}
 \end{assump}
 
-\medskip
 \begin{assump} \la{assump:2:density}
  \textit{For all }$0\leq k<l\leq n,n\geq 1$ \textit{, there exist a sequence of constants }$d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$\textit{\ for some $0< d<1$
 and a
@@ -62,11 +86,13 @@ uniformly bounded by a constant }$K$\textit{\ and uniformly for $j-k$ sufficient
 \ee
 \end{assump}
 
-We have the following theorem.
+We mention that Assumption \ref{assump:2:lipschitz} is standard in the investigation of uniform convergence,
+which provides rich choices for kernel estimation applications. Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} are similar to those used in Theorem 2.1 of \cite{wangphillips2010a}. The additional requirement on $d_{l,k,n}$ is mild, which is used here for technical convenience.
+Indeed, in  most practical situations, $x_{k,n}=\sum_{j=1}^k \eta_j/d_n$, where $d_n^2= var (\sum_{j=1}^n\eta_j)\sim C_0n^{2d}$ for some $0< d<1$, as stated in the following Examples 2.1 and 2.2. It is natural to set $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$.
 
 \begin{thm} \la {thmMainUpper}  Under Assumptions \ref{assump:2:lipschitz} and \ref{assump:2:density}, we have
 \be \la{thmMainUpper.eqn1}
-\sup_{|x|\le n^{m_0}} |S_n(x)| =O[(n/c_n)\log n],\quad a.s., \la {eqn:2:ad1}
+\sup_{|x|\le n^{m_0}} |S_{2n}(x)| =O[(n/c_n)\log n],\quad a.s., \la {eqn:2:ad1}
 \ee
  for any $c_n\to\infty$ and $c_n/n\to 0$, and any fixed constant $0<m_0<\infty$. If there exist positive constants  $m$ (allow to be sufficient large) and
  $k$ (allow to be sufficient small) such that $n\sup_{|x|>n^{m}/2}|g(c_n\, x)|=O[(n/c_n)\log n]$  and $
@@ -74,56 +100,49 @@ n^{-m k} \sum_{t=1}^n |x_{t,n}|^k  = O(1)\, a.s.,
 $
 then
 \be
-\sup_{x\in R} |S_n(x)| =O[(n/c_n)\log n], \quad a.s. \la {eqn:2:69}
+\sup_{x\in R} |S_{2n}(x)| =O[(n/c_n)\log n], \quad a.s. \la {eqn:2:69}
 \ee
 \end{thm}
 
 
-We mention that the additional conditions to establish (\ref {eqn:2:69}) are close to minimal. The bound can be improved if we are only concerned with
-convergence in probability, as stated in the following theorem.
+If we are only concerned with convergence in probability, the bound can be improved,  as stated in the following theorem.
 
-\begin{thm} \la{thm:2:MainLower}  Under Assumptions \ref{assump:2:lipschitz} and \ref{assump:2:density},  we have
-\be
-\sup_{|x|\le M_0/ \log^{\gamma_1} n} |S_n(x)| =O_P(n/c_n),\quad  \la {eqn:2:ad12}
+\begin{thm} \la{thm:2:MainLower}  Under Assumptions \ref{assump:2:lipschitz}--\ref{assump:2:density},  we have
+\be\la{eqn:2:MainLower0}
+\sup_{|x|\le M_0/ \log^{\gamma_1} n} |S_{2n}(x)| =O_P(n/c_n),\quad 
 \ee
 where
-% \be
-% \gamma_1 &=&\begin{cases}
-% 4\,\big (\frac{d}{1-d}\big),  & \quad if \quad  0 < d \le 3/5, \\
-%\big ( \frac{1+d}{1-d} \big ) \big ( \frac{d}{1-d} \big ), &\quad if \quad 3/5<d <1.
-%\end{cases} \la {eqn:2:gamma}
-%\ee
+ \be
+ \gamma_1 &=&\begin{cases}
+ 4\,\big (\frac{d}{1-d}\big),  & \quad if \quad  0 < d \le 3/5, \\
+\big ( \frac{1+d}{1-d} \big ) \big ( \frac{d}{1-d} \big ), &\quad if \quad 3/5<d <1,
+\end{cases} \la {eqn:2:gamma}
+\ee
 for any fixed $M_0>0$, $c_n\to\infty$ and $(n/c_n) \log^{-\theta}n \to \infty$, where $\theta = (1-d)\gamma_1/d$. If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
 \be \la{eqn:2:MainLower1}
-\Big [ \inf_{|x|\le M_0/ \log^{\gamma_1} n}| S_n(x)|\Big]^{-1} =\sup_{|x|\le M_0/ \log^{\gamma_1} n} |S_n^{-1}(x)| =O_P(c_n/n) .
+\Big [ \inf_{|x|\le M_0/ \log^{\gamma_1} n}| S_{2n}(x)|\Big]^{-1} =\sup_{|x|\le M_0/ \log^{\gamma_1} n} |S_{2n}^{-1}(x)| =O_P(c_n/n) .
 \ee
 \end{thm}
-
-
-\begin{rem}  The requirement on $d_{l,k,n}$ is mild. Indeed, in  most practical situations, $x_{k,n}=\sum_{j=1}^k \eta_j/d_n$, where $d_n^2= var (\sum_{j=1}^k\eta_j)\sim C_0n^{2d}$ for some $0< d<1$, as stated in the following examples. It is hence natural to assume $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$. This condition can  be generalized to $d_{l,k,n}\sim C_0 [n\rho (n)/(l-k) \rho(l-k)]^{-d}$, where $\rho (n)$ is slowly varying function at infinity or more generally to those as in Assumption 2.3 (i) of \cite{wangphillips2010a} without essential difficulty. We omit this kind of generalization here for notation convenience.
-\end{rem}
 
 \begin{rem} It is readily seen that $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$ for some $0< d<1$ satisfies Assumption 2.3 (i) of \cite{wangphillips2010a}.
 If in addition to Assumptions \ref{assump:2:lipschitz} and \ref{assump:2:density}, $\int_{\infty}^{\infty} g(x)dx\not=0$.  Theorem 2.1 and Remark 2.1 of \cite{wangphillips2010a} yield that
 \be
 \frac{c_n}{n}\sum_{t = 1}^{n} g[c_n\, (x_{t,n}+y_n)] \to_D \int_{-\infty}^{\infty} g(x)dx\, L_G(1,y), \la {eqn:2:99}
 \ee
-whenever $c_n\to\infty$, $n/c_n\to\infty$ and $y_n\to y$,
-where $L_G(1, 0)$ is the local time process defined by
-\bestar
-L_G(t,s) = \lim_{\ep \to 0} \frac{1}{2\ep} \int_0^t I \big \{ | G(r) - s| \le \ep \big \} dr.
-\eestar
-Note that $P(0<L_G(1, x) <\infty)=1$, for any fixed $x\in R$ and $L_G(1, x)\to 0$, as $x\to \infty$.
-It might be possible to improve the range $|x|\le M_0/ \log^{\gamma_1} n$ in  (\ref {eqn:2:ad12}) and (\ref {eqn:2:MainLower1}) into $x\in R$ and
- $|x|\le M_0$ (not possible for $|x|\le b_n$ in (\ref {eqn:2:MainLower1}) where $b_n\to\infty$), respectively. However, to do this, we  require a quite different technique, and hence leave it for future work.
+whenever $c_n\to\infty$, $n/c_n\to\infty$ and $y_n\to y$. This, together with the fact that $P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (See, for instance, \cite{takacs1995}) implies that both convergence rates in (\ref {eqn:2:MainLower0}) and (\ref {eqn:2:MainLower1}) are optimal and  the range  $|x|\le M_0/ \log^{\gamma_1} n$ in   (\ref {eqn:2:MainLower1}) can not be improved  to $|x|\le b$ for any constant $b>0$. It keeps an open problem  for the optimal range to make the result (\ref {eqn:2:MainLower1}) hold.
 \end{rem}
 
-The essential behind the proof of Theorem \ref {thm:2:MainLower} is a fact   that $S_n(x)$ can be approximated by $S_n(0)$ under a reasonable rate. Explicitly we have the following theorem.
+
+\begin{rem} Results similar to (\ref{eqn:2:MainLower0}) and (\ref{eqn:2:MainLower1}) were established  in
+chapter 1 for a Harris recurrent Markov chain. As stated in \cite{wangphillips2010a}, our Assumption \ref{assump:2:density} which includes a partial sum of general linear process (see Examples below) is more natural for econometric applications and has an essential difference from the  Markov chain.
+\end{rem}
 
 
-\begin{thm} \la{thm:2:thm7} Let $\gamma \ge 0$. Under Assumptions \ref{assump:2:lipschitz} and \ref{assump:2:density},  we have
+The essential behind the proof of Theorem \ref {thm:2:MainLower} is a fact   that $S_{2n}(x)$ can be approximated by $S_{2n}(0)$ under a reasonable rate. Explicitly we have the following theorem.
+
+\begin{thm} \la{thm:2:thm7} Let $\gamma \ge 0$. Under Assumptions \ref{assump:2:lipschitz}--\ref{assump:2:density},  we have
 \be
-\sup_{|x|\le M_0/ \log^\gamma n} |S_n(x)-S_n(0)| =O_P[(n/c_n) \log^{1-\lambda} n],\quad  \la {eqn:2:ad121}
+\sup_{|x|\le M_0/ \log^\gamma n} |S_{2n}(x)-S_{2n}(0)| =O_P[(n/c_n) \log^{1-\lambda} n],\quad  \la {eqn:2:ad121}
 \ee
  for any fixed $M_0>0$, $c_n\to\infty$ and $(n/c_n) \log^{-\theta}n \to \infty$, where $\theta=\max\{\lambda+1, \eta\}$,
 \be
@@ -174,18 +193,63 @@ A(\beta)=\Big (\frac 1{2\beta}+\int_{0}^{\infty}\Big[(1+s)^{\beta-1/2}-s^{%
 \end{equation*}
 
 
-
-
 \medskip
-{\bf Example 3.2.} Let $x_{k,n}=x_k/d_n$, where $x_k$ is defined as in Assumption {\bf \color{red} 2.1} and $d_n$ is defined as in (\ref {eqn:2:sec2.f2}).
-Then $x_{k,n}$ satisfies Assumptions 3.2 and 3.3 with
+{\bf Example 2.2.} Let $\{\xi _{j},j\geq 1\}$ be a linear process defined by
+$
+\xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k},
+$
+where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of iid
+random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
+characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfies
+$\int_{-\infty
+}^{\infty }(1+|t|)|\varphi (t)|dt<\infty $. The coefficients $\phi_k$, $k \ge 0$ are assumed to satisfy one of the following conditions:
+\begin{itemize}
+\item[\textbf{C1.}] $\phi _{k}\sim k^{-\mu }\,\rho(k),$ where $1/2<\mu <1$ and $%
+\rho(k)$ is a function slowly varying at $\infty $.
+\item[\textbf{C2.}] $\sum_{k=0}^{\infty } |\phi _{k}|<\infty $ and $\phi \equiv
+\sum_{k=0}^{\infty }\phi_{k}\not =0$.
+\end{itemize}
+
+Write $x_{t}=\sum_{j=1}^t \xi_{j}$ and $d_n^2 = \E x_n^2$. We have
+\be \la{eqn:2:sec2.f2}
+d_n^2 = \E x_n^2 \sim
+\begin{cases}
+c_{\mu} n^{3-2\mu} \rho^2(n),  & \mbox{under {\bf C1},} \\
+\phi^2 n, & \mbox{under {\bf C2}.}
+\end{cases}
+\ee
+where $c_\mu = 1 / ((1 - \mu)(3-2\mu )) \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$. See, e.g., \cite{wanglingulati2003} for instance.
+Now  $x_{k,n}\equiv x_k/d_n, 1\le k\le n,$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with
 \be
  G(t) &=&\begin{cases}
- W_{\mu - 3/2}(t),  & \mbox{under C1,} \\
-W(t), & \mbox{under C2.}
-\end{cases} \la {eqn:2:im19}
+ W_{\mu - 3/2}(t),  & \mbox{under {\bf C1},} \\
+W(t), & \mbox{under {\bf C2}.}
+\end{cases} \la {im19}
 \ee
-The verification of $x_{k,n}$ satisfying Assumption \ref{assump:2:weakConvergence} and \ref{assump:2:density} are largely similar to that the proof of Corollary 2.2 of \cite{wangphillips2010a}. The only additional work is to check (\ref{77}), {\bf \color{red} which is given in Appendix}.
+
+The verification of this claim  is similar to  the proof of Corollary 2.2 in \cite{wangphillips2010a}. The only additional work is to show (\ref{eqn:2:77}) hold as well. In fact, by writing
+\be
+x_l &=&\sum_{j=1}^{l}\,\sum_{i=-\infty}^{j}\ep_i\phi_{j-i} \no\\
+  &=& \,x_{k}+\sum_{j=k+1}^{t}\,\sum_{i=-\infty}^{k}\ep_i\phi_{j-i} + \sum_{j=k+1}^{l}\,\sum_{i=k+1}^{j}\ep_i\phi_{j-i} \no\\
+  &:=& x_{k, l}^*+x_{k,l}', \la {m-01}
+  \ee
+the similar arguments as in the proof of Corollary 2.2
+in \cite{wangphillips2010a} yields that
+ $x'_{k,l} / d_{l - k}$, where $d_n$ is defined as in (\ref {eqn:2:sec2.f2}),
+  has a density $h_{l,k}(x)$ and $\int_{-\infty}^{\infty} (1 + |t|)|\varphi_{l,k}(t)| dt<\infty$ uniformly for $0 \le k < l \le n$, where $\varphi_{l,k}(t) = Ee^{itx'_{l,k}/d_{l-k}}$, due to $\int (1+|t|)|Ee^{it\ep_0}|dt<\infty$.
+  Hence, conditional on $\F_{k,n} = \si(\ep_j, -\infty < j \le k)$,
+\be
+(x_{l,n} - x_{k,n})  / d_{l,k,n} \mbox{ has a density } h_{l,k}(x - x^*_{k, l} / d_{l - k})
+\ee
+where $x_{t,n} = x_t / d_n$ and $d_{l,k,n} =  d_{l-k}/ d_n$. Furthermore, for any $u\in R$, we have
+\bestar
+&&\sup_x \big|h_{l,k}(x - x^*_{k, l} / d_{l - k}+u)-h_{l,k}(x - x^*_{k, l} / d_{l - k})\big| \no\\
+&\le&
+\sup_x | h_{l,k}(x +u) - h_{l,k}(x)| \no\\
+&\le & C \Big | \int_{-\infty}^{\infty} \big ( e^{-it(x+u)} - e^{-itx} \big ) \varphi_{l, k}(t) dt \Big | \no\\
+&\le& C\,\min\{|u |, 1\}\,  \int_{-\infty}^{\infty}  (1+|t|)\,  |\varphi_{l, k}(t)| dt  \le C_1\,  \min\{|u |, 1\},
+\eestar
+which yields the claim.
 
 
 \section{Proofs of main results}
@@ -193,10 +257,10 @@ This section provides proofs of the main results. We start with a lemma, which w
 Throughout this section, we denote constants by $C, C_1, C_2,...$, which may be different at each appearance.
 
 
-\begin{lem} \la {lem1} For any real function $l(x)$ satisfying $\sup_x|l(x)|<\infty$ and $\int_{-\infty}^{\infty}|l(x)|dx<\infty$, there exist a constant $H_0$ not depending  on $t_1, t_2, t_3$ and $m$  such that
+\begin{lem} \la {lem:2:lem1} Under Assumption \ref{assump:2:density}, for any real function $l(x)$ satisfying $\sup_x|l(x)|<\infty$ and $\int_{-\infty}^{\infty}|l(x)|dx<\infty$, there exist a constant $H_0$ (not depending  on $t_1, t_2, t_3$) and $m$  such that
 \be
 && \sup_x\, E\big(|\sum_{k=t_2}^{t_3}l[c_n\, (x_{k,n}+x)]|^m\mid {\mathcal F}_{n,t_1}\big) \no\\
-&\le &  H_0^m \, (m+1)!\, n^d\,c_n^{-1}  (t_3-t_1)^{1-d}\big[1+ \big\{(t_3-t_2)^{1-d} n^d\,c_n^{-1}\big\}^{m-1}  \big]. \la {lm90}
+&\le &  H_0^m \, (m+1)!\, n^d\,c_n^{-1}  (t_3-t_1)^{1-d}\big[1+ \big\{(t_3-t_2)^{1-d} n^d\,c_n^{-1}\big\}^{m-1}  \big], \la {lm90}
 \ee
 for all $0\le t_1<t_2<t_3\le n$ and integer $m\ge 1$. In particular, by letting $t_1=0, t_2=1$ and $t_3=n$, we have
 \be
@@ -206,7 +270,8 @@ for all $0\le t_1<t_2<t_3\le n$ and integer $m\ge 1$. In particular, by letting 
 
 \end{lem}
 
-{\it Proof.} First recall that, given on ${\mathcal F}_{s,n}$, $(x_{t,n}-x_{s,n})/d_{t,s,n}$
+\begin{proof}
+First recall that, given on ${\mathcal F}_{s,n}$, $(x_{t,n}-x_{s,n})/d_{t,s,n}$
 has a density $h_{t,s,n}(x)$ which is uniformly bounded by a constant $K$. Simple calculations show that, for $1\le s<t\le n$,
 \be \E\big\{|l[c_n(x_{t,n}+x)]|\mid {\mathcal F}_{s,n}\big\}
 &=&
@@ -235,17 +300,18 @@ Therefore, by recalling $d_{t,s,n}\sim C_0\,[(n/(t-s)]^{-d}$ for some $0< d<1$ a
 && \qquad \qquad + m!\,n^{md}\,c_n^{-m} \sum_{t_2 \le k_1 < ... < k_m \le t_3} (k_1-t_1)^{-d}(k_2-k_1)^{-d}...(k_m-k_{m-1})^{-d}\Big ]\no\\
 &\le& H_0^m \, (m+1)!\, n^d\,c_n^{-1}  (t_3-t_1)^{1-d}\big[1+ \big\{(t_3-t_2)^{1-d} n^d\,c_n^{-1}\big\}^{m-1}  \big].
 \eestar
- This proves Lemma \ref {lem1}.  $\Box$
+ This proves Lemma \ref {lem:2:lem1}. 
+\end{proof}
 
 
 \vskip 0.5cm
 We are now ready to prove the main results.
 
-{\bf Proof of Theorem \ref {thmMainUpper}.} Let
+\begin{proof}[\bf Proof of Theorem \ref {thmMainUpper}] Let
  \be y_j=-[n^{m_0}]-1+j\,/ m_n',\quad  j=0, 1,2,...,\,m_n, \la {eqn:2:m1a}
 \ee where $m_n'=[(n/c_n)^{1/2} c^2_n]$ and $m_n=2([n^{m_0}]+1)m_n'$. It follows that
 \be
-\sup_{|x|\le n^{m_0}}\big|S_n(x)\big|
+\sup_{|x|\le n^{m_0}}\big|S_{2n}(x)\big|
 &\le&  \max_{0 \le j \le m_n -1} \sup_{x \in [y_j, y_{j+1}]} \sum_{t =1}^n \big |g[c_n (x_{t,n} + x)]-g[c_n (x_{t,n} + y_j)]\big| \no\\
 &\quad& + \max_{0 \le j \le m_n} \big |\sum_{t =1}^n g[c_n (x_{t,n} + y_j)]\big|  \no\\
 &:=& \lambda_{1n} + \lambda_{2n}. \la {eqn:2:78}
@@ -256,10 +322,10 @@ It follows from Assumption \ref{assump:2:lipschitz} that
 \ee
 which yields $\lambda_{1n}=O(n/c_n),$ a.s., as $n/c_n\to \infty.$
 
-We use Lemma \ref {lem1} to estimate $\lambda_{2n}$. To this end, let $m=\log n$ in (\ref {eqn:2:lm91}).
-It follows from Markov inequality and the Stirling approximation of $(m+1)!$ that, for any $M_0\ge e^{m_0+3}H_0$ where $H_0$ is given as in Lemma \ref {lem1},
+We use Lemma \ref {lem:2:lem1} to estimate $\lambda_{2n}$. To this end, let $m=\log n$ in (\ref {eqn:2:lm91}).
+It follows from Markov inequality and the Stirling approximation of $(m+1)!$ that, for any $M_0\ge e^{m_0+3}H_0$ where $H_0$ is given as in Lemma \ref {lem:2:lem1},
 \begin{align}\la{p8}
-& P \Big ( \max_{1 \le j \le m_n} \Big|\sum_{t = 1}^n g\big[ c_n(x_t +y_j)\Big| \big ] \ge M_0\, (n/c_n)\, \log n,\, i.o. \Big ) \no\\
+& P \Big ( \max_{1 \le j \le m_n} \Big|\sum_{t = 1}^n g\big[ c_n(x_{t,n} +y_j)\Big| \big ] \ge M_0\, (n/c_n)\, \log n,\, i.o. \Big ) \no\\
 &\le \lim_{s \to \infty} \sum_{n = s}^\infty \sum_{j = 1}^{m_n} P \Big ( \Big | \sum_{t = 1}^n g\big[ c_n(x_{t,n} +y_j) \big ] \Big |^m \ge \big [ M_0\, (n / c_n)\, \log n \big ]^{m} \Big ) \no\\
 & \le  \lim_{s \to \infty} \sum_{n = s}^\infty \frac{ m_n }{[ M_0\, (n / c_n)\, \log n \big ]^m} \max_{1 \le j \le m_n} \E \Big | \sum_{t = 1}^n g\big[ c_n(x_t +y_j) \big ]\Big |^m \no\\
 & \le \lim_{s \to \infty} \sum_{n = s}^\infty \frac{ m_n \, H_0^m (m+1)!}{[ M_0\,  \log n \big ]^m} \no\\
@@ -271,8 +337,8 @@ This proves $\lambda_{2n}=O[(n/c_n)\log n],$ a.s. Taking the estimates of $\lamb
 
 To prove (\ref {eqn:2:69}), we first write
 \begin{align}
-\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)] &= \sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)] I(|x_{t,n}| \le n^{m}/2)  \no\\
-&\qquad + \sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)] I(|x_{t,n}| > n^{m}/2) \no\\
+\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)] &= \sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)] I(|x_{k,n}| \le n^{m}/2)  \no\\
+&\qquad + \sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)] I(|x_{k,n}| > n^{m}/2) \no\\
 &:= \lambda_{1n}(x) + \lambda_{2n}(x) \la {eqn:2:71}
 \end{align}
 It follows from (\ref {eqn:2:ad1}) and $n \sup_{|x| > n^{m}}|g(c_n \, x)| = O[(n/c_n) \log n]$ that
@@ -286,14 +352,13 @@ As for $\lambda_{2n}(x)$, we have
 \sup_{x\in R} |\lambda_{2n}(x)| &\le C \sum_{t = 1}^n  I(| x_{t,n}| > n^{m}/2)  \le C n^{-m k/2} \sum_{t = 1}^n  |x_{t,n}|^{k} \no\\
 & = O(1) \quad a.s., \la {eqn:2:73}
 \end{align}
-Combining (\ref {eqn:2:71})-(\ref {eqn:2:73}), we prove (\ref {eqn:2:69}).
-The proof of Theorem \ref {thmMainUpper} is now complete. $\Box$
+Combining (\ref {eqn:2:71})--(\ref {eqn:2:73}), we prove (\ref {eqn:2:69}).
+The proof of Theorem \ref {thmMainUpper} is now complete.
+\end{proof}
 
-\medskip
-{\bf Proof of Theorem \ref {thm:2:MainLower}.}  It follows immediately from Theorem \ref {thm:2:thm7} and Remark 3.2. We omit the detalis.
+\begin{proof}[Proof of Theorem \ref {thm:2:MainLower}] It follows immediately from Theorem \ref {thm:2:thm7} and Remark 3.2. We omit the detalis.\end{proof}
 
- \medskip
- {\bf Proof of Theorem \ref {thm:2:thm7}.}
+\begin{proof}[Proof of Theorem \ref {thm:2:thm7}]
 Let $\eta_n=(n/c_n)\log^{-\lambda}n,$ $b_n = [n \log^{-\nu} n]$, where $\nu=(\lambda+1)/(1-d)$, and let $T_n$ be the largest integer $s$ such that $s b_n \le n$. Also write  $y_j = -M_0/\log^\gamma n +  j/  m_n',  j = 0,1,2,...,m_n,$ where $m'_n = [(n/c_n)^{1/2} c_n^2]$ and $m_n= [M_0m_n'/\log^\gamma n]+1$. It is readily seen that
 \be
 n/b_n \sim  \log^\nu n, \quad T_nb_n\le n, \quad m_n\le Cn^2, \la {eqn:2:110}
@@ -306,16 +371,16 @@ d\nu-\eta \le 1-2\lambda, \quad (d-1)\nu+\lambda\le -1, \quad 2d\nu-\gamma\le 1-
 
 We now return to the proof of Theorem \ref {thm:2:thm7}. Using the similar arguments as in the proof of (\ref {eqn:2:78}),  we have
 \be
-&& \sup_{|x|\le M_0/\log^\gamma n} | S_n(x)-S_n(0)| \no\\
-&\le & \sup_{|x|\le M_0/\log^\gamma n} | S_n(y_j)-S_n(0)|+O_{a.s.}[( n/c_n)^{1/2}] \no\\
+&& \sup_{|x|\le M_0/\log^\gamma n} | S_{2n}(x)-S_{2n}(0)| \no\\
+&\le & \sup_{|x|\le M_0/\log^\gamma n} | S_{2n}(y_j)-S_{2n}(0)|+O_{a.s.}[( n/c_n)^{1/2}] \no\\
 &\le& \max_{1\le j\le m_n}| \sum_{s=2}^{T_n-1} \Delta_{ns}(y_j)|+\max_{1\le j\le m_n}\Delta_n(y_j)+ O_{a.s.}[( n/c_n)^{1/2}],  \la {eqn:2:95}
 \ee
 where, for  $s = 1,..., T_n$ ,
 \bestar
-\Delta_{ns}(x) &=& \sum_{t = sb_n + 1}^{(s+1)b_n} \big ( g[c_n( x_{n,t}+x)]  - g(c_n\, x_{n,t}) \big ) ,\no\\
-\Delta_n(x) &\le & \Big(\sum_{t =  1}^{2b_n} +\sum_{t =  T_nb_n}^{n}\Big)\,\big | g[c_n( x_{n,t}+x)]  - g(c_n\, x_{n,t}) \big |.
+\Delta_{ns}(x) &=& \sum_{t = sb_n + 1}^{(s+1)b_n} \big ( g[c_n( x_{t,n}+x)]  - g(c_n\, x_{t,n}) \big ) ,\no\\
+\Delta_n(x) &\le & \Big(\sum_{t =  1}^{2b_n} +\sum_{t =  T_nb_n}^{n}\Big)\,\big | g[c_n( x_{t,n}+x)]  - g(c_n\, x_{t,n}) \big |.
 \eestar
-Recall $\eta_n=(n/c_n)\log^{-\lambda}n$. Using Theorem 3.1, it is readily seen that
+Recall $\eta_n=(n/c_n)\log^{-\lambda}n$. Using Theorem \ref{thmMainUpper}, it is readily seen that
 \bestar
 \max_{1\le j\le m_n}\Delta_n(y_j)  &\le& C\big[(b_n + |n-T_nb_n|)/c_n\big]\log n \no\\
 &\le& C\, (n/c_n)\, \log^{1-\nu} n
@@ -343,7 +408,7 @@ Under these notation, to prove (\ref {eqn:2:21}) for $s\in even$, it suffices to
  \ee
 
  We start with (\ref {eqn:2:23}).  Note that, for any $2sb_n<t\le (2s+1)b_n$ and $|x|\le M_0/\log^\gamma n$ (letting $s_n=(2s-1)b_n$),
- \begin{align} \la{24.5}
+ \begin{align} \la{eqn:2:24.5}
 & \Big| E\big [ g[c_n (x_{t,n} + x)] - g( c_n\, x_{t,n}) \Big | \F^*_{n, s-1} \big ]\Big|= \Big| E\big [ g[c_n (x_{t,n} + x)] - g( c_n\, x_{t,n}) \Big | \F_{n, s_n} \big ]\Big|\no\\
 &\quad = \Big| \int_{-\infty}^{\infty} \Big (g[c_n (x_{s_n,n} + d_{t, s_n, n} y + x)] - g[ c_n\, (x_{s_n,n} + d_{t,s_n,n} y) ] \Big ) \, h_{t, s_n,n}(y) dy \Big|\no\\
 &\quad \le d_{t,s_n,n} ^{-1}\,
@@ -352,14 +417,14 @@ Under these notation, to prove (\ref {eqn:2:21}) for $s\in even$, it suffices to
  &\quad \le C\,  c_n^{-1}  \log^{2 d\nu-\gamma}n,
 \end{align}
 due to Assumption \ref{assump:2:density} and $d_{t,s,n}\sim C_0[n/(t-s))]^{-d}$. It is readily seen that
-\be \la{25}
+\be \la{eqn:2:25}
 \lam_{2n} &\le& \sum_{s=1}^{T_n/2}  \max_{1\le j\le m_n} |\E \big(\Delta_{n, 2s}(y_j)\mid \F_{n, s-1}^*\big)| \no\\
 &\le& C\, (n/c_n)\, \log^{2d\nu-\gamma}n = O_P(\eta_n \, \log n),
 \ee
 due to (\ref {eqn:2:112}),
 which yields (\ref {eqn:2:23}).
 
-Next for (\ref {eqn:2:24}). Using Lemma \ref {lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$,
+Next for (\ref {eqn:2:24}). Using Lemma \ref {lem:2:lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$,
 \bestar
 \sup_x \E |\Delta_{n, 2s}(x)|^m &\le& H_0^m (m+1)!\, (n/c_n)\, \big\{1+ \big [(n/c_n) (n/ b_n)^{d-1} \big ]^{m-1}\big\}\no\\
 &\le& 2H_0^m (m+1)! (n/c_n)^m (n/b_n)^{(d - 1)(m-1)},
@@ -381,9 +446,9 @@ which implies that $\lam_{3n}=o_P(1)$. Hence (\ref {eqn:2:24}) follows.
 
 We finally consider (\ref {eqn:2:22}). First note that, similarly to the proof of (\ref {eqn:2:24.5}),
 \bestar
-I_{k,j}&:=&\Big|\E \Big(  \{g[c_n(x_{n,j} + x)] - g[c_n x_{n,j}] \}\mid {\mathcal F}_{n, k}\Big)\Big| \no\\
+I_{k,j}&:=&\Big|\E \Big(  \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\mid {\mathcal F}_{n, k}\Big)\Big| \no\\
 &\le& d_{j,k, n}^{-1}\,
- \int_{-\infty}^{\infty} g[c_n(x_{n,k} + y)]
+ \int_{-\infty}^{\infty} g[c_n(x_{k,n} + y)]
  \big | h_{j, k, n}[(y - x)/ d_{j,k, n}] -  h_{j,k,n}( y/ d_{j,k,n}) \big |\,dy \no\\
  & \le& C\, c_n^{-1}\,  d_{j,k, n}^{-1} \min\{|x| d_{j,k, n}^{-1}, 1\}\no\\
  &\le & C\, c_n^{-1}\, [n/(j-k)]^d \min\{|x|[n/(j-k)]^{d},1\},
@@ -391,11 +456,11 @@ I_{k,j}&:=&\Big|\E \Big(  \{g[c_n(x_{n,j} + x)] - g[c_n x_{n,j}] \}\mid {\mathca
 for any $k<j$. This, together with  (\ref {eqn:2:109}), implies  that, for any $|x| \le M_0/\log^{\gamma}n$,
 \begin{align}
 &\quad E[\Delta_{ns}^{*2}(x) | \F^*_{n, s-1}] \le 2 E[ \Delta_{n, 2s}^2(x) | \F_{n, (2s-1) b_n} ] \no\\
-&\le \sum_{k = 2sb_n +1}^{(2s+1)b_n} E \Big (  \{ \, g[c_n(x_{n,t} + x)] - g[c_n x_{n,t}]\, \}^2 \,| \,\F_{n, (2s-1)b_n} \Big ) \no\\
-&\quad + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n} \big|E \Big ( \{g[c_n(x_{n,k} + x)] - g[c_n x_{n,k}] \} \, \no\\
-&\hskip 5cm \{g[c_n(x_{n,j} + x)] - g[c_n x_{n,j}] \}\,\Big | \F_{n,(2s-1)b_n} \Big ) \big| \no\\
+&\le \sum_{k = 2sb_n +1}^{(2s+1)b_n} E \Big (  \{ \, g[c_n(x_{t,n} + x)] - g[c_n x_{t,n}]\, \}^2 \,| \,\F_{n, (2s-1)b_n} \Big ) \no\\
+&\quad + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n} \big|E \Big ( \{g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}] \} \, \no\\
+&\hskip 5cm \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\,\Big | \F_{n,(2s-1)b_n} \Big ) \big| \no\\
 &\le C\, (n/c_n) (n /b_n)^{d-1}  + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n}
-E \Big ( |g[c_n(x_{n,k} + x)] - g[c_n x_{n,k}] |\,  |I_{k,j}|\, \Big  | \,\F_{n, (2s-1)b_n} \Big )   \no\\
+E \Big ( |g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}] |\,  |I_{k,j}|\, \Big  | \,\F_{n, (2s-1)b_n} \Big )   \no\\
 &\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{-d}  \sum_{ 2sb_n + 1\le k<j\le (2s+1)b_n}\,(j-k)^{-d}\min\{n^d\log^{-\gamma} n (j-k)^{-d}, 1\} \no\\
 &\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{1-d}\sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^d\log^{-\gamma}n, 1\} \no\\
 &\le C\, (n/c_n) (n /b_n)^{d-1} \big[1+   \, (n/c_n)  \log^{-\eta}n\big],
@@ -431,7 +496,7 @@ the well-known martingale exponential inequality
 where the last inequality follows from (\ref {eqn:2:110}).
  This yields $\lam_{1n}=O_P\big( \eta_n \, \log n \big )$.
 Combining (\ref {eqn:2:25})-(\ref {eqn:2:p10}), we establish (\ref {eqn:2:21}).
- $\Box$
+\end{proof}
 
 
 

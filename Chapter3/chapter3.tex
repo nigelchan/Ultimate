@@ -5,7 +5,588 @@
     \graphicspath{{Chapter3/Chapter3Figs/EPS/}{Chapter3/Chapter3Figs/}}
 \fi
 
+In this chapter, we establish uniform strong approximation to a local time process a functional of nonstationary time series. Sharp convergence rates and optimal range are obtained. 
+
 \section{Introduction}
+Let ${x_{k,n},1\leq k\leq n,n\geq 1}$
+ be  a triangular  array, constructed from some
+underlying nonstationary time series and assume that there is a continuous
+limiting Gaussian process $G(t),0\leq t\leq 1,$ to which $x_{[nt],n}$
+converges weakly, where $[a]$ denotes the integer part of $a.$ In many applications, we let ${x_{k,n}=d}_{n}^{-1}{x}%
+_{k}$ where $x_{k}$ is a nonstationary time series, such as a unit root or
+long memory process, and $d_{n}$ is an appropriate standardization
+factor. A common functional of interest $S_{2n}(x)$ of $x_{k,n}$ is defined by
+the sample quantity%
+\begin{equation}
+S_{2n} (x)=\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)], \quad x\in R,
+\end{equation}
+where $c_{n}$ is a certain sequence of positive constants and $g$ is a real
+integrable function on $R$. These functionals arise in nonparametric
+estimation and inference  problems, particularly, problems involving nonlinear cointegration
+models. In such situations, the underlying time series $x_{k}$ is nonstationary, $g$ is a
+kernel function, and the secondary sequence $c_{n}$ depends on the bandwidth
+
+used in the nonparametric regression. See [\citet[][\citeyear{parkphillips2001}]{parkphillips1999}],
+\cite{karlsenmyklebusttjostheim2007}, \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}, \citeyear{wangphillips2012}]{wangphillips2009} and the reference therein.
+
+This chapter is concerned with developing a uniform approximation of $S_{2n}(x)$ to the local time $L_{G}(1,-x)$ of the process $G(t)$. Such cases are important in nonlinear cointegrating regression and they appear in the investigation  of   uniform convergence in relation to  non-parametric estimation.  In order to investigate the uniform convergence for a Nadaraya-Watson estimator, for example, we need to consider the lower bound for $\inf _{|x|\le \gamma_n}S_{2n}(x)$ in
+the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K(s) $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  a ``optimal" range for the $x$ being held. This result essentially improves the previous those in Chapter 3. It should be mentioned that similar  uniform lower bounds of $S_{2n}(x)$  are required in many other areas, such as  the estimation of the volatility function in a regression  model with nonlinear nonstationary heteroskedastic (NNH) error processes. We refer to \cite{wangwang2012} and the reference therein  for more details.
+
+This chapter is organized as follows.  In next section, we present our
+main results. Theorem \ref {th1} provides a framework for the uniform approximation. It is shown that, under certain conditions and a rich probability space, $S_{2n}(x)$ can be approximated by a local time process over $R$ with certain rate. The rate might be not optimal, but it is enough for many practical applications.
+Theorem \ref {th11} gives an important application of
+Theorem \ref {th1} to general linear processes. Our result includes
+ the $x_k$ being a partial sum of ARMA processes and fractionally integrated processes,
+ which are most commonly used in practice. All technical proofs are given in Section 3.
+
+
+
+\section{Main results and applications}
+\subsection{Main results}\la{section:3:mainResults}
+
+We make use of the following assumptions in the development of main results.
+
+\begin{assump} \la{assumpFuncG} \textit{
+$\sup_x |x|^{\rho} |g(x)|<\infty$ for some $\rho > 1$, $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ \textit{and }\
+$|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficiently small on }$R$.
+\end{assump}
+
+
+\begin{assump} \la{assumpApprox}
+ \textit{On a rich probability space, there exist a stochastic process $G(t)$ having a continuous local time $L_G(t,s)$ and a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and 
+\be
+ \sup_{0\le t\le 1}|x_{[nt],n}-G_n(t)| &=&o_{a.s.}(n^{-\delta}),
+ \la {a2}
+\ee
+for some $0<\delta<1$. }
+\end{assump}
+
+\begin{assump} \la{assumpDensity}
+ \textit{For all }$0\leq j<k\leq n,n\geq 1$%
+\textit{, there exist  a
+sequence of }$\sigma $\textit{-fields }${\mathcal F}_{k,n}$\textit{\ (define }$%
+{\mathcal F}_{0,n}=\sigma \{\phi ,\Omega \}$\textit{, the trivial }$\sigma $\textit{%
+-field) such that,}
+
+(i) $x_{j,n}$\textit{\ are adapted to }${\mathcal F}_{j,n}$\textit{\
+and, conditional on }${\mathcal F}_{j,n}$\textit{,
+}$[n/(k-j)]^d(x_{k,n}-x_{j,n})$\textit{ where $0<d<1,$ has a density
+}$h_{k,j,n}(x)$\textit{\ satisfying that }$h_{k,j,n}(x)$\textit{\ is
+uniformly bounded by a constant }$K$\textit{\ and }%
+
+(ii) $  \sup_{u\in R}\big|h_{k,j,n}(u+t)-h_{k,j,n}(u)\big|\le C\, \min\{|t|, 1\},$
+whenever $n$ and $k-j$ are sufficiently large and $t\in R$.
+\end{assump}
+
+\begin{assump} \la{assumpGenH}
+ \textit{There is a $\ep_0>0$ such that $c_n\to\infty$ and $n^{-1+\ep_0}c_n\to 0$. }
+\end{assump}
+
+We remark that Assumption \ref{assumpFuncG} is weak and standard
+  for this type of problem, and it is satisfied by many functionals such as $g(x)$ is differentiable and has a compact support. Assumption \ref{assumpApprox} is strong approximation version of the result $x_{n, [nt]}\to_D G(t)$ on $D[0,1]$, and it is obtainable for many random sequences. For instance,  if $\{\ep_k\}_{k\ge 1}$ are i.i.d. random variables with $E\ep_1=0, E\ep_1^2=1$ and $E|\ep_1|^{r}<\infty$
+  for some $r>2$, then (\ref {a2}) holds true with $x_{n,k}=\sum_{j=1}^k\ep_j/\sqrt n$, $G_n(t) = n^{-1/2} W(nt)$ and $\delta=(r - 2) / (2r)$. More examples can be found in Proposition \ref{prop1} where we establish  Assumption \ref{assumpApprox} for general linear processes. Note that, $G_n(x)$ can not be replaced by one single process $G(x)$ which is independent of $n$. Explanation in this regards can be found in \cite{csorgorevesz1981}.
+  Assumption \ref{assumpDensity} is  similar to Assumption \ref{assumpDensity} given in \cite{wangphillips2010a} which is also used in Chapter 3.
+
+
+
+We have the following main result.
+
+\begin{thm} \la {th1} Suppose Assumptions \ref{assumpFuncG}--\ref{assumpGenH} hold. On the same probability space as in Assumption \ref{assumpApprox}, for any $\beta>0$,
+we have
+\be \la{th1.eqn1}
+\sup_{x\in R} \Big |\frac{c_n}{n}S_{2n}(x)- \tau\, L_{G_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
+\ee
+where $\tau= \int_{-\infty}^{\infty} g(t) dt$.
+\end{thm}
+
+\begin{rem} Due to technical difficulties, the convergence rate in (\ref {th1.eqn1}) may not be optimal. To our guess, the rate should have the form $n^{-\gamma}$, where $\gamma>0$ is related to $\delta>0$ given in Assumption \ref{assumpApprox}. However, the result
+(\ref {th1.eqn1}) suffices in many applications. As a direct consequence, we have the following corollary that provides the uniform bounds for $S_{2n}(x)$ under ``optimal" range.   As stated in Section 1, these uniform bounds are the key to investigate the uniform asymptotics in non-linear regression with non-stationary time series.
+\end{rem}
+
+\begin{cor} \la{cor1}  Under Assumptions \ref{assumpFuncG}--\ref{assumpGenH}, we have
+\be\la{cor1.eqn1}
+\sup_{x\in R} |S_{2n}(x)| =O_P(n / c_n).\quad  \la {ad12}
+\ee
+If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$ and $\lim_{n\to \infty}P( \inf_{x\in \Omega_n} L_G(1, -x)=0)=0$ where $\Omega_n$ is a subset of $\mathbb{R}$, then, for any $\eta>0$,  there exist $M_\eta>0$ and $n_0$ such that, for all $n\ge n_0$,
+ \be
+ P\Big ( \inf_{x\in \Omega_n}| S_{2n}(x)|\ge (n/ c_n)M_\eta^{-1} \Big ) &\ge& 1-\eta.
+ \ee
+\end{cor}
+
+\begin{rem} \la{rem:3:optimal} Corollary \ref {cor1} essentially improves Theorem 3.2 of
+Chapter 3. To illustrate, let $G(x)$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le r_n} L_G(1, -x)=0)=0$ for any $0<r_n\to 0$, due to the continuity of  local time process. This yields that
+\be
+\big[\inf_{|x|\le r_n} | S_{2n}(x)|\big]^{-1}=O_P(c_n / n), \la {78}
+ \ee
+ for any $0<r_n\to 0$. In comparison,  Chapter 3 only established  
+\bestar
+\big [ \inf_{|x|\le M_0/\log^{\gamma} n}| S_{2n}(x)|\big]^{-1}=O_P(c_n / n),
+\eestar
+for some $\gamma > 0$. Furthermore, by noting that
+$P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see, for instance, \cite{takacs1995}), the range  $|x|\le  r_n$ in   (\ref {78}) might be  optimal. In other words, it can not be improved  to $|x|\le b$ for any constant $b>0$.
+\end{rem}
+
+\subsection{An application to linear processes}\la{section:3:application}
+In what follows we consider an  application of Theorem \ref {th1} to general linear processes.
+Let $\{\xi _{j},j\geq 1\}$ be linear processes defined by
+\begin{equation}
+\xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k}, \la {sec2.f1}
+\end{equation}
+where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of i.i.d.
+random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
+characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfies
+$\int_{-\infty
+}^{\infty }|\varphi (t)|dt<\infty $. Throughout the section, the coefficients $\phi_k$, $k \ge 0$ are assumed to satisfy one of the following conditions:
+
+\noindent
+\ \ \textbf{C1.} $\phi _{k}\sim k^{-\mu }\,\rho(k),$ where $1/2<\mu <1$ and $
+\rho(k)$ is a function slowly varying at $\infty $, satisfying
+$
+|\rho(m+n)/\rho(n)-1| \le C_0\, m/n$ for $1\le m\le n,$
+where $C_0$ is a positive constant.
+
+\noindent
+\ \ \textbf{C2.} $\sum_{k=0}^{\infty }k |\phi _{k}|<\infty $ and $\phi \equiv
+\sum_{k=0}^{\infty }\phi_{k}\not =0$.
+
+\noindent We remark that the requirement on $\rho(k)$ under condition {\bf C1} is weak,
+which is satisfied by a large class of slowly varying functions such as $\log^{\al}x$,
+$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See, e.g., \cite{wanglingulati2003}.
+
+Put $x_{k}=\sum_{j=1}^{k}\xi _{j}$ and $d_n^2=Ex_n^2$.
+It is well-known that
+ \begin{equation}
+ d_n^2=Ex_{n}^{2}\sim \left\{
+\begin{array}{ll}
+c_{\mu }\,n^{3-2\mu }\,\rho ^{2}(n), & \mbox{under {\bf C1}}, \\
+\phi ^{2}\,n, & \mbox{under {\bf C2},}%
+\end{array}%
+\right. \la {ni1}
+\end{equation}
+where   $c_{\mu
+}=\frac{1}{(1-\mu )(3-2\mu )}\int_{0}^{\infty }x^{-\mu }(x+1)^{-\mu
+}dx$.
+See, e.g.,  \cite{wanglingulati2003} for instance.
+ We consider the uniform limit behavior of sample functions of the form:
+ \be
+S^*_{2n} (x)&=&  \sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x\, d_n)
+\big],
+\ee when $h\to 0$.  Let $W_{d }(t)$  be a fractional Brownian motion with Hurst parameter $-1/2<d<1/2$ on $D[0,1]$, defined by
+\begin{equation*}
+W_{d}(t)=\frac{1}{A(d)}\,\big[ \int_{-\infty }^{0}\Big[(t-s)^{d}-(-s)^{d}\Big]dW^*(-s)+\int_{0}^{t}(t-s)^{d}dW(s)\big],
+\end{equation*}%
+where
+\begin{equation*}
+A(d)=\Big (\frac{1}{2d+1 }+\int_{0}^{\infty }\Big[(1+s)^{d}-s^{d}\Big]^{2}ds\Big)^{1/2},
+\end{equation*}%
+$W(s), 0\leq s<\infty $ is a standard Brownian motion, and
+$W^{\ast }(u),0\leq u<\infty $ is an independent copy of $W(s),
+0\leq s<\infty $. It is readily
+seen that $W_{0}(t)=W(t)$ and $W_{d}(t)$ have a continuous local time $%
+L_{W_{d}}(t,s)$ with regard to $(t,s)$ in $[0,\infty )\times R$. See,
+e.g., Theorem 22.1 of \cite{gemanhorowitz1980}.
+
+The following results are direct consequences of Theorem \ref {th1}.
+
+
+\begin{thm} \la {th11}
+On a rich probability space,  there exists  a fractional Brownian motion
+\be
+Y_n(t) &=& \left\{
+\begin{array}{ll}
+c_{\mu}^{-1/2}\,n^{-(3/2-\mu) }\,\rho^{-1}(n) \, W_{1-\mu}(nt), & \mbox{under {\bf C1}}, \\
+\phi^{-1} n^{-1/2} \,W(nt), & \mbox{under {\bf C2},}%
+\end{array}%
+\right.
+\la {adf}
+\ee
+ such that, for all $\beta>0$
+\be \la{th10}
+\sup_{x\in R} \Big |\frac {d_n}{nh}S^*_{2n}(x)- \tau\, L_{Y_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
+\ee
+where $\tau= \int_{-\infty}^{\infty} g(x) dx$,
+provided  that $g(x)$ satisfies Assumptions \ref{assumpFuncG}, $h\to 0$ and $n^{-1+\ep_0}d_n/h\to 0$ for some $\ep_0>0$.
+\end{thm}
+
+\begin{cor} \la{cor:3:cor2} If there exists an $\ep_0>0$ such that $h\to 0$ and $n^{-1+\ep_0}d_n/h\to 0$, then
+\be\la{cor1.eqn10}
+\sup_{x\in R} | \sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x)\big]| =O_P(nh/d_n),\quad  \la {ad12a}
+\ee
+provided that $g(x)$ satisfies  Assumptions \ref{assumpFuncG}.  If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
+\be \la{cor1.eqn20}
+\Big [ \inf_{|x|\le r_n\,d_n}|\sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x)\big]|\Big]^{-1} =O_P(d_n/(nh)) ,
+\ee
+for any  $0<r_n\to 0$.
+\end{cor}
+
+\begin{rem}
+The key to prove Theorem \ref{th11} is to verify that $x_{k,n}:=x_k/d_n$ satisfies Assumptions \ref{assumpApprox} and \ref{assumpDensity}. The verification of Assumption \ref{assumpDensity} is given in Chapter 3. For Assumption \ref{assumpApprox}, we have the following result, which is stated as a proposition for the convenience of reading.
+
+\end{rem}
+\begin{prop} \la{prop1}   On a rich probability space, there exists  a fraction Brownian motion $\{W_{1 - \mu}(t), 0\le t < \infty\}$ such that
+\be \la{prop1.eqn2}
+ \sup_{0 \le t \le 1} \Big | c_{\mu}^{-1/2}\sum_{k = 1}^{[nt]}\xi_k -\rho(n)\, W_{1 - \mu}(nt) \Big | = o_{a.s.}[n^{(r + 1) / r - \mu}\,\rho (n)]
+\ee
+provided  the condition {\bf C1} holds.
+
+Similarly, under the condition {\bf C2}, on a rich probability space, there exists  a Brownian motion $\{W(t), 0\le t < \infty\}$ such that
+\be \la{prop2.eqn2}
+\sup_{0 \le t \le 1} \Big |\phi^{-1}\sum_{k = 1}^{[nt]}\xi_k - W(nt) \Big | &= & o_{a.s.}(n^{1 / r}).
+\ee
+\end{prop}
+
+ The proof of (\ref{prop1.eqn2}) is given in \ref{wanglingulati2003} with minor improvement. The proof of (\ref{prop2.eqn2}) is given in \citet[][Page 18]{csorgohorvath1993}.
+
+
+
+\section{Proofs of main results}
+
+This section provides proofs of the main results. We start with several preliminary lemmas in Section \ref{section:3:lemma}.  These lemmas, in particular Lemma \ref{lemma3},  are of interests in their own rights. The proof of Theorem \ref{th1} is given in Section \ref{section:3:proof}. As stated in Section \ref{section:3:application}, Theorem \ref{th11} is a direct sequence of Theorem \ref{th1} and Proposition \ref{prop1}. 
+
+\subsection{Preliminary Lemmas} \la{section:3:lemma}
+Throughout this section, we set $f_{t,s}(x)=g(c_nx+t)-g(c_nx+s)$ where $g(x)$ satisfies Assumption \ref{assumpFuncG}, and assume that $x_{k,n}$ is defined as in Assumption \ref{assumpDensity}.
+
+\begin{lem} \la{lemSinBound} We have, for any $k > j$,
+\begin{align}
+|E[f_{t,s}(x_{k,n}) | \F_{j,n}]| &\le C\, n^{d} c_n^{-1} (k - j)^{-d} \min \{ |t - s| n^d c_n^{-1} (k - j)^{-d}, 1\}, \no\\
+E[|f_{t,s}(x_{k,n})| | \F_{j,n}] &\le C\, n^{d} c_n^{-1} (k - j)^{-d},  \no\\
+E[f^2_{t,s}(x_{k,n}) | \F_{j,n}] &\le C\, n^{d} c_n^{-1} (k - j)^{-d},
+\end{align}
+where $C$ is a uniformly bounded constant on $t, s, k$ and $j$.
+\end{lem}
+
+\begin{proof}
+Let $d_{k,j,n} = [(k - j) / n]^d$. Due to Assumption \ref{assumpDensity} (i), we have  
+\bestar
+&& \E (  f_{t,s}(x_{n,k})\mid {\mathcal F}_{n, j}) \no\\
+&=&  \int_{-\infty}^{\infty}  \big [ g(c_n x_{j,n} + c_n d_{k,j,n} y + t) - g(c_n x_{j,n} + c_n d_{k,j,n} y + s)  \big ]  h_{k, j, n}(y) \,dy \no\\
+&=& c_n^{-1}d_{k,j, n}^{-1}\, \int_{-\infty}^{\infty} g(y) \Big [ h_{k, j, n} (\frac{y - t - c_n x_{j,n}}{ c_n d_{k,j, n}}) -  h_{j, k, n} (\frac{y - s - c_n x_{j,n}}{ c_n d_{k,j, n}}) \Big ]\,dy
+\eestar
+Now,   Assumption \ref{assumpDensity} (ii) and $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ yield that, for any $k>j$,
+\bestar
+|\E (  f_{t,s}(x_{n,k})\mid {\mathcal F}_{n, j})| & \le& C\, c_n^{-1}\,  d_{k,j, n}^{-1} \min\{|t - s|c_n^{-1} d_{k,j, n}^{-1}, 1\}\no\\
+ &\le & C\,n^{d} c_n^{-1}\, (k-j)^{-d} \min\{|t - s|n^d c_n^{-1} (k-j)^{-d},1\}.
+\eestar
+Similarly, using Assumptions \ref{assumpFuncG} and \ref{assumpDensity}, it follows that
+\bestar
+&& \E (  f^2_{t,s}(x_{n,k})\mid {\mathcal F}_{n, j}) \le C\,
+ \E (  |f_{t,s}(x_{n,k})|\mid {\mathcal F}_{n, j}) \no\\
+&&\quad =\ C\,
+ \int_{-\infty}^{\infty}  \big | g(c_n x_{j,n} + c_n d_{k,j,n} y + t) 
+ - g(c_n x_{j,n} + c_n d_{k,j,n} y + s)  \big |\,  h_{k, j, n}(y) \,dy \no\\
+&&\quad =\ C\, c_n^{-1}d_{k,j, n}^{-1}\, \int_{-\infty}^{\infty}  \big |g(y + t) - g(y + s) \big |\, h_{k, j, n} (\frac{y  - c_n x_{j,n}}{ c_n d_{k,j, n}}) \,dy \no\\
+&&\quad \le\ C_1\, n^d c_n^{-1}\,  /(k - j)^d \int_{-\infty}^{\infty}  \big [g(y + t) - g(y + s) \big ]^2 \,dy \no\\
+&&\quad \le\ C_2 n^d c_n^{-1} / (k - j)^{d}.
+\eestar
+The proof of Lemma \ref{lemSinBound} is complete.
+\end{proof}
+
+\begin{lem} \la {lem1} There exist constants $H_0$ (not depending  on $t_1, t_2, t_3$) and $m$  such that
+\be
+&& \sup_{t, s}\, E\big(|\sum_{k=t_2}^{t_3}f_{t,s}(x_{k,n})|^m\mid {\mathcal F}_{n,t_1}\big) \no\\
+&\le &  H_0^m \, (m+1)!\, n^d\,c_n^{-1}  (t_3-t_1)^{1-d}\big[1+ \big\{(t_3-t_2)^{1-d} n^d\,c_n^{-1}\big\}^{m-1}  \big]. \la {lm90}
+\ee
+for all $0\le t_1<t_2<t_3\le n$ and integer $m\ge 1$. In particular, by letting $t_1=0, t_2=1$ and $t_3=n$, we have
+\be
+ \sup_{t, s}\, E|\sum_{k=1}^{n}f_{t,s}(x_{k,n})|^m
+&\le & H_0^m \, (m+1)!\, (n/c_n)^{m} . \la {lm91}
+\ee
+\end{lem}
+
+\begin{proof} See Lemma \ref{lem:2:lem1} of Chapter 3 with minor improvements. \end{proof}
+
+\begin{lem} \la{lemUniBound} We have
+\be
+ \sup_{t, s}\,  \big|\sum_{k = 1}^{b_n} f_{t,s}( x_{k,n} )\big| = O_{a.s.}\big [(b_n / c_n) \log n \big ]
+\ee
+for any $b_n, c_n \to \infty$ and  $ c_n / n \to 0$.
+\end{lem}
+\begin{proof}
+By virtue of Lemma \ref {lem1}, the proof  follows from the similar arguments as in the proof of Theorem 2.1 of Chapter 3.
+We omit the details.
+\end{proof}
+
+\begin{lem} \la{lemLocal} For any $s, t \in R$ and $\xi > 0$, there exists a constant $C$ such that
+\be
+|L_G(1, s) - L_G(1, t)| \le C\, |s - t|^{1/2 - \xi} \quad a.s.,
+\ee
+where $G(x)$ is a continuous local martingale.
+\end{lem}
+\begin{proof} See Corollary 1.8 of Revuz and Yor (1994, p. 226).  \end{proof}
+
+\begin{lem} \la{lemma3} Suppose that $c_n \to  \infty$ and $ n^{-1+\ep_0}c_n  \to 0$ for some $\ep_0 > 0$. Then, for any $\beta > 0$, we have
+\be \la{stat}
+I_n := \sup_{t \in R} \sup_{s: |s - t| \le \ep_n} \Big | \frac{c_n}{n} \sum_{k = 1}^n f_{t,s}(x_{k,n}) \Big | = O_{a.s.}(\log^{-\beta}n)
+\ee
+where $\ep_n \le c_n n^{-\al}$ for some $\al > 0$.
+\end{lem}
+
+\begin{proof}
+It suffices to prove:
+ \be \la{s19}
+I_{1n} := \sup_{|t| \le c_n\, n^2} \sup_{s: |s - t| \le \ep_n} \Big | \frac{c_n}{n} \sum_{k = 1}^n f_{t,s}(x_{k,n}) \Big | = O_{a.s.}(\log^{-\beta}n).
+\ee
+ Indeed it is readily seen from (\ref {s19}) that
+ \bestar
+ I_n &\le& I_{1n}+\frac{c_n}{n}\,
+ \sup_{|t| \ge c_n\, n^2} \sup_{|s| \ge c_n\, n^2/2} 
+ \sum_{k = 1}^n |f_{t,s}(x_{k,n}) | I(|x_{k,n}| \le n^{2} / 2) \no\\
+ && \qquad +\, \frac{C\,c_n}{n}\,\sum_{k = 1}^n  I(|x_{k,n}| \ge n^{2} / 2)\no\\
+ &\le& O_{a.s.}(\log^{-\beta}n) + 2c_n \, \sup_{ |t| > c_n n^2 / 4}|g(t)| +O_{a.s} (c_n/n)\no\\
+ &=&O_{a.s.}(\log^{-\beta}n), 
+ \eestar 
+ where  we have used the following fact: $\sup_{ |t| > c_n n^2 / 4}|g(t)|\le ( c_n n^2 )^{-\rho}\le C/n$ due to Assumption 2.1 and $\rho\ge 1$, and 
+ \begin{align}
+&  P \big (\sum_{k = 1}^n I(|x_{k, n}| > n^{2} / 2) > C, \, i.o. \big ) \no\\
+&\le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-4}\sum_{k = 1}^nE |x_{k, n}|^{2}   \no\\
+&\le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-4 + 1} E|\ep_0|^2  \le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-3}= 0 \no
+\end{align}
+which implies $\sum_{k = 1}^n I(|x_{k, n}| > n^{2} / 2)=O(1), a.s$.
+ 
+ 
+ 
+
+ To prove (\ref {s19}), we first introduce the following  blocking scheme. Let $\eta_n=(n/c_n)\log^{-(\beta + 1)}n,$ $b_n = [n^{1-\nu}]$, for some $0< \nu < \min\{\ep_0, \nu_0\}$,
+\be\la{ineq}
+ \nu_0 = \begin{cases}
+\big ( \frac{1}{2d}\big )\al ,  & if \quad   0 < d \le 2/3, \\
+\big ( \frac{1-d}{d^2}\big ) \al, & if \quad  2/3 < d < 1,
+\end{cases}
+\ee
+and let $T_n$ be the largest integer $s$ such that $s b_n \le n$. Also let $-c_n n^2 = t_1 < ... < t_{q_{n1}} = c_n n^2$ and $-\ep_n = s_1 < ... < s_{q_{n2}} = \ep_n$, with $t_i - t_{i - 1} \sim n^{-7}$ and $s_i - s_{i - 1} \sim c_n n^{-10}$. It is readily seen that
+\be \la{110}
+n/b_n \sim n^{\nu}, \quad T_n b_n \le n,\quad n-T_nb_n\le b_n, \quad q_{n1}, q_{n2} \le n^{10}
+\ee
+due to $c_n \to \infty$. Under these notation, to prove (\ref {s19}), by the local Lipschitz continuity of $g$, it suffices to prove that
+\be
+&& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}  \Big | \sum_{k = 1}^n f_{t_i, t_i + s_j}(x_{k,n}) \Big | \no\\
+&\le& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}} \Big \{ | \sum_{w=2}^{T_n-1} \Delta_{nw}(t_i, s_j)|+\Delta_n(t_i, s_j) \Big \}+ O_{a.s.}[(n / c_n)^{1/2}],  \la {95}
+\ee
+where, for  $w = 1,..., T_n$ ,
+\bestar
+\Delta_{nw}(t,s) &=& \sum_{k = wb_n + 1}^{(w+1)b_n} f_{t, t+s}(x_{k,n})  ,\no\\
+\Delta_n(t,s) &\le & \Big(\sum_{k =  1}^{2b_n} +\sum_{k =  T_nb_n}^{n}\Big)\,| f_{t, t+s}(x_{k,n}) |.
+\eestar
+Recall $\eta_n=(n/c_n)\log^{-(\beta + 1)}n$. Using Lemma \ref{lemUniBound} and (\ref{110}), it is readily seen that
+\bestar
+ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\Delta_n(t_i, s_j)  &\le& C\big[(b_n + |n-T_nb_n|)/c_n\big]\log n \no\\
+&\le& C\, (n/c_n)\,n^{-\nu} \le C\, \eta_n\, \log n,\quad a.s.
+\eestar
+This, together with (\ref {95}), implies that (\ref {stat}) will follow if we prove
+\be
+ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\Big(| \sum_{\substack{w = 2 \\ w \in even}}^{T_n} \Delta_{nw}(t_i, s_j)|+| \sum_{\substack{w = 2 \\ w \in odd}}^{T_n} \Delta_{nw}(t_i, s_j)|\Big)  &=& O_{a.s.} (\eta_n \, \log n).  \la {21}
+\ee
+We only prove (\ref {21}) for $w\in even$. The other is similar and hence the details are omitted.
+To this end, let $\F_{n, v}^*= \F_{n, (2v+1)b_n}, v\ge 0$, and $M_1 > 0$ is chosen later,
+\bestar
+\Delta_{nw}'(t,s) &=& \Delta_{n,2w}(t,s)I(|\Delta_{n, 2w}(t,s)|\le M_1\, \eta_n ), \no\\
+\Delta_{n w}^*(t,s) &=& \Delta_{n, w}'(t,s)- \E \big(\Delta_{n, w}'(t,s)\mid \F_{n, w-1}^*\big).
+\eestar
+Under these notation, to prove (\ref {21}) for $w\in even$, it suffices to show
+\be \lam_{1n} &:=&\max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}| \sum_{w=1}^{T_n/2} \Delta_{nw}^*(t_i, s_j)|
+=O_{a.s.} (\eta_n \, \log n), \la {22} \\
+\lam_{2n} &:=& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}| \sum_{w=1}^{T_n/2} \E \big(\Delta_{n, 2w}(t_i, s_j)\mid \F_{n, w-1}^*\big)|
+=O_{a.s.} (\eta_n \, \log n), \la {23}\\
+\lam_{3n} &:=& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}| \sum_{w=1}^{T_n/2} \Big(\Delta_{n, 2w}(t_i, s_j)I(|\Delta_{n, 2w}(t_i, s_j)|> M_1\, \eta_n )\no\\
+&& \qquad\qquad +
+\E \Big[\Delta_{n, 2w}(t_i, s_j)I(|\Delta_{n, 2w}(t_i, s_j)|> M_1\, \eta_n)\mid \F_{n, w-1}^*\Big] \Big) \no\\
+&=& O_{a.s.} (\eta_n \, \log n). \la {24}
+ \ee
+
+ First notice   that, for any $2wb_n<k\le (2w+1)b_n$ and $|t - s|\le c_n n^{-\al}$,
+ \begin{align} \la{24.5}
+ |\E \big(\Delta_{n, 2w}(t, s)\mid \F_{n, w-1}^*\big)| \le C\, |t-s|b_n c_n^{-2}  (n/ b_n)^{2d} \le C\, b_n c_n^{-1} n^{2d\nu - \al}
+\end{align}
+due to Lemma \ref{lemSinBound}. It follows from (\ref {ineq}) and (\ref {24.5}) that
+\be \la{25}
+\lam_{2n} &\le& \sum_{w=1}^{T_n/2}  \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}} |\E \big(\Delta_{n, 2w}(t_i, s_j)\mid \F_{n, w-1}^*\big)| \no\\
+&\le& C\, (n/c_n)\, n^{2d\nu - \al} = O_{a.s.}(\eta_n \, \log n),
+\ee
+which yields (\ref {23}).
+
+We next prove (\ref {24}). Using Lemma \ref {lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$, we haev
+\bestar
+\sup_{t,s} \E |\Delta_{n, 2w}(t,s)|^m &\le& H_0^m (m+1)!\, (n/c_n)\, \big\{1+ \big [(n/c_n) (n/ b_n)^{d-1} \big ]^{m-1}\big\}\no\\
+&\le& 2H_0^m (m+1)! (n/c_n)^m (n/b_n)^{(d - 1)(m-1)},
+\eestar
+because $c_n / n^{1-\nu (1 - d)} \le c_n / n^{1-\ep_0} \to0$. By virtue of this fact, it follows that
+\bestar
+E\lam_{3n} &\le& 2\,\sum_{i=1}^{q_{n1}} \sum_{j=1}^{q_{n2}}\,
+\sum_{w=1}^{T_n/2}\E |\Delta_{n, 2w}(t_i, s_j)|I(|\Delta_{n, 2w}(t_i, s_j)|> M_1\, \eta_n) \no\\
+&\le& q_{n1}q_{n2}T_n \,\, H_0^m (m+1)!  (n/c_n)\Big [ \frac{(n/c_n)(n/b_n)^{d-1}}{M_1\,\eta_n} \Big ]^{m-1} \no\\
+&\le& C\, n^{22} (H_0/M_1)^m\, (m+1)!   \log^{-(m-1)} n,
+\eestar
+due to (\ref {110}) and $\nu > 0$. Now, 
+by taking $m = \log n$ and letting $M_1 \ge 25H_0$,
+it follows from the Stirling approximation of $(m+1)!$ that for any $\ep > 0$,
+\begin{align} \la{26}
+P[ \lambda_{3n} > \ep, i.o.]  &\le \lim_{s \to \infty} \sum_{n = s}^{\infty}  \ep^{-1}  E\lam_{3n} \no\\
+&\le C  \lim_{s \to \infty} \sum_{n = s}^{\infty} \ep^{-1} n^{22} \log^5 n \exp \{-(M_1/H_0) \, \log n\} \no\\
+&\le C\lim_{s \to \infty} \sum_{n = s}^{\infty}\ep^{-1}n^{-3}\log^5 n \to 0,
+\end{align}
+which implies that $\lam_{3n}=o_{a.s.}(1)$, and  hence (\ref {24}) follows.
+
+We finally consider (\ref {22}). First note that, by Lemma \ref{lemSinBound}, for any $|t-s| \le c_n n^{-\al}$,
+\begin{align}
+&\quad E[\Delta_{nw}^{*2}(t, s) | \F^*_{n, w-1}] \le 2 E[ \Delta_{n, 2w}^2(t,s) | \F_{n, (2w-1) b_n} ] \no\\
+&\le \sum_{k = 2wb_n +1}^{(2w+1)b_n} E \Big (  f^2_{s, t}(x_{k,n}) \,| \,\F_{n, (2w-1)b_n} \Big ) \no\\
+&\quad + 2 \sum_{2wb_n + 1 \le k < j \le (2w+1)b_n} \big|E \Big ( f_{s, t}(x_{k,n}) f_{s,t}(x_{j,n})\Big | \F_{n,(2w-1)b_n} \Big ) \big| \no\\
+&\le C\, (n/c_n) (n /b_n)^{d-1}  + 2 \sum_{2wb_n + 1 \le k < j \le (2w+1)b_n}
+E \Big ( |f_{s,t}(x_{k,n})|\,  |I_{k,j}|\, \Big  | \,\F_{n, (2w-1)b_n} \Big )   \no\\
+&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{-d}  \sum_{ 2wb_n + 1\le k<j\le (2w+1)b_n}\,(j-k)^{-d}\min\{n^{d - \al}(j-k)^{-d}, 1\} \no\\
+&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{1-d}\sum_{k=1}^{b_n} k^{-d} \min\{n^{-\al}(n/k)^d, 1\} \no\\
+&\le C\, (n/c_n) (n /b_n)^{d-1} \big[1+   \, n^{1 - \eta_0}/c_n \big],
+\end{align}
+where $I_{k,j} = E\big [f_{t, s}(x_{j,n}) | \F_{n,k}\big ]$ and
+\be \la{eta}
+\eta_0  = \begin{cases}
+\al + \nu(1 - 2d),  & if \quad   0 < d < 1/2, \\
+\al/4,  & if \quad   d = 1/2, \\
+\big (\frac{1 - d}{ d}\big ) \al, & if \quad  1/2 < d < 1.
+\end{cases}
+\ee
+and we have used the fact: for $0<d<1$, letting $\zeta = \al/d$,
+\bestar
+ \sum_{k=1}^{b_n} k^{-d} \min\{n^{-\al}(n/k)^d, 1\}&\le& \sum_{k=1}^{n^{1 - \zeta}} k^{-d}+ n^{d -\al}\sum_{k=n^{1-\zeta} +1}^{b_n} k^{-2d}\le C\, n^{1-d - \eta_0}.
+\eestar
+It follows from this estimate that
+\bestar
+&& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}} \sum_{w=1}^{T_n/2}\,\E [\Delta_{nw}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*] \no\\
+&\le&  C\, (n/c_n) (n /b_n)^{d}\big[1+   \, n^{1-\eta_0}/c_n\big]\le \begin{cases}
+C(n/c_n)^2\,  n^{d\nu-\eta_0},  & if \quad   \eta_0 \le \ep_0, \\
+C(n/c_n)\,  n^{d\nu}, & if \quad  \eta_0 > \ep_0
+\end{cases}\no\\
+&\le& C\, \eta_n^2 \log n, \quad a.s.
+\eestar
+due to $d\nu-\eta_0 < 0$ by simple calculation and $(n / c_n) n^{-d\nu} < n^{1 - \ep_0} / c_n \to 0$.
+This, together with the facts that  $|\Delta_{nw}^{*}(t_i, y_j)|\le \eta_n$ and for each $i, j$,
+$\{\Delta_{nw}^{*}(t_i, s_j), {\mathcal F}_{n, w}^*\}$ forms a martingale difference, and
+the well-known martingale exponential inequality
+(see, e.g., de la Pena (1999)) implies that there exists a $M_0\ge 22$ such that, as $n \to \infty$,
+\be
+&& P[\lam_{1n} \ge  M_0 \eta_n\, \log n, i.o.] \no\\
+&\le& P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n, i.o.  \Big] \no\\
+&\le& \lim_{s \to \infty} \sum_{n = s}^{\infty} P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n \Big] \no\\
+ &\le&  \lim_{s \to \infty} \sum_{n = s}^{\infty}\sum_{i=1}^{q_{n1}} \sum_{j=1}^{q_{n2}}P\Big[\sum_{w=1}^{T_n/2} \Delta_{nw}^*(t_i, y_j)\ge M_0 \eta_n\, \log n, \ \
+ \sum_{w=1}^{T_n/2}\,\E [\Delta_{nw}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\,\eta_n^2 \, \log n \Big]  \no\\
+ &\le&\lim_{s \to \infty} \sum_{n = s}^{\infty}q_{n1}q_{n2}\, \exp\Big\{-\frac {M_0^2 \,\log^2 n} {2C\log n+2M_0\log n} \Big \}  \no\\
+ &\le&\lim_{s \to \infty} \sum_{n = s}^{\infty}q_{n1}q_{n2}\, \exp \{-M_0\log n \}  = 0, \la {p10}
+\ee
+where the last inequality follows from (\ref {110}).
+ This yields $\lam_{1n}=O_{a.s.}\big( \eta_n \, \log n \big )$.
+Combining (\ref {25})-(\ref {p10}), we establish (\ref {21}), and also completes the proof of Lemma 3.5.
+\end{proof}
+
+\subsection{Proof of Theorem \ref{th1}} \la{section:3:proof}
+Without loss of generality, we first assume $\tau = \int g(x) dx = 1$. Define $\bar{g}(x)=g(x)I\{|x|\leq n^{\zeta}/2\}$, where $0 < \zeta < 1 - \de / \rho$ is small enough such that $n^{\zeta}/c_n\le n^{-\delta}$, where $\rho$ and $\de$ are given in Assumption 2.1 and 2.2 respectively. Further let $\varepsilon=n^{-\alpha}$ with $0<\alpha< \de / 2$, and for a fixed $x_{0}$, define a triangular function
+\bestar
+g_{x_0, \varepsilon}(y)= \begin{cases}
+0,  & \quad \quad   |y - x_0| > \varepsilon, \\
+\frac{y - x_0 + \varepsilon}{\varepsilon^2}, & \quad \quad  x_0 - \varepsilon \le y \le x_0, \\
+\frac{x_0 + \varepsilon - y}{\varepsilon^2}, & \quad \quad  x_0  \le y \le x_0 + \varepsilon.
+\end{cases}
+\eestar
+It suffices to show that
+\begin{align}
+\Phi_{1n} &:= \sup_{x \in R} \Big | \frac{c_n}{n} \sum_{j = 1}^n \big \{ g(c_n(x_{j,n} + x)) - \bar{g}(c_n (x_{j,n} + x)) \} \Big | = o_{P}(\log^{-\beta} n), \la{eqn1} \\
+\Phi_{2n} &:= \sup_{x\in R}\Big{|}\frac{c_n}{{n}}\sum_{j=1}^{n}\bar g(c_nx_{j,n}-c_nx-n^{\zeta} / 2)-\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(x_{j,n})\Big{|}  \no\\
+&\ = o_{P}(\log^{-\beta} n),\la{eqn2} \\
+\Phi_{3n} &:= \sup_{x\in R}\Big{|}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(x_{j,n})-L_{G_n}(1,x)\Big{|} = o_{P}(\log^{-\beta} n), \la{eqn3}  \\
+\Phi_{4n} &:= \sup_{x\in R}\Big{|}L_{G_n}(1,x) - L_{G_n}(1, x+ n^{\zeta} /(2 c_n))\Big{|} = o_{P}(\log^{-\beta} n).  \la{eqn4}
+\end{align}
+Indeed it follows from (\ref{eqn1})--(\ref{eqn4}) that
+\bestar
+&& \sup_{x \in R} \Big | \frac{c_n}{n} \sum_{j = 1}^n  g\big [c_n (x_{k,n} +x)\big] 
+ - L(1, -x) \Big | \no\\
+&=&\sup_{x \in R} \Big | \frac{c_n}{n} \sum_{j = 1}^n  g\big (c_n x_{k,n} -c_n x - n^{\zeta} / 2\big) - L_{G_n}(1, x+ n^{\zeta} /(2 c_n)) \Big | \no\\
+&\le& \Phi_{1n}+\Phi_{2n}+\Phi_{3n}+\Phi_{4n}= o_{P}(\log^{-\beta} n),
+\eestar
+which yields the required (\ref{th10}).
+
+The proof of (\ref {eqn1}) is simple. It follows from $ \sup_x\,|x|^{\rho}\, |g(x)|<\infty$ that
+\begin{eqnarray*}
+\Phi_{1n}
+&\le & {c_n}\, \sup_{|x|\ge n^{\zeta}/2 }  |g(x)|I\{|x|> n^{\zeta}/2\} \le C\, n^{-\zeta\, \rho} c_n = o(\log^{-\beta}n),
+\end{eqnarray*}
+as $n^{\zeta} / c_n \le n^{-\de}$ and $\rho > \de / (1 - \zeta)$.
+
+ Recall $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for all $n\ge 1$,  by Assumption 2.2. For any $\ep>0$ and $\beta>0$, we have
+ \bestar
+ && P(|\Phi_{4n}|\ge \ep\, \log^{-\beta}n) \no\\
+ &=& 
+ P\big(\sup_{x\in R}\big{|}L_{G}(1,x) - L_{G}(1, x+ n^{\zeta} /(2 c_n))\big{|}\ge \ep\, \log^{-\beta}n\big) \no\\
+ &\to& 0, \quad \mbox{as $n\to\infty$},
+ \eestar
+ due to Lemma \ref{lemLocal} and $n^{\zeta} / c_n \le n^{-\de}$. This yields (\ref{eqn4}).
+
+
+We next prove (\ref{eqn3}). Recalling the definition of $g_{x\varepsilon}(y)$ and  $\int_{-\infty}^{\infty}g_{x\varepsilon}(y)dy=1$, it follows from Lemma 3.4 that
+\begin{eqnarray*}
+&& \Big{|}\int_{0}^{1}g_{x\varepsilon}(G(t))dt-L_{G}(1,x)\Big{|}\no\\
+&=&\Big{|}\int_{-\infty}^{\infty}g_{x\varepsilon}(y)L_{G}(1,y)dy-L_{G}(1,x)\Big{|}\cr
+&\leq &\int_{-\infty}^{\infty}g_{x\varepsilon}(y)|L_{G}(1,y)-L_{G}(1,x)|dy\cr
+&=& O_{a.s.}(\varepsilon^{1/2-\xi})
+\end{eqnarray*}
+for any $\xi>0$, uniformly for all $x \in R$. The similar arguments as in the proof of (\ref{eqn4}) yield that $\sup_x\big{|}\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt-L_{G_n}(1,x)\big{|}=O_P(\varepsilon^{1/2-\xi}).$
+Hence, by taking $\xi = \al / 4$,  it follows from Assumption 2.2(b) that
+\begin{eqnarray*}
+&& \Big{|}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(x_{j,n})-L_{G_n}(1,x)\Big{|}\no\\
+&\le &\Big{|}\int_{0}^{1}g_{x\varepsilon}(x_{[nt], n})dt-\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt\Big{|}+2/(\varepsilon n)+
+\Big{|}\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt-L_{G_n}(1,x)\Big{|}\no\\
+&=& O_P \big [\varepsilon^{-2}n^{-\de}+2/(\varepsilon n) + \varepsilon^{1/2-\xi} \big ] \no\\
+&=& O_P \big [n^{2\al - \de} + 2 n^{\al - 1} + n^{-\al / 2 + \xi} \big ] = o_{P} (\log^{-\beta} n)
+\end{eqnarray*}
+uniformly for all $x \in R$, as $\al < \de / 2$, which implies (\ref {eqn3}).
+
+We finally prove (\ref {eqn2}). Let $\bar{g}_{x\varepsilon n}(z)$ be the step function which takes the value $g_{x\varepsilon}(x+kn^{\zeta}/c_n)$
+for $z\in[x+kn^{\zeta}/c_n,x+(k+1)n^{\zeta}/c_n), k\in \mathbb{Z}$. It suffices to show that, uniformly for all $x \in R$, (letting $\bar{g}_j(y) = \bar{g}(c_nx_{j,n}-y-n^{\zeta} / 2)$),
+\begin{align}
+\Delta_{1n}(x) &:= \Big{|}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(x_{j,n})-\frac{1}{n}\sum_{j=1}^{n}\bar{g}_{x\varepsilon n}(x_{j,n}) \int_{-\infty}^{\infty}\bar{g}_j(y)dy\Big{|}= o_{P}(\log^{-\beta} n)  \la{eqn5}\\
+\Delta_{2n}(x) &:= \Big{|}\frac{1}{n}\sum_{j=1}^{n}\bar{g}_{x\varepsilon n}(x_{j,n})\int_{-\infty}^{\infty}\bar{g}_j(y)dy -\int_{-\infty}^{\infty}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(y/c_n)\bar{g}_j(y)dy\Big{|} \no\\
+&\ = o_{P}(\log^{-\beta}n ), \la{eqn6} \\
+\Delta_{3n}(x) &:= \Big{|}\int_{-\infty}^{\infty}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(y/c_n)\bar{g}_j(y)dy - \frac{c_n}{{n}}\sum_{j=1}^{n}\bar g(c_nx_{j,n}-c_nx-n^{\zeta} / 2)\Big{|}\no\\
+&\ = o_{P}(\log^{-\beta}n ) \la{eqn7},
+\end{align}
+
+(\ref{eqn5}) first. Note that $ |g_{x\varepsilon}(y)-g_{x\varepsilon}(z)|\leq \varepsilon^{-2}|y-z|$, and
+\be \la{eqnNeigh}
+|\bar g_{x\varepsilon\, n}(y)-g_{x\varepsilon}(z)| &\leq&  |\bar g_{x\varepsilon\, n}(y)-g_{x\varepsilon }(y)|+ |g_{x\varepsilon}(y)-g_{x\varepsilon}(z)| \no\\
+&\leq&  C\varepsilon^{-2}(n^{\zeta}/c_n+|y-z|).
+\ee
+It follows that, uniformly for all $j = 1, ..., n$ and $x \in R$,
+\begin{align}
+&\Big |g_{x \varepsilon}(x_{j,n}) - \bar{g}_{x\varepsilon n}(x_{j,n}) \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \no\\
+&\le\Big |g_{x \varepsilon}(x_{j,n}) - \bar{g}_{x\varepsilon n}(x_{j,n}) \Big | + | \bar{g}_{x\varepsilon n}(x_{j,n})| \Big | 1 -  \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \no\\
+&\leq  C\varepsilon^{-2}n^{\zeta}/c_n + C_1 n^{-\zeta (\rho - 1) } = o_{P}(\log^{-\beta} n).\no
+\end{align}
+where we have used the fact that (recalling $\int g(y) dy = 1$),
+\bestar
+\Big | 1 -  \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \le \Big |\int_{-\infty}^{\infty} g(y) I\{|y| > n^{\zeta }/ 2\} dy \Big | \le C\ n^{-\zeta (\rho - 1) }
+\eestar
+due to $\sup_y |y|^{\rho} |g(y)| < \infty$ and $\rho > 1$.
+
+(\ref{eqn6}) next. By (\ref{eqnNeigh}) and the definition of $\bar{g}_j(y)$, we have
+\begin{align}
+&\int_{-\infty}^{\infty} | \bar{g}_{x\varepsilon n}(x_{j,n}) \bar{g}_j(y) - g_{x \varepsilon}(y / c_n) \bar{g}_j(y)  | dy\no\\
+&\le \Big ( \int_{-\infty}^{\infty} g(y) dy \Big ) \, \Big ( \sup_y \big | \bar{g}_{x\varepsilon n}(x_{j,n})  - g_{x \varepsilon}(y / c_n)  \big |\,  I\{ | c_n x_{j, n} - y - n^{\zeta} / 2| \le n^{\zeta} / 2\} \Big ) \no\\
+&\le C \sup_y \Big [ \varepsilon^{-2} ( n^{\zeta} / c_n + |x_{j, n} - y / c_n | ) \,  I\big \{ \big | x_{j, n} - y / c_n - n^{\zeta} /(2c_n)\big | \le n^{\zeta} / (2c_n)\big \} \Big ] \no\\
+&\le C\varepsilon^{-2} ( n^{\zeta} / c_n ) = o_{P} (\log^{-\beta} n). \no
+\end{align}
+uniformly for all $j = 1, ..., n$ and $x \in R$.
+
+Finally for (\ref{eqn7}). Using Lemma \ref{lemma3}, we have
+\begin{align}
+\Delta_{3n} &=\Big{|}\int_{-\infty}^{\infty}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(y/c_n)\bar g(c_nx_{j,n}-y-n^{\zeta}/2)dy\no\\
+&\hskip 4cm -\frac{c_n}{n}\sum_{j=1}^{n}\bar g(c_nx_{j,n}-c_n x-n^{\zeta} / 2)\Big{|}\no\\
+&\leq\sup_{|y-c_nx|\leq c_{n}\varepsilon}\Big{|} \frac{c_n}{{n}}\sum_{j=1}^{n} \big \{ \bar g(c_nx_{j,n}-y-n^{\zeta}/2)-\bar g(c_nx_{j,n}-c_nx-n^{\zeta}/2) \big \}\Big{|} \no\\
+&\hskip 4cm \times \Big(\frac{1}{c_{n}}\int_{-\infty}^{\infty}g_{x\varepsilon}(y/c_n)dy \Big )\no\\
+&= o_{P}(\log^{-\beta} n).
+\end{align}
+uniformly in $x \in R$.
+
+The proof of Theorem 2.1 is now complete. $\Box$
+
+
 
 % ------------------------------------------------------------------------
 

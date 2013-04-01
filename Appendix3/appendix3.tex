@@ -1,0 +1,62 @@
+\chapter{Limit theorems for functional of normalised sum}
+
+This appendix gives the following theorem, which comes from \cite{wangphillips2010a}. We list the following assumptions.
+
+\begin{assump} \la{assump:A:integrable}
+$|g(x)|$ and $g^2(x)$ are Lebesgue integrable functions on $R$ with $\tau \equiv \int g(x) dx \ne 0$.
+\end{assump}
+
+\begin{assump} \la{assump:A:weakConvergence}
+There exists a stochastic process $G(t)$ having a continuous local time $L_{G}(t,s)$ such that $x_{[nt],n}\to_D G(t)$, on $D[0,1]$, where weak convergence is understood w.r.t the Skorohod topology on the space $D[0,1]$.
+\end{assump}
+
+\newenvironment{assump_1}{ \par \medskip\noindent  {\bf Assumption \ref{assump:A:weakConvergence}*.}}{\par\medskip}
+
+\begin{assump_1} 
+On a suitable probability space, there exists a stochastic process $G(t)$ having a continuous local time $L_G(t, s)$ such that $\sup_{0 \le t \le 1} | x_{[nt], n} - G(t) | = o_P(1)$.
+\end{assump_1}
+
+In the Assumption \ref{assump:A:density} below we shall make use of the notation: $ \Omega_n(\eta)=\big\{(l,k): \eta\, n\le k\le (1-\eta)\, n,\ k+\eta \, n\le l\le n \big\},$ where $0<\eta<1$.
+
+\begin{assump} \la{assump:A:density}
+For all $0\leq k<l\leq n,n\geq 1$, there exist a sequence of constants $d_{l,k,n}$ and a sequence of $\sigma$-fields ${\mathcal F}_{k,n}$ (define ${\mathcal F}_{0,n}=\sigma \{\phi ,\Omega \}$, the trivial $\sigma$-field) such that,
+
+(i) for some  $m_{0}>0$ and $C>0$, $\inf_{(l,k)\in \Omega _{n}(\eta)}d_{l,k,n}\geq \eta ^{m_{0}}/C$ as $n\rightarrow \infty $, 
+\begin{align}
+\lim_{\eta \rightarrow 0}\lim_{n\rightarrow \infty }\frac{1}{n} \,\sum_{k=(1-\eta )\,n}^{n}(d_{k,0,n})^{-1}&= 0,  \label{p9aa} \\
+\lim_{\eta \rightarrow 0}\lim_{n\rightarrow \infty }\frac{1}{n} \,\max_{0\leq k\leq (1-\eta )\,n}\,\sum_{l=k+1}^{k+\eta \,n}(d_{l,k,n})^{-1}&= 0,  \label{p9a} \\
+\lim \,\sup_{n\rightarrow \infty }\,\frac{1}{n}\max_{0\leq k\leq n-1}\sum_{l=k+1}^{n}\big(d_{l,k,n}\big)^{-1}&<\infty ;  \label{p9}
+\end{align}
+
+(ii) $x_{k,n}$\textit{\ are adapted to }${\mathcal F}_{k,n}$\textit{\
+and, conditional on }${\mathcal F}_{k,n}$\textit{,
+}$(x_{l,n}-x_{k,n})/d_{l,k,n}$\textit{\ has a density
+}$h_{l,k,n}(x)$\textit{\ satisfying that }$h_{l,k,n}(x)$\textit{\ is
+uniformly bounded by a constant }$K$\textit{\ and }
+\be
+\lim_{\de \to 0} \lim_{n \to \infty} \sup_{(l,k) \in \Omega_n[\de^{1/(2m_0)}} \sup_{|u| \le \de} | h_{l,k,n}(u) - h_{l,k,n}(0)| = 0.
+\ee
+\end{assump}
+
+The following theorem comes from Theorem 2.2 of \cite{wangphillips2010a}.
+
+
+\begin{thm}
+Suppose Assumptions \ref{assump:A:integrable}--\ref{assump:A:density} hold. Then, for any $c_n \to \infty$, $c_n / n \to 0$, and $r \in [0, 1]$,
+\be
+\frac{c_n}{n}\sum_{k = 1}^{[nr]} g(c_n x_{k,n}) \to_D \tau L_G(r, 0).
+\ee
+If Assumption \ref{assump:A:weakConvergence} is replaced by Assumption \ref{assump:A:weakConvergence}*, then, for any $c_n \to \infty$ and $c_n / n \to 0$,
+\be
+\sup_{0 \le r \le 1} \Big | \frac{c_n}{n} \sum_{k = 1}^{[nr]} g(c_n x_{k,n}) - \tau L_G(r, 0) \Big | \to_P 0,
+\ee
+under the same probability space defined as in Assumption \ref{assump:A:weakConvergence}*.
+\end{thm}
+
+
+% ------------------------------------------------------------------------
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../thesis"
+%%% End: 

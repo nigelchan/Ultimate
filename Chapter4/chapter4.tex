@@ -5,72 +5,76 @@
     \graphicspath{{Chapter3/Chapter3Figs/EPS/}{Chapter3/Chapter3Figs/}}
 \fi
 
+In this chapter, we apply the main results presented in the previous chapters to the nonlinear cointegration model. The uniform convergence for the Nadara-Watson estimator of the linked function is investigated. Sharp convergence rates and optimal range are obtained.
+
 \section{Introduction}
 
 Consider a non-linear cointegrating regression model:
 \begin{equation}
 y_{t}=m(x_{t})+u_{t},\quad t=1,2,...,n,  \label{mo1}
 \end{equation}%
-where $u_{t}$ is a stationary error process and $x_{t}$ is a
-non-stationary
-regressor. Let $K(x)$ be a non-negative real function and set $%
-K_{h}(s)=h^{-1}K(s/h)$ where $h\equiv h_{n}\rightarrow 0$. The
-conventional kernel estimate of $m(x)$ in model (\ref{mo1}) is given
-by
-\begin{equation}
-\hat{m}(x)=\frac{\sum_{t=1}^{n}y_{t}K_{h}(x_{t}-x)}{%
-\sum_{t=1}^{n}K_{h}(x_{t}-x)}.  \label{add9}
-\end{equation}%
-The point-wise  limit behavior of $\hat{m}(x)$ has currently been investigated
-by many authors. Among them, Karlsen, et al. (2007) discussed the situation where $x_{t}$ is a recurrent Markov chain.  Wang and Phillips (2009a, 2011) and Cai, et al.
-(2009) considered an alternative treatment by making use of local
-time limit theory and, instead of recurrent Markov chains, worked
-with partial
- sum representations of the type
- $x_t=\sum_{j=1}^t\xi_j$ where $\xi_j$ is a general linear process.
- In  another paper, Wang and Phillips (2009b) considered
-  the errors $u_t$  to be serially dependent and
- cross correlated with the regressor $x_t$ for small lags.  Also, see Phillips and Park (1998), Karlsen and Tj\o stheim (2001), Guerre (2004) and Bandi (2004) for
-related work on non-linear, non-stationary autoregressions.
+where $\{u_{t}\}$ is a  zero mean  equilibrium error, $x_{t}$ is a
+non-stationary  regressor and  $f(\cdot)$ is an unknown  real function on $R$. With given observations $(x_t, y_t)$ which may include
+non-stationary components, the point-wise estimation  and
+inference of the unknown $f(\cdot)$ have been becoming increasing
+interests in literature. Phillips and Park (1998)
+studied non-parametric autoregression in the context of a random
+walk. Karlsen and Tj\o stheim (2001) and Guerre (2004) studied
+non-parametric estimation for certain non-stationary processes in the
+framework of recurrent Markov chains. Karlsen, et al. (2007)
+developed an asymptotic theory for non-parametric estimation of a
+time series regression equation involving stochastically
+non-stationary time series. More recently,  Wang and Phillips (2009a, 2009b, 2011) and Cai, et al. (2009) considered an alternative treatment by making use of local
+time limit theory. Instead of recurrent Markov chains, they considered the case when
+$x_t$ is a partial sum representation of general linear processes.
+ For other related works, we refer to Kasparis and Phillips (2009),
+ Park and  Phillips (1999, 2001), Bandi (2004), Gao, et al (2009a, b),
+  Choi and Saikkonen (2004, 2009),  Marmer (2008), Chen, et al (2010),  Wang and Phillips (2012), and  Wang (2011).
 
-This section provides a uniform convergence for the  $\hat{m}(x)$ by making direct use of Theorems 2.1 and 2.3 in developing the asymptotics. 
+Different from these aforementioned point-wise asymptotics papers, this paper is concerned with the uniform convergence for the Nadaraya-Watson estimator $\hat{f}(x)$ of $f(x)$ in the non-linear cointegrating
+regression model (\ref {eq: main model}), defined by
+\be \hat{m}(x)=
+\frac{\sum_{s=1}^{n}y_{s}\,K[(x_{s}-x)/h]}
+{\sum_{s=1}^{n}K[(x_{s}-x)/h]},\la {m4}
+\ee
+where $K(x)$ is a nonnegative real function and  the bandwidth parameter $h\equiv h_n\to 0$ as $n\to\infty$.
+
+ In this regard, for a near $I(1)$ regressor $x_t$, Wang and Wang (2012) established uniform consistency for  both the regression and the volatility functions under  a compact set. Without the compact set restriction,  Gao, et al. (2011) derived strong and weak consistency results for the case where the $x_k$ is a null recurrent Markov chain,  but  imposed the independence between $u_k$ and $x_k$. 
+
+This section provides a uniform convergence for the  $\hat{m}(x)$ by making direct use of Theorems 2.1 and 2.3 in developing the asymptotics. The independence condition in Gao, et al. (2011).  ???
+
+
 
 \section{Main Results}
-\subsection{Harris Recurrent Markov Chain}
-For reading convenience, we list the assumptions as follows.
-\vskip 0.3cm
- \textbf{Assumption 3.1.} (i) $\{x_k\}_{k\ge 0}$ is a $\beta$-regular Harris recurrent Markov chain defined as in Section 3,
-where   the invariant measure $\pi$ has a bounded  density function $p(s)$ on $R$;
-(ii) $\{u_t, {\mathcal F}_t\}_{t\ge 1}$ is a martingale difference, where ${\mathcal F}_t=\si (x_1, ..., x_{t+1}, u_1,...,u_t)$, satisfying
- $E(u_t^2\mid {\mathcal F}_{t-1})\to_{a.s.} \si^2<\infty$ and $ \sup_{t\ge 1}E(|u_t|^{2p}\mid {\mathcal F}_{t-1})<\infty$, where  $p\ge 1+1/\ep_0$ for some $0<\ep_0<\beta$.
+We make use of the following assumptions in the development of main results.
 
+\begin{assump} \la{assump:4:martingale}
+ $\{u_t, {\mathcal F}_t\}_{t\ge 1}$ is a martingale difference, where\\ ${\mathcal F}_t=\si (x_1, ..., x_{t+1}, u_1,...,u_t)$, satisfying $ \sup_{t\ge 1}E(|u_t|^{2p}\mid {\mathcal F}_{t-1})<\infty$, where  $p\ge 1+1/\ep_0$ for some $\ep_0>0$.
+ \end{assump}
 
+\begin{assump} \la{assump:4:kernel}
+The kernel $K$ satisfies that $\int_{-\infty}^{\infty}K(s)ds<\infty$, $\sup_xK(x)<\infty$
+ and for any $x, y \in R$, $$ |K(x)-K(y)| \le C\, |x-y|. $$
+\end{assump}
 
- \vskip 0.3cm \textbf{Assumption 3.2.} The kernel $K$ satisfies that $\int_{-\infty}^{\infty}K(s)ds<\infty$, $\sup_xK(x)<\infty$
- and for any $x, y \in R$,
-$$
-|K(x)-K(y)| \le C\, |x-y|.
-$$
-
-\vskip 0.3cm \textbf{Assumption 3.3.}
-There   exists a real positive function $g(x)$ such that
+\begin{assump} \la{assump:4:lipschitz}
+There exists a real positive function $\lambda(x)$ such that
 \bestar
-|m(y)-m(x)| &\leq& C\,|y-x|^{\alpha} g(x),\eestar
-uniformly for some $0<\al\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficient small and
-$
-\Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}.
-$
+|m(y)-m(x)| &\leq& C\,|y-x|^{\alpha} \lambda(x),
+\eestar
+uniformly for some $0<\al\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficient small and $ \Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}. $
+\end{assump}
 
 
 \vskip 0.3cm
-Assumption 3.1 is similar to, but weaker than  those appeared in Karlsen, et al. (2007), where  the authors considered the point-wise convergence in distribution.
+Assumption \ref{assump:4:martingale} is similar to, but weaker than  those appeared in Karlsen, et al. (2007), where  the authors considered the point-wise convergence in distribution.
 
-Assumption 3.2 is a standard condition on $K(x)$  as in the stationary
+Assumption \ref{assump:4:kernel} is a standard condition on $K(x)$  as in the stationary
 situation. The Lipschitz condition on $K(x)$ is not necessary if we
 only investigate the point-wise asymptotics. See Remark 3.2 for
 further details.
 
-Assumption 3.3 requires a Lipschitz-type condition in a small
+Assumption \ref{assump:4:lipschitz} requires a Lipschitz-type condition in a small
 neighborhood of the targeted  set for the functionals to be
 estimated. This condition is quite weak, which may host a wide set
 of functionals. Typical examples  include that $m(x)=\theta_1+\theta_2x+...+\theta_kx^{k-1}$;
@@ -79,57 +83,114 @@ of functionals. Typical examples  include that $m(x)=\theta_1+\theta_2x+...+\the
  $m(x)=(\al+\beta\, e^{x})/(1+e^x)$.
 
 
+\subsection{Harris Recurrent Markov Chain}
 
-\medskip
+Let $\{x_k\}_{k\ge 0}$ is a $\beta$-regular Harris recurrent Markov chain defined as in Section 3, where   the invariant measure $\pi$ has a bounded  density function $p(s)$ on $R$; We have the following asymptotic results.
 
-We have the following asymptotic results.
-
-\begin{thm} \la {th31} Suppose Assumptions 3.1-3.3 hold, $h\to 0$ and $n^{-\ep_0}a(n)h\to \infty$ where $0<\ep_0<\beta$  is given as in Assumption 3.1.
+\begin{thm} \la {thm:4:markov} Suppose Assumptions \ref{assump:4:martingale}--\ref{assump:4:lipschitz} hold, $h\to 0$ and $n^{-\ep_0}a(n)h\to \infty$ where $0<\ep_0<\beta$  is given as in Assumption \ref{assump:4:martingale}.
 It follows that
 \begin{equation}
 \sup_{|x|\le b_n'}|\hat{m}(x)-m(x)|=
 O_{P}\left\{\big[a(n)h\big]^{-1/2}\,\log^{1/2}n
 +h^{\alpha}\, \delta_n\right\},
-\label{q1}\end{equation}
-where $b_n'\le b_n$, $\delta_n=\sup_{|x|\le b_n'}g(x)$ and $b_n$ satisfies that
-\bestar
+\label{eqn:4:q1}\end{equation}
+where $b_n'\le b_n$, $\delta_n=\sup_{|x|\le b_n'}\lambda(x)$ and $b_n$ satisfies that
+\be \la{eqn:4:markovCond}
 \inf_{|x|\le b_n+1}  \sum_{k=1}^n E K[(x_k+x)/h]\ge a(n)\, h/C_0,
-\eestar
-for some $C_0>0$ and all $n$ sufficiently large. In particular, for the random walk $x_t$  defined as in Corollary \ref {th3}, we have
+\ee
+for some $C_0>0$ and all $n$ sufficiently large. 
+\end{thm}
+
+Note that random walk is a $1/2$-regular  Harris recurrent Markov chain.
+The following corollary on a random walk shows the range $|x|\le b_n$
+can be taken to be optimal as well.
+
+
+\begin{cor} \la{cor:4:randomWalk}
+Let  $\{\nu_{j}, 1 \le j\le n \}$ be a sequence of i.i.d.
+random variables with $E\nu_{0}=0$, $E\nu _{0}^{2}=1$ and the
+characteristic function $\varphi (t)$ of $\nu_{0}$ satisfying
+$\int_{-\infty }^{\infty }|\varphi (t)|dt<\infty $. Write $x_t=\sum_{j=1}^t\nu_j$, $t\ge 1$. If in addition to Assumption \ref{assump:4:martingale}--\ref{assump:4:lipschitz}, then,  for  $h> 0$  and $n^{1/2-\ep_0}\, h\to \infty$ where $0<\ep_0<1/2$, we have
 \begin{equation}
 \sup_{|x|\le b_n'}|\hat{m}(x)-m(x)|=
 O_{P}\left\{\big(nh^{2}\big)^{-1/4}\,\log^{1/2}n
 +h^{\alpha}\, \delta_n\right\},
-\label{q1a}\end{equation}
-where $b_n'\le M_0\sqrt n$ for a fixed $M_0>0$ and $\delta_n=\sup_{|x|\le b_n'}g(x)$.
+\label{eqn:4:q1a}\end{equation}
+where $b_n'\le \tau_n\sqrt n$ for any $0<\tau_n\to 0$ and $\delta_n=\sup_{|x|\le b_n'}\lambda(x)$,  
+
+\end{cor}
+
+\subsection{Partial Sum of General Linear Process}
+
+Let $x_t=\sum_{j=1}^t\xi_j$, where $\xi_j$ is defined as in (\ref {sec2.f1}) with $\phi_k$ satisfying {\bf C1} or {\bf C2}. We have the following uniform asymptotic results.
+
+\begin{thm} \la {thm:4:linear} Under Assumptions \ref{assump:4:martingale}--\ref{assump:4:lipschitz},
+for any $h$ satisfying $h\to 0$ and $n^{1-\ep_0}h/d_n\to \infty$ where $\ep_0>0$ is given as in Assumption \ref{assump:4:martingale}, we have
+\begin{equation}
+\sup_{|x|\le b_n'}|\hat{m}(x)-m(x)|=
+O_{P}\left\{\big(nh/d_n\big)^{-1/2}\,\log^{1/2}n
++h^{\alpha}\, \delta_n\right\},
+\label{eqn:4:q1b}\end{equation}
+where $\delta_n=\sup_{|x|\le b_n'}\lambda(x)$ and $b_n'\le r_n\,d_n $ for any  $0< r_n \to 0$.
 \end{thm}
 
-\medskip
+
 \begin{rem} When a high moment exists on the error $u_t$,
-the $\ep_0$ can be chosen sufficient small so that there are more bandwidth choices  in practice. It is understandable that the results (\ref {q1})
- and (\ref {q1a}) are meaningful if only $h^{\al}\delta_n\to 0$, which depends on the tail of the unknown regression function $m(x)$, the bandwidth $h$ and the range $|x|\le b_n'$.
-When $m(x)$ has a light tail such as $m(x)=(\al+\beta\, e^{x})/(1+e^x)$, $\delta_n$ may be bounded by a constant. In this situation, the $b_n'$ in (\ref {q1a}) can be chosen to be $M_0\sqrt n$ for some fixed $M_0>0$.
-In contrast to Theorem 2.3 and Remark 2.3, this kind of range $|x|\le M_0\sqrt n$ might be optimal, that is, the $b_n'$ cannot be extended to $b_n'/\sqrt n \to\infty$ to establish the same rate of convergence as in (\ref {q1a}).
+the $\ep_0$ can be chosen sufficient small so that there are more bandwidth choices  in practice. It is understandable that the results (\ref {eqn:4:q1}), (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are meaningful if only $h^{\al}\delta_n\to 0$, which depends on the tail of the unknown regression function $m(x)$, the bandwidth $h$ and the range $|x|\le b_n'$.
+When $m(x)$ has a light tail such as $m(x)=(\al+\beta\, e^{x})/(1+e^x)$, $\delta_n$ may be bounded by a constant. In this situation, the $b_n'$ in (\ref {eqn:4:q1a}) can be chosen to be $r_n d_n$ for some $0<r_n\to 0$. Similar to the arguments in Remark \ref{rem:3:optimal}, this kind of range $|x|\le r_n d_n$ is optimal, that is, the $b_n'$ cannot be improved  to $b_n' / d_n \to \infty$ for the same rate of convergence rate as in (\ref {eqn:4:q1a}).
 
 \end{rem}
 
-\medskip
-\begin{rem} Both results (\ref {q1}) and (\ref {q1a}) are sharp. However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\hat m(x)$. For instance, as in Wang and Phillips (2009a,
+\begin{rem} The convergence rates in (\ref {eqn:4:q1}) (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are sharp and are probably optimal. In the  situation where $x_t$ is stationary regressor, the sharp rate of convergence is $O_P[(nh)^{-1/2} \log^{1/2}n]$ (see, e.g., Hansen (2008)). The reason behind the difference is due to the fact that, the integrated series wanders over the entire real line but spends only $O(n/d_n)$ amount of sample time around any specific point ($O[a(n)]$ for Markov chain), while stationary time series spends $O(n)$. More explanation can be found in Remark 3.3 of Wang and Phillips (2009a).
+
+However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\hat m(x)$. For instance, as in Wang and Phillips (2009a,
 b) with minor modification, we may show that, for each  $x$, \be \hat m(x)-m(x) &=& O_{P}
 \left\{(nh^2)^{-1/4}+h^{\alpha}\right\},\ee
-whenever  $x_t$ is a random walk defined as in Corollary \ref {th3}.
+whenever  $x_t$ is a random walk defined as in Corollary \ref {cor:4:randomWalk}.
 Furthermore $\hat m(x)$ has an asymptotic distribution that is
 mixing normal, under minor additional conditions. More details are  referred to Wang and Phillips (2009a, b).
 
 \end{rem}
 
-\medskip
-\begin{rem} Wang and Wang (2011) established a similar result to (\ref {q1a}) with the $x_t$ being a partial sum of linear process, but only for the $x$ being a compact support and imposing  a bounded condition on $u_t$. The setting on the $x_t$ in this paper is similar to that given in Gao, et al. (2011), but our result provides the optimal range
- for the uniform convergence holding true and removes  the independence between the error $u_t$ and $x_t$ required by Gao, et al. (2011).
-
+\begin{rem} Wang and Wang (2011) established a similar result to (\ref {eqn:4:q1a}) with the $x_t$ being a partial sum of linear process, but only for the $x$ being a compact support and imposing  a bounded condition on $u_t$. The setting on the $x_t$ in this chapter is similar to that given in Gao, et al. (2011), but our result provides the optimal range for the uniform convergence holding true and removes  the independence between the error $u_t$ and $x_t$ required by Gao, et al. (2011).
 \end{rem}
 
-\subsection{Partial Sum of General Linear Process}
+\section{Proofs of main results}
+
+
+\begin{proof}[Proof of Theorem \ref {thm:4:markov}]  We split the $\hat{m}(x)-m(x)$ as
+\be
+\hat{m}(x)-m(x) &=& \frac{\sum_{t=1}^{n}u_{t}K[(x_{t}-x)/h]}{%
+\sum_{t=1}^{n}K[(x_{t}-x)/h]}+\frac{\sum_{t=1}^{n}\big[m(x_{t})-m(x)\big]%
+\,K[(x_{t}-x)/h]}{\sum_{t=1}^{n}K[(x_{t}-x)/h]}  \no\\
+& :=& \Theta_{1n}(x)+\Theta_{2n}(x).
+ \la {q3}\ee
+Under Assumptions 3.3 and 3.4, it is readily seen  that, whenever $n$ is sufficiently large,
+\bestar
+ \sup_{|x|\le b_n'}|\Theta_{2n}(x)| &\le &  Ch^{\beta}\,\delta_n.
+\eestar
+The result (\ref {q1}) will follow if we prove
+\be
+\sup_{|x|\le b_n'} \Big | \sum_{k=1}^n u_t K[(x_k-x)/h] \Big | &=& O_P\big [ (a(n)h\log n)^{1/2}\big ], \la {eqn:4:rmk1}\\
+\Big \{\inf_{|x|\le b_n'} \sum_{t=1}^{n}\,K[(x_{t}-x)/h]\Big \}^{-1}
+&=& O_P\big \{ [a(n) h]^{-1} \big \}, \la{eqn:4:rmk2}
+\ee
+for any $h$ satisfying $n^{-\ep_0}a(n) h  \to \infty$. Now, by (\ref{eqn:4:markovCond}) and recalling Theorem \ref{thm:1:th1} with $f^2(x) = K(x)$ or $K^2(x)$ yields  (\ref{eqn:4:rmk2}) and 
+\be 
+\sup_{|x|\le b_n'} \sum_{k=1}^n K^2[(x_k-x)/h] &=& O_P[ a(n)h], \la {eqn:4:1.2a}
+\ee
+for any $h$ satisfying $n^{-\ep_0}a(n) h  \to \infty$. In fact, with $p\ge 1+1/\ep_0$ and $c_n=a(n)h\to\infty$, we have
+\bestar
+n\, c_n^{-p}\,\log^{p-1}n\le (n^{-\ep_0}a(n)h)^{-1-1/\ep_0} n^{-\ep_0}\log^{p-1}n \to 0,
+\eestar
+since $n^{-\ep_0} a(n)h\to\infty$. Now, by (\ref {eqn:4:1.2a}), it is readily seen that the conditions of Theorem \ref{thm:1:th4} hold for $f(x)=K(x)$ and $c_n=a(n)h$. The result (\ref {eqn:4:rmk1}) follows from (\ref {eqn:1:m10}) in Theorem \ref{thm:1:th4}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:4:linear}]
+The proof goes along the same line as in that of Theorem \ref{thm:4:markov}, except with $a(n)$ replaced by $n/d_n$ and Theorem \ref{thm:1:th1} replaced by Corollary \ref{cor:3:cor2}. We omit the details.
+\end{proof}
+
+
 
 
 %%% Local Variables: 

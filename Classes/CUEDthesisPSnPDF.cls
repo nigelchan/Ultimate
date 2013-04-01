@@ -49,7 +49,10 @@
 \usepackage[round, sort, numbers, authoryear]{natbib}
 \usepackage{ifthen}
 \usepackage{ifpdf}
-
+\usepackage{regexpatch}
+\usepackage[title,titletoc]{appendix}% http://ctan.org/pkg/appendix
+\renewcommand{\appendixname}{APPENDIX}
+\usepackage{titlesec}
 
 %Bibliography
 %uncomment next line to change bibliography name to references for Book document class
@@ -60,20 +63,20 @@
 % Nomenclature
 \usepackage{nomencl}
 \makenomenclature
-\renewcommand\nomgroup[1]{%
-  \ifthenelse{\equal{#1}{A}}{%
-   \item[\textbf{Roman Symbols}] }{%             A - Roman
-    \ifthenelse{\equal{#1}{G}}{%
-     \item[\textbf{Greek Symbols}]}{%             G - Greek
-      \ifthenelse{\equal{#1}{R}}{%
-        \item[\textbf{Superscripts}]}{%              R - Superscripts
-          \ifthenelse{\equal{#1}{S}}{%
-           \item[\textbf{Subscripts}]}{{%             S - Subscripts
-	    \ifthenelse{\equal{#1}{X}}{%
-	     \item[\textbf{Other Symbols}]}{{%    X - Other Symbols
-	    \ifthenelse{\equal{#1}{Z}}{%
-	     \item[\textbf{Acronyms}]}%              Z - Acronyms
-              			{{}}}}}}}}}}
+\renewcommand\nomgroup[1]{}%
+%  \ifthenelse{\equal{#1}{A}}{%
+%   \item[\textbf{Roman Symbols}] }{%             A - Roman
+%    \ifthenelse{\equal{#1}{G}}{%
+%     \item[\textbf{Greek Symbols}]}{%             G - Greek
+%      \ifthenelse{\equal{#1}{R}}{%
+%        \item[\textbf{Superscripts}]}{%              R - Superscripts
+%          \ifthenelse{\equal{#1}{S}}{%
+%           \item[\textbf{Subscripts}]}{{%             S - Subscripts
+%	    \ifthenelse{\equal{#1}{X}}{%
+%	     \item[\textbf{Other Symbols}]}{{%    X - Other Symbols
+%	    \ifthenelse{\equal{#1}{Z}}{%
+%	     \item[\textbf{Acronyms}]}%              Z - Acronyms
+%              			{{}}}}}}}}}}
 
 \ifpdf
 %-->
@@ -160,7 +163,7 @@
 \setlength{\footskip}{2.36cm}
 
 \pagestyle{fancy}
-%\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
 %\renewcommand{\sectionmark}[1]{\markboth{\MakeUppercase{\thesection. #1 }}{}}
 \renewcommand{\sectionmark}[1]{\markboth{{\thesection. #1 }}{}}
 %\renewcommand{\sectionmark}[1]{}
@@ -245,16 +248,16 @@
 % The dedication environment makes sure the dedication gets its
 % own page and is set out in verse format.
 
-\newenvironment{dedication}
+\newenvironment{declaration}
 {\begin{alwayssingle}
   \pagestyle{empty}
   \begin{center}
   \vspace*{1.5cm}
-  {\LARGE }
+  {\LARGE \bfseries Declaration}
   \end{center}
   \vspace{0.5cm}
-  \begin{quote} \begin{center}}
-{\end{center} \end{quote} \end{alwayssingle}}
+  \begin{quote}}
+{ \end{quote} \end{alwayssingle}}
 
 
 % ACKNOWLEDGEMENTS

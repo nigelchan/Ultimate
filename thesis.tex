@@ -48,6 +48,8 @@
 
 % Put all the style files you want in the directory StyleFiles and usepackage like this:
 \usepackage{StyleFiles/watermark}
+\usepackage{enumitem}
+\usepackage[titletoc]{appendix}
 
 % Comment out the next line to get single spacing
 \onehalfspacing
@@ -81,7 +83,7 @@
 
 \frontmatter % book mode only
 \pagenumbering{roman}
-\include{Dedication/dedication}
+\include{Declaration/declaration}
 \include{Acknowledgement/acknowledgement}
 \include{Abstract/abstract}
 
@@ -100,10 +102,14 @@
 \include{Chapter5/chapter5}
 \include{Chapter6/chapter6}
 
-\backmatter % book mode only
-\appendix
+%\backmatter % book mode only
+%\appendix
+\begin{appendices}
 \include{Appendix1/appendix1}
 \include{Appendix2/appendix2}
+\include{Appendix3/appendix3}
+\include{Appendix4/appendix4}
+\end{appendices}
 
 \bibliographystyle{apalike}
 %\bibliographystyle{plainnat}
