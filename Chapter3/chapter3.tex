@@ -1,11 +1,11 @@
-\chapter{Strong Approximation to Local Time}
+\chapter{Strong Approximation to Local Time} \la{chap:3}
 \ifpdf
     \graphicspath{{Chapter3/Chapter3Figs/PNG/}{Chapter3/Chapter3Figs/PDF/}{Chapter3/Chapter3Figs/}}
 \else
     \graphicspath{{Chapter3/Chapter3Figs/EPS/}{Chapter3/Chapter3Figs/}}
 \fi
 
-In this chapter, we establish uniform strong approximation to a local time process a functional of nonstationary time series. Sharp convergence rates and optimal range are obtained. 
+In this chapter, we establish uniform strong approximation of a functional of non-stationary time series to a local time process. As a direct consequence, sharp upper and lower uniform bounds are established for a general class of functionals of non-stationary time series. As the range in which uniform convergence is held is optimal, the results essentially improve those presented in Chapter \ref{chap:2}.
 
 \section{Introduction}
 Let ${x_{k,n},1\leq k\leq n,n\geq 1}$
@@ -30,7 +30,7 @@ used in the nonparametric regression. See [\citet[][\citeyear{parkphillips2001}]
 \cite{karlsenmyklebusttjostheim2007}, \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}, \citeyear{wangphillips2012}]{wangphillips2009} and the reference therein.
 
 This chapter is concerned with developing a uniform approximation of $S_{2n}(x)$ to the local time $L_{G}(1,-x)$ of the process $G(t)$. Such cases are important in nonlinear cointegrating regression and they appear in the investigation  of   uniform convergence in relation to  non-parametric estimation.  In order to investigate the uniform convergence for a Nadaraya-Watson estimator, for example, we need to consider the lower bound for $\inf _{|x|\le \gamma_n}S_{2n}(x)$ in
-the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K(s) $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  a ``optimal" range for the $x$ being held. This result essentially improves the previous those in Chapter 3. It should be mentioned that similar  uniform lower bounds of $S_{2n}(x)$  are required in many other areas, such as  the estimation of the volatility function in a regression  model with nonlinear nonstationary heteroskedastic (NNH) error processes. We refer to \cite{wangwang2012} and the reference therein  for more details.
+the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K(s) $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  a ``optimal" range for the $x$ being held. This result essentially improves the previous ones in Chapter \ref{chap:2}. It should be mentioned that similar  uniform lower bounds of $S_{2n}(x)$  are required in many other areas, such as  the estimation of the volatility function in a regression  model with nonlinear nonstationary heteroskedastic (NNH) error processes. We refer to \cite{wangwang2012} and the reference therein  for more details.
 
 This chapter is organized as follows.  In next section, we present our
 main results. Theorem \ref {th1} provides a framework for the uniform approximation. It is shown that, under certain conditions and a rich probability space, $S_{2n}(x)$ can be approximated by a local time process over $R$ with certain rate. The rate might be not optimal, but it is enough for many practical applications.
@@ -53,7 +53,7 @@ $|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficiently small on }$R$.
 
 
 \begin{assump} \la{assumpApprox}
- \textit{On a rich probability space, there exist a stochastic process $G(t)$ having a continuous local time $L_G(t,s)$ and a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and 
+ \textit{On a rich probability space, there exist (i) a stochastic process $G(t)$ having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|t|^{2w}$ where $0 < w < 1$, and (ii) a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and 
 \be
  \sup_{0\le t\le 1}|x_{[nt],n}-G_n(t)| &=&o_{a.s.}(n^{-\delta}),
  \la {a2}
@@ -85,7 +85,7 @@ whenever $n$ and $k-j$ are sufficiently large and $t\in R$.
 We remark that Assumption \ref{assumpFuncG} is weak and standard
   for this type of problem, and it is satisfied by many functionals such as $g(x)$ is differentiable and has a compact support. Assumption \ref{assumpApprox} is strong approximation version of the result $x_{n, [nt]}\to_D G(t)$ on $D[0,1]$, and it is obtainable for many random sequences. For instance,  if $\{\ep_k\}_{k\ge 1}$ are i.i.d. random variables with $E\ep_1=0, E\ep_1^2=1$ and $E|\ep_1|^{r}<\infty$
   for some $r>2$, then (\ref {a2}) holds true with $x_{n,k}=\sum_{j=1}^k\ep_j/\sqrt n$, $G_n(t) = n^{-1/2} W(nt)$ and $\delta=(r - 2) / (2r)$. More examples can be found in Proposition \ref{prop1} where we establish  Assumption \ref{assumpApprox} for general linear processes. Note that, $G_n(x)$ can not be replaced by one single process $G(x)$ which is independent of $n$. Explanation in this regards can be found in \cite{csorgorevesz1981}.
-  Assumption \ref{assumpDensity} is  similar to Assumption \ref{assumpDensity} given in \cite{wangphillips2010a} which is also used in Chapter 3.
+  Assumption \ref{assumpDensity} is  similar to Assumption \ref{assumpDensity} given in \cite{wangphillips2010a} which is also used in Chapter \ref{chap:2}.
 
 
 
@@ -113,12 +113,12 @@ If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$ and $\lim_{n\to \infty}P(
  \ee
 \end{cor}
 
-\begin{rem} \la{rem:3:optimal} Corollary \ref {cor1} essentially improves Theorem 3.2 of
-Chapter 3. To illustrate, let $G(x)$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le r_n} L_G(1, -x)=0)=0$ for any $0<r_n\to 0$, due to the continuity of  local time process. This yields that
+\begin{rem} \la{rem:3:optimal} Corollary \ref {cor1} essentially improves Theorem \ref{thm:2:MainLower} of
+Chapter \ref{chap:2}. To illustrate, let $G(x)$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le r_n} L_G(1, -x)=0)=0$ for any $0<r_n\to 0$, due to the continuity of  local time process. This yields that
 \be
 \big[\inf_{|x|\le r_n} | S_{2n}(x)|\big]^{-1}=O_P(c_n / n), \la {78}
  \ee
- for any $0<r_n\to 0$. In comparison,  Chapter 3 only established  
+ for any $0<r_n\to 0$. In comparison,  Chapter \ref{chap:2} only established  
 \bestar
 \big [ \inf_{|x|\le M_0/\log^{\gamma} n}| S_{2n}(x)|\big]^{-1}=O_P(c_n / n),
 \eestar
@@ -130,7 +130,7 @@ $P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see, for instance, \cite{takacs1995}
 In what follows we consider an  application of Theorem \ref {th1} to general linear processes.
 Let $\{\xi _{j},j\geq 1\}$ be linear processes defined by
 \begin{equation}
-\xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k}, \la {sec2.f1}
+\xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k}, \la {eqn:3:f1}
 \end{equation}
 where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of i.i.d.
 random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
@@ -151,7 +151,7 @@ where $C_0$ is a positive constant.
 
 \noindent We remark that the requirement on $\rho(k)$ under condition {\bf C1} is weak,
 which is satisfied by a large class of slowly varying functions such as $\log^{\al}x$,
-$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See, e.g., \cite{wanglingulati2003}.
+$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See, e.g., \cite{wanglingulati2003a}.
 
 Put $x_{k}=\sum_{j=1}^{k}\xi _{j}$ and $d_n^2=Ex_n^2$.
 It is well-known that
@@ -166,7 +166,7 @@ c_{\mu }\,n^{3-2\mu }\,\rho ^{2}(n), & \mbox{under {\bf C1}}, \\
 where   $c_{\mu
 }=\frac{1}{(1-\mu )(3-2\mu )}\int_{0}^{\infty }x^{-\mu }(x+1)^{-\mu
 }dx$.
-See, e.g.,  \cite{wanglingulati2003} for instance.
+See, e.g.,  \cite{wanglingulati2003a} for instance.
  We consider the uniform limit behavior of sample functions of the form:
  \be
 S^*_{2n} (x)&=&  \sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x\, d_n)
@@ -220,10 +220,10 @@ for any  $0<r_n\to 0$.
 \end{cor}
 
 \begin{rem}
-The key to prove Theorem \ref{th11} is to verify that $x_{k,n}:=x_k/d_n$ satisfies Assumptions \ref{assumpApprox} and \ref{assumpDensity}. The verification of Assumption \ref{assumpDensity} is given in Chapter 3. For Assumption \ref{assumpApprox}, we have the following result, which is stated as a proposition for the convenience of reading.
+The key to prove Theorem \ref{th11} is to verify that $x_{k,n}:=x_k/d_n$ satisfies Assumptions \ref{assumpApprox} and \ref{assumpDensity}. The verification of Assumption \ref{assumpDensity} is given in Chapter \ref{chap:2}. For Assumption \ref{assumpApprox}, we have the following result, which is stated as a proposition for the convenience of reading.
 
 \end{rem}
-\begin{prop} \la{prop1}   On a rich probability space, there exists  a fraction Brownian motion $\{W_{1 - \mu}(t), 0\le t < \infty\}$ such that
+\begin{prop} \la{prop1}   On a rich probability space, there exists  a fractional Brownian motion $\{W_{1 - \mu}(t), 0\le t < \infty\}$ such that
 \be \la{prop1.eqn2}
  \sup_{0 \le t \le 1} \Big | c_{\mu}^{-1/2}\sum_{k = 1}^{[nt]}\xi_k -\rho(n)\, W_{1 - \mu}(nt) \Big | = o_{a.s.}[n^{(r + 1) / r - \mu}\,\rho (n)]
 \ee
@@ -235,7 +235,7 @@ Similarly, under the condition {\bf C2}, on a rich probability space, there exis
 \ee
 \end{prop}
 
- The proof of (\ref{prop1.eqn2}) is given in \ref{wanglingulati2003} with minor improvement. The proof of (\ref{prop2.eqn2}) is given in \citet[][Page 18]{csorgohorvath1993}.
+ The proof of (\ref{prop1.eqn2}) is given in \cite{wanglingulati2003a} with minor improvement. The proof of (\ref{prop2.eqn2}) is given in \citet[][Page 18]{csorgohorvath1993}.
 
 
 
@@ -293,7 +293,7 @@ for all $0\le t_1<t_2<t_3\le n$ and integer $m\ge 1$. In particular, by letting 
 \ee
 \end{lem}
 
-\begin{proof} See Lemma \ref{lem:2:lem1} of Chapter 3 with minor improvements. \end{proof}
+\begin{proof} See Lemma \ref{lem:2:lem1} of Chapter \ref{chap:2} with minor improvements. \end{proof}
 
 \begin{lem} \la{lemUniBound} We have
 \be
@@ -302,17 +302,16 @@ for all $0\le t_1<t_2<t_3\le n$ and integer $m\ge 1$. In particular, by letting 
 for any $b_n, c_n \to \infty$ and  $ c_n / n \to 0$.
 \end{lem}
 \begin{proof}
-By virtue of Lemma \ref {lem1}, the proof  follows from the similar arguments as in the proof of Theorem 2.1 of Chapter 3.
+By virtue of Lemma \ref {lem1}, the proof follows from the similar arguments as in the proof of Theorem \ref{thmMainUpper} of Chapter \ref{chap:2}.
 We omit the details.
 \end{proof}
 
-\begin{lem} \la{lemLocal} For any $s, t \in R$ and $\xi > 0$, there exists a constant $C$ such that
+\begin{lem} \la{lemLocal} Let $G(t)$ be a  stochastic process having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|t|^{2w}$ where $0 < w < 1$. For any $s, t \in R$ and $\xi > 0$, there exists a constant $C$ such that
 \be
-|L_G(1, s) - L_G(1, t)| \le C\, |s - t|^{1/2 - \xi} \quad a.s.,
+|L_G(1, s) - L_G(1, t)| \le C\, |s - t|^{\frac{1 - w}{2w} - \xi} \quad a.s..
 \ee
-where $G(x)$ is a continuous local martingale.
 \end{lem}
-\begin{proof} See Corollary 1.8 of Revuz and Yor (1994, p. 226).  \end{proof}
+\begin{proof} See Theorem 30.4 of \cite{gemanhorowitz1980} and the remark below it.  \end{proof}
 
 \begin{lem} \la{lemma3} Suppose that $c_n \to  \infty$ and $ n^{-1+\ep_0}c_n  \to 0$ for some $\ep_0 > 0$. Then, for any $\beta > 0$, we have
 \be \la{stat}
@@ -335,7 +334,7 @@ I_{1n} := \sup_{|t| \le c_n\, n^2} \sup_{s: |s - t| \le \ep_n} \Big | \frac{c_n}
  &\le& O_{a.s.}(\log^{-\beta}n) + 2c_n \, \sup_{ |t| > c_n n^2 / 4}|g(t)| +O_{a.s} (c_n/n)\no\\
  &=&O_{a.s.}(\log^{-\beta}n), 
  \eestar 
- where  we have used the following fact: $\sup_{ |t| > c_n n^2 / 4}|g(t)|\le ( c_n n^2 )^{-\rho}\le C/n$ due to Assumption 2.1 and $\rho\ge 1$, and 
+ where  we have used the following fact: $\sup_{ |t| > c_n n^2 / 4}|g(t)|\le ( c_n n^2 )^{-\rho}\le C/n$ due to Assumption \ref{assumpFuncG} and $\rho\ge 1$, and 
  \begin{align}
 &  P \big (\sum_{k = 1}^n I(|x_{k, n}| > n^{2} / 2) > C, \, i.o. \big ) \no\\
 &\le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-4}\sum_{k = 1}^nE |x_{k, n}|^{2}   \no\\
@@ -374,15 +373,15 @@ Recall $\eta_n=(n/c_n)\log^{-(\beta + 1)}n$. Using Lemma \ref{lemUniBound} and (
 \eestar
 This, together with (\ref {95}), implies that (\ref {stat}) will follow if we prove
 \be
- \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\Big(| \sum_{\substack{w = 2 \\ w \in even}}^{T_n} \Delta_{nw}(t_i, s_j)|+| \sum_{\substack{w = 2 \\ w \in odd}}^{T_n} \Delta_{nw}(t_i, s_j)|\Big)  &=& O_{a.s.} (\eta_n \, \log n).  \la {21}
+ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\Big(| \sum_{\substack{w = 2 \\ w \in even}}^{T_n} \Delta_{nw}(t_i, s_j)|+| \sum_{\substack{w = 2 \\ w \in odd}}^{T_n} \Delta_{nw}(t_i, s_j)|\Big)  &=& O_{a.s.} (\eta_n \, \log n).  \la {eqn:3:21}
 \ee
-We only prove (\ref {21}) for $w\in even$. The other is similar and hence the details are omitted.
+We only prove (\ref {eqn:3:21}) for $w\in even$. The other is similar and hence the details are omitted.
 To this end, let $\F_{n, v}^*= \F_{n, (2v+1)b_n}, v\ge 0$, and $M_1 > 0$ is chosen later,
 \bestar
 \Delta_{nw}'(t,s) &=& \Delta_{n,2w}(t,s)I(|\Delta_{n, 2w}(t,s)|\le M_1\, \eta_n ), \no\\
 \Delta_{n w}^*(t,s) &=& \Delta_{n, w}'(t,s)- \E \big(\Delta_{n, w}'(t,s)\mid \F_{n, w-1}^*\big).
 \eestar
-Under these notation, to prove (\ref {21}) for $w\in even$, it suffices to show
+Under these notation, to prove (\ref {eqn:3:21}) for $w\in even$, it suffices to show
 \be \lam_{1n} &:=&\max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}| \sum_{w=1}^{T_n/2} \Delta_{nw}^*(t_i, s_j)|
 =O_{a.s.} (\eta_n \, \log n), \la {22} \\
 \lam_{2n} &:=& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}| \sum_{w=1}^{T_n/2} \E \big(\Delta_{n, 2w}(t_i, s_j)\mid \F_{n, w-1}^*\big)|
@@ -462,7 +461,7 @@ due to $d\nu-\eta_0 < 0$ by simple calculation and $(n / c_n) n^{-d\nu} < n^{1 -
 This, together with the facts that  $|\Delta_{nw}^{*}(t_i, y_j)|\le \eta_n$ and for each $i, j$,
 $\{\Delta_{nw}^{*}(t_i, s_j), {\mathcal F}_{n, w}^*\}$ forms a martingale difference, and
 the well-known martingale exponential inequality
-(see, e.g., de la Pena (1999)) implies that there exists a $M_0\ge 22$ such that, as $n \to \infty$,
+(see, e.g., \cite{delapena1999}) implies that there exists a $M_0\ge 22$ such that, as $n \to \infty$,
 \be
 && P[\lam_{1n} \ge  M_0 \eta_n\, \log n, i.o.] \no\\
 &\le& P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n, i.o.  \Big] \no\\
@@ -474,11 +473,11 @@ the well-known martingale exponential inequality
 \ee
 where the last inequality follows from (\ref {110}).
  This yields $\lam_{1n}=O_{a.s.}\big( \eta_n \, \log n \big )$.
-Combining (\ref {25})-(\ref {p10}), we establish (\ref {21}), and also completes the proof of Lemma 3.5.
+Combining (\ref {25})--(\ref {p10}), we establish (\ref {eqn:3:21}), and also completes the proof of Lemma \ref{lemma3}.
 \end{proof}
 
 \subsection{Proof of Theorem \ref{th1}} \la{section:3:proof}
-Without loss of generality, we first assume $\tau = \int g(x) dx = 1$. Define $\bar{g}(x)=g(x)I\{|x|\leq n^{\zeta}/2\}$, where $0 < \zeta < 1 - \de / \rho$ is small enough such that $n^{\zeta}/c_n\le n^{-\delta}$, where $\rho$ and $\de$ are given in Assumption 2.1 and 2.2 respectively. Further let $\varepsilon=n^{-\alpha}$ with $0<\alpha< \de / 2$, and for a fixed $x_{0}$, define a triangular function
+Without loss of generality, we first assume $\tau = \int g(x) dx = 1$. Define $\bar{g}(x)=g(x)I\{|x|\leq n^{\zeta}/2\}$, where $0 < \zeta < 1 - \de / \rho$ is small enough such that $n^{\zeta}/c_n\le n^{-\delta}$, where $\rho$ and $\de$ are given in Assumption \ref{assumpFuncG} and \ref{assumpApprox} respectively. Further let $\varepsilon=n^{-\alpha}$ with $0<\alpha< \de / 2$, and for a fixed $x_{0}$, define a triangular function
 \bestar
 g_{x_0, \varepsilon}(y)= \begin{cases}
 0,  & \quad \quad   |y - x_0| > \varepsilon, \\
@@ -510,7 +509,7 @@ The proof of (\ref {eqn1}) is simple. It follows from $ \sup_x\,|x|^{\rho}\, |g(
 \end{eqnarray*}
 as $n^{\zeta} / c_n \le n^{-\de}$ and $\rho > \de / (1 - \zeta)$.
 
- Recall $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for all $n\ge 1$,  by Assumption 2.2. For any $\ep>0$ and $\beta>0$, we have
+ Recall $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for all $n\ge 1$,  by Assumption \ref{assumpApprox}. For any $\ep>0$ and $\beta>0$, we have
  \bestar
  && P(|\Phi_{4n}|\ge \ep\, \log^{-\beta}n) \no\\
  &=& 
@@ -528,7 +527,7 @@ We next prove (\ref{eqn3}). Recalling the definition of $g_{x\varepsilon}(y)$ an
 &=& O_{a.s.}(\varepsilon^{1/2-\xi})
 \end{eqnarray*}
 for any $\xi>0$, uniformly for all $x \in R$. The similar arguments as in the proof of (\ref{eqn4}) yield that $\sup_x\big{|}\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt-L_{G_n}(1,x)\big{|}=O_P(\varepsilon^{1/2-\xi}).$
-Hence, by taking $\xi = \al / 4$,  it follows from Assumption 2.2(b) that
+Hence, by taking $\xi = \al / 4$,  it follows from Assumption \ref{assumpApprox} (b) that
 \begin{eqnarray*}
 && \Big{|}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(x_{j,n})-L_{G_n}(1,x)\Big{|}\no\\
 &\le &\Big{|}\int_{0}^{1}g_{x\varepsilon}(x_{[nt], n})dt-\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt\Big{|}+2/(\varepsilon n)+
@@ -584,7 +583,7 @@ Finally for (\ref{eqn7}). Using Lemma \ref{lemma3}, we have
 \end{align}
 uniformly in $x \in R$.
 
-The proof of Theorem 2.1 is now complete. $\Box$
+The proof of Theorem \ref{th1} is now complete. $\Box$
 
 
 

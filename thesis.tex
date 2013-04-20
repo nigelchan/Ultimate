@@ -93,6 +93,23 @@
 \printnomenclature  %% Print the nomenclature
 \addcontentsline{toc}{chapter}{Nomenclature}
 
+
+
+\renewenvironment{proof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont \topsep\medskipamount\relax
+	\trivlist
+	\item[\hskip\labelsep
+		\bfseries
+		#1.]\ignorespaces
+}
+{%
+      \popQED\endtrivlist
+}
+
+
+
+
 \mainmatter % book mode only
 \include{Introduction/introduction}
 \include{Chapter1/chapter1}

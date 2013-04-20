@@ -1,12 +1,12 @@
 
-\chapter{Uniform Bounds for Functionals of Non-stationary Time Series}
+\chapter{Uniform Bounds for Functionals of Non-stationary Time Series} \la{chap:2}
 \ifpdf
     \graphicspath{{Chapter2/Chapter2Figs/PNG/}{Chapter2/Chapter2Figs/PDF/}{Chapter2/Chapter2Figs/}}
 \else
     \graphicspath{{Chapter2/Chapter2Figs/EPS/}{Chapter2/Chapter2Figs/}}
 \fi
 
-In this chapter, sharp upper and lower uniform bounds are established for a general class of functionals of integrated and fractionally integrated time series.  
+In this chapter, sharp upper and lower uniform bounds are established for a general class of functionals of integrated and fractionally integrated time series. The results will be useful in the investigation of uniform convergence for kernel estimates in a non-linear cointegrating regression.
 
 \section{Introduction}
 Consider a triangular array ${x_{k,n},1\leq k\leq n,n\geq
@@ -88,7 +88,63 @@ uniformly bounded by a constant }$K$\textit{\ and uniformly for $j-k$ sufficient
 
 We mention that Assumption \ref{assump:2:lipschitz} is standard in the investigation of uniform convergence,
 which provides rich choices for kernel estimation applications. Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} are similar to those used in Theorem 2.1 of \cite{wangphillips2010a}. The additional requirement on $d_{l,k,n}$ is mild, which is used here for technical convenience.
-Indeed, in  most practical situations, $x_{k,n}=\sum_{j=1}^k \eta_j/d_n$, where $d_n^2= var (\sum_{j=1}^n\eta_j)\sim C_0n^{2d}$ for some $0< d<1$, as stated in the following Examples 2.1 and 2.2. It is natural to set $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$.
+Indeed, in  most practical situations, $x_{k,n}=\sum_{j=1}^k \eta_j/d_n$, where $d_n^2= var (\sum_{j=1}^n\eta_j)\sim C_0n^{2d}$ for some $0< d<1$, as stated in the following Examples 2.1 and 2.2. In this situation, it is natural to set $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$.
+
+
+\medskip
+{\bf Example 3.1.} Let $\{ \xi_j, j \ge 1\}$ be a stationary sequence of Gaussian random variables  with $\E \xi_1 = 0$ and covariances $\gamma( j - i) = \E \xi_j \xi_i$ satisfying the following condition for some $0 < \beta < 2$ and $\lambda > 1$,
+\be
+d_n^2 \equiv \sum_{1 \le i,j\le n} \gamma(j-i) \sim n^\beta \quad  and \quad  | \tilde{\gamma}_{l,k} | \le \lambda d_k d_{l-k},
+\ee
+as $\min \{k, l-k\} \to \infty$, where
+\be
+\tilde{\gamma}_{l,k} = \sum_{i = 1}^k \sum_{j = k+1}^l \gamma(j-i)
+\ee
+Let $x_{k,n}= \sum_{j = 1}^k \xi_j/d_n$, $1 \le k \le n$. Then $x_{k,n}$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with $G(t) = W_{\beta/2}(t)$.   See Corollary 2.1 of \cite{wangphillips2010a}.
+
+\medskip
+{\bf Example 3.2.} Let $\{\xi_{j},j\geq 1\}$ be a linear process defined by
+$
+\xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k},
+$
+where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of iid
+random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
+characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfies
+$\int_{-\infty
+}^{\infty }(1+|t|)|\varphi (t)|dt<\infty $. The coefficients $\phi_k$, $k \ge 0$ are assumed to satisfy one of the following conditions:
+\begin{itemize}
+\item[\textbf{C1.}] $\phi _{k}\sim k^{-\mu }\,\rho(k),$ where $1/2<\mu <1$ and $%
+\rho(k)$ is a function slowly varying at $\infty $.
+\item[\textbf{C2.}] $\sum_{k=0}^{\infty } |\phi _{k}|<\infty $ and $\phi \equiv
+\sum_{k=0}^{\infty }\phi_{k}\not =0$.
+\end{itemize}
+
+Write $x_{t}=\sum_{j=1}^t \xi_{j}$ and $d_n^2 = \E x_n^2$. We have
+\be \la{sec2.f2}
+d_n^2 = \E x_n^2 \sim
+\begin{cases}
+c_{\mu} n^{3-2\mu} \rho^2(n),  & \mbox{under {\bf C1},} \\
+\phi^2 n, & \mbox{under {\bf C2}.}
+\end{cases}
+\ee
+where $c_\mu = 1 / ((1 - \mu)(3-2\mu )) \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$. See, e.g., \cite{wanglingulati2003a} for instance.
+In Section ????, we prove that  $x_{k,n}\equiv x_k/d_n, 1\le k\le n,$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with
+\be
+ G(t) &=&\begin{cases}
+ W_{\mu - 3/2}(t),  & \mbox{under {\bf C1},} \\
+W(t), & \mbox{under {\bf C2}.}
+\end{cases} \la {im19}
+\ee
+
+
+\medskip
+We now state our main results.
+
+
+
+
+
+
 
 \begin{thm} \la {thmMainUpper}  Under Assumptions \ref{assump:2:lipschitz} and \ref{assump:2:density}, we have
 \be \la{thmMainUpper.eqn1}
@@ -118,14 +174,14 @@ where
 \big ( \frac{1+d}{1-d} \big ) \big ( \frac{d}{1-d} \big ), &\quad if \quad 3/5<d <1,
 \end{cases} \la {eqn:2:gamma}
 \ee
-for any fixed $M_0>0$, $c_n\to\infty$ and $(n/c_n) \log^{-\theta}n \to \infty$, where $\theta = (1-d)\gamma_1/d$. If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
+for any fixed $M_0>0$, $c_n\to\infty$ and $(n/c_n) \log^{-\theta_1}n \to \infty$, where $\theta_1 = (1-d)\gamma_1/d$. If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
 \be \la{eqn:2:MainLower1}
 \Big [ \inf_{|x|\le M_0/ \log^{\gamma_1} n}| S_{2n}(x)|\Big]^{-1} =\sup_{|x|\le M_0/ \log^{\gamma_1} n} |S_{2n}^{-1}(x)| =O_P(c_n/n) .
 \ee
 \end{thm}
 
-\begin{rem} It is readily seen that $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$ for some $0< d<1$ satisfies Assumption 2.3 (i) of \cite{wangphillips2010a}.
-If in addition to Assumptions \ref{assump:2:lipschitz} and \ref{assump:2:density}, $\int_{\infty}^{\infty} g(x)dx\not=0$.  Theorem 2.1 and Remark 2.1 of \cite{wangphillips2010a} yield that
+\begin{rem} \la{rem:2:local} It is readily seen that $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$ for some $0< d<1$ satisfies Assumption 2.3 (i) of \cite{wangphillips2010a}.
+If in addition to Assumptions \ref{assump:2:lipschitz}--\ref{assump:2:density}, $\int_{\infty}^{\infty} g(x)dx\not=0$.  Theorem 2.1 and Remark 2.1 of \cite{wangphillips2010a} yield that
 \be
 \frac{c_n}{n}\sum_{t = 1}^{n} g[c_n\, (x_{t,n}+y_n)] \to_D \int_{-\infty}^{\infty} g(x)dx\, L_G(1,y), \la {eqn:2:99}
 \ee
@@ -134,7 +190,7 @@ whenever $c_n\to\infty$, $n/c_n\to\infty$ and $y_n\to y$. This, together with th
 
 
 \begin{rem} Results similar to (\ref{eqn:2:MainLower0}) and (\ref{eqn:2:MainLower1}) were established  in
-chapter 1 for a Harris recurrent Markov chain. As stated in \cite{wangphillips2010a}, our Assumption \ref{assump:2:density} which includes a partial sum of general linear process (see Examples below) is more natural for econometric applications and has an essential difference from the  Markov chain.
+chapter 1 for a Harris recurrent Markov chain. As stated in \cite{wangphillips2010a}, our Assumption \ref{assump:2:density}, which includes a partial sum of general linear process (see Examples 3.2), is more natural for econometric applications and has an essential difference from the  Markov chain.
 \end{rem}
 
 
@@ -142,114 +198,90 @@ The essential behind the proof of Theorem \ref {thm:2:MainLower} is a fact   tha
 
 \begin{thm} \la{thm:2:thm7} Let $\gamma \ge 0$. Under Assumptions \ref{assump:2:lipschitz}--\ref{assump:2:density},  we have
 \be
-\sup_{|x|\le M_0/ \log^\gamma n} |S_{2n}(x)-S_{2n}(0)| =O_P[(n/c_n) \log^{1-\lambda} n],\quad  \la {eqn:2:ad121}
+\sup_{|x|\le M_0\, D_n / \log^{\gamma} n } |S_n(x)-S_n(0)| =O_P\big [(n / c_n) D_n^{\lambda_2}\log^{1-\lambda_1}n\, + (n / c_n)^{1/2}\big ],\quad  \la {eqn:2:ad121a}
 \ee
- for any fixed $M_0>0$, $c_n\to\infty$ and $(n/c_n) \log^{-\theta}n \to \infty$, where $\theta=\max\{\lambda+1, \eta\}$,
-\be
-\lambda = \begin{cases}
+ for any $(c_n / n)^{\rho} \le D_n\le 1$, $0\le \rho<\min\{1/\lam_2, \, 1/d^*\}$,  $c_n\to\infty$ and $(n/c_n) \log^{-\theta}n \to \infty$, where $M_0>0$ is a fixed constant, $\theta = \max\{(\lambda_1+1)/(1-\rho\lam_2),\ \eta / (1 - \rho d^*)\}$,  and
+\be \la {eqn:2:h1}
+\lambda_1 = \begin{cases}
 \frac{(1-d)^2\gamma/d-(2d-1)}{2-d},  & \mbox{ if    $1/2 < d < 1$  and  $\gamma \ge d(5d-1)/(2d-1)$}, \\
 \frac{(1+\gamma)(1-d)-2d}{1+d},  & otherwise, \\
 \end{cases}
 \ee
- and
-\be \la{eta}
-\eta = \begin{cases}
-\gamma + (\lambda+1) (1-2d)/(1-d),  & if \quad   0 < d < 1/2, \\
-\gamma -1, & if \quad  d = 1/2, \\
-(1-d)\gamma / d, & if \quad  1/2 < d < 1.
+\be \la {h2}
+\lambda_2 =  \begin{cases}
+\frac{1 - d}{1 + d},  &  if \quad    0 < d < 1/2, \\
+\frac{(1 - d)^2}{d(2-d)},  &  if \quad   1/2 \le d < 1, \\
+\end{cases} \quad \quad
+d^* = \begin{cases}
+\frac{2-d}{1+d},  & if \quad   0 < d < 1/2, \\
+\frac{1 - d}{d}, & if \quad  1/2 \le d < 1, \\
 \end{cases}
 \ee
+\be \la{eqn:2:eta}
+\eta = \begin{cases}
+\gamma + \frac{(\lambda_1+1) (1-2d)}{1-d},  & if \quad   0 < d < 1/2, \\
+\gamma -1, & if \quad  d = 1/2, \\
+\frac{(1-d)\gamma}{d}, & if \quad  1/2 < d < 1.
+\end{cases}
+\ee
+In particular, take $\rho = 0$, i.e. $D_n = 1$, we have
+\be
+\sup_{|x|\le M_0/ \log^\gamma n} |S_n(x)-S_n(0)| =O_P[(n/c_n) \log^{1-\lambda_1} n + (n / c_n)^{1/2}],\quad  \la {ad121}
+\ee
+provided $c_n\to\infty$ and $(n/c_n) \log^{-\theta_0}n \to \infty$, where  $\theta_0 = \max\{\lambda_1+1,\ \eta \}$.
+
 \end{thm}
 
+\begin{rem}
+Note that $S_n(0)=O_P[(n / c_n)^{1/2}]$ under certain conditions by \cite{wangphillips2010b}. By taking $D_n$ small, the result (\ref {eqn:2:ad121a}) can be used to investigate
+ the uniform convergence for zero energy function of non-stationary time series.
+ See (\ref {ad1211}) in the following  Corollary \ref {corZero}  for an example.
+\end{rem}
 
 
-
-
-To end this section, we introduce the following
- examples on $x_{k,n}$, which satisfy Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density}.
-
-\medskip
-{\bf Example 3.1.} Let $\{ \xi_j, j \ge 1\}$ be a stationary sequence of Gaussian random variables  with $\E \xi_1 = 0$ and covariances $\gamma( j - i) = \E \xi_j \xi_i$ satisfying the following condition for some $0 < \beta < 2$ and $\lambda > 1$,
+\begin{cor} \la{corZero} Suppose Assumption \ref{assump:2:lipschitz} holds, and  $x_t$ and $d_n^2=var (x_n)$ are defined as in Example 3.2. Then,
+for any $h$ satisfying $h\to 0$ and $n^{ 1- \de_0} h/d_n \to \infty$, where  $\de_0>0$ can be as small as required, we have
 \be
-d_n^2 \equiv \sum_{1 \le i,j\le n} \gamma(j-i) \sim n^\beta \quad  and \quad  | \tilde{\gamma}_{l,k} | \le \lambda d_k d_{l-k},
+\sup_{|x|\le  M_0\,d_n/\log^{\gamma_0} n} \big|\sum_{t = 1}^n g\Big (\frac{x_t - x}{h} \Big )\big| =O_P (nh / d_n),\quad  \la {h11}
 \ee
-as $\min \{k, l-k\} \to \infty$, where
+where $M_0$ is a fixed constant and
 \be
-\tilde{\gamma}_{l,k} = \sum_{i = 1}^k \sum_{j = k+1}^l \gamma(j-i)
+\gamma_0 &=&\begin{cases}
+\frac {4(3-2\mu)}{2\mu-1},  & \quad \mbox{under {\bf C1} and $9/10<\mu<1$ }, \\
+\frac {(5-2\mu)(3-2\mu)}{(2\mu-1)^2}, & \quad \mbox{under {\bf C1} and $1/2<\mu\le 9/10$, }\\
+4, &\quad  \mbox{under {\bf C2}. }
+\end{cases} \la {al2}
 \ee
-Let $x_{k,n}= \sum_{j = 1}^k \xi_j/d_n$, $1 \le k \le n$. Then $x_{k,n}$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with $G(t) = W_{\beta/2}(t)$.   See Corollary 2.1 of \cite{wangphillips2010a}.
-
-Here and below, $W_{\beta}(t)$ denotes  fractional Brownian motion with $0<\beta<1$ on
-$D[0,1]$, defined as follows:
-\begin{eqnarray*}
-W_{\beta}(t)=\frac 1{A(\beta)}\ \int_{-\infty}^0\Big[(t-s)^{%
-\beta-1/2}-(-s)^{\beta-1/2}\Big]dW(s)+
-\int_{0}^t(t-s)^{\beta-1/2}dW(s),
-\end{eqnarray*}
-where $W(s)$ is a standard Brownian motion and
-\begin{equation*}
-A(\beta)=\Big (\frac 1{2\beta}+\int_{0}^{\infty}\Big[(1+s)^{\beta-1/2}-s^{%
-\beta-1/2}\Big]^2ds\Big)^{1/2}.
-\end{equation*}
-
-
-\medskip
-{\bf Example 2.2.} Let $\{\xi _{j},j\geq 1\}$ be a linear process defined by
-$
-\xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k},
-$
-where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of iid
-random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
-characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfies
-$\int_{-\infty
-}^{\infty }(1+|t|)|\varphi (t)|dt<\infty $. The coefficients $\phi_k$, $k \ge 0$ are assumed to satisfy one of the following conditions:
-\begin{itemize}
-\item[\textbf{C1.}] $\phi _{k}\sim k^{-\mu }\,\rho(k),$ where $1/2<\mu <1$ and $%
-\rho(k)$ is a function slowly varying at $\infty $.
-\item[\textbf{C2.}] $\sum_{k=0}^{\infty } |\phi _{k}|<\infty $ and $\phi \equiv
-\sum_{k=0}^{\infty }\phi_{k}\not =0$.
-\end{itemize}
-
-Write $x_{t}=\sum_{j=1}^t \xi_{j}$ and $d_n^2 = \E x_n^2$. We have
-\be \la{eqn:2:sec2.f2}
-d_n^2 = \E x_n^2 \sim
-\begin{cases}
-c_{\mu} n^{3-2\mu} \rho^2(n),  & \mbox{under {\bf C1},} \\
-\phi^2 n, & \mbox{under {\bf C2}.}
+If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
+\be \la{h12}
+\Big [ \inf_{|x|\le  M_0\,d_n/\log^{\gamma_0} n}\big|\sum_{t = 1}^n g\Big (\frac{x_t - x}{h} \Big )\big|\Big]^{-1}  =O_P[d_n/(nh)] .
+\ee
+Furthermore, if in addition $h\to0$ ($h^2\log n\to 0$ under {\bf C2}),
+ $\int|\hat g(t)|dt<\infty$ and $|\hat g(t)|\le C\min\{|t|,1\}
+ $, where $\hat g(t)=\int e^{itx}g(x)dx$, then
+\be
+\sup_{|x|\le  B_n} \big|\sum_{t = 1}^n g\Big (\frac{x_t - x}{h} \Big )\big| =O_P\big [ (nh / d_n)\,a_n^{\Lambda}+(nh/d_n)^{1/2}\big ],\quad  \la {ad1211}
+\ee
+where $B_n=M_0a_nd_n/\log^{\gamma_0}n$, $(nh/d_n)^{-1/2}\le a_n^{\Lambda}\le 1$ and
+\be
+ \Lambda &=&\begin{cases}
+\frac{(2\mu - 1)^2}{(3 - 2\mu) (1 + 2\mu)},  & \quad \mbox{under {\bf C1}}, \\
+1 / 3, &\quad \mbox{under {\bf C2}}.
 \end{cases}
 \ee
-where $c_\mu = 1 / ((1 - \mu)(3-2\mu )) \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$. See, e.g., \cite{wanglingulati2003} for instance.
-Now  $x_{k,n}\equiv x_k/d_n, 1\le k\le n,$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with
-\be
- G(t) &=&\begin{cases}
- W_{\mu - 3/2}(t),  & \mbox{under {\bf C1},} \\
-W(t), & \mbox{under {\bf C2}.}
-\end{cases} \la {im19}
-\ee
+\end{cor}
 
-The verification of this claim  is similar to  the proof of Corollary 2.2 in \cite{wangphillips2010a}. The only additional work is to show (\ref{eqn:2:77}) hold as well. In fact, by writing
-\be
-x_l &=&\sum_{j=1}^{l}\,\sum_{i=-\infty}^{j}\ep_i\phi_{j-i} \no\\
-  &=& \,x_{k}+\sum_{j=k+1}^{t}\,\sum_{i=-\infty}^{k}\ep_i\phi_{j-i} + \sum_{j=k+1}^{l}\,\sum_{i=k+1}^{j}\ep_i\phi_{j-i} \no\\
-  &:=& x_{k, l}^*+x_{k,l}', \la {m-01}
-  \ee
-the similar arguments as in the proof of Corollary 2.2
-in \cite{wangphillips2010a} yields that
- $x'_{k,l} / d_{l - k}$, where $d_n$ is defined as in (\ref {eqn:2:sec2.f2}),
-  has a density $h_{l,k}(x)$ and $\int_{-\infty}^{\infty} (1 + |t|)|\varphi_{l,k}(t)| dt<\infty$ uniformly for $0 \le k < l \le n$, where $\varphi_{l,k}(t) = Ee^{itx'_{l,k}/d_{l-k}}$, due to $\int (1+|t|)|Ee^{it\ep_0}|dt<\infty$.
-  Hence, conditional on $\F_{k,n} = \si(\ep_j, -\infty < j \le k)$,
-\be
-(x_{l,n} - x_{k,n})  / d_{l,k,n} \mbox{ has a density } h_{l,k}(x - x^*_{k, l} / d_{l - k})
-\ee
-where $x_{t,n} = x_t / d_n$ and $d_{l,k,n} =  d_{l-k}/ d_n$. Furthermore, for any $u\in R$, we have
+\begin{rem} Since the conditions that $\int|\hat g(t)|dt<\infty$ and $|\hat g(t)|\le C\min\{|t|,1\}$ imply $\int g(x)dx=0$ [see, e.g., \cite{wangphillips2010b}], the result
+(\ref {ad1211}) provides the uniform convergence rate for   zero energy functionals of an $I(1)$ process. Recalling  Theorem 2.1 of \cite{wangphillips2010b}, the optimal
+convergence rate $(nh/d_n)^{1/2}$ is obtained by taking $a_n=(nh/d_n)^{-1/(2\Lambda)}$. For this $a_n$, under {\bf C2} (i.e., $\Lambda=1/3$, $\gamma_0=4$ and $d_n=\sqrt n$), we have
 \bestar
-&&\sup_x \big|h_{l,k}(x - x^*_{k, l} / d_{l - k}+u)-h_{l,k}(x - x^*_{k, l} / d_{l - k})\big| \no\\
-&\le&
-\sup_x | h_{l,k}(x +u) - h_{l,k}(x)| \no\\
-&\le & C \Big | \int_{-\infty}^{\infty} \big ( e^{-it(x+u)} - e^{-itx} \big ) \varphi_{l, k}(t) dt \Big | \no\\
-&\le& C\,\min\{|u |, 1\}\,  \int_{-\infty}^{\infty}  (1+|t|)\,  |\varphi_{l, k}(t)| dt  \le C_1\,  \min\{|u |, 1\},
+B_n &=& M_0(\sqrt nh)^{-3/2}\sqrt n/\log^4n =M_0(nh^6\log n)^{-1/4}.
 \eestar
-which yields the claim.
+Hence, whenever $nh^6\log n\to 0$, a reasonable range on $x$ in (\ref {ad1211}) is achievable to obtain the optimal convergence rate. However, when $\mu$ is close to $1/2$ under {\bf C1}, the current result fails to provide a reasonable range on $x$ to reach the optimal convergence rate. It keeps an open problem for this issue.
+\end{rem}
+
+
+
 
 
 \section{Proofs of main results}
@@ -356,23 +388,24 @@ Combining (\ref {eqn:2:71})--(\ref {eqn:2:73}), we prove (\ref {eqn:2:69}).
 The proof of Theorem \ref {thmMainUpper} is now complete.
 \end{proof}
 
-\begin{proof}[Proof of Theorem \ref {thm:2:MainLower}] It follows immediately from Theorem \ref {thm:2:thm7} and Remark 3.2. We omit the detalis.\end{proof}
+\begin{proof}[Proof of Theorem \ref {thm:2:MainLower}] By taking $\lam_1=1$ in (\ref {eqn:2:h1}), we obtain $\gamma=\gamma_1$, where $\gamma_1$ is defined by (\ref {eqn:2:gamma}). Now Theorem \ref {thm:2:MainLower} follows immediately from (\ref{ad1211}) of Theorem \ref {thm:2:thm7} with $\lam_1=1$ and Remark \ref{rem:2:local}. We omit the details. 
+\end{proof}
 
-\begin{proof}[Proof of Theorem \ref {thm:2:thm7}]
-Let $\eta_n=(n/c_n)\log^{-\lambda}n,$ $b_n = [n \log^{-\nu} n]$, where $\nu=(\lambda+1)/(1-d)$, and let $T_n$ be the largest integer $s$ such that $s b_n \le n$. Also write  $y_j = -M_0/\log^\gamma n +  j/  m_n',  j = 0,1,2,...,m_n,$ where $m'_n = [(n/c_n)^{1/2} c_n^2]$ and $m_n= [M_0m_n'/\log^\gamma n]+1$. It is readily seen that
+ \begin{proof}[Proof of Theorem \ref {thm:2:thm7}]
+Let $\eta_n=(n/c_n)D_n^{\lambda_2}\log^{-\lambda_1}n,$ $b_n = [nD_n^w\log^{-\nu}n]$, where $\nu = (\lambda_1+1)/(1-d)$, $w = \lambda_2 / (1 - d)$ and let $T_n$ be the largest integer $s$ such that $s b_n \le n$. Also write  $y_j = -[M_0D_n/\log^{\gamma}n] - 1 +  j/  m_n',  j = 0,1,2,...,m_n,$ where $m'_n = [(n/c_n)^{1/2} c_n^2]$ and $m_n= 2([M_0D_n/\log^{\gamma}n]+1)m_n'$. It is readily seen that
 \be
-n/b_n \sim  \log^\nu n, \quad T_nb_n\le n, \quad m_n\le Cn^2, \la {eqn:2:110}
+n/b_n \sim \log^{\nu} n D_n^{-w}, \quad n-1\le T_nb_n\le n, \quad m_n\le Cn^2, \la {eqn:2:110}
 \ee
-due to $c_n\to\infty$ and $c_n/n\to 0$. Furthermore, by recalling the definitions of $\lambda$ and $\eta$, tedious but elementary calculations show that, whenever $\gamma\ge 0$,
-\be
-d\nu-\eta \le 1-2\lambda, \quad (d-1)\nu+\lambda\le -1, \quad 2d\nu-\gamma\le 1-\lambda. \la {eqn:2:112}
-\ee
-
+due to $c_n\to\infty$ and $c_n/n\to 0$. Furthermore, by recalling the definitions of $\lambda_1, \lambda_2$, $d^*$ and $\eta$ [see (\ref {eqn:2:h1})--(\ref {eqn:2:eta})], tedious but elementary calculations show that, whenever $\gamma\ge 0$,
+\begin{align}
+d\nu-\eta \le 1-2\lambda_1, \quad (d-1)\nu+\lambda_1\le -1, \quad 2d\nu-\gamma\le 1-\lambda_1, \la {eqn:2:112}  \\
+-wd + d^* = 2\lambda_2,  \quad 1 - 2dw= \lambda_2. \la{112.1}
+\end{align}
 
 We now return to the proof of Theorem \ref {thm:2:thm7}. Using the similar arguments as in the proof of (\ref {eqn:2:78}),  we have
 \be
-&& \sup_{|x|\le M_0/\log^\gamma n} | S_{2n}(x)-S_{2n}(0)| \no\\
-&\le & \sup_{|x|\le M_0/\log^\gamma n} | S_{2n}(y_j)-S_{2n}(0)|+O_{a.s.}[( n/c_n)^{1/2}] \no\\
+&& \sup_{|x|\le D_n / \log^{\gamma}n} | S_n(x)-S_n(0)| \no\\
+&\le & \max_{1\le j\le m_n} | S_n(y_j)-S_n(0)|+O_{a.s.}[( n/c_n)^{1/2}] \no\\
 &\le& \max_{1\le j\le m_n}| \sum_{s=2}^{T_n-1} \Delta_{ns}(y_j)|+\max_{1\le j\le m_n}\Delta_n(y_j)+ O_{a.s.}[( n/c_n)^{1/2}],  \la {eqn:2:95}
 \ee
 where, for  $s = 1,..., T_n$ ,
@@ -380,23 +413,23 @@ where, for  $s = 1,..., T_n$ ,
 \Delta_{ns}(x) &=& \sum_{t = sb_n + 1}^{(s+1)b_n} \big ( g[c_n( x_{t,n}+x)]  - g(c_n\, x_{t,n}) \big ) ,\no\\
 \Delta_n(x) &\le & \Big(\sum_{t =  1}^{2b_n} +\sum_{t =  T_nb_n}^{n}\Big)\,\big | g[c_n( x_{t,n}+x)]  - g(c_n\, x_{t,n}) \big |.
 \eestar
-Recall $\eta_n=(n/c_n)\log^{-\lambda}n$. Using Theorem \ref{thmMainUpper}, it is readily seen that
+Recall $\eta_n=(n/c_n)D_n^{\lambda_2}\log^{-\lambda_1}n$. Using Theorem \ref{thmMainUpper}, it is readily seen that
 \bestar
 \max_{1\le j\le m_n}\Delta_n(y_j)  &\le& C\big[(b_n + |n-T_nb_n|)/c_n\big]\log n \no\\
-&\le& C\, (n/c_n)\, \log^{1-\nu} n
+&\le& C\, (n/c_n)\log^{1 - \nu}n\,D_n^w
 \le C\, \eta_n\, \log n,\quad a.s.
 \eestar
-This, together with (\ref {eqn:2:95}), implies that (\ref {eqn:2:MainLower1}) will follow if we prove
+This, together with (\ref {eqn:2:95}), implies that (\ref {eqn:2:ad121a}) will follow if we prove
 \be
 \max_{1\le j\le m_n}\Big(| \sum_{\substack{s = 2 \\ s \in even}}^{T_n} \Delta_{ns}(y_j)|+| \sum_{\substack{s = 2 \\ s \in odd}}^{T_n} \Delta_{ns}(y_j)|\Big)  &=& O_P (\eta_n \, \log n).  \la {eqn:2:21}
 \ee
 We only prove (\ref {eqn:2:21}) for $s\in even$. The other is similar and hence the details are omitted.
-To this end, let $\F_{n, v}^*= \F_{n, (2v+1)b_n}, v\ge 0$, and $M_1 > 0$ is chosen later,
+To this end, let $\F_{n, v}^*= \F_{n, (2v+1)b_n}, v\ge 0$, and $M_1 > 0$ to be chosen later,
 \bestar
 \Delta_{ns}'(x) &=& \Delta_{n,2s}(x)I(|\Delta_{n, 2s}(x)|\le M_1\, \eta_n ), \no\\
  \Delta_{n s}^*(x) &=& \Delta_{n, s}'(x)- \E \big(\Delta_{n, s}'(x)\mid \F_{n, s-1}^*\big).
 \eestar
-Under these notation, to prove (\ref {eqn:2:21}) for $s\in even$, it suffices to show
+Under these notations, to prove (\ref {eqn:2:21}) for $s\in even$, it suffices to show
 \be \lam_{1n} &:=&\max_{1\le j\le m_n}| \sum_{s=1}^{T_n/2} \Delta_{ns}^*(y_j)|
 =O_P (\eta_n \, \log n), \la {eqn:2:22} \\
 \lam_{2n} &:=& \max_{1\le j\le m_n}| \sum_{s=1}^{T_n/2} \E \big(\Delta_{n, 2s}(y_j)\mid \F_{n, s-1}^*\big)|
@@ -407,36 +440,39 @@ Under these notation, to prove (\ref {eqn:2:21}) for $s\in even$, it suffices to
 &=& O_P (\eta_n \, \log n). \la {eqn:2:24}
  \ee
 
- We start with (\ref {eqn:2:23}).  Note that, for any $2sb_n<t\le (2s+1)b_n$ and $|x|\le M_0/\log^\gamma n$ (letting $s_n=(2s-1)b_n$),
+ We start with (\ref {eqn:2:23}).  Note that, for any $2sb_n<t\le (2s+1)b_n$ and $|x|\le M_0D_n / \log^{\gamma}n$ (letting $s_n=(2s-1)b_n$),
  \begin{align} \la{eqn:2:24.5}
 & \Big| E\big [ g[c_n (x_{t,n} + x)] - g( c_n\, x_{t,n}) \Big | \F^*_{n, s-1} \big ]\Big|= \Big| E\big [ g[c_n (x_{t,n} + x)] - g( c_n\, x_{t,n}) \Big | \F_{n, s_n} \big ]\Big|\no\\
 &\quad = \Big| \int_{-\infty}^{\infty} \Big (g[c_n (x_{s_n,n} + d_{t, s_n, n} y + x)] - g[ c_n\, (x_{s_n,n} + d_{t,s_n,n} y) ] \Big ) \, h_{t, s_n,n}(y) dy \Big|\no\\
 &\quad \le d_{t,s_n,n} ^{-1}\,
  \int_{-\infty}^{\infty}  g[c_n(y+x_{s_n,n})]\big | h_{t, s_n,n}[(y - x)/ d_{t,s_n,n}] -  h_{t, s_n,n}(y/ d_{t,s_n,n}) \big |\,dy \no\\
  &\quad \le C\,  c_n^{-1}d_{t,s_n,n} ^{-1}\min\{|x|d_{t,s_n,n} ^{-1}, 1\} \le C\,|x|\, c_n^{-1} (n/b_n)^{2d}\, \no\\
- &\quad \le C\,  c_n^{-1}  \log^{2 d\nu-\gamma}n,
+ &\quad \le C\,  c_n^{-1}\, D_n^{1-2dw}\log^{2d\nu - \gamma}n ,
 \end{align}
 due to Assumption \ref{assump:2:density} and $d_{t,s,n}\sim C_0[n/(t-s))]^{-d}$. It is readily seen that
 \be \la{eqn:2:25}
 \lam_{2n} &\le& \sum_{s=1}^{T_n/2}  \max_{1\le j\le m_n} |\E \big(\Delta_{n, 2s}(y_j)\mid \F_{n, s-1}^*\big)| \no\\
-&\le& C\, (n/c_n)\, \log^{2d\nu-\gamma}n = O_P(\eta_n \, \log n),
+&\le& C\, (n/c_n)\, D_n^{1 - 2dw}\log^{2d\nu - \gamma}n = O_P(\eta_n \, \log n),
 \ee
-due to (\ref {eqn:2:112}),
-which yields (\ref {eqn:2:23}).
+due to (\ref {eqn:2:112}) and (\ref{112.1}), which yields (\ref {eqn:2:23}).
 
-Next for (\ref {eqn:2:24}). Using Lemma \ref {lem:2:lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$,
+Next for (\ref {eqn:2:24}). Note that, due to (\ref {eqn:2:110}) and $(n/c_n)\log^{-\theta}n\to \infty$, where $\theta\le (\lam_1+1)/(1-\rho\lam_2)$. We have
+\bestar
+(n/c_n) (n/ b_n)^{d-1} \sim (n/c_n) D_n^{\lam_2}\log^{(d-1)\nu}n \ge [(n/c_n)\log^{-\theta}n]^{1-\lam_2\rho}\to \infty.
+\eestar
+Now, it follows from  Lemma \ref {lem:2:lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$ that,  for any integer $m\ge 1$,
 \bestar
 \sup_x \E |\Delta_{n, 2s}(x)|^m &\le& H_0^m (m+1)!\, (n/c_n)\, \big\{1+ \big [(n/c_n) (n/ b_n)^{d-1} \big ]^{m-1}\big\}\no\\
-&\le& 2H_0^m (m+1)! (n/c_n)^m (n/b_n)^{(d - 1)(m-1)},
+&\le& 2H_0^m (m+1)! (n/c_n)^m (n/b_n)^{(d - 1)(m-1)}.
 \eestar
-whenever $(n/c_n)\log^{-(\lambda+1)}n\to\infty$. By virtue of this fact, we have
+ By virtue of this fact, we have
 \bestar
 E\lam_{3n} &\le& 2\,\sum_{j=1}^{m_n}\,
 \sum_{s=1}^{T_n/2}\E \Delta_{n, 2s}(y_j)I(|\Delta_{n, 2s}(y_j)|> M_1\, \eta_n) \no\\
 &\le& 2\, m_n T_n \,\, H_0^m (m+1)!  (n/c_n)\Big [ \frac{(n/c_n)(n/b_n)^{d-1}}{M_1\,\eta_n} \Big ]^{m-1} \no\\
 &\le& C\, n^4 (H_0/M_1)^m\, (m+1)!   \log^{-(m-1)} n,
 \eestar
-due to (\ref {eqn:2:110}) and $(d-1)\nu+\lambda\le -1$ by (\ref {eqn:2:112}).
+due to (\ref {eqn:2:110}), $(d-1)\nu+\lambda_1\le -1$ by (\ref {eqn:2:112}) and $(1 - d)w =\lambda_2$.
 Taking $m = \log n$ and letting $M_1 \ge 5H_0$,
 it follows from the Stirling approximation of $(m+1)!$ that
 \be \la{26}
@@ -444,7 +480,7 @@ E\lam_{3n} &\le& C n^4 \log^5 n \exp \{-(M_1/H_0) \, \log n\} \le Cn^{-1}\log^5 
 \ee
 which implies that $\lam_{3n}=o_P(1)$. Hence (\ref {eqn:2:24}) follows.
 
-We finally consider (\ref {eqn:2:22}). First note that, similarly to the proof of (\ref {eqn:2:24.5}),
+We finally consider (\ref {eqn:2:22}). First note that, similar to the proof of (\ref {eqn:2:24.5}),
 \bestar
 I_{k,j}&:=&\Big|\E \Big(  \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\mid {\mathcal F}_{n, k}\Big)\Big| \no\\
 &\le& d_{j,k, n}^{-1}\,
@@ -453,36 +489,36 @@ I_{k,j}&:=&\Big|\E \Big(  \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\mid {\mathca
  & \le& C\, c_n^{-1}\,  d_{j,k, n}^{-1} \min\{|x| d_{j,k, n}^{-1}, 1\}\no\\
  &\le & C\, c_n^{-1}\, [n/(j-k)]^d \min\{|x|[n/(j-k)]^{d},1\},
 \eestar
-for any $k<j$. This, together with  (\ref {eqn:2:109}), implies  that, for any $|x| \le M_0/\log^{\gamma}n$,
+for any $k<j$. This, together with  (\ref {eqn:2:109}), implies  that, for any $|x| \le M_0D_n / \log^{\gamma}n$,
 \begin{align}
 &\quad E[\Delta_{ns}^{*2}(x) | \F^*_{n, s-1}] \le 2 E[ \Delta_{n, 2s}^2(x) | \F_{n, (2s-1) b_n} ] \no\\
-&\le \sum_{k = 2sb_n +1}^{(2s+1)b_n} E \Big (  \{ \, g[c_n(x_{t,n} + x)] - g[c_n x_{t,n}]\, \}^2 \,| \,\F_{n, (2s-1)b_n} \Big ) \no\\
+&\le \sum_{k = 2sb_n +1}^{(2s+1)b_n} E \Big (  \{ \, g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}]\, \}^2 \,| \,\F_{n, (2s-1)b_n} \Big ) \no\\
 &\quad + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n} \big|E \Big ( \{g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}] \} \, \no\\
 &\hskip 5cm \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\,\Big | \F_{n,(2s-1)b_n} \Big ) \big| \no\\
 &\le C\, (n/c_n) (n /b_n)^{d-1}  + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n}
 E \Big ( |g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}] |\,  |I_{k,j}|\, \Big  | \,\F_{n, (2s-1)b_n} \Big )   \no\\
-&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{-d}  \sum_{ 2sb_n + 1\le k<j\le (2s+1)b_n}\,(j-k)^{-d}\min\{n^d\log^{-\gamma} n (j-k)^{-d}, 1\} \no\\
-&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{1-d}\sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^d\log^{-\gamma}n, 1\} \no\\
-&\le C\, (n/c_n) (n /b_n)^{d-1} \big[1+   \, (n/c_n)  \log^{-\eta}n\big],
+&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{-d}  \sum_{ 2sb_n + 1\le k<j\le (2s+1)b_n}\,(j-k)^{-d}\min\{n^d\log^{-\gamma}_nD_n (j-k)^{-d}, 1\} \no\\
+&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{1-d}\sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^dD_n\log^{-\gamma}n, 1\} \no\\
+&\le C\, (n/c_n) (n /b_n)^{d-1} \big[1+   \, (n/c_n) D_n^{d^*} \log^{-\eta}n\big],
 \end{align}
-where we have used the fact: for $0<d<1$, letting $\zeta = \gamma/d$,
+where we have used the fact: for $0<d<1$, letting $\zeta_n =D_n^{1/d} \log^{-\gamma/d} n$,
 \bestar
-&& \sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^d\log^{-\gamma}n, 1\} \no\\
-&\le& \sum_{k=1}^{n/\log^{\zeta} n} k^{-d}+ n^d\log^{-\gamma}n\sum_{k=n/\log^{\zeta} n+1}^{b_n} k^{-2d}\no\\
-&\le& C\, n^{1-d}\, \log^{-\eta}n.
+&& \sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^dD_n\log^{-\gamma}n, 1\} \no\\
+&\le& \sum_{k=1}^{n \zeta_n} k^{-d}+ n^dD_n\log^{-\gamma}n\sum_{k=n\zeta_n+1}^{b_n} k^{-2d}\no\\
+&\le& C\, n^{1-d}\,D_n^{d^*} \log^{-\eta}n.
 \eestar
-and $\eta$ is given in (\ref{eta}). It follows from this estimate that
+ It follows from this estimate that
 \bestar
 && \max_{0\le j\le m_n}\, \sum_{s=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(y_j)\mid {\mathcal F}_{n, s-1}^*] \no\\
-&\le&  C\, (n/c_n) (n /b_n)^{d}\big[1+   \, (n/c_n)  \log^{-\eta}n\big]\no\\
-&\le&C(n/c_n)^2\,  \log^{d\nu-\eta}n \le
+&\le&  C\, (n/c_n) (n /b_n)^{d}\big[1+   \, (n/c_n) D_n^{d^*} \log^{-\eta}n\big]\no\\
+&\le&C(n/c_n)^2\,D_n^{-wd + d^*}  \log^{-\eta}n \le
 C\, \eta_n^2 \log n,
 \eestar
-due to (\ref {eqn:2:112}) and $(n/c_n)\log^{-\eta}n\to \infty$.
+due to (\ref {eqn:2:112}), $D_n \ge (c_n/n)^\rho$ and $(n/c_n)\log^{-\eta / (1 - \rho d^*)}n \to \infty$.
 This, together with the facts that  $|\Delta_{ns}^{*}(y_j)|\le \eta_n$ and for each $j$,
 $\{\Delta_{ns}^{*}(y_j), {\mathcal F}_{n, s}^*\}$ forms a martingale difference, it follows from
 the well-known martingale exponential inequality
-(see, e.g., \cite{delapena1999}) that, there exists a $M_0\ge 3$ such that, as $n \to \infty$,
+(see, e.g., de la Pana (1999)) that, there exists a $M_0\ge 3$ such that, as $n \to \infty$,
 \be
 && P[\lam_{1n} \ge  M_0 \eta_n\, \log n] \no\\
 &\le&
@@ -497,6 +533,205 @@ where the last inequality follows from (\ref {eqn:2:110}).
  This yields $\lam_{1n}=O_P\big( \eta_n \, \log n \big )$.
 Combining (\ref {eqn:2:25})-(\ref {eqn:2:p10}), we establish (\ref {eqn:2:21}).
 \end{proof}
+
+\begin{proof}[Proof of Corollary \ref {corZero}] Let $c_n = d_n / h$  and
+\be
+ d &=&\begin{cases}
+3 / 2 - \mu,  & \quad \mbox{under {\bf C1}}, \\
+1 / 2, &\quad \mbox{under {\bf C2}}. \la{prf.corZero.eqn0}
+\end{cases}
+\ee
+It is readily seen that
+\bestar
+(n / c_n) \log^{-\theta}n = (nh / d_n) \log^{-\theta} n \le n^{1- \de_0} h / d_n \to \infty.
+\eestar
+for any $\theta\in R$. On the other hand, $x_{n,k}=x_k/d_n$ satisfies Assumption 2.2 and 2.3, as stated in Example 2.2.
+Now, by using Theorem \ref{thm:2:MainLower} with $c_n = d_n / h$ and  the $d$ above, (\ref{h11}) and (\ref{h12}) follow from (\ref{eqn:2:MainLower0}) and (\ref{eqn:2:MainLower1}) respectively, since, with the $d$ defined by (\ref {prf.corZero.eqn0}),  the $\gamma_1$ defined by (\ref {eqn:2:gamma}) can be written as:
+ under {\bf C1},
+\begin{align}
+ \gamma_1
+&= \begin{cases}
+\frac {4(3-2\mu)}{2\mu-1},  & \quad if \quad 9/10<\mu<1 , \\
+\frac {(5-2\mu)(3-2\mu)}{(2\mu-1)^2}, & \quad if \quad 1/2<\mu\le 9/10, \\
+\end{cases}\no
+\end{align}
+and under {\bf C2}, $\gamma_1 = 4$.
+Using similar arguments, (\ref{ad1211}) follows from (\ref{eqn:2:ad121a}) of Theorem \ref{thm:2:thm7}  with $D_n = a_n$, $\lam_1=1$, $\lambda_2 = \Lambda$ and the following fact [see Theorem 2.1 of \cite{wangphillips2010b}]:
+\bestar
+S_n(0) = \sum_{t = 1}^n g\Big ( \frac{x_t}{h} \Big ) = O_P\big [( nh / d_n)^{1/2}\big].
+\eestar
+\end{proof}
+
+\begin{proof}[Verification of Example 2.2]
+This is similar to  the proof of Corollary 2.2 in \cite{wangphillips2010a}. The only additional work is to show (\ref{eqn:2:77}) hold as well. In fact, by writing
+\be
+x_l &=&\sum_{j=1}^{l}\,\sum_{i=-\infty}^{j}\ep_i\phi_{j-i} \no\\
+  &=& \,x_{k}+\sum_{j=k+1}^{t}\,\sum_{i=-\infty}^{k}\ep_i\phi_{j-i} + \sum_{j=k+1}^{l}\,\sum_{i=k+1}^{j}\ep_i\phi_{j-i} \no\\
+  &:=& x_{k, l}^*+x_{k,l}', \la {m-01}
+  \ee
+the similar arguments as in the proof of Corollary 2.2
+in \cite{wangphillips2010a} yields that
+ $x'_{k,l} / d_{l - k}$, where $d_n$ is defined as in (\ref {sec2.f2}),
+  has a density $h_{l,k}(x)$ and $\int_{-\infty}^{\infty} (1 + |t|)|\varphi_{l,k}(t)| dt<\infty$ uniformly for $0 \le k < l \le n$, where $\varphi_{l,k}(t) = Ee^{itx'_{l,k}/d_{l-k}}$, due to $\int (1+|t|)|Ee^{it\ep_0}|dt<\infty$.
+  Hence, conditional on $\F_{k,n} = \si(\ep_j, -\infty < j \le k)$,
+\be
+(x_{l,n} - x_{k,n})  / d_{l,k,n} \mbox{ has a density } h_{l,k}(x - x^*_{k, l} / d_{l - k})
+\ee
+where $x_{t,n} = x_t / d_n$ and $d_{l,k,n} =  d_{l-k}/ d_n$. Furthermore, for any $u\in R$, we have
+\bestar
+&&\sup_x \big|h_{l,k}(x - x^*_{k, l} / d_{l - k}+u)-h_{l,k}(x - x^*_{k, l} / d_{l - k})\big| \no\\
+&\le&
+\sup_x | h_{l,k}(x +u) - h_{l,k}(x)| \no\\
+&\le & C \Big | \int_{-\infty}^{\infty} \big ( e^{-it(x+u)} - e^{-itx} \big ) \varphi_{l, k}(t) dt \Big | \no\\
+&\le& C\,\min\{|u |, 1\}\,  \int_{-\infty}^{\infty}  (1+|t|)\,  |\varphi_{l, k}(t)| dt  \le C_1\,  \min\{|u |, 1\},
+\eestar
+which yields the claim.
+\end{proof}
+
+
+%\begin{proof}[Proof of Theorem \ref {thm:2:MainLower}] It follows immediately from Theorem \ref {thm:2:thm7} and Remark 3.2. We omit the detalis.\end{proof}
+%
+%\begin{proof}[Proof of Theorem \ref {thm:2:thm7}]
+%Let $\eta_n=(n/c_n)\log^{-\lambda}n,$ $b_n = [n \log^{-\nu} n]$, where $\nu=(\lambda+1)/(1-d)$, and let $T_n$ be the largest integer $s$ such that $s b_n \le n$. Also write  $y_j = -M_0/\log^\gamma n +  j/  m_n',  j = 0,1,2,...,m_n,$ where $m'_n = [(n/c_n)^{1/2} c_n^2]$ and $m_n= [M_0m_n'/\log^\gamma n]+1$. It is readily seen that
+%\be
+%n/b_n \sim  \log^\nu n, \quad T_nb_n\le n, \quad m_n\le Cn^2, \la {eqn:2:110}
+%\ee
+%due to $c_n\to\infty$ and $c_n/n\to 0$. Furthermore, by recalling the definitions of $\lambda$ and $\eta$, tedious but elementary calculations show that, whenever $\gamma\ge 0$,
+%\be
+%d\nu-\eta \le 1-2\lambda, \quad (d-1)\nu+\lambda\le -1, \quad 2d\nu-\gamma\le 1-\lambda. \la {eqn:2:112}
+%\ee
+%
+%
+%We now return to the proof of Theorem \ref {thm:2:thm7}. Using the similar arguments as in the proof of (\ref {eqn:2:78}),  we have
+%\be
+%&& \sup_{|x|\le M_0/\log^\gamma n} | S_{2n}(x)-S_{2n}(0)| \no\\
+%&\le & \sup_{|x|\le M_0/\log^\gamma n} | S_{2n}(y_j)-S_{2n}(0)|+O_{a.s.}[( n/c_n)^{1/2}] \no\\
+%&\le& \max_{1\le j\le m_n}| \sum_{s=2}^{T_n-1} \Delta_{ns}(y_j)|+\max_{1\le j\le m_n}\Delta_n(y_j)+ O_{a.s.}[( n/c_n)^{1/2}],  \la {eqn:2:95}
+%\ee
+%where, for  $s = 1,..., T_n$ ,
+%\bestar
+%\Delta_{ns}(x) &=& \sum_{t = sb_n + 1}^{(s+1)b_n} \big ( g[c_n( x_{t,n}+x)]  - g(c_n\, x_{t,n}) \big ) ,\no\\
+%\Delta_n(x) &\le & \Big(\sum_{t =  1}^{2b_n} +\sum_{t =  T_nb_n}^{n}\Big)\,\big | g[c_n( x_{t,n}+x)]  - g(c_n\, x_{t,n}) \big |.
+%\eestar
+%Recall $\eta_n=(n/c_n)\log^{-\lambda}n$. Using Theorem \ref{thmMainUpper}, it is readily seen that
+%\bestar
+%\max_{1\le j\le m_n}\Delta_n(y_j)  &\le& C\big[(b_n + |n-T_nb_n|)/c_n\big]\log n \no\\
+%&\le& C\, (n/c_n)\, \log^{1-\nu} n
+%\le C\, \eta_n\, \log n,\quad a.s.
+%\eestar
+%This, together with (\ref {eqn:2:95}), implies that (\ref {eqn:2:MainLower1}) will follow if we prove
+%\be
+%\max_{1\le j\le m_n}\Big(| \sum_{\substack{s = 2 \\ s \in even}}^{T_n} \Delta_{ns}(y_j)|+| \sum_{\substack{s = 2 \\ s \in odd}}^{T_n} \Delta_{ns}(y_j)|\Big)  &=& O_P (\eta_n \, \log n).  \la {eqn:2:21}
+%\ee
+%We only prove (\ref {eqn:2:21}) for $s\in even$. The other is similar and hence the details are omitted.
+%To this end, let $\F_{n, v}^*= \F_{n, (2v+1)b_n}, v\ge 0$, and $M_1 > 0$ is chosen later,
+%\bestar
+%\Delta_{ns}'(x) &=& \Delta_{n,2s}(x)I(|\Delta_{n, 2s}(x)|\le M_1\, \eta_n ), \no\\
+% \Delta_{n s}^*(x) &=& \Delta_{n, s}'(x)- \E \big(\Delta_{n, s}'(x)\mid \F_{n, s-1}^*\big).
+%\eestar
+%Under these notation, to prove (\ref {eqn:2:21}) for $s\in even$, it suffices to show
+%\be \lam_{1n} &:=&\max_{1\le j\le m_n}| \sum_{s=1}^{T_n/2} \Delta_{ns}^*(y_j)|
+%=O_P (\eta_n \, \log n), \la {eqn:2:22} \\
+%\lam_{2n} &:=& \max_{1\le j\le m_n}| \sum_{s=1}^{T_n/2} \E \big(\Delta_{n, 2s}(y_j)\mid \F_{n, s-1}^*\big)|
+%=O_P (\eta_n \, \log n), \la {eqn:2:23}\\
+%\lam_{3n} &:=& \max_{1\le j\le m_n}| \sum_{s=1}^{T_n/2} \Big(\Delta_{n, 2s}(y_j)I(|\Delta_{n, 2s}(y_j)|> M_1\, \eta_n )\no\\
+%&& \qquad\qquad +
+%\E \Big[\Delta_{n, 2s}(y_j)I(|\Delta_{n, 2s}(y_j)|> M_1\, \eta_n)\mid \F_{n, s-1}^*\Big] \Big) \no\\
+%&=& O_P (\eta_n \, \log n). \la {eqn:2:24}
+% \ee
+%
+% We start with (\ref {eqn:2:23}).  Note that, for any $2sb_n<t\le (2s+1)b_n$ and $|x|\le M_0/\log^\gamma n$ (letting $s_n=(2s-1)b_n$),
+% \begin{align} \la{eqn:2:24.5}
+%& \Big| E\big [ g[c_n (x_{t,n} + x)] - g( c_n\, x_{t,n}) \Big | \F^*_{n, s-1} \big ]\Big|= \Big| E\big [ g[c_n (x_{t,n} + x)] - g( c_n\, x_{t,n}) \Big | \F_{n, s_n} \big ]\Big|\no\\
+%&\quad = \Big| \int_{-\infty}^{\infty} \Big (g[c_n (x_{s_n,n} + d_{t, s_n, n} y + x)] - g[ c_n\, (x_{s_n,n} + d_{t,s_n,n} y) ] \Big ) \, h_{t, s_n,n}(y) dy \Big|\no\\
+%&\quad \le d_{t,s_n,n} ^{-1}\,
+% \int_{-\infty}^{\infty}  g[c_n(y+x_{s_n,n})]\big | h_{t, s_n,n}[(y - x)/ d_{t,s_n,n}] -  h_{t, s_n,n}(y/ d_{t,s_n,n}) \big |\,dy \no\\
+% &\quad \le C\,  c_n^{-1}d_{t,s_n,n} ^{-1}\min\{|x|d_{t,s_n,n} ^{-1}, 1\} \le C\,|x|\, c_n^{-1} (n/b_n)^{2d}\, \no\\
+% &\quad \le C\,  c_n^{-1}  \log^{2 d\nu-\gamma}n,
+%\end{align}
+%due to Assumption \ref{assump:2:density} and $d_{t,s,n}\sim C_0[n/(t-s))]^{-d}$. It is readily seen that
+%\be \la{eqn:2:25}
+%\lam_{2n} &\le& \sum_{s=1}^{T_n/2}  \max_{1\le j\le m_n} |\E \big(\Delta_{n, 2s}(y_j)\mid \F_{n, s-1}^*\big)| \no\\
+%&\le& C\, (n/c_n)\, \log^{2d\nu-\gamma}n = O_P(\eta_n \, \log n),
+%\ee
+%due to (\ref {eqn:2:112}),
+%which yields (\ref {eqn:2:23}).
+%
+%Next for (\ref {eqn:2:24}). Using Lemma \ref {lem:2:lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$,
+%\bestar
+%\sup_x \E |\Delta_{n, 2s}(x)|^m &\le& H_0^m (m+1)!\, (n/c_n)\, \big\{1+ \big [(n/c_n) (n/ b_n)^{d-1} \big ]^{m-1}\big\}\no\\
+%&\le& 2H_0^m (m+1)! (n/c_n)^m (n/b_n)^{(d - 1)(m-1)},
+%\eestar
+%whenever $(n/c_n)\log^{-(\lambda+1)}n\to\infty$. By virtue of this fact, we have
+%\bestar
+%E\lam_{3n} &\le& 2\,\sum_{j=1}^{m_n}\,
+%\sum_{s=1}^{T_n/2}\E \Delta_{n, 2s}(y_j)I(|\Delta_{n, 2s}(y_j)|> M_1\, \eta_n) \no\\
+%&\le& 2\, m_n T_n \,\, H_0^m (m+1)!  (n/c_n)\Big [ \frac{(n/c_n)(n/b_n)^{d-1}}{M_1\,\eta_n} \Big ]^{m-1} \no\\
+%&\le& C\, n^4 (H_0/M_1)^m\, (m+1)!   \log^{-(m-1)} n,
+%\eestar
+%due to (\ref {eqn:2:110}) and $(d-1)\nu+\lambda\le -1$ by (\ref {eqn:2:112}).
+%Taking $m = \log n$ and letting $M_1 \ge 5H_0$,
+%it follows from the Stirling approximation of $(m+1)!$ that
+%\be \la{26}
+%E\lam_{3n} &\le& C n^4 \log^5 n \exp \{-(M_1/H_0) \, \log n\} \le Cn^{-1}\log^5 n \to 0,
+%\ee
+%which implies that $\lam_{3n}=o_P(1)$. Hence (\ref {eqn:2:24}) follows.
+%
+%We finally consider (\ref {eqn:2:22}). First note that, similarly to the proof of (\ref {eqn:2:24.5}),
+%\bestar
+%I_{k,j}&:=&\Big|\E \Big(  \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\mid {\mathcal F}_{n, k}\Big)\Big| \no\\
+%&\le& d_{j,k, n}^{-1}\,
+% \int_{-\infty}^{\infty} g[c_n(x_{k,n} + y)]
+% \big | h_{j, k, n}[(y - x)/ d_{j,k, n}] -  h_{j,k,n}( y/ d_{j,k,n}) \big |\,dy \no\\
+% & \le& C\, c_n^{-1}\,  d_{j,k, n}^{-1} \min\{|x| d_{j,k, n}^{-1}, 1\}\no\\
+% &\le & C\, c_n^{-1}\, [n/(j-k)]^d \min\{|x|[n/(j-k)]^{d},1\},
+%\eestar
+%for any $k<j$. This, together with  (\ref {eqn:2:109}), implies  that, for any $|x| \le M_0/\log^{\gamma}n$,
+%\begin{align}
+%&\quad E[\Delta_{ns}^{*2}(x) | \F^*_{n, s-1}] \le 2 E[ \Delta_{n, 2s}^2(x) | \F_{n, (2s-1) b_n} ] \no\\
+%&\le \sum_{k = 2sb_n +1}^{(2s+1)b_n} E \Big (  \{ \, g[c_n(x_{t,n} + x)] - g[c_n x_{t,n}]\, \}^2 \,| \,\F_{n, (2s-1)b_n} \Big ) \no\\
+%&\quad + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n} \big|E \Big ( \{g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}] \} \, \no\\
+%&\hskip 5cm \{g[c_n(x_{j,n} + x)] - g[c_n x_{j,n}] \}\,\Big | \F_{n,(2s-1)b_n} \Big ) \big| \no\\
+%&\le C\, (n/c_n) (n /b_n)^{d-1}  + 2 \sum_{2sb_n + 1 \le k < j \le (2s+1)b_n}
+%E \Big ( |g[c_n(x_{k,n} + x)] - g[c_n x_{k,n}] |\,  |I_{k,j}|\, \Big  | \,\F_{n, (2s-1)b_n} \Big )   \no\\
+%&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{-d}  \sum_{ 2sb_n + 1\le k<j\le (2s+1)b_n}\,(j-k)^{-d}\min\{n^d\log^{-\gamma} n (j-k)^{-d}, 1\} \no\\
+%&\le C\, (n/c_n) (n /b_n)^{d-1} + C\,n^{2d}\, c_n^{-2}\,b_n^{1-d}\sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^d\log^{-\gamma}n, 1\} \no\\
+%&\le C\, (n/c_n) (n /b_n)^{d-1} \big[1+   \, (n/c_n)  \log^{-\eta}n\big],
+%\end{align}
+%where we have used the fact: for $0<d<1$, letting $\zeta = \gamma/d$,
+%\bestar
+%&& \sum_{k=1}^{b_n} k^{-d} \min\{(n/k)^d\log^{-\gamma}n, 1\} \no\\
+%&\le& \sum_{k=1}^{n/\log^{\zeta} n} k^{-d}+ n^d\log^{-\gamma}n\sum_{k=n/\log^{\zeta} n+1}^{b_n} k^{-2d}\no\\
+%&\le& C\, n^{1-d}\, \log^{-\eta}n.
+%\eestar
+%and $\eta$ is given in (\ref{eta}). It follows from this estimate that
+%\bestar
+%&& \max_{0\le j\le m_n}\, \sum_{s=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(y_j)\mid {\mathcal F}_{n, s-1}^*] \no\\
+%&\le&  C\, (n/c_n) (n /b_n)^{d}\big[1+   \, (n/c_n)  \log^{-\eta}n\big]\no\\
+%&\le&C(n/c_n)^2\,  \log^{d\nu-\eta}n \le
+%C\, \eta_n^2 \log n,
+%\eestar
+%due to (\ref {eqn:2:112}) and $(n/c_n)\log^{-\eta}n\to \infty$.
+%This, together with the facts that  $|\Delta_{ns}^{*}(y_j)|\le \eta_n$ and for each $j$,
+%$\{\Delta_{ns}^{*}(y_j), {\mathcal F}_{n, s}^*\}$ forms a martingale difference, it follows from
+%the well-known martingale exponential inequality
+%(see, e.g., \cite{delapena1999}) that, there exists a $M_0\ge 3$ such that, as $n \to \infty$,
+%\be
+%&& P[\lam_{1n} \ge  M_0 \eta_n\, \log n] \no\\
+%&\le&
+% P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \
+% \max_{0\le j\le m_n}\, \sum_{s=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(y_j)\mid {\mathcal F}_{n, s-1}^*]\le C\, \eta_n^2\, \log n  \Big] + o(1)\no\\
+% &\le& \sum_{j=0}^{m_n} P\Big[\sum_{s=1}^{T_n/2} \Delta_{ns}^*(y_j)\ge M_0 \eta_n\, \log n, \ \
+% \sum_{s=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(y_j)\mid {\mathcal F}_{n, s-1}^*]\le C\,\eta_n^2 \, \log n \Big] + o(1) \no\\
+% &\le&m_n\, \exp\Big\{-\frac {M_0^2 \,\log^2 n} {2C\log n+2M_0\log n} \Big \} + o(1) \no\\
+% &\le&m_n\, \exp \{-M_0\log n \} + o(1) \to 0, \la {eqn:2:p10}
+%\ee
+%where the last inequality follows from (\ref {eqn:2:110}).
+% This yields $\lam_{1n}=O_P\big( \eta_n \, \log n \big )$.
+%Combining (\ref {eqn:2:25})-(\ref {eqn:2:p10}), we establish (\ref {eqn:2:21}).
+%\end{proof}
+
+
 
 
 
