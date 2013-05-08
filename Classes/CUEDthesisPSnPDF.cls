@@ -61,9 +61,13 @@
 
 
 % Nomenclature
-\usepackage{nomencl}
+\usepackage{nomentbl}
 \makenomenclature
+\renewcommand{\nomname}{List of Symbols}
+\renewcommand{\nompreamble}{The following notation will be used in this thesis without further explanations.}
 \renewcommand\nomgroup[1]{}%
+\setlength{\LTleft}{0pt}
+\setlength{\nomitemsep}{-\parsep}
 %  \ifthenelse{\equal{#1}{A}}{%
 %   \item[\textbf{Roman Symbols}] }{%             A - Roman
 %    \ifthenelse{\equal{#1}{G}}{%

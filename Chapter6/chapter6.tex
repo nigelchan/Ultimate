@@ -1,13 +1,13 @@
 % vim:set shiftwidth=2 tabstop=2 expandtab:
 
-\chapter{Parametric Nonlinear Cointegration Model}
+\chapter{Nonlinear Parametric Cointegration Model} \la{chap:6}
 \ifpdf
     \graphicspath{{Chapter6/Chapter6Figs/PNG/}{Chapter6/Chapter6Figs/PDF/}{Chapter6/Chapter6Figs/}}
 \else
     \graphicspath{{Chapter6/Chapter6Figs/EPS/}{Chapter6/Chapter6Figs/}}
 \fi
 
- This chapter develops  asymptotic theory for a nonlinear parametric cointegrating regression model. We establish a general framework for  weak consistency that is easy to apply for various nonstationary time series, including partial sum of linear processes and  Harris recurrent Markov chains. We provide  limit distributions for  nonlinear least squares  estimators,    extending the previous work.  We also introduce endogeneity to the model by allowing the error to be serially dependent and cross correlated with the regressors.
+ In this chapter we extend from nonparametric estimation methods to parametric approch. We develop asymptotic theory for a nonlinear parametric cointegrating regression model. We establish a general framework for  weak consistency that is easy to apply for various nonstationary time series, including partial sum of linear processes and  Harris recurrent Markov chains. We provide  limit distributions for  nonlinear least squares  estimators,    extending the previous work.  We also introduce endogeneity to the model by allowing the error to be serially dependent and cross correlated with the regressors.
 
 
 
@@ -267,7 +267,7 @@ This allows to extend the nonlinear regressions to much wider class of nonstatio
 
 
 \subsection{Limit distribution: integrable functions} \la{sec:6:limitDistributionIntegrable}
-We now establish our results on convergence in distribution for the $\hat{\theta}_n$, which mainly involves settling the conditions (i)-(iii) and (iv)' in Theorem \ref {th3.1}. First consider the situation that  $f$ is  an integrable function, together with some additional conditions on $x_t$ and~$u_t$.
+We now establish our results on convergence in distribution for the $\hat{\theta}_n$, which mainly involves settling the conditions (i)--(iii) and (iv)' in Theorem \ref {th3.1}. First consider the situation that  $f$ is  an integrable function, together with some additional conditions on $x_t$ and~$u_t$.
 
 \begin{assump}\la {ad1}
 \begin{enumerate}[label=(\roman{*}), leftmargin=*, widest=0] \itemsep0pt \parskip0pt \parsep0pt
@@ -385,7 +385,7 @@ We next consider the limit distribution of $\hat{\theta}_n$ when the regression 
 	\item $\{u_{t},\mathcal{F}_{t},1\leq t\leq n\}$ is a martingale difference sequence satisfying $E(|u_t|^2|\mathcal{F}_{t-1}) = \si^2$ and $\sup_{1\leq t\leq n}E(|u_{t}|^{2q}|\mathcal{F}_{t-1})<\infty$ a.s., where $q > 1$;
 	\item $x_t$ is adapted to $\F_{t - 1}$, $t = 1, ..., n$, $\max_{1\le t\le n}|x_t|/d_n=O_P(1)$, where $d_n^2=var (x_n)\to \infty$; and
 	\item There exists a vector of continuous Gaussian processes $(G, U)$ such that \be
-(x_{[nt], n}, n^{-1 / 2}\sum_{i = 1}^{[nt]} u_i) \rightarrow_D (G(t),U(t)), \la {nm1}
+(x_{[nt], n}, n^{-1 / 2}\sum_{i = 1}^{[nt]} u_i) \Rightarrow (G(t),U(t)), \la {nm1}
  \ee on $D[0,1]^2$, where $x_{t,n}=x_t/d_n$.
 \end{enumerate}
 \end{assump}
@@ -652,8 +652,8 @@ for any $l = o(n^{1 / 4})$. See \cite{ibragimovphillips2008}, \cite{phillipssolo
 \selectfont \caption{Estimates and 95\% Confidence Intervals of $\hat{\beta}_{1n}$ and $\hat{\beta}_{2n}$}
 \label{beta12_plot} \center{
 \begin{tabular}{c}
-%\includegraphics[width=16cm]{b_1_plot} \\
-%\includegraphics[width=16cm]{b_2_plot} \\
+\includegraphics[width=16cm]{b_1_plot} \\
+\includegraphics[width=16cm]{b_2_plot} \\
 \end{tabular}
 }
 \end{table}
@@ -1242,6 +1242,339 @@ Finally, (iv)' follows from Lemma \ref{lemEndo} with
 g_1(x)=\al_3'\dot{h}(x, \theta_0) \quad \mbox{and} \quad g_2(x)=\al_1'\dot{h}(x, \theta_0) \dot{h}(x, \theta_0)'\al_2.
 \end{equation*}
 \end{proof}
+
+
+\begin{table}[!ht]
+\selectfont \caption{Means and standard errors of $\hat{\theta}_n$ and $\hat{\si}^2_n$ with $f(x, \theta) = \exp\{ -\theta | x| \}$.}
+\label{If_num} \center{
+\begin{tabular}{c c c c c c c c c c  }
+\hline
+& & \multicolumn{2}{c} { $\rho = 0$ }& & \multicolumn{2}{c} { $\rho = 0.5$ } & & \multicolumn{2}{c} { $\rho = 1$ } \\
+\cline{3-4}
+\cline{6-7}
+\cline{9-10}
+& $n$ & Mean & Std. error& & Mean & Std. error& &  Mean & Std. error \\
+\hline
+\multicolumn{10}{c} {Scenario {\bf S1}}  \\
+$ \hat{\theta}_n $  & 200   &0.10018 & (0.00511) & & 0.10018 & (0.00517) & & 0.10011 & (0.00563)\\
+ & 500 & 0.10014 & (0.00413) & & 0.10013 & (0.00406) & & 0.10004 & (0.00366) \\
+$ \hat{\sigma}^2_n $ & 200 &8.95974 & (0.88064) & & 8.96749 & (0.89797) & & 8.98783 & (0.89446)  \\
+ & 500 & 8.98116 & (0.57035) & & 8.98106 & (0.56659) & & 8.99062 & (0.57060) \\
+\multicolumn{10}{c} {Scenario {\bf S2}}  \\
+$ \hat{\theta}_n $  & 200   &0.10014 & (0.00521) & & 0.10024 & (0.00526) & & 0.10014 & (0.00546)  \\
+ & 500 &0.10009 & (0.00418) & & 0.10017 & (0.00435) & & 0.10012 & (0.00416)  \\
+$ \hat{\sigma}^2_n $ & 200 &8.97149 & (0.89930) & & 8.96567 & (0.88766) & & 9.00270 & (0.89405)  \\
+ & 500 & 8.99296 & (0.57106) & & 9.00135 & (0.56876) & & 8.99701 & (0.56470) \\
+\multicolumn{10}{c} {Scenario {\bf S3}}  \\
+$ \hat{\theta}_n $  & 200   &0.10033 & (0.00595) & & 0.10017 & (0.00618) & & 0.10026 & (0.00616)  \\
+ & 500 & 0.10022 & (0.00481) & & 0.10020 & (0.00499) & & 0.10012 & (0.00489) \\
+$ \hat{\sigma}^2_n $ & 200 &9.08776 & (0.91758) & & 9.11416 & (0.92635) & & 9.12292 & (0.92537)  \\
+ & 500 & 9.13221 & (0.58686) & & 9.12295 & (0.59715) & & 9.14155 & (0.59417) \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!ht]
+\selectfont \caption{Means and standard errors of $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ and $\hat{\si}^2_n$ with $f(x, \al, \beta_1, \beta_2) = \al + \beta_1 x+ \beta_2 x^2$.}
+\label{Hf_num} \center{
+\begin{tabular}{c c c c c c c c c c  }
+\hline
+& & \multicolumn{2}{c} { $\rho = 0$ }& & \multicolumn{2}{c} { $\rho = 0.5$ } & & \multicolumn{2}{c} { $\rho = 1$ } \\
+\cline{3-4}
+\cline{6-7}
+\cline{9-10}
+& $n$ & Mean & Std. error& & Mean & Std. error& &  Mean & Std. error \\
+\hline
+\multicolumn{10}{c} {Scenario {\bf S1}}  \\
+$ \hat{\al}_n $  & 200   &-19.99444 & (0.52156) & & -19.99776 & (0.52417) & & -20.00214 & (0.53271) \\
+ & 500 &-20.00171 & (0.33352) & & -20.00164 & (0.33260) & & -20.00333 & (0.33106) \\
+$ \hat{\beta_1}_n $  & 200   &9.99995 & (0.04303) & & 10.01348 & (0.04427) & & 10.02649 & (0.04441)\\
+ & 500 &9.99961 & (0.01713) & & 10.00537 & (0.01741) & & 10.01056 & (0.01790)\\
+$ \hat{\beta_2}_n $  & 200   &0.09999 & (0.00137) & & 0.09999 & (0.00133) & & 0.10000 & (0.00115)\\
+ & 500 &0.10000 & (0.00034) & & 0.10001 & (0.00034) & & 0.10000 & (0.00029) \\
+$ \hat{\sigma}^2_n $ & 200 &8.87340 & (0.89132) & & 8.83901 & (0.89370) & & 8.79399 & (0.87995)\\
+ & 500 & 8.94769 & (0.56790) & & 8.94198 & (0.57076) & & 8.91645 & (0.56403)\\
+\multicolumn{10}{c} {Scenario {\bf S2}}  \\
+$ \hat{\al}_n $  & 200   &-19.99538 & (0.54080) & & -19.99210 & (0.54464) & & -20.00177 & (0.53812)\\
+ & 500 &-20.00287 & (0.33868) & & -20.00412 & (0.33885) & & -20.00142 & (0.34983)\\
+$ \hat{\beta_1}_n $  & 200   &10.00054 & (0.04456) & & 10.01464 & (0.04606) & & 10.02658 & (0.04718)\\
+ & 500 &10.00025 & (0.01747) & & 10.00548 & (0.01829) & & 10.01142 & (0.01838) \\
+$ \hat{\beta_2}_n $  & 200   &0.10001 & (0.00145) & & 0.10000 & (0.00136) & & 0.10000 & (0.00118)\\
+ & 500 &0.09999 & (0.00037) & & 0.10000 & (0.00034) & & 0.10000 & (0.00029)\\
+$ \hat{\sigma}^2_n $ & 200 &8.85807 & (0.89311) & & 8.83928 & (0.89470) & & 8.79743 & (0.89541) \\
+ & 500 & 8.95826 & (0.56801) & & 8.94974 & (0.56812) & & 8.92162 & (0.56690) \\
+\multicolumn{10}{c} {Scenario {\bf S3}}  \\
+$ \hat{\al}_n $  & 200   &-19.99784 & (0.62713) & & -20.00389 & (0.60584) & & -19.99447 & (0.62031) \\
+ & 500 &-19.99644 & (0.39496) & & -19.99572 & (0.38897) & & -20.00707 & (0.40941)\\
+$ \hat{\beta_1}_n $  & 200   &9.99962 & (0.04949) & & 10.01477 & (0.05129) & & 10.03178 & (0.05180)\\
+ & 500 &10.00011 & (0.02033) & & 10.00647 & (0.02073) & & 10.01282 & (0.02142) \\
+$ \hat{\beta_2}_n $  & 200   &0.10002 & (0.00165) & & 0.09998 & (0.00156) & & 0.10000 & (0.00131)\\
+ & 500 &0.10000 & (0.00040) & & 0.10000 & (0.00039) & & 0.10000 & (0.00033)\\
+$ \hat{\sigma}^2_n $ & 200 &8.96801 & (0.91677) & & 8.93070 & (0.91952) & & 8.86505 & (0.93340)\\
+ & 500 & 9.08728 & (0.58567) & & 9.07935 & (0.58298) & & 9.03815 & (0.58235) \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\theta}_n$ (unscaled).}
+\label{theta_unscaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{theta_density_200_0} & \includegraphics[width=8cm]{theta_density_500_0} \\
+\includegraphics[width=8cm]{theta_density_200_05} & \includegraphics[width=8cm]{theta_density_500_05} \\
+\includegraphics[width=8cm]{theta_density_200_1} & \includegraphics[width=8cm]{theta_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+\clearpage
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\al}_n$ (unscaled).}
+\label{alpha_unscaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{alpha_density_200_0} & \includegraphics[width=8cm]{alpha_density_500_0} \\
+\includegraphics[width=8cm]{alpha_density_200_05} & \includegraphics[width=8cm]{alpha_density_500_05} \\
+\includegraphics[width=8cm]{alpha_density_200_1} & \includegraphics[width=8cm]{alpha_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\beta}_{1n}$ (unscaled).}
+\label{beta1_unscaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{beta1_density_200_0} & \includegraphics[width=8cm]{beta1_density_500_0} \\
+\includegraphics[width=8cm]{beta1_density_200_05} & \includegraphics[width=8cm]{beta1_density_500_05} \\
+\includegraphics[width=8cm]{beta1_density_200_1} & \includegraphics[width=8cm]{beta1_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\beta}_{2n}$ (unscaled).}
+\label{beta2_unscaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{beta2_density_200_0} & \includegraphics[width=8cm]{beta2_density_500_0} \\
+\includegraphics[width=8cm]{beta2_density_200_05} & \includegraphics[width=8cm]{beta2_density_500_05} \\
+\includegraphics[width=8cm]{beta2_density_200_1} & \includegraphics[width=8cm]{beta2_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\theta}_n$ (scaled by $n^{1/4}$).}
+\label{theta_scaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{theta_scaled_density_200_0} & \includegraphics[width=8cm]{theta_scaled_density_500_0} \\
+\includegraphics[width=8cm]{theta_scaled_density_200_05} & \includegraphics[width=8cm]{theta_scaled_density_500_05} \\
+\includegraphics[width=8cm]{theta_scaled_density_200_1} & \includegraphics[width=8cm]{theta_scaled_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\alpha}_n$ (scaled by $n^{1/2}$).}
+\label{alpha_scaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{alpha_scaled_density_200_0} & \includegraphics[width=8cm]{alpha_scaled_density_500_0} \\
+\includegraphics[width=8cm]{alpha_scaled_density_200_05} & \includegraphics[width=8cm]{alpha_scaled_density_500_05} \\
+\includegraphics[width=8cm]{alpha_scaled_density_200_1} & \includegraphics[width=8cm]{alpha_scaled_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\beta}_{1n}$ (scaled by $n$).}
+\label{beta1_scaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{beta1_scaled_density_200_0} & \includegraphics[width=8cm]{beta1_scaled_density_500_0} \\
+\includegraphics[width=8cm]{beta1_scaled_density_200_05} & \includegraphics[width=8cm]{beta1_scaled_density_500_05} \\
+\includegraphics[width=8cm]{beta1_scaled_density_200_1} & \includegraphics[width=8cm]{beta1_scaled_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!ht]
+\selectfont \caption{Density estimate of $\hat{\beta}_{2n}$ (scaled by $n^{3/2}$).}
+\label{beta2_scaled} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{beta2_scaled_density_200_0} & \includegraphics[width=8cm]{beta2_scaled_density_500_0} \\
+\includegraphics[width=8cm]{beta2_scaled_density_200_05} & \includegraphics[width=8cm]{beta2_scaled_density_500_05} \\
+\includegraphics[width=8cm]{beta2_scaled_density_200_1} & \includegraphics[width=8cm]{beta2_scaled_density_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density of $\hat{\theta}_n$ $t$-ratios.}
+\label{theta_t} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{theta_t_ratio_200_0} & \includegraphics[width=8cm]{theta_t_ratio_500_0} \\
+\includegraphics[width=8cm]{theta_t_ratio_200_05} & \includegraphics[width=8cm]{theta_t_ratio_500_05} \\
+\includegraphics[width=8cm]{theta_t_ratio_200_1} & \includegraphics[width=8cm]{theta_t_ratio_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density of $\hat{\alpha}_n$ $t$-ratios.}
+\label{alpha_t} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{alpha_t_ratio_200_0} & \includegraphics[width=8cm]{alpha_t_ratio_500_0} \\
+\includegraphics[width=8cm]{alpha_t_ratio_200_05} & \includegraphics[width=8cm]{alpha_t_ratio_500_05} \\
+\includegraphics[width=8cm]{alpha_t_ratio_200_1} & \includegraphics[width=8cm]{alpha_t_ratio_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density of $\hat{\beta}_{1n}$ $t$-ratios.}
+\label{beta1_t} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{beta1_t_ratio_200_0} & \includegraphics[width=8cm]{beta1_t_ratio_500_0} \\
+\includegraphics[width=8cm]{beta1_t_ratio_200_05} & \includegraphics[width=8cm]{beta1_t_ratio_500_05} \\
+\includegraphics[width=8cm]{beta1_t_ratio_200_1} & \includegraphics[width=8cm]{beta1_t_ratio_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Density of $\hat{\beta}_{2n}$ $t$-ratios.}
+\label{beta2_t} \center{
+\begin{tabular}{c c}
+\includegraphics[width=8cm]{beta2_t_ratio_200_0} & \includegraphics[width=8cm]{beta2_t_ratio_500_0} \\
+\includegraphics[width=8cm]{beta2_t_ratio_200_05} & \includegraphics[width=8cm]{beta2_t_ratio_500_05} \\
+\includegraphics[width=8cm]{beta2_t_ratio_200_1} & \includegraphics[width=8cm]{beta2_t_ratio_500_1} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!ht]
+\selectfont \caption{Estimate and 95\% Confidence Interval of $\hat{\al}_n$}
+\label{alpha_plot} \center{
+\begin{tabular}{c}
+\includegraphics[width=16cm]{a_plot}
+\end{tabular}
+}
+\end{table}
+
+% \begin{table}[!ht]
+% \selectfont \caption{Estmate and 95\% Confidence Interval of $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$}
+% \label{GseqTable} \center{
+% \begin{tabular}{c}
+% %\includegraphics[width=16cm]{a_plot} \\
+% \includegraphics[width=16cm]{b_1_plot} \\
+% \includegraphics[width=16cm]{b_2_plot} \\
+% \end{tabular}
+% }
+% \end{table}
+
+
+\begin{table}[!ht]
+\selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\alpha}_{n}$.}
+\label{alpha_est} \center{
+\begin{tabular}{|c |c  c  c|}
+\hline
+Country & $\hat{\alpha}_{n}$ & Lower & Upper \\
+\hline
+AUS & -57.387 & -58.005 & -56.769 \\
+AUT & -25.352 & -26.414 & -24.290 \\
+BEL & -41.632 & -43.144 & -40.121 \\
+CAN & -44.442 & -45.615 & -43.268 \\
+CHN & -32.402 & -38.126 & -26.678 \\
+DEN & -113.670 & -115.375 & -111.965 \\
+FIN & -91.869 & -94.019 & -89.720 \\
+FRA & -76.449 & -78.162 & -74.735 \\
+HOL & -71.892 & -73.439 & -70.344 \\
+IND & -59.854 & -60.930 & -58.779 \\
+IRE & -33.058 & -34.265 & -31.851 \\
+ITA & -71.375 & -72.604 & -70.146 \\
+JAP & -27.674 & -29.293 & -26.056 \\
+NOR & -58.519 & -60.442 & -56.597 \\
+USA & -45.950 & -46.945 & -44.954 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+
+\begin{table}[!ht]
+\selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\beta}_{1n}$.}
+\label{beta1_est} \center{
+\begin{tabular}{|c |c  c  c|}
+\hline
+Country & $\hat{\beta}_{1n}$ & Lower & Upper \\
+\hline
+AUS & 11.520 & 10.810 & 12.230 \\
+AUT & 5.075 & 4.193 & 5.958 \\
+BEL & 9.116 & 7.922 & 10.310 \\
+CAN & 9.217 & 8.114 & 10.321 \\
+CHN & 7.609 & 5.063 & 10.154 \\
+DEN & 23.724 & 22.242 & 25.205 \\
+FIN & 18.967 & 17.225 & 20.709 \\
+FRA & 16.443 & 15.000 & 17.886 \\
+HOL & 14.921 & 13.579 & 16.262 \\
+IND & 14.908 & 13.894 & 15.923 \\
+IRE & 6.816 & 6.062 & 7.570 \\
+ITA & 14.502 & 13.647 & 15.356 \\
+JAP & 5.447 & 4.614 & 6.279 \\
+NOR & 11.802 & 10.555 & 13.050 \\
+USA & 9.536 & 8.449 & 10.623 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[!ht]
+\selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\beta}_{2n}$.}
+\label{beta2_est} \center{
+\begin{tabular}{|c |c  c  c|}
+\hline
+Country & $\hat{\beta}_{2n}$ & Lower & Upper \\
+\hline
+AUS & -0.562 & -0.730 & -0.394 \\
+AUT & -0.246 & -0.389 & -0.102 \\
+BEL & -0.485 & -0.721 & -0.248 \\
+CAN & -0.462 & -0.732 & -0.192 \\
+CHN & -0.446 & -0.775 & -0.118 \\
+DEN & -1.226 & -1.586 & -0.865 \\
+FIN & -0.967 & -1.256 & -0.678 \\
+FRA & -0.875 & -1.190 & -0.559 \\
+HOL & -0.762 & -1.093 & -0.432 \\
+IND & -0.945 & -1.174 & -0.715 \\
+IRE & -0.341 & -0.443 & -0.238 \\
+ITA & -0.729 & -0.882 & -0.576 \\
+JAP & -0.258 & -0.365 & -0.151 \\
+NOR & -0.586 & -0.822 & -0.351 \\
+USA & -0.477 & -0.768 & -0.186 \\
+\hline
+\end{tabular}
+}
+\end{table}
 
 
 

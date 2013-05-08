@@ -1,4 +1,4 @@
-\chapter{Long Memory Processes and Fractional Brownian Motion Process}
+\chapter{Long Memory Processes and Fractional Brownian Motion Process} \la{chap:app1}
 
 This appendix gives some results on the linear process with long memory and its relationship with Fractional Brownian motion process. Let $W_{d }(t)$  be a fractional Brownian motion with Hurst parameter $-1/2<d<1/2$ on $D[0,1]$, defined by
 \begin{equation*}
@@ -21,8 +21,8 @@ where $l(0) / 0\equiv1$, $l(x)$ is a positive function slowly varying at infinit
 X_t = \sum_{k = 0}^{\infty} \psi_k \ep_{t- k}.
 \ee
 
-The following theorem comes from Proposition 2.1 of \cite{wanglingulatin2003}.
-\begin{thm}
+The following theorems come from  \cite{wanglingulati2003a}.
+\begin{thm} \la{thm:app1:asym}
 Assume $E\ep_0 = 0$ and $E\ep_0^2 = 1$. Then we have
 \be
 E(\sum_{t = 1}^n X_t)^2 \sim \frac{c_\al n^{3 - 2\al}l^2(n)}{(1 - \al) (3 - 2\al)},
@@ -33,7 +33,7 @@ where $c_\al = \int_0^\infty x^{-\al} (x + 1)^{-\al}dx$.
 \begin{thm}
 Assume $E\ep_0 = 0$ and $E\ep_0^2 = 1$. Let $d^2_n = E(\sum_{t = 1}^n X_t)^2$. We have
 \be
-\frac{1}{d_n}\sum_{k = 1}^{[nt]} X_k \to_D W_{3 / 2-\mu}(t),
+\frac{1}{d_n}\sum_{k = 1}^{[nt]} X_k \Rightarrow W_{3 / 2-\mu}(t),
 \ee
 on $D[0,1]$, as $n \to \infty$.
 \end{thm}

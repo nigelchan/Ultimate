@@ -24,20 +24,16 @@ where $c_{n}$ is a certain sequence of positive constants and $g$ is a real
 integrable function on $R$. These functionals arise in nonparametric
 estimation and inference  problems, particularly, problems involving nonlinear cointegration
 models. In such situations, the underlying time series $x_{k}$ is nonstationary, $g$ is a
-kernel function, and the secondary sequence $c_{n}$ depends on the bandwidth
-
-used in the nonparametric regression. See [\citet[][\citeyear{parkphillips2001}]{parkphillips1999}],
-\cite{karlsenmyklebusttjostheim2007}, \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}, \citeyear{wangphillips2012}]{wangphillips2009} and the reference therein.
+kernel function, and the secondary sequence $c_{n}$ depends on the bandwidth. For related work in the literature, refer to the reference cited in Chapter \ref{chap:2}.
 
 This chapter is concerned with developing a uniform approximation of $S_{2n}(x)$ to the local time $L_{G}(1,-x)$ of the process $G(t)$. Such cases are important in nonlinear cointegrating regression and they appear in the investigation  of   uniform convergence in relation to  non-parametric estimation.  In order to investigate the uniform convergence for a Nadaraya-Watson estimator, for example, we need to consider the lower bound for $\inf _{|x|\le \gamma_n}S_{2n}(x)$ in
-the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K(s) $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  a ``optimal" range for the $x$ being held. This result essentially improves the previous ones in Chapter \ref{chap:2}. It should be mentioned that similar  uniform lower bounds of $S_{2n}(x)$  are required in many other areas, such as  the estimation of the volatility function in a regression  model with nonlinear nonstationary heteroskedastic (NNH) error processes. We refer to \cite{wangwang2012} and the reference therein  for more details.
+the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K(s) $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  a ``optimal" range for the $x$ being held. This result essentially improves the previous ones in Chapter \ref{chap:2}. 
 
 This chapter is organized as follows.  In next section, we present our
 main results. Theorem \ref {th1} provides a framework for the uniform approximation. It is shown that, under certain conditions and a rich probability space, $S_{2n}(x)$ can be approximated by a local time process over $R$ with certain rate. The rate might be not optimal, but it is enough for many practical applications.
 Theorem \ref {th11} gives an important application of
 Theorem \ref {th1} to general linear processes. Our result includes
- the $x_k$ being a partial sum of ARMA processes and fractionally integrated processes,
- which are most commonly used in practice. All technical proofs are given in Section 3.
+ the $x_k$ being a partial sum of ARMA processes and fractionally integrated processes, which are most commonly used in practice. All technical proofs are given in Section \ref{sec:3:proof}.
 
 
 
@@ -53,7 +49,7 @@ $|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficiently small on }$R$.
 
 
 \begin{assump} \la{assumpApprox}
- \textit{On a rich probability space, there exist (i) a stochastic process $G(t)$ having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|t|^{2w}$ where $0 < w < 1$, and (ii) a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and 
+ \textit{On a rich probability space, there exist (i) a stochastic process $G(t)$ having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|s|^{2w}$ where $0 < w < 1$, and (ii) a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and 
 \be
  \sup_{0\le t\le 1}|x_{[nt],n}-G_n(t)| &=&o_{a.s.}(n^{-\delta}),
  \la {a2}
@@ -94,13 +90,13 @@ We have the following main result.
 \begin{thm} \la {th1} Suppose Assumptions \ref{assumpFuncG}--\ref{assumpGenH} hold. On the same probability space as in Assumption \ref{assumpApprox}, for any $\beta>0$,
 we have
 \be \la{th1.eqn1}
-\sup_{x\in R} \Big |\frac{c_n}{n}S_{2n}(x)- \tau\, L_{G_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
+\sup_{x\in R} \Big |\frac{c_n}{n}S_{2n}(x)- \varphi\, L_{G_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
 \ee
-where $\tau= \int_{-\infty}^{\infty} g(t) dt$.
+where $\varphi= \int_{-\infty}^{\infty} g(t) dt$.
 \end{thm}
 
 \begin{rem} Due to technical difficulties, the convergence rate in (\ref {th1.eqn1}) may not be optimal. To our guess, the rate should have the form $n^{-\gamma}$, where $\gamma>0$ is related to $\delta>0$ given in Assumption \ref{assumpApprox}. However, the result
-(\ref {th1.eqn1}) suffices in many applications. As a direct consequence, we have the following corollary that provides the uniform bounds for $S_{2n}(x)$ under ``optimal" range.   As stated in Section 1, these uniform bounds are the key to investigate the uniform asymptotics in non-linear regression with non-stationary time series.
+(\ref {th1.eqn1}) suffices in many applications. As a direct consequence, we have the following corollary that provides the uniform bounds for $S_{2n}(x)$ under ``optimal" range.   As stated in the introduction chapter, these uniform bounds are the key to investigate the uniform asymptotics in non-linear regression with non-stationary time series.
 \end{rem}
 
 \begin{cor} \la{cor1}  Under Assumptions \ref{assumpFuncG}--\ref{assumpGenH}, we have
@@ -114,16 +110,16 @@ If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$ and $\lim_{n\to \infty}P(
 \end{cor}
 
 \begin{rem} \la{rem:3:optimal} Corollary \ref {cor1} essentially improves Theorem \ref{thm:2:MainLower} of
-Chapter \ref{chap:2}. To illustrate, let $G(x)$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le r_n} L_G(1, -x)=0)=0$ for any $0<r_n\to 0$, due to the continuity of  local time process. This yields that
+Chapter \ref{chap:2}. To illustrate, let $G(x)$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le \tau_n} L_G(1, -x)=0)=0$ for any $0<\tau_n\to 0$, due to the continuity of  local time process. This yields that
 \be
-\big[\inf_{|x|\le r_n} | S_{2n}(x)|\big]^{-1}=O_P(c_n / n), \la {78}
+\big[\inf_{|x|\le \tau_n} | S_{2n}(x)|\big]^{-1}=O_P(c_n / n), \la {78}
  \ee
- for any $0<r_n\to 0$. In comparison,  Chapter \ref{chap:2} only established  
+ for any $0<\tau_n\to 0$. In comparison,  Chapter \ref{chap:2} only established  
 \bestar
 \big [ \inf_{|x|\le M_0/\log^{\gamma} n}| S_{2n}(x)|\big]^{-1}=O_P(c_n / n),
 \eestar
 for some $\gamma > 0$. Furthermore, by noting that
-$P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see, for instance, \cite{takacs1995}), the range  $|x|\le  r_n$ in   (\ref {78}) might be  optimal. In other words, it can not be improved  to $|x|\le b$ for any constant $b>0$.
+$P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see, for instance, \cite{takacs1995}), the range  $|x|\le  \tau_n$ in   (\ref {78}) might be  optimal. In other words, it can not be improved  to $|x|\le b$ for any constant $b>0$.
 \end{rem}
 
 \subsection{An application to linear processes}\la{section:3:application}
@@ -151,7 +147,7 @@ where $C_0$ is a positive constant.
 
 \noindent We remark that the requirement on $\rho(k)$ under condition {\bf C1} is weak,
 which is satisfied by a large class of slowly varying functions such as $\log^{\al}x$,
-$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See, e.g., \cite{wanglingulati2003a}.
+$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See Theorem \ref{thm:app1:asym} in Appendix \ref{chap:app1}.
 
 Put $x_{k}=\sum_{j=1}^{k}\xi _{j}$ and $d_n^2=Ex_n^2$.
 It is well-known that
@@ -202,9 +198,9 @@ c_{\mu}^{-1/2}\,n^{-(3/2-\mu) }\,\rho^{-1}(n) \, W_{1-\mu}(nt), & \mbox{under {\
 \ee
  such that, for all $\beta>0$
 \be \la{th10}
-\sup_{x\in R} \Big |\frac {d_n}{nh}S^*_{2n}(x)- \tau\, L_{Y_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
+\sup_{x\in R} \Big |\frac {d_n}{nh}S^*_{2n}(x)- \varphi\, L_{Y_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
 \ee
-where $\tau= \int_{-\infty}^{\infty} g(x) dx$,
+where $\varphi= \int_{-\infty}^{\infty} g(x) dx$,
 provided  that $g(x)$ satisfies Assumptions \ref{assumpFuncG}, $h\to 0$ and $n^{-1+\ep_0}d_n/h\to 0$ for some $\ep_0>0$.
 \end{thm}
 
@@ -214,9 +210,9 @@ provided  that $g(x)$ satisfies Assumptions \ref{assumpFuncG}, $h\to 0$ and $n^{
 \ee
 provided that $g(x)$ satisfies  Assumptions \ref{assumpFuncG}.  If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
 \be \la{cor1.eqn20}
-\Big [ \inf_{|x|\le r_n\,d_n}|\sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x)\big]|\Big]^{-1} =O_P(d_n/(nh)) ,
+\Big [ \inf_{|x|\le \tau_n\,d_n}|\sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x)\big]|\Big]^{-1} =O_P(d_n/(nh)) ,
 \ee
-for any  $0<r_n\to 0$.
+for any  $0<\tau_n\to 0$.
 \end{cor}
 
 \begin{rem}
@@ -239,11 +235,11 @@ Similarly, under the condition {\bf C2}, on a rich probability space, there exis
 
 
 
-\section{Proofs of main results}
+\section{Proofs of main results} \la{sec:3:proof}
 
 This section provides proofs of the main results. We start with several preliminary lemmas in Section \ref{section:3:lemma}.  These lemmas, in particular Lemma \ref{lemma3},  are of interests in their own rights. The proof of Theorem \ref{th1} is given in Section \ref{section:3:proof}. As stated in Section \ref{section:3:application}, Theorem \ref{th11} is a direct sequence of Theorem \ref{th1} and Proposition \ref{prop1}. 
 
-\subsection{Preliminary Lemmas} \la{section:3:lemma}
+\subsection{Preliminaries} \la{section:3:lemma}
 Throughout this section, we set $f_{t,s}(x)=g(c_nx+t)-g(c_nx+s)$ where $g(x)$ satisfies Assumption \ref{assumpFuncG}, and assume that $x_{k,n}$ is defined as in Assumption \ref{assumpDensity}.
 
 \begin{lem} \la{lemSinBound} We have, for any $k > j$,
@@ -306,7 +302,7 @@ By virtue of Lemma \ref {lem1}, the proof follows from the similar arguments as 
 We omit the details.
 \end{proof}
 
-\begin{lem} \la{lemLocal} Let $G(t)$ be a  stochastic process having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|t|^{2w}$ where $0 < w < 1$. For any $s, t \in R$ and $\xi > 0$, there exists a constant $C$ such that
+\begin{lem} \la{lemLocal} Let $G(t)$ be a  stochastic process having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|s|^{2w}$ where $0 < w < 1$. For any $s, t \in R$ and $\xi > 0$, there exists a constant $C$ such that
 \be
 |L_G(1, s) - L_G(1, t)| \le C\, |s - t|^{\frac{1 - w}{2w} - \xi} \quad a.s..
 \ee
@@ -476,8 +472,10 @@ where the last inequality follows from (\ref {110}).
 Combining (\ref {25})--(\ref {p10}), we establish (\ref {eqn:3:21}), and also completes the proof of Lemma \ref{lemma3}.
 \end{proof}
 
-\subsection{Proof of Theorem \ref{th1}} \la{section:3:proof}
-Without loss of generality, we first assume $\tau = \int g(x) dx = 1$. Define $\bar{g}(x)=g(x)I\{|x|\leq n^{\zeta}/2\}$, where $0 < \zeta < 1 - \de / \rho$ is small enough such that $n^{\zeta}/c_n\le n^{-\delta}$, where $\rho$ and $\de$ are given in Assumption \ref{assumpFuncG} and \ref{assumpApprox} respectively. Further let $\varepsilon=n^{-\alpha}$ with $0<\alpha< \de / 2$, and for a fixed $x_{0}$, define a triangular function
+\subsection{Proof of theorems} \la{section:3:proof}
+
+\begin{proof}[Proof of Theorem \ref{th1}]
+Without loss of generality, we first assume $\varphi = \int g(x) dx = 1$. Define $\bar{g}(x)=g(x)I\{|x|\leq n^{\zeta}/2\}$, where $0 < \zeta < 1 - \de / \rho$ is small enough such that $n^{\zeta}/c_n\le n^{-\delta}$, where $\rho$ and $\de$ are given in Assumption \ref{assumpFuncG} and \ref{assumpApprox} respectively. Further let $\varepsilon=n^{-\alpha}$ with $0<\alpha< \de / 2$, and for a fixed $x_{0}$, define a triangular function
 \bestar
 g_{x_0, \varepsilon}(y)= \begin{cases}
 0,  & \quad \quad   |y - x_0| > \varepsilon, \\
@@ -524,7 +522,7 @@ We next prove (\ref{eqn3}). Recalling the definition of $g_{x\varepsilon}(y)$ an
 && \Big{|}\int_{0}^{1}g_{x\varepsilon}(G(t))dt-L_{G}(1,x)\Big{|}\no\\
 &=&\Big{|}\int_{-\infty}^{\infty}g_{x\varepsilon}(y)L_{G}(1,y)dy-L_{G}(1,x)\Big{|}\cr
 &\leq &\int_{-\infty}^{\infty}g_{x\varepsilon}(y)|L_{G}(1,y)-L_{G}(1,x)|dy\cr
-&=& O_{a.s.}(\varepsilon^{1/2-\xi})
+&=& O_{a.s.}(\varepsilon^{1/2-\xi}),
 \end{eqnarray*}
 for any $\xi>0$, uniformly for all $x \in R$. The similar arguments as in the proof of (\ref{eqn4}) yield that $\sup_x\big{|}\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt-L_{G_n}(1,x)\big{|}=O_P(\varepsilon^{1/2-\xi}).$
 Hence, by taking $\xi = \al / 4$,  it follows from Assumption \ref{assumpApprox} (b) that
@@ -533,7 +531,7 @@ Hence, by taking $\xi = \al / 4$,  it follows from Assumption \ref{assumpApprox}
 &\le &\Big{|}\int_{0}^{1}g_{x\varepsilon}(x_{[nt], n})dt-\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt\Big{|}+2/(\varepsilon n)+
 \Big{|}\int_{0}^{1}g_{x\varepsilon}(G_n(t))dt-L_{G_n}(1,x)\Big{|}\no\\
 &=& O_P \big [\varepsilon^{-2}n^{-\de}+2/(\varepsilon n) + \varepsilon^{1/2-\xi} \big ] \no\\
-&=& O_P \big [n^{2\al - \de} + 2 n^{\al - 1} + n^{-\al / 2 + \xi} \big ] = o_{P} (\log^{-\beta} n)
+&=& O_P \big [n^{2\al - \de} + 2 n^{\al - 1} + n^{-\al / 2 + \xi} \big ] = o_{P} (\log^{-\beta} n),
 \end{eqnarray*}
 uniformly for all $x \in R$, as $\al < \de / 2$, which implies (\ref {eqn3}).
 
@@ -544,7 +542,7 @@ for $z\in[x+kn^{\zeta}/c_n,x+(k+1)n^{\zeta}/c_n), k\in \mathbb{Z}$. It suffices 
 \Delta_{2n}(x) &:= \Big{|}\frac{1}{n}\sum_{j=1}^{n}\bar{g}_{x\varepsilon n}(x_{j,n})\int_{-\infty}^{\infty}\bar{g}_j(y)dy -\int_{-\infty}^{\infty}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(y/c_n)\bar{g}_j(y)dy\Big{|} \no\\
 &\ = o_{P}(\log^{-\beta}n ), \la{eqn6} \\
 \Delta_{3n}(x) &:= \Big{|}\int_{-\infty}^{\infty}\frac{1}{n}\sum_{j=1}^{n}g_{x\varepsilon}(y/c_n)\bar{g}_j(y)dy - \frac{c_n}{{n}}\sum_{j=1}^{n}\bar g(c_nx_{j,n}-c_nx-n^{\zeta} / 2)\Big{|}\no\\
-&\ = o_{P}(\log^{-\beta}n ) \la{eqn7},
+&\ = o_{P}(\log^{-\beta}n ). \la{eqn7}
 \end{align}
 
 (\ref{eqn5}) first. Note that $ |g_{x\varepsilon}(y)-g_{x\varepsilon}(z)|\leq \varepsilon^{-2}|y-z|$, and
@@ -556,11 +554,11 @@ It follows that, uniformly for all $j = 1, ..., n$ and $x \in R$,
 \begin{align}
 &\Big |g_{x \varepsilon}(x_{j,n}) - \bar{g}_{x\varepsilon n}(x_{j,n}) \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \no\\
 &\le\Big |g_{x \varepsilon}(x_{j,n}) - \bar{g}_{x\varepsilon n}(x_{j,n}) \Big | + | \bar{g}_{x\varepsilon n}(x_{j,n})| \Big | 1 -  \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \no\\
-&\leq  C\varepsilon^{-2}n^{\zeta}/c_n + C_1 n^{-\zeta (\rho - 1) } = o_{P}(\log^{-\beta} n).\no
+&\leq  C\varepsilon^{-2}n^{\zeta}/c_n + C_1 n^{-\zeta (\rho - 1) } = o_{P}(\log^{-\beta} n),\no
 \end{align}
 where we have used the fact that (recalling $\int g(y) dy = 1$),
 \bestar
-\Big | 1 -  \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \le \Big |\int_{-\infty}^{\infty} g(y) I\{|y| > n^{\zeta }/ 2\} dy \Big | \le C\ n^{-\zeta (\rho - 1) }
+\Big | 1 -  \int_{-\infty}^{\infty}\bar{g}_j(y)dy \Big | \le \Big |\int_{-\infty}^{\infty} g(y) I\{|y| > n^{\zeta }/ 2\} dy \Big | \le C\ n^{-\zeta (\rho - 1) },
 \eestar
 due to $\sup_y |y|^{\rho} |g(y)| < \infty$ and $\rho > 1$.
 
@@ -569,7 +567,7 @@ due to $\sup_y |y|^{\rho} |g(y)| < \infty$ and $\rho > 1$.
 &\int_{-\infty}^{\infty} | \bar{g}_{x\varepsilon n}(x_{j,n}) \bar{g}_j(y) - g_{x \varepsilon}(y / c_n) \bar{g}_j(y)  | dy\no\\
 &\le \Big ( \int_{-\infty}^{\infty} g(y) dy \Big ) \, \Big ( \sup_y \big | \bar{g}_{x\varepsilon n}(x_{j,n})  - g_{x \varepsilon}(y / c_n)  \big |\,  I\{ | c_n x_{j, n} - y - n^{\zeta} / 2| \le n^{\zeta} / 2\} \Big ) \no\\
 &\le C \sup_y \Big [ \varepsilon^{-2} ( n^{\zeta} / c_n + |x_{j, n} - y / c_n | ) \,  I\big \{ \big | x_{j, n} - y / c_n - n^{\zeta} /(2c_n)\big | \le n^{\zeta} / (2c_n)\big \} \Big ] \no\\
-&\le C\varepsilon^{-2} ( n^{\zeta} / c_n ) = o_{P} (\log^{-\beta} n). \no
+&\le C\varepsilon^{-2} ( n^{\zeta} / c_n ) = o_{P} (\log^{-\beta} n), \no
 \end{align}
 uniformly for all $j = 1, ..., n$ and $x \in R$.
 
@@ -579,11 +577,12 @@ Finally for (\ref{eqn7}). Using Lemma \ref{lemma3}, we have
 &\hskip 4cm -\frac{c_n}{n}\sum_{j=1}^{n}\bar g(c_nx_{j,n}-c_n x-n^{\zeta} / 2)\Big{|}\no\\
 &\leq\sup_{|y-c_nx|\leq c_{n}\varepsilon}\Big{|} \frac{c_n}{{n}}\sum_{j=1}^{n} \big \{ \bar g(c_nx_{j,n}-y-n^{\zeta}/2)-\bar g(c_nx_{j,n}-c_nx-n^{\zeta}/2) \big \}\Big{|} \no\\
 &\hskip 4cm \times \Big(\frac{1}{c_{n}}\int_{-\infty}^{\infty}g_{x\varepsilon}(y/c_n)dy \Big )\no\\
-&= o_{P}(\log^{-\beta} n).
+&= o_{P}(\log^{-\beta} n),
 \end{align}
 uniformly in $x \in R$.
 
-The proof of Theorem \ref{th1} is now complete. $\Box$
+The proof of Theorem \ref{th1} is now complete.
+\end{proof}
 
 
 

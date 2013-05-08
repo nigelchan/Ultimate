@@ -7,6 +7,7 @@ L_B(t,x) &= \lim_{\ep \to 0} \frac{1}{2\ep} \int_{0}^{t} 1_{(x-\ep, x+\ep)}[B(s)
 \end{align}
 where $m$ is the Lebesgue measure. Such limit can be interpreted as the time spent by the Brownian motion $B(s)$ at the spatial point $x$ over the time interval $[0, t]$.
 
+The following theorem is known as the occupation times formula and comes from Corollary 7.4 of \cite{chungwilliams1990}.
 \begin{thm}
 For any Borel measurable, locally integrable function $T$ on $\mathbb R$, we have for each fixed $t$,
 \bestar
@@ -14,17 +15,17 @@ For any Borel measurable, locally integrable function $T$ on $\mathbb R$, we hav
 \eestar
 with probability one.
 \end{thm}
-Theorem x.x is known as the occupation times formula.
 
-\begin{thm}
+The following theorem gives the distribution of the local time variable. It comes from \cite{takacs1995}.
+\begin{thm} \la{thm:app2:localDist}
 Let $\Phi(x)$ be the standard normal distribution function, then
 \bestar
 P( L_B(1, \al) \le x ) = 2 \Phi(|\al| + x) - 1.
 \eestar
 \end{thm}
-By Theorem x.x, it immediately follows that $P(L(1, 0) = 0) = 0$ and $P(L(1, x) = 0) > 0$ for any fixed $x \ne 0$.
+By Theorem \ref{thm:app2:localDist}, it immediately follows that $P(L(1, 0) = 0) = 0$ and $P(L(1, x) = 0) > 0$ for any fixed $x \ne 0$.
 
-The above properties of local time also hold for some general stochastic process. Let $\{\xi(t), t\ge 0\}$ be a measurable process.
+The above properties of local time also hold for some general stochastic process. Let $\{\xi(t), t\ge 0\}$ be a measurable process. The following theorem is from Theorem 22.1 of \cite{gemanhorowitz1980}.
 \begin{thm}
 Let $\si^2(t) = E\xi^2(t)$ for $0 \le t \le 1$. If $\xi(t)$ has stationary increment, $\xi(0) = 0$ and 
 \bestar

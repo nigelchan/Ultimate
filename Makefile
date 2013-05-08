@@ -192,7 +192,7 @@ TEXFILES=$(wildcard *.tex)
 	@if [ -f $*.ind ]; then \
 		touch $*.ind; \
 	fi
-	@$(MAKEINDEX) -s nomencl.ist -o $*.nls $*.nlo
+	@$(MAKEINDEX) -s nomentbl.ist -o $*.nls $*.nlo
 
 latex:
 # Below the 'true' is included to prevent unnecessarily many errors.
@@ -234,12 +234,12 @@ view:
 
 %.ps: %.dvi
 	$(DVIPS) -o $*.ps $<
-	@$(MAKEINDEX) -s nomencl.ist -o $*.nls $*.nlo
+	@$(MAKEINDEX) -s nomentbl.ist -o $*.nls $*.nlo
 	$(DVIPS) -o $*.ps $<
 
 %.pdf: %.tex
 	$(PDFLATEX) $<
-	@$(MAKEINDEX) -s nomencl.ist -o $*.nls $*.nlo
+	@$(MAKEINDEX) -s nomentbl.ist -o $*.nls $*.nlo
 	$(BIBTEX) $*
 	$(PDFLATEX) $<
 	$(PDFLATEX) $<
