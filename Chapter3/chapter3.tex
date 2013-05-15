@@ -12,7 +12,7 @@ Let ${x_{k,n},1\leq k\leq n,n\geq 1}$
  be  a triangular  array, constructed from some
 underlying nonstationary time series and assume that there is a continuous
 limiting Gaussian process $G(t),0\leq t\leq 1,$ to which $x_{[nt],n}$
-converges weakly, where $[a]$ denotes the integer part of $a.$ In many applications, we let ${x_{k,n}=d}_{n}^{-1}{x}%
+converges weakly. In many applications, we let ${x_{k,n}=d}_{n}^{-1}{x}%
 _{k}$ where $x_{k}$ is a nonstationary time series, such as a unit root or
 long memory process, and $d_{n}$ is an appropriate standardization
 factor. A common functional of interest $S_{2n}(x)$ of $x_{k,n}$ is defined by
@@ -49,9 +49,13 @@ $|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficiently small on }$R$.
 
 
 \begin{assump} \la{assumpApprox}
- \textit{On a rich probability space, there exist (i) a stochastic process $G(t)$ having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|s|^{2w}$ where $0 < w < 1$, and (ii) a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and 
+ \textit{On a rich probability space, there exist a continuous Gaussian process $G(t)$ with covariance function satisfying
+ \be
+E G(t) G(s) = \frac{c}{2} \{ |t|^{2w} + |s|^{2w} - |t - s|^{2w} \},
+\ee
+where $0 < w < 1$ and a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and
 \be
- \sup_{0\le t\le 1}|x_{[nt],n}-G_n(t)| &=&o_{a.s.}(n^{-\delta}),
+ \sup_{0\le t\le 1}|x_{[nt],n}-G_n(t)| &=&o_{a.s.}(n^{-\delta}).
  \la {a2}
 \ee
 for some $0<\delta<1$. }
@@ -79,7 +83,7 @@ whenever $n$ and $k-j$ are sufficiently large and $t\in R$.
 \end{assump}
 
 We remark that Assumption \ref{assumpFuncG} is weak and standard
-  for this type of problem, and it is satisfied by many functionals such as $g(x)$ is differentiable and has a compact support. Assumption \ref{assumpApprox} is strong approximation version of the result $x_{n, [nt]}\to_D G(t)$ on $D[0,1]$, and it is obtainable for many random sequences. For instance,  if $\{\ep_k\}_{k\ge 1}$ are i.i.d. random variables with $E\ep_1=0, E\ep_1^2=1$ and $E|\ep_1|^{r}<\infty$
+  for this type of problem, and it is satisfied by many functionals such as $g(x)$ is differentiable and has compact support. Assumption \ref{assumpApprox} is strong approximation version of the result $x_{n, [nt]}\to_D G(t)$ on $D[0,1]$, and it is obtainable for many random sequences. For instance,  if $\{\ep_k\}_{k\ge 1}$ are i.i.d. random variables with $E\ep_1=0, E\ep_1^2=1$ and $E|\ep_1|^{r}<\infty$
   for some $r>2$, then (\ref {a2}) holds true with $x_{n,k}=\sum_{j=1}^k\ep_j/\sqrt n$, $G_n(t) = n^{-1/2} W(nt)$ and $\delta=(r - 2) / (2r)$. More examples can be found in Proposition \ref{prop1} where we establish  Assumption \ref{assumpApprox} for general linear processes. Note that, $G_n(x)$ can not be replaced by one single process $G(x)$ which is independent of $n$. Explanation in this regards can be found in \cite{csorgorevesz1981}.
   Assumption \ref{assumpDensity} is  similar to Assumption \ref{assumpDensity} given in \cite{wangphillips2010a} which is also used in Chapter \ref{chap:2}.
 
@@ -167,20 +171,7 @@ See, e.g.,  \cite{wanglingulati2003a} for instance.
  \be
 S^*_{2n} (x)&=&  \sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x\, d_n)
 \big],
-\ee when $h\to 0$.  Let $W_{d }(t)$  be a fractional Brownian motion with Hurst parameter $-1/2<d<1/2$ on $D[0,1]$, defined by
-\begin{equation*}
-W_{d}(t)=\frac{1}{A(d)}\,\big[ \int_{-\infty }^{0}\Big[(t-s)^{d}-(-s)^{d}\Big]dW^*(-s)+\int_{0}^{t}(t-s)^{d}dW(s)\big],
-\end{equation*}%
-where
-\begin{equation*}
-A(d)=\Big (\frac{1}{2d+1 }+\int_{0}^{\infty }\Big[(1+s)^{d}-s^{d}\Big]^{2}ds\Big)^{1/2},
-\end{equation*}%
-$W(s), 0\leq s<\infty $ is a standard Brownian motion, and
-$W^{\ast }(u),0\leq u<\infty $ is an independent copy of $W(s),
-0\leq s<\infty $. It is readily
-seen that $W_{0}(t)=W(t)$ and $W_{d}(t)$ have a continuous local time $%
-L_{W_{d}}(t,s)$ with regard to $(t,s)$ in $[0,\infty )\times R$. See,
-e.g., Theorem 22.1 of \cite{gemanhorowitz1980}.
+\ee when $h\to 0$.  
 
 The following results are direct consequences of Theorem \ref {th1}.
 
@@ -302,9 +293,13 @@ By virtue of Lemma \ref {lem1}, the proof follows from the similar arguments as 
 We omit the details.
 \end{proof}
 
-\begin{lem} \la{lemLocal} Let $G(t)$ be a  stochastic process having a continuous local time $L_G(t,s)$ and satisfying $E[G(t+s) -G(t)]^2 = c|s|^{2w}$ where $0 < w < 1$. For any $s, t \in R$ and $\xi > 0$, there exists a constant $C$ such that
+\begin{lem} \la{lemLocal} For any continuous Gaussian process $G(t)$ with covariance function satisfying
+ \be
+E G(t) G(s) = \frac{c}{2} \{ |t|^{2w} + |s|^{2w} - |t - s|^{2w} \},
+\ee
+where $0 < w < 1$,  any $\xi > 0$ and any $u, v \in R$ , there exists a constant $C$ such that
 \be
-|L_G(1, s) - L_G(1, t)| \le C\, |s - t|^{\frac{1 - w}{2w} - \xi} \quad a.s..
+|L_G(1, u) - L_G(1, v)| \le C\, |u - v|^{\frac{1 - w}{2w} - \xi} \quad a.s.
 \ee
 \end{lem}
 \begin{proof} See Theorem 30.4 of \cite{gemanhorowitz1980} and the remark below it.  \end{proof}
@@ -334,9 +329,9 @@ I_{1n} := \sup_{|t| \le c_n\, n^2} \sup_{s: |s - t| \le \ep_n} \Big | \frac{c_n}
  \begin{align}
 &  P \big (\sum_{k = 1}^n I(|x_{k, n}| > n^{2} / 2) > C, \, i.o. \big ) \no\\
 &\le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-4}\sum_{k = 1}^nE |x_{k, n}|^{2}   \no\\
-&\le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-4 + 1} E|\ep_0|^2  \le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-3}= 0 \no
+&\le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-4 + 1} E|\ep_0|^2  \le C\, \lim_{r \to \infty} \sum_{n = r}^{\infty}  n^{-3}= 0, \no
 \end{align}
-which implies $\sum_{k = 1}^n I(|x_{k, n}| > n^{2} / 2)=O(1), a.s$.
+which implies $\sum_{k = 1}^n I(|x_{k, n}| > n^{2} / 2)=O(1), a.s.$.
  
  
  
@@ -390,7 +385,7 @@ Under these notation, to prove (\ref {eqn:3:21}) for $w\in even$, it suffices to
 
  First notice   that, for any $2wb_n<k\le (2w+1)b_n$ and $|t - s|\le c_n n^{-\al}$,
  \begin{align} \la{24.5}
- |\E \big(\Delta_{n, 2w}(t, s)\mid \F_{n, w-1}^*\big)| \le C\, |t-s|b_n c_n^{-2}  (n/ b_n)^{2d} \le C\, b_n c_n^{-1} n^{2d\nu - \al}
+ |\E \big(\Delta_{n, 2w}(t, s)\mid \F_{n, w-1}^*\big)| \le C\, |t-s|b_n c_n^{-2}  (n/ b_n)^{2d} \le C\, b_n c_n^{-1} n^{2d\nu - \al},
 \end{align}
 due to Lemma \ref{lemSinBound}. It follows from (\ref {ineq}) and (\ref {24.5}) that
 \be \la{25}
@@ -437,7 +432,7 @@ where $I_{k,j} = E\big [f_{t, s}(x_{j,n}) | \F_{n,k}\big ]$ and
 \eta_0  = \begin{cases}
 \al + \nu(1 - 2d),  & if \quad   0 < d < 1/2, \\
 \al/4,  & if \quad   d = 1/2, \\
-\big (\frac{1 - d}{ d}\big ) \al, & if \quad  1/2 < d < 1.
+\big (\frac{1 - d}{ d}\big ) \al, & if \quad  1/2 < d < 1,
 \end{cases}
 \ee
 and we have used the fact: for $0<d<1$, letting $\zeta = \al/d$,

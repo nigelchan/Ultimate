@@ -4,9 +4,885 @@
 \else
     \graphicspath{{Chapter5/Chapter5Figs/EPS/}{Chapter5/Chapter5Figs/}}
 \fi
-In this chapter, we digress from nonlinear cointegration and demonstrate that our uniform asymptotics results of $S_{1n}(x)$ and $S_{2n}(x)$ can also be applied to unit root testing with nonstationary volatility. We propose a unit root test when the volatility process is driven by a nonlinear transformation of non-stationary time series. Our method involves replacing the nuisance parameter, which is a nonlinear function, by its consistent kernel estimator. This improves the existing literature for unit root testing with heteroskedasticity by using external data  explicitly. Our method also allows the effect of future volatilities being affected by current shock. Monte-Carlo simulations support our theoretical results.
-\
+In this chapter, we digress from nonlinear cointegration and demonstrate that our uniform asymptotics results of $S_{1n}(x)$ and $S_{2n}(x)$ can also be applied to unit root testing with nonstationary volatility. We propose a unit root test when the volatility process is driven by a nonlinear transformation of non-stationary time series. Our method involves replacing the nuisance parameter, which is a nonlinear function, by its consistent kernel estimator. This improves the existing literature for unit root testing with heteroskedasticity by using external data  explicitly. Our method also allows the dynamics of future volatilities being affected by current shock. Monte-Carlo simulations support our theoretical results.
+
+
 \section{Introduction}
+
+Since Dickey-Fuller test was introduced in 1979, considerable attention  has been focused on the generalization of residuals and the effect of generalization to asymptotics. Among many others, \cite{saiddickey1984} considered an ARMA process, \cite{phillips1987} investigated  the strong mixing processes, \cite{chanterrin1995} considers the Gaussian process, \cite{sowell1990} and later \cite{wanglingulati2003} for fractional processes, \cite{wu2006} for functional of linear processes. The standard DF test statistic with these residuals are asymptotically pivotal. That is, their asymptotic distributions do not depend on any unknown features of the process that generated the data, which are termed as nuisance parameters in the literature.
+
+More currently, increasing interests have been the investigation of the Dickey-Fuller test with the time varying error structure, which is  usually referred to as heteroskedasticity. A far more complete list of articles in this regard includes:
+\cite{kimschmidt1993}, \cite{hansenrahbek1998},  \cite{boswijk2001} and later \cite{linglimcaleer2003} considered   the well known GARCH process;
+\cite{hamoritokihisa1997}, \cite{kimleybournenewbold2002}, \cite{cavaliere2005}, \cite{cavalieretaylor2008a} and \cite{beare2008} discussed  the situation that the conditional volatility is modeled as a general deterministic function;
+ \cite{boswijk2005},  \cite{xu2008} and  \citet[][\citeyear{cavalieretaylor2008b}, \citeyear{cavalieretaylor2009}]{cavalieretaylor2007}  allowed for the volatility process to be stochastic, proposed a unit root test based on kernel estimate of the conditional volatility process and provided a simulation algorithm involving wild bootstrap.
+
+Whist the error structure  in the Dickey-Fuller test is widely investigated in the literature, the testing algorithms, as well as other methodologies so far,  rely solely on the  data itself that generates the volatility  and do not  take the explanatory data series into consideration. In reality, the forces behind conditional heteroskedasticity in volatility is usually driven by another observable variable, and the factor affecting the conditional heteroskedasticity is usually nonstationary. It is often too restrictive to assume that the volatility  is driven by the time series data itself. Moreover, although the conditional variance is always non-negative, the explanatory variables in reality will usually take both positive and negative values. These facts motivate the necessities in  modeling the volatility by using a nonlinear transform of nonstationary process. Explicitly, it is practicably useful to investigate  the Dickey-Fuller
+ test with  error structure:
+\begin{equation} \la{eqn11}
+\eta_{t} = \si (x_{t}) u_{t+1}
+\end{equation}
+where $\{x_{t}\}$ is a observable  non-stationary time series ($I(1)$ process), $\si(\cdot)$ is  a heterogeneity generating
+function (HGF) and for a filtration $\mathcal{F}_{t}$ to which $x_{t}$
+is adapted, $\{u_{t+1},\ {\mathcal{F}_{t}}\}$ forms a martingale
+difference.
+
+This paper improves the previous works on the Dickey-Fuller test with the error structure (\ref {eqn11}) in two folds. First,
+unlike  \cite{boswijk2005} and \cite{cavalieretaylor2009}, whose testing algorithm rely solely on the estimator of the error structure $\widehat{\eta}_{t}$, estimated by single time series data, our test explicitly takes the observable data $x_{t}$ into consideration.
+Secondly, we introduce an inference solution which encompasses the \textit{leverage effect} of the stochastic volatility, without appealing to a parametric models. The \textit{leverage effect} is generated as the future volatilities being affected by the current shock. The existing methods for unit root testing  impose the asymptotic independence condition between the  volatility process $\si(x_{t})$ and the innovation sequence $u_{t+1}$, which means that the volatility process is free of leverage effect. This assumption usually does not hold in real  financial data. Indeed, as demonstrated by our Monte Carlo simulation results, the amount of size distortion increases significantly as leverage effect increases.
+Since our model includes external explanatory data sequence $\{x_{t}\}$, we can estimate the leverage effect by the sample covariance of $\{ \eta_{t}\}$ and $\{ x_{t}\}$. Consequently, our testing algorithm improves the bootstrapping algorithm in \cite{cavalieretaylor2009}, where the authors considered the wild bootstrap which is incapable of replicating any leverage effect.
+
+The error structure (\ref {eqn11}) is the nonstationary nonlinear heteroskedasticity (NNH) model proposed by \cite{park2002}. In his development, the author examined the asymptotic behaviour of the sample statistics of NNH processes generated by integrable and asymptotically homogeneous functions. He also pointed out that NNH error structure offers an attractive alternative to ARCH type volatility models because it demonstrates the desirable properties of volatility clustering and leptokurtosis, which are common traits in financial and economic series. \cite{chungpark2007} illustrates the presence of NNH in real world time series data by showing many compelling examples, including the use of income level to explain
+the error of consumption function, using spot exchange rates for
+forward-spot spread volatility and also the well known CAMP model in
+finance.
+
+The paper is organized as follows. Section \ref{sec:5:main} introduces the model and the procedures of our unit root test. Theorem \ref{thm.siConsistent} establishes the uniform consistency of a nonparametric estimator $\widehat{\si}_n(x)$ of the heterogeneity generating function $\si(x)$. We then present our new unit root testing procedures involving the consistent estimator. Section \ref{sec:5:simulation} reports some Monte Carlo simulations that explore the finite sample size and power function of the unit root test. Section \ref{sec:5:conclusion} concludes the papers. All technical proofs are postponed to Section \ref{sec:5:proof}.
+
+\section{Model and main results} \la{sec:5:main}
+
+Throughout this section, let $\{\xi_{j},j\geq 1\}$ be a linear process defined by
+ $$\xi_j=\sum_{k=0}^{\infty}\phi_k\ep_{j-k}:= \Phi(L)\ep_j,$$
+ where $\Phi(L) = \sum_{k = 0}^{\infty} \phi_k L^k$, $L$ is the lag operator,
+ $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of i.i.d.
+random variables with $E\epsilon _{0}=0$ and $E\epsilon _{0}^{2}=1$. The coefficients $%
+\phi _{k},k\geq 0$, are assumed to satisfy:
+\begin{assump}\la{a.linearRegular}
+(a) $\Phi(z)$ is bounded and away from zero for $|z| \le 1$, and
+(b) if we write $\Phi(z)^{-1} = 1 - \sum_{k = 1}^{\infty} \Pi_k z^k$, then $\sup_{l\ge 1}l^s \sum_{k = l+1}^{\infty} \Pi_k^2 < \infty$ for some $s \ge 9$.
+\end{assump}
+Assumption \ref{a.linearRegular} is  a standard regularity condition for a linear process. As an illustration,  ARMA model satisfies both conditions (a) and (b) for any finite $s$. Consider a stochastic process  $y_{t}$  generated according to
+\begin{equation} \la{eqn41}
+y_{t}=\al y_{t-1}+\si(x_{t})\,u_{t+1}, \quad t=1,2,...,n,\ \ n\ge 1,
+\end{equation}
+where $y_{0}\equiv 0$, $\si(x)$ is a unknown HGF, $x_t$ and $u_t$ satisfy
+ \begin{assump} \la {as1} (a) $x_t=\sum_{j=1}^t\xi_j$ and $E|\ep_0|^r<\infty$ for some $r>8$. (b) $\{u_{t+1}, {\cal F}_t\}_{t\ge 1},$ where ${\cal F}_t=\si(u_{t},..., u_1; \ep_t,\ep_{t-1},... )$, forms a stationary martingale difference satisfying $E(u_{t+1}^2\mid {\cal F}_t)=1$ and $\E(u_t\ep_t | \F_{t -1}) = \si_{u, \ep}$. Also $\max_{t\ge 1}E(|u_{t+1}|^{4\nu}\mid {\cal F}_t)<\infty$ for some $\nu>1$.
+\end{assump}
+
+\begin{assump} \la {a.homo} {\it  $\si(\cdot)$ is a strictly positive asymptotically homogeneous function of order $v(\cdot)$,
+namely, $\si(\cdot)$ can be denoted at infinity as
+\begin{equation}
+\si(\lambda x) = v(\lambda)H(x) + R(x,\lambda),
+\end{equation}
+where $v$ is real function, $H$ is a real function on $R$ and $R(x, \lam)$ satisfies:
+\begin{enumerate}
+\item $R(x,\lambda) \le a(\lambda)P(x)$, where $a(\lambda) = o( v(\lambda) )$ and $P(x)$ is locally bounded ; or
+\item $R(x, \lambda) \le b(\lambda)P(x)Q(\lambda x)$, where $b(\lambda) = O(v(\lambda))$, $P(x)$ is locally bounded and $Q(x)$ is bounded and vanishes at infinity.
+\end{enumerate}
+}
+\end{assump}
+
+
+\begin{rem}
+The notion of asymptotically homogeneous function is similar to that in \citet[][\citeyear{parkphillips2001}]{parkphillips1999}, which includes a wide class of function such as  the polynomial function, logarithmic function and distribution function of any random variables.  \cite{park2002} showed that the error structure with $\si(x) = \mu + \al |x|^\beta$, which is also an asymptotically homogeneous function, fits the USA/DM exchange rate data well. See Remark \ref{rmk.tail} and \cite{parkphillips1999} for more examples.
+\end{rem}
+ We are interested in testing the hypothesis: \be H_0:\ \alpha=1\quad
+\mbox{versus}\quad H_1:\ \alpha = 1 - \tau / n. \la {eqn22} \ee Denote the
+least squares estimate of $\alpha$ by $\widehat \alpha_n$. The classical Dicky-Fuller test statistic is defined as
+\begin{equation}\label{eqn42} n(\widehat \alpha_n - 1)
+=  \frac{\sum_{t = 1}^n y_{t-1} (y_{t} - y_{t-1}) }{ n^{-1}
+\sum_{t=1}^n y_{t-1}^2 }. \end{equation}
+Note that, under Assumption \ref{as1},
+\be  \la{eqn.joint}
+\big(\frac {1}{\sqrt n\,\phi}\sum_{j=1}^{[nt]}\xi_j,\ \frac {1}{\sqrt n\,}\sum_{j=1}^{[nt]}u_{j+1}\big) \Rightarrow (W(t), U(t)),
+\ee
+on $D[0,1]^2$,
+where $\phi=\sum_{k=0}^{\infty}\phi_k$ and  $(W,U)$ is a limit bivariate Brownian motion with covariance matrix,
+\be \la{f.covMatrix}
+\Delta = \begin{pmatrix}
+1 & \si_{u,\ep} \\
+\si_{u,\ep} & 1
+\end{pmatrix}.
+\ee
+See, e.g., \cite{phillipsdurlauf1986} or \cite{phillipssolo1992}.
+
+A slightly modification  of Theorem 1 in \cite{cavalieretaylor2009} [also see \cite{hansen1995}] provides:
+
+\begin{thm}\label{thm.NNHUnitRoot} Suppose Assumptions \ref{as1} and \ref{a.homo}. Then, as $n\to\infty$, under the null $H_0$:
+\begin{equation}\label{th21.eqn1} n(\widehat \alpha_n - 1) \ \to_D\ \frac{S^2(1) - R} { 2 \int_{0}^{1} S^2(t) dt },  \end{equation}
+ where
+$
+S(t) = \int_{0}^{t} H(\phi\, W(t)) dU(s)$ and $R = \int_{0}^{1} H^2(\phi\,W(t)) ds;$ and under the alternative $H_1$:
+\begin{equation}\label{th21.eqn2} n(\widehat \alpha_n - 1) \ \to_D\ \frac{Y^2(1) - R}
+{ 2 \int_{0}^{1} Y^2(t) dt },  \end{equation}
+ where
+$
+Y(t) = \int_{0}^{t} e^{-\tau (t - s)} H(\phi\, W(s)) dU(s).
+$
+\end{thm}
+
+\begin{rem} \la{rem.general} If we are only interested in the limit distribution of the $n(\widehat \alpha_n - 1)$, the error structure in the model (\ref{eqn41}) can be set quite general. See Appendix \ref{app.remarkUnit} for such a result. Assumptions \ref{a.linearRegular}--\ref{a.homo} are more restrictive than necessary to establish  Theorem \ref {thm.NNHUnitRoot}, but they are required for later main theorems.
+\end{rem}
+
+Theorem \ref{thm.NNHUnitRoot} clearly demonstrates that the limiting distribution of the DF statistic involves the HGF $\si(\cdot)$ and the covariance coefficient $\si_{\ep, u}$ of the  bivariate Brownian motion $(W, U)$, which in general are the nuisance parameters in practice. Direct use of standard Dickey-Fuller test critical values (see, e.g., \cite{fuller1996}) will lead to invalid inference of the existence of unit root.
+
+The  aim of this paper is to provide a unit root testing procedure that is capable of handling the non-pivotal quantities appeared in the limiting distribution in (\ref{th21.eqn1}). The highlight of our method is to use  consistent estimators $\widehat{\si}_n(\cdot)$ and $\widehat \si_{\ep, u}$ in place of the nuisance parameters $\si(\cdot)$ and $\si_{\ep, u}$, by employing the observable time series data $x_{t}$. We show that this new proposed test statistics $T(\al^*_{n,T} - 1)$  converges weakly to the limiting distribution of the DF-test statistics in (\ref{th21.eqn1}). Therefore, valid critical values can be obtained by simulating $T(\al^*_{n,T} - 1)$ and extracting its sample quantiles, for any desired significance level of the unit root test.
+
+We start with a construction of the consistent estimator for $\si(\cdot)$.  Note that the model (\ref{eqn:5:model}) can be rewritten as
+\bestar
+ (y_{t} - \alpha y_{t-1})^2 = \si^2(x_t)\,+ \si^2(x_t) \, u_{t+1}',
+\eestar
+where $u_{t+1}'=u_{t+1}^2-E(u_{t+1}^2\mid {\cal F}_{t}) $ and $\{u_{t+1}', {\cal F}_{t}\}_{t\ge 1}$  forms a martingale difference sequence. The $\si^2(\cdot)$ can be estimated by the conventional kernel estimator defined by
+\begin{equation}\la{eqn4.11}
+\widehat{\si}_n^2(x) = \frac{\sum_{t=1}^n \widehat{\eta}_{t}^2 K \big [ (x_{t} - x) / h \big ]}{\sum_{t=1}^n K \big [ (x_{t} - x) / h \big ]},
+\end{equation}
+where $\widehat{\eta}_{t} = y_{t} - \widehat{\al}_n y_{t-1}$, $K(\cdot)$ is a non-negative real function and $h\equiv h_n\to 0$ is a bandwidth. 
+
+To investigate the uniform consistency of $\widehat{\si}_n(x)$, we make use of the following assumptions.
+
+
+\begin{assump}\la{a.kernel}
+The kernel $K$ satisfies that $\int_{-\infty}^{\infty} K(s) ds = 1$, $K( \cdot)$ has a compact support and for any $x, y \in \mathbb{R}$,
+\bestar
+| K(x) - K(y) | \le C | x - y|,
+\eestar
+where $C$ is a constant.
+\end{assump}
+
+
+\begin{assump}\la{a.silipschitz} There exists a real positive continuous function $g(x)$ such that
+\bestar
+|\si(y)-\si(x)| &\leq& C\,|y-x|^{\alpha} g(x),\eestar
+uniformly for some $0<\al\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficiently small and $ \Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}$.
+\end{assump}
+
+
+We have the following result on the asymptotics of  $\widehat{\si}^2_n(\cdot)$.
+\begin{thm}\la{thm.siConsistent}
+Under Assumptions \ref{a.linearRegular}--\ref{a.silipschitz} and both the null $H_0$ and the alternative $H_1$,    we have
+\begin{equation}
+\sup_{|x| \le b_n} | \widehat{\si}_n^2(x) - \si^2(x) | = O_P(\eta_n), \la{thm.siConsistent.eqn1}
+\end{equation}
+where $b_n \le \sqrt{n}\tau_n$, $\tau_n \to 0$,  $\de_n =\max\{ \sup_{|x| \le b_n} g(x), \sup_{|x| \le b_n} \si(x)\}$ and
+\bestar
+\eta_n= \de_n^2 \big [(nh^2)^{-1/4}\log^{1/2} n +  h^{\al}\big] + \de_n \, v(\sqrt{n})/\sqrt{n}.
+\eestar
+\end{thm}
+
+\begin{rem} The result (\ref{thm.siConsistent.eqn1}) shows that $\widehat \si^2_n(x)$ is a consistent estimator of $\si^2(x)$ uniformly over a  expanding set $\{ x: |x| < \sqrt{n} \tau_n \}$ for $\tau_n \to 0$. Such asymptotic result is an important extension to the existing literature related to NNH error process. Over a fixed compact set, a similar result was established in \cite{wangwang2012}. Their result  is insufficient for our purpose to establish the Corollary \ref{cor.trim} below as $z_t \to \infty$ for a nonstationary time series $\{z_t\}$.
+\end{rem}
+
+\begin{rem} \la{rmk.tail} Assumption \ref{a.kernel} is a standard condition on $K(\cdot)$  as in the stationary situation.  Assumption \ref{a.silipschitz} requires a Lipschitz-type condition in a small
+neighborhood of the targeted compact set for the function $\si(\cdot)$ to be
+estimated.  To make Theorem \ref {thm.siConsistent} applicable,
+we require $\eta_n\to 0$ in (\ref {thm.siConsistent.eqn1}), which in turn requires certain restrictions on the bandwidth $h$ and the tail of $\si(x)$. If $\si(x)$ has a flat tail, such as  $\si(x)=2+\sin(x)$; $\si(x)=x(1+\theta x)^{-1}I(x> 0)$;
+ $\si(x)=(\al+\beta\, e^{x})/(1+e^x)$, where the parameters
+are restricted on a space so that $\si(x)$ is positive, the bandwidth $h$ can be chosen quite general ($h\to 0$ and $nh^2\to\infty$)
+so that $\eta_n\to 0$.  On the other hand, $\tau_n\to 0$ can be chosen as slowly as required.
+\end{rem}
+
+
+Because $\si(\cdot)$ is bounded below from zero, the following corollary is a direct consequence of Theorem \ref {thm.siConsistent}.
+\begin{cor} \la{cor.trim}
+Suppose  Assumptions \ref{a.linearRegular}--\ref{a.silipschitz} hold and $\eta_n\to 0$. For any random sequence $z_t$ satisfying $\max_{1 \le t \le n} |z_t| / \sqrt{n} = O_P(1)$, any $\nu_n \to \infty$ and $\nu_n / n \to 0$,
+\be
+\max_{1\le t\le \nu_n}| \widehat{\si}_n(z_{t}) - \si(z_{t})| &=&o_P(1). \la {90}
+\ee
+\end{cor}
+
+
+
+
+
+Using the uniform consistent estimator $\widehat{\si}_n(\cdot)$, we are now in the position to lay out the procedures for our unit root test. Recall that the limiting distribution in (\ref{th21.eqn1}) involves the bivariate Brownian Motion $(W, U)$, the first key step is to estimate the correlation coefficient $\si_{u,\ep}$ entry in the covariance matrix $\Delta$ in (\ref{f.covMatrix}), which  can be done under our Assumption \ref{a.linearRegular}.
+Our new unit root test procedures are stepped as follows.
+
+ {\bf Step 1:} Estimate the covariance $\si_{\ep, u}$ of $(W, U)$, which is related to the sequences $\{\ep_t\}$ and $\{ u_t \}$. First notice that by Assumption \ref{a.linearRegular}, we can express the $\{\ep_t\}$ in the following way
+ \bestar
+\xi_t = \Phi(L) \ep_t \quad \Rightarrow \quad \ep_t = \Phi(L)^{-1} \xi_t = (1 - \sum_{k = 1}^{\infty} \Pi_k L^k) \xi_t,
+\eestar
+where $L$ is a lag operator. Given the data $\{x_t\}$, which is assumed to be a partial sum of linear process $\sum_{i = 1}^t \xi_i$, we create the artificial innovation sequence $\{\widehat{\ep}_{l,t}\}$ by running the ordinary least squares regression
+\begin{equation}\la{eqn.artificial}
+\xi_t = \widehat{\Pi}_1 \xi_{t - 1} + \widehat{\Pi}_2 \xi_{t - 2} + ... + \widehat{\Pi}_l \xi_{t - l} + \widehat{\ep}_{l,t},
+\end{equation}
+where $l\equiv l_n\to \infty$ and $l_n/n\to 0$ (also see Remark \ref{rmk:5:practice} for more details), as $n\to\infty$, and
+ where $\xi_t = x_t - x_{t-1}$ is the first difference of the data sequence $x_t$ and $\widehat{\Pi}_i$ are the least squares estimators of the coefficients $\Pi_i$ of the linear process. Define
+\begin{equation}
+\widehat{u}_{t+1} = \frac{\widehat{\eta}_{t}}{\widehat{\si}_n(x_{t})}, \la {91}
+\end{equation}
+where $\widehat{\eta}_{t} = y_{t} - \widehat{\al}_n y_{n, t-1}$ and  $\widehat \si_n(\cdot)$ is given in (\ref{eqn4.11}).
+ We then estimate  $\si_{u,\ep}$  by
+ \bestar
+\widehat{\si}_{u, \ep} = \frac{1}{m} \sum_{t = 1}^m \widehat{u}_t \widehat{\ep}_{l,t},
+\eestar
+for any $m\equiv m_n \to \infty$ and $m / n \to 0$.
+
+ {\bf Step 2:} Generate a sequence of size $T$ of  i.i.d. bivariate normal random variables $\{\lambda_t, e_t\}$ with covariance $\widehat{\si}_{u, \ep}$, obtained in Step 1.
+
+ %{\bf Step 3:} ?????????? Simulate the Brownian Motion by $\tilde{x}_t =  \sum_{i = 1}^t \lambda_i$ for $t = 1,...T$.
+
+ {\bf Step 3:} Generate a new simulated testing statistic by
+\begin{align} \la{eqn43}
+T( \widehat{\al}^*_{n,T} - 1) & := \frac{\big [ \sum_{t=1}^T \widehat{\si}_n( \widehat{\phi} \tilde{x}_t){e}_{t+1} \big ]^2 -\sum_{t=1}^T \widehat{\si}^2_n(\widehat{\phi} \tilde{x}_t)}{2 T^{-1}\sum_{k=1}^T \big [ \sum_{t=1}^k \widehat{\si}_n(\widehat{\phi}\tilde{x}_t){{e}}_{t+1}  \big ]^2 }.
+\end{align}
+ where $\widehat{\si}_n(\cdot)$ is the kernel estimator given in (\ref{eqn4.11}), $\tilde{x}_t = \sum_{i = 1}^t \lambda_i$ and $\widehat{\phi} = ( 1 - \sum_{i = 1}^l \widehat{\Pi}_i  )^{-1}$.
+
+We have the following limit theorem.
+\begin{thm} \la{thm.siInvariant}
+Under  Assumptions \ref{a.linearRegular}--\ref{a.silipschitz}, the null $H_0$ and $\eta_n\to 0$, for any $T\to\infty$ such that $T/ n \to 0$, we have
+\begin{equation} \la{thm.siInvariant.eqn1}
+T( \widehat{\al}^*_{n,T} - 1) \rightarrow_D \frac{S^2(1) - R}
+{ 2 \int_{0}^{1} S^2(t) dt },
+\end{equation}
+as $n \to \infty$.
+\end{thm}
+
+
+\begin{rem}
+Theorem \ref{thm.siInvariant} shows that the test statistic $T (\al_{n,T}^* - 1)$ has the same limiting null distribution as the original test statistic $n (\widehat{\al}_n - 1)$. Hence, our simulated critical value testing method, based on estimator $\widehat{\si}_n(\cdot)$, can deliver consistent inference on the existence of unit root.
+\end{rem}
+
+\begin{rem} \la{rmk:5:practice}
+In practice, to determine whether a unit root exists, we can repeat the above steps over $N$ independent replications to obtain a data set of $N$ computed values of $T( \widehat{\al}^*_{n,T} - 1)$. Given the desired significance level $\beta$ for the unit root test, we can obtain the critical value by usual quantile estimation method. For example, we can use the $\lfloor \beta N \rfloor $ order-statistic $T( \widehat{\al}^*_{n,T} - 1)^{(\lfloor \beta N\rfloor)}$. Then the null hypothesis $\al=1$ can be rejected at $\beta$ significance level if the DF-statistic $n (\widehat{\al}_n - 1)$ computed base on data set is smaller than $T( \widehat{\al}^*_{n,T} - 1)^{(\lfloor \beta N\rfloor)}$.
+\end{rem}
+
+\begin{rem}
+Unlike the unit root test based on the bootstrap algorithm suggested by \cite{cavalieretaylor2009}, which assumes the independence for the limiting process $W$ and $ U$, our method accommodates the long-run correlation of the explanatory variables $\ep_t$ and $u_t$. The effect of future volatilities being affected by current shock is called leverage effect in stochastic volatility literature. Such feature cannot be handled by the bootstrap algorithms because wild bootstrap is incapable of replicating any leverage effect in the bootstrap samples.
+\end{rem}
+
+\begin{rem}
+\cite{beare2008} and \cite{boswijk2005} proposed similar unit root test based on kernel estimator for the volatility process. Beare assumed the volatility process is a deterministic function of time and Boswijk's estimator does not allow using explanatory data sequence explicitly to refine estimation. Their estimators have the form
+\begin{equation}\la{eqn.bbestimate}
+\widehat{\si}_{n,t}^2 = \frac{\sum_{t=1}^n \widehat{\eta}_{t}^2 K (t/n) }{\sum_{t=1}^n K(t/n)},
+\end{equation}
+Comparing (\ref{eqn.bbestimate}) with (\ref{eqn4.11}), our estimator $\widehat{\si}^2_n(\cdot)$ is a generalization of their kernel estimators, and  covers their estimators by setting $x_{t} =h t/n$.
+\end{rem}
+
+
+\begin{rem}
+\cite{changparkphillips2001} gave a precise selection of $l$ in (\ref{eqn.artificial}). Let  $l = n^\de$ where
+\begin{equation}
+\frac{r + 2}{2r (s - 3)} < \de < \frac{r}{6 + 8r}, \la{eqn3.22}
+\end{equation}
+$r$ is related to the moment condition of $\ep_0$ given in Assumption \ref{as1} (a) and $s$ is given in the regularity condition in Assumption \ref{a.linearRegular}. It is known that such $\de$ satisfying condition (\ref{eqn3.22}) exists for all $r > 8$, provided that $s \ge 9$ is assumed in Assumption \ref{a.linearRegular}. For example, we may choose any $\de$ such that $0 < \de < 1/8$ for all Gaussian ARMA models, which satisfies Assumption \ref{a.linearRegular} for any finite $r$ and $s$.
+\end{rem}
+
+%\begin{remark}
+%Our theorem applies where there are large number of data $(n)$ and the simulation samples $(T)$. For Theorem \ref{thm.Hinvariant} with normalized nonstationary data, we do not impose any relationship between $T$ and $n$. As shown in the extension in the following section, we need to limit the growth rate of $T$ relative to $n$ for development of our large sample theory, when the explanatory nonstationary time series $\{x_t\}$ is not normalized by~$\sqrt{n}$.
+%\end{remark}
+
+
+\section{Simulation study - Monte Carlo evidence} \la{sec:5:simulation}
+
+
+\subsection{Data generation process}
+We perform finite-sample Monte Carlo simulation to evaluate the performance of the kernel estimation of the nonlinear transformation function $\si(x)$ in the error structure. We also investigate the performance of our unit root test based on the simulated critical values proposed in previous section. For our simulation study, we generate the data sets according to the following model:
+\be \la{eqn:5:model}
+y_t = \al y_{t-1} + \si(x_t) u_t.
+\ee
+The simulated explanatory data sequence is generated by
+\begin{align}
+ x_t & = x_{t-1} + \ep_t,
+\end{align}
+and the innovation sequences $\{\ep_t\}$ and $\{u_t\}$ are generated by
+\begin{align}
+u_t &= \rho\, a_{1t} + \sqrt{1 - \rho^2}\, a_{2t}; \no\\
+\ep_t &= a_{1,t-1},
+\end{align}
+where $\{a_{1t}\}$ and $\{a_{2t}\}$ are i.i.d. standard normal random variables, which are independent of each other. It is obvious that $\{\ep_t\}$ and $\{u_t\}$ satisfy all the conditions in Assumptions \ref{as1}. We have $\{ \ep_t\}$ and $\{u_t\}$ being a zero mean, unit variance Gaussian sequence with correlation $\E(\ep_{t+1} u_t) = \rho$ and that the limiting bivariate Brownian motions $(W, U)$ have covariance matrix
+\be
+\Delta = \begin{pmatrix}
+1 & \rho \\
+\rho & 1
+\end{pmatrix}.
+\ee
+
+The following asymptotically homogeneous functions are used in the simulations
+\begin{align}
+\si_A(x) &= 2+\text{arctan}(x); \no\\
+\si_B(x) &= \frac{\al e^{\theta x}}{1 + \beta e^{\theta x}}; \no\\
+\si_C(x) &= \frac{x^2}{1 + \theta x^2}; \no\\
+\si_D(x) &= c \log |x|; \no\\
+\si_E(x) &= \beta x^2; \no\\
+\si_F(x) &= \si_1 \mathbb{I}(x < \tau_1) + \si_2 \mathbb{I}( \tau_1 \le x < \tau_2) + \si_3 \mathbb{I} (x \ge \tau_3).
+\end{align}
+The functions $\si_A(x)$--$\si_C(x)$ have asymptotic order $v(\lambda) = 1$ and limit homogeneous function $H(x) = c + \mathbb{I}(x \ge 0)$. $\si_D(x)$ is the logarithm function, $\si_E(x)$ is the quadratic function and $\si_F(x)$ is the multiple variance shift function.
+
+\subsection{Performance of kernel estimator}
+We first evaluate the Monte Carlo performance of the kernel estimators $\widehat{\si}_n(x)$. Table \ref{tab:5:kernel} shows the results for the Monte Carlo approximations to the estimators' expected values $\E( \widehat{\si}_n(x) )$, together with their 95\% point estimation bands. The bands connect points $\si(x_j + \de_j)$, where each $\de_j$ is chosen so that the interval $[ \si(x_j) - \de_j, \si(x_j) + \de_j ]$ contains 95\% of the 10,000 simulated values of $\widehat{\si}_n(x)$. For bandwidth selection, we propose the bandwidth $h = n^{-1/5}$ for the estimator $\widehat{\si}_n(x)$.
+
+\begin{sidewaystable}[!ht] \la{tab:5:kernel}
+\caption{Graphs over the interval $[-10, 10]$ of $\si_A(x)$ -- $\si_F(x)$ and Monte Carlo estimates of $\E ( \widehat{\si}(x) ) $ for $h = n^{-1/5}$, with $n$ = 500.}
+\label{GseqTable} \center{
+\begin{tabular}{c c c}
+$\si_A(x) = 2 + \text{arctan}(x)$ &
+$\si_B(x) = \frac{ e^{ x}}{1 + e^{ x}}$ &
+$\si_C(x) = \frac{x^2}{1 +  x^2}$ \\
+& & \\
+\includegraphics[width=5.5cm]{nnh1_plot} & \includegraphics[width=5.5cm]{nnh2_plot} & \includegraphics[width=5.5cm]{nnh3_plot}\\
+$\si_D(x) = 10\log|x|$  &
+$\si_E(x) = x^2$ &
+\vbox{
+\hbox{$\si_F(x) = \mathbb{I}(x < -4)$}
+\hbox{$+ 10\, \mathbb{I}( -4 \le x < 8)$}
+\hbox{$+ 100\, \mathbb{I} (x \ge 8)$}
+}\\
+& & \\
+\includegraphics[width=5.5cm]{nnh4_plot} & \includegraphics[width=5.5cm]{nnh5_plot} &  \includegraphics[width=5.5cm]{nnh6_plot}  \\
+\end{tabular}
+}
+\end{sidewaystable}
+
+The results in Table \ref{tab:5:kernel} shows that the Monte Carlo estimates of the $E(\widehat{\si}_n(x))$ with sample size $n = 500$ almost completely overlaps the actual curves of the functions $\si_A(x)$ -- $\si_F(x)$. This corroborates with our theorem that $\widehat{\si}_n(\cdot)$ is an uniform consistent estimator of $\si(\cdot)$. The confidence bands widen as $|x|$ increases. The reason behind it is that the local time of the Brownian motion at point $x$ has the distribution $2\Phi(|x|+\cdot) - 1$, where $\Phi(\cdot)$ is the standard normal distribution (see, e.g., \cite{takacs1995}). Therefore, the expected amount of time spent near zero is highest and decreases as $|x|$ increases. As the signal obtained from $x_t$ for the estimation of $\si(\cdot)$ decreases, this results in the divergence of the confidence bands.
+
+\subsection{Size properties}
+We evaluate the performance of our unit root test by comparing the size of our unit testing procedures with that of standard Dickey Fuller test. Let $\Psi(W)^{(a)}$ be the $1 - a$ quantile of the limiting distribution of standard DF statistic $\Psi(W)$,
+\begin{equation}
+\Psi(W) := \frac{W^2(1) - 1}{2 \int_{0}^t W(s) ds},
+\end{equation}
+where $W$ is the standard Brownian Motion. Let $T(\widehat{\al}_{n,T}^* - 1)^{(a)}$ be the $1 - a$ percentile of the distribution of our proposed test statistics $T(\widehat{\al}_{n,T}^* - 1)$ given in (\ref{eqn43}).
+
+Given the test statistic $n( \widehat{\al}_n - 1)$ calculated from the data set, the size functions of unit root test based standard DF critical values and estimated critical values $T(\widehat{\al}_{n,T}^* - 1)$ are respectively given by $a_{T}^{DF}$ and $a_T^{EST}$ where
+\begin{align}
+a_T^{DF} & := P \Big ( n(\widehat{\al}_n - 1)  > \Psi(W)^{(a)}\, \big | \, H_0: \al = 1 \quad \mbox{holds} \Big ); \no\\
+a_T^{EST} & := P \Big ( n(\widehat{\al}_n - 1)  >  T(\widehat{\al}_{n,T}^* - 1)^{(a)} \, \big |\, H_0: \al = 1 \quad \mbox{holds} \Big ).
+\end{align}
+We set the nominal size $a$ as 5\%, and perform simulation to estimate the size functions $a_T^{DF}$ and $a_T^{EST}$, based on 10000 replications. The standard critical values $\Psi(W)^{(a)}$ for the DF test can be obtained from \cite{fuller1996} with value $\Psi(W)^{(0.05)} = 1.28$. We expect the empirical size $a_T^{DF}$ using standard critical values will largely deviate from nominal size of 5\%. We also expect the empirical size $a_T^{EST}$ using the simulated critical values, extracted from the quantiles of $T(\widehat{\al}_{n,T}^* - 1)$ will converge to nominal size 5\% as sample size $n$ increases.
+
+The simulation results presented in Table \ref{tab:5:size} largely corroborate with our theoretical results. For the models $\si_A(x)$ -- $\si_F(x)$, when there is no leverage effect $\rho = 0$, the size standard DF test $a_{T}^{DF}$ and that of our simulated critical values $a_{T}^{EST}$ behave similarly - both are close to nominal size 5\%, and the performance improves as $n$ increases. As $\rho$ increases, the impact of the volatility process $\si(x_t)$ increases, and there is increasing deviation of empirical size $a_{T}^{DF}$ from the nominal size 5\%. Such deviation becomes increasing serious as the asymptotic order  of  the asymptotically homogeneous function $\si(x)$ increases. On the other hand, the performance of our proposed test quantity is not affected by the increasing correlation between the innovative sequence and volatility process. The values of $a_{T}^{EST}$ converge to nominal size of 5\% as sample increases. This is expected as our proposed unit root testing procedure involves adjusting the leverage effect by estimating $\rho$ using the sample correlation coefficient.
+\begin{table}[!ht] \la{tab:5:size}
+\selectfont \caption{The empirical size of unit root test based on standard critical values $\Psi(W)$ and simulated critical values $T( \widehat{\al}^*_{n,T} - 1)$.}
+\label{GseqTable} \center{
+\begin{tabular}{c c c c c c c c c c  }
+\hline
+& & \multicolumn{2}{c} { $\rho = 0$ }& & \multicolumn{2}{c} { $\rho = 0.5$ } & & \multicolumn{2}{c} { $\rho = 0.9$ } \\
+\cline{3-4}
+\cline{6-7}
+\cline{9-10}
+& $n$ & $a_{T}^{DF}$ & $a_{T}^{EST}$& & $a_{T}^{DF}$ & $a_{T}^{EST}$& &  $a_{T}^{DF}$ & $a_{T}^{EST}$ \\
+\hline
+ $\si_A(x)$ & 250 & 5.24\% & 5.61\% &  & 10.98\% & 5.13\% &  & 23.19\% & 3.97\% \\
+& 500 & 5.49\% & 5.05\% &  & 11.73\% & 5.40\% &  & 24.96\% & 4.73\% \\
+ $\si_B(x)$ & 250 & 5.44\% & 5.45\% &  & 14.73\% & 4.64\% &  & 33.34\% & 3.99\% \\
+  & 500 & 5.18\% & 5.68\% &  & 15.74\% & 5.27\% &  & 34.73\% & 5.03\% \\
+ $\si_C(x)$ & 250 & 4.98\% & 5.54\% &  & 7.16\% & 5.16\% &  & 11.21\% & 3.47\% \\
+  & 500 & 5.08\% & 4.91\% &  & 6.45\% & 4.86\% &  & 10.08\% & 5.00\% \\
+ $\si_D(x)$ & 250 & 5.33\% & 5.00\% &  & 10.08\% & 4.62\% &  & 16.31\% & 3.79\% \\
+  & 500 & 5.54\% & 4.97\% &  & 9.79\% & 4.76\% &  & 17.02\% & 4.96\% \\
+ $\si_E(x)$ & 250 & 5.63\% & 4.97\% &  & 13.51\% & 5.26\% &  & 23.19\% & 3.92\% \\
+  & 500 & 5.83\% & 5.09\% &  & 14.00\% & 4.67\% &  & 25.62\% & 5.05\% \\
+ $\si_F(x)$ & 250 & 5.21\% & 5.12\% &  & 7.42\% & 4.29\% &  & 11.47\% & 4.15\% \\
+  & 500 & 5.64\% & 5.51\% &  & 14.01\% & 4.36\% &  & 26.00\% & 4.63\% \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+\subsection{Power properties}
+
+We compare the size-adjusted power $\beta_T$ of the test statistic and the power $\beta^*_T$ of $T(\widehat{\al}_{n,T}^* - 1)$, which are respectively given by
+\begin{align}
+\beta_T & = P \Big ( n(\widehat{\al}_n - 1) < l^e_a \, | \, H_1 : \al = 1 - \frac{c}{n} \quad \mbox{holds} \Big ); \no\\
+\beta_T^* & = P \Big ( n(\widehat{\al}_n - 1) < l^*_a \, | \, H_1 : \al = 1 - \frac{c}{n} \quad \mbox{holds} \Big ),
+\end{align}
+where $l^e_a$ is the $1 - a$ percentile of the limiting distribution of the testing statistic $n(\widehat{\al}_n - 1)$ given in Theorem \ref{thm.NNHUnitRoot}, $l^*_a$ is the $1 - a$ percentile of the limiting distribution of $T(\widehat{\al}^{*}_{n,T} - 1)$ given in Theorem \ref{thm.siInvariant}. In other words, $l^e_a$ and $l^*_a$ satisfy
+\begin{align}
+P \Big ( n(\widehat{\al}_n - 1) < l^e_a \, | \, H_0 : \al = 1 \quad \mbox{holds} \Big )&= a; \no\\
+P \Big ( T(\widehat{\al}^*_{n,T}-1) < l^*_a  \Big ) &= a.
+\end{align}
+%the size-adjusted power is the power of the standard unit root test statistic based on $l^e_a$, where the critical value is such that the test has true size $a$ under $H_a$.
+
+We perform finite-sample simulations based on the alternative hypothesis $\al = 1 - 10 / n$ and report $\beta_T$ and $\beta_T^*$. We simulate the power for the functions $\si_A(x)$ -- $\si_F(x)$ based on 10000 replications. As $T(\widehat{\al}_{n,T}^* - 1)$ is distributional equivalent to $n(\widehat{\al}_n - 1)$ asymptotically, and we expect that the power $\beta_T^*$ is close to the size-adjusted power $\beta_T$. The empirical results presented in Table \ref{tab:5:power} for the power functions are largely satisfactory and confirm our theoretical findings. The power of our unit root test $\beta^*_a$ are approximately equal to the size-adjusted power $\beta_a$ under different values of correlation $\rho$, and they get closer to each other as the sample size $n$ increase. This verifies that our unit root test based on kernel estimators has no loss in finite sample power.
+\begin{table}[!ht] \la{tab:5:power}
+\selectfont \caption{The local power of unit root test based on standard critical values $n(\widehat{\al}_n - 1)$ and simulated critical values $T( \widehat{\al}^*_{n,T} - 1)$.}
+\label{GseqTable} \center{
+\begin{tabular}{c c c c c c c c c c  }
+\hline
+& & \multicolumn{2}{c} { $\rho = 0$ }& & \multicolumn{2}{c} { $\rho = 0.5$ } & & \multicolumn{2}{c} { $\rho = 0.9$ } \\
+\cline{3-4}
+\cline{6-7}
+\cline{9-10}
+& $n$ & $\beta_T$ & $\beta_T^*$& & $\beta_T$ & $\beta_T^*$& &  $\beta_T$ & $\beta_T^*$ \\
+\hline
+$ \si_A(x)  $ & 250 &  27.23\% & 29.44\% & & 28.84\% & 25.67\% & & 82.66\% & 73.15\% \\
+ & 500 &  30.81\% & 27.73\% & & 28.68\% & 27.49\% & & 92.82\% & 91.33\% \\
+$ \si_B(x)  $ & 250 &  26.63\% & 29.50\% & & 32.40\% & 27.78\% & & 97.27\% & 96.96\% \\
+& 500 &  27.85\% & 26.31\% & & 32.80\% & 30.86\% & & 97.85\% & 97.41\% \\
+$ \si_C(x)  $ & 250 &  29.71\% & 31.08\% & & 32.28\% & 29.77\% & & 40.38\% & 42.67\% \\
+ & 500 &  30.68\% & 29.76\% & & 30.19\% & 29.60\% & & 36.78\% & 40.32\% \\
+$ \si_D(x)  $ & 250 &  29.54\% & 30.86\% & & 30.40\% & 27.36\% & & 42.04\% & 43.15\% \\
+& 500 &  28.55\% & 27.63\% & & 28.14\% & 30.10\% & & 39.84\% & 41.41\% \\
+$ \si_E(x)  $ & 250 &  20.53\% & 21.20\% & & 23.04\% & 24.63\% & & 50.84\% & 46.82\% \\
+ & 500 &  21.39\% & 22.86\% & & 26.51\% & 24.08\% & & 47.43\% & 44.66\% \\
+$ \si_F(x)  $ & 250 &  21.72\% & 23.58\% & & 27.15\% & 26.71\% & & 26.06\% & 27.23\% \\
+& 500 &  20.14\% & 20.58\% & & 21.01\% & 23.46\% & & 27.65\% & 24.28\% \\
+
+\hline
+\end{tabular}
+}
+\end{table}
+
+
+
+\section{Conclusion} \la{sec:5:conclusion}
+This chapter considers unit root test for time series with volatility process driven by nonlinear transformation of a non-stationary time series. We show that the Dickey Fuller test statistic admits non-pivotal limiting distribution, and it involves a nuisance parametric which is a nonlinear function. This leads to invalid inference on the existence of unit root if routine Dickey Fuller procedure is applied. We propose a new method based on kernel estimate of nonlinear function. We show that we can replace the nuisance function by its consistent estimate. Valid critical value of the non-standard asymptotic distribution can then be obtained via direct simulation.
+
+Such method extends existing unit root test procedures by taking into consideration external explanatory data sequence. Our methods can also handle various features of error structure considered in the existing literature, including deterministic volatility function and stochastic volatility function as a continuous function of time. This approach has the advantage of handling leverage effect without presuming to specific parametric volatility model.
+
+
+\section{Appendix} \la{sec:5:proof}
+
+
+
+
+\subsection{Unit root limiting distribution} \la{app.remarkUnit}
+As noted in Remark \ref{rem.general}, if we are only interested in the limit distribution of the $n(\widehat \alpha_n - 1)$ defined by (\ref{eqn42}), the error structure in the model (\ref{eqn41}) can be set quite general.
+For the sake of  reading convenience, we rewrite the data generating process  $y_{n,t}$  according to
+\begin{equation} y_{n,t} = \alpha y_{n,t-1} + H(x_{n,t}) u_{t+1},
+\quad t=1,2,...,n,\ \ n\ge 1, \la {77}\end{equation} where $x_{n,t}$ and $u_{n, t+1}$ satisfy the following assumption: (i) $\{{\cal F}_{n,k}\}  $ is  a filtration
+so that, for each $n$, $\{x_{n,k}, z_{n,k}\}$ is an $\{{\cal F}_{n,k}\}$-adapted process and $z_{n,k}=\sum_{j=1}^ku_{n,j}$ is an $\{{\cal F}_{n,k}\}$-martingale; (ii) $\sup_{n\ge 1}\frac 1n \sum_{j=1}^nEu_{n,k}^2<\infty$; (iii)
+ There exists    a correlated continuous process $(W,U)$ such that
+\begin{equation}
+\Big(x_{n,[nt]},\ \frac 1{\sqrt n}\,
+ \sum_{j=1}^{[nt]}u_{n,j}\Big)
+\Rightarrow (W(t),\ U(t)),
+\label{tt1}
+\end{equation}
+on $D[0,1]^2$ as $n\rightarrow \infty.$
+
+
+We are interested in the testing the hypothesis (\ref{eqn22}) and have
+ the following result which is a slightly extension of  Theorem 1 in \cite{cavalieretaylor2009}.
+
+
+\begin{thm}\label{th21a} Suppose that $H(x)$ is a real function with finite discontinuous points.  Then, as $n\to\infty$,
+ under the null $H_0: \al = 1$,
+\begin{equation}\label{thm.unitLimit.eqn1} n(\widehat \alpha_n - 1) \ \to_D\ \frac{S^2(1) - R}
+{ 2 \int_{0}^{1} S^2(t) dt },  \end{equation}
+ where
+$
+S(t) = \int_{0}^{t} H(W(t)) dU(s) $ and $ R = \int_{0}^{1} H^2(W(t)) ds,
+$
+and under the alternative  $H_1: \al = 1 - \tau / n$,
+\begin{equation}\label{thm.unitLimit.eqn2} n(\widehat \alpha_n - 1) \ \to_D\ \frac{Y^2(1) - R}
+{ 2 \int_{0}^{1} Y^2(t) dt },  \end{equation}
+ where
+$
+Y(t) = \int_{0}^{t} e^{-\tau (t - s)} H(W(s)) dU(s).
+$
+
+
+\end{thm}
+
+\begin{rem} \cite{cavalieretaylor2009} assumed $H(x)$ to  be a continuous function, but it is not necessary by virtue of the continuity of  $(W, U)$.  In comparison to the usual DF distribution, the result in Theorem \ref{th21a}  is quite different due to  the error structure $H(x_{n,t})u_{n,t+1}$ in (\ref {77}).
+If this error structure $H(x_{n,t})u_{n,t+1}$ is replaced by a un-normalized non-stationary time series $H(d_{1n} x_{n,t})u_{n,t+1}$, where $d_{1n} \to \infty$ is a sequence of positive constants, and $H(x)=C+R(x)$, where $C>0$ is a constant, $R(x)$ is bounded and $R(x)\to 0$ as $|x|\to\infty$, the joint convergence in (\ref {tt1})
+ can be reduced to
+\be
+x_{n, [nt]}\Rightarrow W(t), \quad
+\frac 1{\sqrt n}\,
+ \sum_{j=1}^{[nt]}u_{n,j} \Rightarrow U(t), \la {81}
+ \ee
+  on $D[0,1]$. Furthermore the asymptotic unit root distribution has the usual DF form, i.e.,
+\be \la{eqn.standardDF}
+n(\widehat{\alpha}_n - 1) \rightarrow_D \frac{U^2(1) - 1}{\int_0^1 U^2(t) dt}. \la {76}
+\ee
+\end{rem}
+The proof of  (\ref {76}) is simple. An outline will be given in the end of Section \ref{sec.lemPrf}.
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Proofs of theorems}
+This section provides proofs of the main results. Throughout this section, we denote constants by $C, C_1, C_2,...$,
+which may be different at each appearance.
+
+\begin{proof}[Proof of Theorem \ref {thm.NNHUnitRoot}]
+ Under null hypothesis $H_0$, we may write
+\begin{align}
+n(\widehat \alpha_n - 1) &= \frac{ y_{n}^2  - \sum_{j = 1}^n \eta_{j}^2 } { n^{-1}  \sum_{t = 1}^n y_{t-1}^2 }.\la{prf.NNHUnitRoot.eqn0}
+\end{align}
+Furthermore, by recalling Assumption \ref{a.homo}, we have
+\be
+y_{k} &=&\sum_{j=1}^k\eta_{j} = \sum_{j=1}^k \si(x_{j})\,u_{j+1} \no\\
+&=& v(\sqrt{n})\,
+ \sum_{j=1}^kH(\frac{x_{j}}{\sqrt{n}})\, u_{j+1}+R_{n,k},
+  \la {prf.NNHUnitRoot.eqn1}
+\ee
+where $R_{n,k}=\sum_{j=1}^kR(\frac{x_{j}}{\sqrt{n}}, \sqrt{n})\, u_{j+1}$, and
+\be
+\sum_{j=1}^n \eta_{j}^2 &=& \sum_{j=1}^n \si^2(x_{j})\,+ \Delta_{1n}\no\\
+&=&\, v^2(\sqrt{n})\,\sum_{j=1}^n H^2(\frac{x_{j}}{\sqrt{n}})+ \Delta_{1n}+\Delta_{2n}, \la {prf.NNHUnitRoot.eqn2}
+\ee
+where $\Delta_{1n}=\sum_{j=1}^n \si^2(x_{j})\,(u_{j+1}^2-1)$,
+and $\Delta_{2n}= \, \sum_{j=1}^n \big [R^2(\frac{x_{j}}{\sqrt{n}}, \sqrt{n}) +2 v(\sqrt{n}) R(\frac{x_j}{\sqrt{n}}, \sqrt{n})\big ]$.
+By virtue of (\ref{prf.NNHUnitRoot.eqn1})--(\ref{prf.NNHUnitRoot.eqn2}), to prove Theorem \ref{thm.NNHUnitRoot},
+it suffices to show that
+\be
+\Delta_{in} &=&o_P\big [n\, v^2(\sqrt{n}) \big ],\quad i=1, 2; \la{prf.NNHUnitRoot.eqn3} \\
+\max_{1\le k\le n} |R_{n,k}| &=& o_P\big [\sqrt n\,v(\sqrt{n}) \big ],\la {prf.NNHUnitRoot.eqn4}
+\ee
+Indeed combining these estimates (\ref{prf.NNHUnitRoot.eqn1})--(\ref{prf.NNHUnitRoot.eqn4}) into (\ref{prf.NNHUnitRoot.eqn0}), it follows from Theorem \ref{th21a} that,
+\begin{align}
+n(\widehat{\al}_n - 1) &  = \frac{ \big [\sum_{j = 1}^n H(x_j/\sqrt{n} ) u_{j+1} \big ]^2  - \sum_{j = 1}^n H^2(x_j / \sqrt{n}) } { 2\,n^{-1}  \sum_{t = 1}^n \big [ \sum_{j = 1}^{t - 1} H(x_j / \sqrt{n}) u_{j+1} \big ]^2 } + o_P(1) \no\\
+&\to_D  \frac{S^2(1) - R} { 2 \int_{0}^{1} S^2(t) dt },
+\end{align}
+as $n \to \infty$.
+
+(\ref{prf.NNHUnitRoot.eqn3})  with $i = 2$ is straightforward. The fact that $\Delta_{1n} = o_P \big [n v^2(\sqrt{n}) \big ]$ and (\ref{prf.NNHUnitRoot.eqn4}) follow from the same argument as in (\ref{l23}).
+
+Under alternative hypothesis $H_1$, we have
+\begin{align}
+n(\widehat \alpha_n - 1) &= \frac{ y_{n}^2  - \sum_{j = 1}^n [(-\tau/n) y_{j-1} +  \eta_{j}]^2 } { n^{-1}  \sum_{t = 1}^n y_{t-1}^2 }.\la{prf.NNHUnitRoot.eqn?}
+\end{align}
+Write $\rho_n = (1 - \tau / n)$, by Assumption \ref{a.homo}, we have
+\be
+y_{k} &=&\sum_{j=1}^k\rho_n^{k - j}\eta_{j} = \sum_{j=1}^k\rho_n^{k - j} \si(x_{j})\,u_{j+1} \no\\
+&=& v(\sqrt{n})\,
+ \sum_{j=1}^k\rho_n^{k - j}H(\frac{x_{j}}{\sqrt{n}})\, u_{j+1}+R'_{n,k},
+  \la {prf.NNHUnitRoot.eqn?}
+\ee
+where $R'_{n,k}=\sum_{j=1}^k\rho_n^{k - j }R(\frac{x_{j}}{\sqrt{n}}, \sqrt{n})\, u_{j+1}$.
+
+Similarly to (\ref{prf.NNHUnitRoot.eqn2}) above, we have
+\begin{align}
+\sum_{j=1}^n [(-\tau/n) y_{j-1} +  \eta_{j}]^2 &\le\frac{C}{n^2} \sum_{j=1}^n y^2_{ j-1} + C_1 \sum_{j=1}^n \eta_{j}^2\no\\
+&=C_1 v^2(\sqrt{n})\,\sum_{j=1}^n H^2(\frac{x_{j}}{\sqrt{n}})+ \Gamma_{n} + o_P\big [nv^2(\sqrt{n})\big ], \la {prf.NNHUnitRoot.eqn?}
+\end{align}
+where $\Gamma_n = n^{-2} \sum_{j = 1}^n y^2_{j-1}$.
+
+Note that, using similar arguments as in (\ref{l23}),
+\bestar
+\max_{1\le k\le n} |R'_{n,k}| = o_P[\sqrt n\,v(\sqrt{n}) ].
+\eestar
+Hence
+\begin{align}
+\frac{y_{[ns]}}{\sqrt{n}v(\sqrt{n})} &= \frac{1}{\sqrt{n}} \sum_{t = 0}^{[ns]} \rho_n^{[ns] - t} H(x_{t} / \sqrt{n}) u_{t+1}  + o_P(1) \no\\
+&\to_D \int_{0}^s e^{-\tau (s - t)} H(\phi W(t)) dU(t),\no
+\end{align}
+on $D[0,1]$, because $\rho_n^{[ns]} = (1 - \tau/n)^{[ns]} \to e^{-\tau s}$. This yields $\Gamma_n = o_P\big[ n v^2(\sqrt{n}) \big ]$.
+
+Combining these estimates, it follows from Theorem \ref{th21a} that,
+\begin{align}
+n(\widehat{\al}_n - 1) &  = \frac{ \big [\sum_{j = 1}^n \rho_n^{n -j}H(x_j/\sqrt{n} ) u_{j+1} \big ]^2  - \sum_{j = 1}^n H^2(x_j / \sqrt{n}) } { 2\,n^{-1}  \sum_{t = 1}^n \big [ \sum_{j = 1}^{t - 1} \rho_n^{t - j - 1} H(x_j / \sqrt{n}) u_{j+1} \big ]^2 } + o_P(1) \no\\
+&\to_D  \frac{Y^2(1) - R} { 2 \int_{0}^{1} Y^2(t) dt }, \no
+\end{align}
+as $n \to \infty$.
+\end{proof}
+
+
+\begin{proof}[Proof of Theorem \ref {thm.siConsistent}]
+We start with the following lemmas. Their proofs will be given in Section \ref{sec.lemPrf}.
+\begin{lem} \la{lem.1} Under both $H_0$ and $H_1$ with the hypothesis (\ref{eqn22}), we have
+\be
+\max_{1 \le t \le n} | \widehat{\eta}_{t} - \eta_{t} | = O_P\big [v(\sqrt{n}) n^{-1/2}\big ],
+\ee
+where $\widehat{\eta}_{t} = y_{t} - \widehat{\al}_n y_{t-1}$, where $\widehat{\al}_n$ is defined as in (\ref{eqn42}).
+\end{lem}
+\begin{lem} \la{lem.2} Under Assumptions \ref{as1}--\ref{a.silipschitz}, for any  $h'$  satisfying $n^{1/2-\ep_0}\, h'\to \infty$ where $0<\ep_0<1/2$,
+\be
+\sup_{x\in R}\Big | \sum_{k=1}^n (u_{t+1}^2-1)K[(x_k-x)/h'] \Big |=O_P[(\sqrt n\, h'\log n)^{1/2}], \la {1.2a}
+\ee
+and this result is also true if we replace $u_t^2-1$ by $|u_t|-E(|u_t|\mid {\mathcal F}_t)$. In addition,
+\be
+ \Big [\inf_{|x|\le \sqrt n\tau_n} \sum_{t=1}^{n}\,K[(x_{t}-x)/h']\Big ]^{-1} =  O_P[( \sqrt{n}h')^{-1}],  \la {m15}
+\ee
+for any $\tau_n \to 0$.
+\end{lem}
+
+We now return to the proof of Theorem \ref {thm.siConsistent}.
+We split $\widehat{\si}_n^2(x) - \si^2(x) $ as
+\begin{align}
+\widehat{\si}_n^2(x) - \si^2(x) &= \frac{\sum_{t=1}^n \si^2(x) (u^2_{t+1} - 1) K[(x_t - x)/h]}{\sum_{t = 1}^n K[(x_t - x) / h]}  + \frac{\sum_{t=1}^n \big [ \si^2(x_t) - \si^2(x) \big ] u_{t+1}^2 K[(x_t - x)/h] }{\sum_{t = 1}^n K[(x_t - x) / h]} \no\\
+& \quad + \frac{\sum_{t=1}^n \big ( \widehat{\eta}_{t} - \eta_{t} \big )^2 K[(x_t - x)/h]}{\sum_{t = 1}^n K[(x_t - x) / h]} + \frac{\sum_{t=1}^n \si(x_t) u_{t+1} ( \widehat{\eta}_{t} - \eta_{t} \big ) K[(x_t - x)/h] }{\sum_{t = 1}^n K[(x_t - x) / h]} \no\\
+& \quad := \Theta_{1n}(x) + \Theta_{2n}(x) + \Theta_{3n}(x) + \Theta_{4n}(x). \la{prf.siConsistent.eqn1}
+\end{align}
+ It follows from Lemma \ref{lem.2} that,
+\be
+\sup_{|x| \le b_n} | \Theta_{1n}(x)| &\le& C\de_n^2 \sup_{|x| \le b_n}  \Big | \frac{\sum_{t=1}^n  (u^2_{t+1} - 1) K[(x_t - x)/h]}{\sum_{t = 1}^nK[(x_t - x) / h]}  \Big | \no\\
+&=& O_P\big [\de^2_n\, (\sqrt{n} h)^{-1/4} \log^{1/2} n \big ],
+\ee
+where $\de_n =\max\{ \sup_{|x| \le b_n} g(x), \sup_{|x| \le b_n} \si(x)\}$. Note that, for any $|x| \le b_n$, there exists a $C_0>0$ such that
+$K[(x_t-x)/h]=0$ if $|x_t-x|\ge hC_0$. It follows from
+Assumption \ref{a.silipschitz} that,
+ \bestar
+ \sup_{|x| \le b_n}|\Theta_{2n}(x)| &\le & C_1 \de_n^2h^{\al}\,\sup_{|x| \le b_n}\frac{\sum_{t=1}^{n} u_{k+1}^2\,K[(x_t-x)/h]}{\sum_{t=1}^{n}K[(x_t-x)/h]}  =O_P(h^{\al}\, \de_n^2).
+\eestar
+It follows from Lemma \ref{lem.1} that
+\be
+\sup_{|x| \le b_n} | \Theta_{3n}| &\le& C \max_{1 \le t \le n} | \widehat{\eta}_{t}  - \eta_{t} |^2 = O_P\big [v(\sqrt{n})^2 \, n^{-1}\big ].
+\ee
+Similarly, we have
+\be
+\sup_{|x| \le b_n} | \Theta_{4n} | &\le& C \max_{1 \le t \le n} | \widehat{\eta}_{t}  - \eta_{t} | \sup_{|x| \le b_n} | \si(x)| \frac{\sum_{t=1}^n |u_{t+1}|  K[(x_t - x)/h] }{\sum_{t = 1}^n K[(x_t - x) / h]} \no\\
+&\le& C \de_n v(\sqrt{n}) n^{-1/2} \Big \{ \sup_{t \ge 1} \E( |u_{t+1} | \, | \F_t) \no\\
+&&\qquad + \sup_{|x| \le b_n} \big | \frac{\sum_{t=1}^n  [|u_{t+1}| - \E( |u_{t+1} | \, | \F_t)] K[(x_t - x)/h]}{\sum_{t = 1}^nK[(x_t - x) / h]}  \big |\Big \} \no\\
+&\le& C \de_n v(\sqrt{n}) n^{-1/2}.
+\ee
+Taking these estimates into (\ref{prf.siConsistent.eqn1}), we obtain the required (\ref{thm.siConsistent.eqn1}).
+\end{proof}
+
+
+
+
+
+
+\begin{proof}[Proof of Theorem \ref {thm.siInvariant}] 
+
+We start with the following lemma. Its proof will be given in Section \ref{sec.lemPrf}.
+\begin{lem} \la{prop.covConsistent}
+Under Assumption \ref{a.linearRegular}--\ref{a.silipschitz}, we have, for any $m \equiv m_n\to \infty$, $m / n \to 0$,
+\begin{equation}\la{prop.covConsistent.eqn1}
+\widehat{\si}_{u, \ep} = \frac{1}{m} \sum_{t = 1}^m \widehat{u}_t \widehat{\ep}_{l,t} \rightarrow_P \si_{u, \ep},
+\end{equation}
+as $n \to \infty$, and
+\begin{equation}\la{prop.covConsistent.eqn2}
+%\Big ( \frac{1}{\sqrt{T}} \sum_{j = 1}^{[Tt]} \lambda_j, \frac{1}{\sqrt{T}} \sum_{j = 1}^{[Tt]} e_j \Big) \rightarrow_D \Big(W(t), U(t) \Big )
+\Big ( \frac{\widehat{\phi}\tilde{x}_t}{\sqrt{T}}, \frac{1}{ \sqrt{T}} \sum_{j = 1}^{[Tt]} e_t \Big) \Rightarrow \Big(\phi W(t), U(t) \Big ),
+\end{equation}
+on $D[0,1]^2$ as $T \to \infty$, where $(W,U)$ is a bivariate Brownian Motion with covariance matrix
+\be
+\Delta = \begin{pmatrix}
+1 & \si_{u,\ep} \\
+\si_{u,\ep} & 1
+\end{pmatrix}.
+\ee
+\end{lem}
+
+
+We now return to the proof of Theorem \ref {thm.siInvariant}.
+It suffices to show that, for any $T \equiv T_n \to \infty$ and $T / n \to 0$,
+\begin{align}
+\la{prf.siInvariant.eqn1} \Big | \frac{1}{T}\sum_{t=1}^T \widehat{\si}_n^2(\widehat\phi\, \tilde{x}_{t}) - \frac{1}{T} \sum_{t=1}^T \si^2(\widehat{\phi}\,\tilde{x}_{t}) \Big |& \rightarrow_P 0,  \\
+\la{prf.siInvariant.eqn2} \max_{1 \le k \le T} \Big | \frac{1}{\sqrt{T}}\sum_{t=1}^k \widehat{\si}_n(\widehat\phi\, \tilde{x}_{t})e_{t+1} - \frac{1}{\sqrt{T}} \sum_{t=1}^k \si(\widehat{\phi}\,\tilde{x}_{t}) e_{t+1}\Big |& \rightarrow_P 0,
+\end{align}
+as $n \to \infty$. Indeed, by (\ref {prf.siInvariant.eqn1}) and (\ref {prf.siInvariant.eqn2}), it follows from Theorem \ref{thm.NNHUnitRoot} that
+\bestar
+T(\widehat \al_{n, T}^*-1) &=& \frac{\big [ \sum_{t=1}^T \si(\widehat\phi \tilde{x}_{t})e_{t+1} \big ]^2 -\sum_{t=1}^T \si^2(\widehat\phi\, \tilde{x}_{t})}{2 T^{-1}\sum_{k=1}^T \big [ \sum_{t=1}^k \si(\widehat\phi\,\tilde{x}_{t})e_{t+1}  \big ]^2 } + o_P(1) \no\\
+&\rightarrow_D& \frac{S^2(1) - R} { 2 \int_{0}^{1} S^2(t) dt }.
+\eestar
+
+We first prove (\ref{prf.siInvariant.eqn1}). Note that $\max_{1 \le t \le T} |\tilde{x}_{T, t}| = O_P(1)$, where $\tilde{x}_{T,t} = \tilde{x}_t / \sqrt{T}$. By (\ref{phiConsistent}) in Lemma \ref{prop.covConsistent}, we have
+\begin{align}
+\max_{1 \le t \le T} |\widehat \phi \tilde{x}_t| &=\sqrt{T} \max_{1 \le t \le T}|  \widehat \phi \,  \tilde{x}_{T, t} |   \no\\
+&= \sqrt{T}  \,\max_{1 \le t \le T} \big [ |\widehat \phi - \phi| |\tilde{x}_{T, t}| + \phi \, | \tilde{x}_{T, t}| \big ] = O_P(\sqrt{T}). \la{prf.siInvariant.eqn3}
+\end{align}
+
+Set $b_n = \sqrt{n}\tau_n$ for $\tau_n \to 0$, it follows from (\ref{prf.siInvariant.eqn3}) and Theorem \ref{thm.siConsistent} that, for any $T \equiv T_n \to \infty$ and $T / n \to 0$,
+\begin{align}
+\frac{1}{T}\sum_{t = 1}^T | \widehat{\si}^2_n(\widehat \phi \tilde{x}_t) - \si^2( \widehat\phi \tilde{x}_t)| 
+&\le \max_{1 \le t \le T} | \widehat{\si}^2_n(\widehat \phi \sqrt{T} \tilde{x}_{T,t}) - \si^2(\widehat\phi \sqrt{T} \tilde{x}_{T,t})| + o_P(1) \no\\
+&\le  \sup_{|x|  \le  \sqrt{n} \tau_n} | \widehat{\si}^2_n(x) - \si^2(x)| + o_P(1) = o_P(1),  \no
+\end{align}
+which yields (\ref{prf.siInvariant.eqn1}).
+
+
+We now prove (\ref{prf.siInvariant.eqn2}).  Let $\epsilon > 0$, and define
+\bestar
+\Delta_{n, t} =[  \widehat{\si}_n(\widehat \phi \tilde{x}_t) - \si( \widehat\phi \tilde{x}_t)  ] \quad \mbox{and} \quad \Delta^*_{n, t} =\Delta_{n,t} \, I \Big \{ \max_{1 \le j \le t}|\Delta_{n,j}|  \le \ep \Big \},
+\eestar
+for $t = 1, .., T$. The standard martingale argument yields that
+\begin{align}
+&E\max_{1 \le k \le T} \Big | \frac{1}{\sqrt{T}}\sum_{t=1}^k \Delta^*_{n, t} e_{t+1}\, \Big |^2  \le   \frac{1}{T} \sum_{t=1}^T E \Delta^{*2}_{n, t}  \no\\
+&\le \frac{1}{T} \sum_{t= 1}^T E\big [ \Delta_{n, t}^2 I\big \{ \max_{1 \le j \le t}| \Delta_{n, j}|  \le \ep \big \} \big ] \le   \ep^2,\no
+\end{align}
+where $\ep$ can be made arbitrarily small. Hence, (\ref{prf.siInvariant.eqn2}) follows from the following fact:
+\bestar
+P\big (\Delta^*_{n, t} \ne \Delta_{n, t}, \quad  t = 1, .., T\big)\le P\Big (\max_{1 \le t \le T}  | \widehat{\si}_n(\widehat \phi \tilde{x}_t) - \si(\widehat \phi \tilde{x}_t)  | \ge \ep \Big) \to 0,
+\eestar
+as $n \to \infty$, due to Corollary \ref{cor.trim} with $\nu_n=T$, $z_t = \widehat \phi \tilde{x}_t$. This yields the required (\ref{prf.siInvariant.eqn2}) and completes the proof of Theorem \ref{thm.siInvariant}.
+\end{proof}
+
+
+\begin{proof}[Proof of (\ref {76})]
+Indeed, if $H(x_{n,t})u_{n,t+1}$ in (\ref {77}) is replaced by $H(d_{1n} x_{n,t})u_{n,t+1}$ and $H(x)=C+R(x)$, we have
+\be
+n(\widehat{\al}_n - 1) = \frac{ \big [\sum_{j = 1}^n H(d_{1n}\, x_{n,j} ) u_{n,j+1} \big ]^2  - \sum_{j = 1}^n H^2(d_{1n}\, x_{n,j}) } { 2n^{-1}  \sum_{t = 1}^n \big [ \sum_{j = 1}^{t - 1} H(d_{1n}\, x_{n,j} ) u_{n,j+1} \big ]^2  },
+\ee
+and for any $1\le m\le n,$
+\bestar
+\sum_{j = 1}^m H(d_{1n}\, x_{n,j} ) u_{n,j+1} &=& C\, \sum_{j = 1}^m u_{n, j+1} + \sum_{j = 1}^m R(d_{1n}\, x_{n,j}) u_{n, j+1}, \no\\
+\frac 1n\sum_{j = 1}^n H^2(d_{1n}\, x_{n,j} ) &=& C^2 + \frac 1n\sum_{j = 1}^n \big[R^2(d_{1n}\, x_{n,j})+2CR(d_{1n}\, x_{n,j})\big].
+\eestar
+Hence (\ref {76}) will follow if we prove
+\be \la{prf.76.eqn1}
+\max_{1\le m\le n}|\sum_{j = 1}^m R(d_{1n}\, x_{n,j}) u_{n, j+1}|=o_P(\sqrt n),\quad \sum_{j = 1}^n |R(d_{1n}\, x_{n,j})|=o_P(n).
+\ee
+
+Let $M,\de > 0$ and write
+\bestar
+\Lambda_{n,j} = \Big \{ d_{1n}\, \inf_{[n\de] \le i \le j} | x_{n, i}| \ge M \Big \}.
+\eestar
+To prove (\ref{prf.76.eqn1}), it suffices to prove that
+\be\la{prf.76.eqn2}
+\frac 1n\sum_{j = 1}^n E|R(d_{1n}\, x_{n,j}) \, I(\Lambda_{n,j})|=o(1).
+\ee
+Indeed, note that $\inf_{\de \le t \le 1} |x_{n, [nt]}| \to_D \inf_{\de \le t \le 1} | G(t)| > 0$ $a.s.$ and $d_{1n} \to \infty$, the probability $P( \bar{\Lambda}_{n,n})$ can be made arbitrarily small by choosing large enough $M$. By Burkholder's inequality,
+\begin{align}
+&E\max_{1\le m\le n}|\frac{1}{\sqrt n}\sum_{j = 1}^m R(d_{1n}\, x_{n,j}) u_{n, j+1}|^2 \le \frac 1n\sum_{j = 1}^n ER^2(d_{1n}\, x_{n,j})  \no\\
+&\le\frac Cn\sum_{j = 1}^n E|R(d_{1n}\, x_{n,j}) \, I(\Lambda_{n,j})| + \frac {C^2}{n}\sum_{j = 1}^n P(\Lambda_{n,j})  = o(1).
+\end{align}
+because $R$ is bounded. Similarly, the second term of (\ref{prf.76.eqn1}) follows from Markov inequality. These prove (\ref{prf.76.eqn1}).
+
+We now prove (\ref{prf.76.eqn2}). Recall $R$ is bounded and $R(x) \to 0$ as $|x| \to \infty$, it follows that
+\begin{align}
+\frac 1n\sum_{j = 1}^n E|R(d_{1n}\, x_{n,j}) \, I(\Lambda_{jn})| &\le \frac 1n\Big (\sum_{j = 1}^{[n\de]} + \sum_{j = [n\de] + 1}^n \Big ) E|R(d_{1n}\, x_{n,j}) \, I(\Lambda_{n,j})| \no\\
+&\le C\de + R(d_{1n}\,M) = o(1). \no
+\end{align}
+This yields the required (\ref{prf.76.eqn2}) and completes the proof for (\ref{76}).
+
+\end{proof}
+
+\subsection{Proofs of lemmas} \la{sec.lemPrf}
+
+\begin{proof}[Proof of  Lemma \ref{lem.1}]
+We may  write
+\begin{align}
+| \widehat{\eta}_{t} - \eta_{t} | & = |   \big ( y_{t} - \widehat{\al}_n y_{t-1} \big ) - \big ( y_{t} - (1 - \tau / n) y_{t-1} \big )|  \no\\
+\la{l52r2} & =|  (\widehat{\al}_n - 1 +\tau / n)  y_{t-1}  | .
+\end{align}
+where $\tau > 0$ under $H_1$, and $\tau = 0$, under $H_0$.
+
+By virtue of Theorem \ref{thm.NNHUnitRoot}, $n (\widehat{\al}_n - 1+ \tau / n) = O_P(1)$. It suffices to show that, under $H_0$,
+\begin{align} \la{l21}
+\max_{1 \le t \le n} \Big | \frac{y_{t}}{n} \Big | = \max_{1 \le t \le n} \Big | \frac{v(\sqrt{n})}{\sqrt{n}}\sum_{k = 1}^{t} \frac{H(x_{n,k})}{\sqrt{n}} u_{k+1} \Big | + \Delta_{n} = O_P\big [v(\sqrt{n})\, n^{-1/2}\big ],
+\end{align}
+where $\Delta_n = n^{-1} \max_{1 \le t \le n} | \sum_{j = 1}^t R(x_j / \sqrt{n}, \sqrt{n}) u_{j + 1} | $ and $x_{n,k} = x_k / \sqrt{n}$. The proof under $H_1$ is similar and will be omitted.
+
+First note that $G^2_n :=\frac{1}{n} \sum_{k=1}^n H^2(x_{n, k}) \rightarrow_D \int_0^1 H^2(W(t)) dt$. Let $\lambda$ be a continuity point of $\int_0^1 H^2(W(t)) dt$ and define
+\be
+\Lambda^2_{n,k} = \frac{H^2(x_{n,k})}{n}, \quad \Lambda^{*2}_{n,k}  = \Lambda^2_{n,k} I\{ \sum_{j=1}^k \Lambda^2_{n,j}\le \lambda\}.
+\ee
+The standard arguments for martingale yields that
+\begin{align}\la{l23}
+ \E  \max_{1 \le t \le n} \Big | \frac{v(\sqrt{n})}{\sqrt{n}} \sum_{k = 1}^{t} \Lambda^{*}_{n,k} u_{k+1} \Big |^2  \le K_1 \frac{v^2(\sqrt{n})}{n} \E \Big (   \sum_{i = 0}^{n}  \Lambda^{*2}_{n,k}  \Big ) \le C_0\,v^2(\sqrt{n}) \, n^{-1}.
+\end{align}
+This, together with the facts that $ \Lambda^{*2}_{n,k} =  \Lambda^{2}_{n,k}$ on the set $\{ G^{2}_n \le \lambda \}$ and $\lim_{\lambda \to \infty} P( G^{2}_n > \lambda) = 0$, implies that
+\bestar
+\max_{1 \le t \le n} \Big | \frac{v(\sqrt{n})}{\sqrt{n}}\sum_{k = 1}^{t} \frac{H(x_{n,k})}{\sqrt{n}} u_{k+1} \Big | &=& O_P\big [v(\sqrt{n})\, n^{-1/2}\big ].
+\eestar
+
+Similarly, we may estimate $\Delta_n$ and obtain that $\Delta_n =O_P\big [v(\sqrt{n})n^{-1/2}\big]$. Combining the estimates above, we prove (\ref {l21}), and also complete the proof of Lemma \ref {lem.1}.
+\end{proof}
+
+
+\begin{proof}[Proof  of Lemma \ref{lem.2}] By Corollary \ref{cor:3:cor2} of Chapter \ref{chap:3}, with $g(x) = K(x)$ or $K^2(x)$ yields  (\ref{m15}) and
+\be 
+\sup_{x\in R} \sum_{k=1}^n K^2[(x_k-x)/h] &=& O_P( \sqrt{n}h' ), \la {1.2a}
+\ee
+for any $h'$ satisfying $n^{1/2- \ep_0 } h'  \to \infty$. Due to (\ref {1.2a}), (\ref {1.2a}) follows from Theorem (\ref {eqn:1:m10}) in Theorem \ref{thm:1:th4} with $c_n=\sqrt{n} h$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma \ref{prop.covConsistent}]
+Recall that $ \E(u_t\ep_t| \F_{t-1}) = \si_{u, \ep}$. We  split $\widehat{\si}_{u, \ep} - \si_{u, \ep}$
+\bestar
+\widehat{\si}_{u, \ep} - \si_{u, \ep} = \Big | \frac{1}{m} \sum_{t = 1}^m \widehat{u}_t  \widehat{\ep}_{l,t} - \frac{1}{m} \sum_{t = 1}^m u_t  \ep_{t} \Big | +  \Big | \frac{1}{m} \sum_{t = 1}^m u_t  \ep_{t}  - \E(u_t \ep_t| \F_{t-1}) \Big |,
+\eestar
+The second term is easy to handle with. Since $u_t  \ep_{t}  - \E(u_t \ep_t| \F_{t-1})$ is a martinagle, it follows from strong law of large number that
+\bestar
+ \frac{1}{m}  \sum_{t = 1}^m [u_t  \ep_{t}  - \E(u_t \ep_t| \F_{t-1}) ]  \to 0\quad  a.s.,
+\eestar
+as $n \to \infty$. See, e.g., Mcleish (1974). As for the first term, we write
+\begin{align}
+\Big | \frac{1}{m} \sum_{t = 1}^m \widehat{u}_t  \widehat{\ep}_{l,t} - \frac{1}{m} \sum_{t = 1}^m u_t  \ep_{t} \Big |  & \le
+ \Big | \frac{1}{m} \sum_{t = 1}^m \widehat{u}_t  \widehat{\ep}_{l,t} - \frac{1}{m} \sum_{t = 1}^m {u}_t   \widehat{\ep}_{l,t}\Big |  +
+\Big |  \frac{1}{m} \sum_{t = 1}^m {u}_t   \widehat{\ep}_{l,t} - \frac{1}{m} \sum_{t = 1}^m u_t  \ep_{t}  \Big |  \no\\
+& \le\Big (\frac{1}{m}\sum_{t = 1}^m ( \widehat{u}_{t} - u_t)^2 \Big )^{1/2} \Big (\frac{1}{m} \sum_{t = 1}^m  \widehat{\ep}^2_{l,t} \Big )^{1/2} \no\\
+&\quad +\Big ( \frac{1}{m} \sum_{t = 1}^m ( \widehat{\ep}_{l,t} - \ep_{t})^2\Big )^{1/2} \Big (\frac{1}{m}  \sum_{t = 1}^m u^2_t \Big )^{1/2}  . \la{prf.covConsistent.eqn1}
+\end{align}
+Because $\sum_{t = 1}^m u_t^2 = O_P(m)$, it suffices to show that
+\be
+\la{prf.covConsistent.eqn2} \frac{1}{m}\sum_{t = 1}^m ( \widehat{u}_{t} - u_t)^2 &\to_P& 0 ,\\
+\la{prf.covConsistent.eqn3} \frac{1}{m}\sum_{t = 1}^m ( \widehat{\ep}_{l,t} - \ep_{t})^2 &\to_P& 0 ,\\
+\la{prf.covConsistent.eqn4}\frac{1}{m} \sum_{t = 1}^m  \widehat{\ep}^2_{l,t} &=&O_P(1).
+\ee
+%Indeed, taking (\ref{prf.covConsistent.eqn2}) and (\ref{prf.covConsistent.eqn3}) into (\ref{prf.covConsistent.eqn1}), together with weak law of large number, we obtain that
+%\be
+%\frac{1}{n} \sup_{1\le t\le n} \widehat{u}_t \widehat{\ep}_{l,t+1} &\rightarrow_P& \frac{1}{n} \sup_{1\le t\le n} u_t  \ep_{t+1} \to_P \E ( u_t \ep_{t+1})
+%\ee
+%which yields the required consistency (\ref{prop.covConsistent.eqn1}).
+
+(\ref{prf.covConsistent.eqn2}) first. Recalling  $\widehat{u}_{t+1} =\frac{\widehat{\eta}_{t}}{ \widehat{\si}_n(x_{t})}$, it follows that
+\begin{align}
+& \frac{1}{m}\sum_{t = 1}^m ( \widehat{u}_t - u_t )^2  = \frac{1}{m} \sum_{t = 1}^m \Big [ \frac{\widehat{\eta}_{t}}{\widehat{\si}_n(x_{t})} - u_t \Big ]^2 \no\\
+& \le  \frac{C}{m}\sum_{t = 1}^m  ( \widehat{\eta}_{t}-\eta_{t}  )^2 +\frac{C}{m}\sum_{t = 1}^m \Big [ \frac{\eta_{t}}{ \widehat{\si}_n(x_{t}) } - u_t\Big ]^2 :=\Gamma_{1n} + \Gamma_{2n}.  \la{utCon1}
+\end{align}
+By Lemma \ref{lem.1}, we have
+\be
+\Gamma_{1n} \le C\, \max_{1 \le t \le m} | \widehat{\eta}_{t}-\eta_{t}|^2 \le C  v^{2}(\sqrt{n}) n^{-1} = o_P(1).\la{utCon2}
+\ee
+Moreover, it follows that Corollary \ref{cor.trim} with $\nu_n = m$ and $z_t = x_t$,
+\begin{align}
+\Gamma_{2n} &= \frac{C}{m}\sum_{t = 1}^m \Big [ \frac{\eta_{t}}{ \widehat{\si}_n(x_{t}) } - u_t\Big ]^2  = \frac{C}{m}\sum_{t = 1}^m u_t^2 \Big [ \frac{\si(x_t)}{ \widehat{\si}_n(x_{t}) } - 1\Big ]^2 \no \\
+&\le\frac{C}{m}\sum_{t = 1}^m u_t^2 \Big [ \frac{\si(x_t) -\widehat{\si}_n(x_t)}{ \widehat{\si}_n(x_{t}) } \Big ]^2 + o_P(1) \no \\
+&\le C\, \max_{1 \le t \le m} | \si(x_t) -\widehat{\si}_n(x_t) |^2 \Big(\frac{1}{m}\sum_{t = A}^m u_t^2\Big ) + o_P(1) \no \\
+&=o_P(1),\la{utCon3}
+\end{align}
+where we have used the fact
+\bestar
+\min_{1 \le t \le m} \widehat{\si}_n(x_{t}) \ge \min_{1 \le t \le n} \si(x_t) - \max_{1 \le t \le m} | \widehat{\si}_n(x_t) - \si(x_t)| \ge  \min_{1 \le t \le m} \si(x_t)- o_P(1) > 0,
+\eestar
+due to Corollary \ref{cor.trim} with $z_t = x_t$ and $\nu_n = m$, and the fact that $\si(\cdot)$ is a strictly positive function.
+
+
+Taking (\ref{utCon2}) and (\ref{utCon3}) into (\ref{utCon1}), we prove (\ref{prf.covConsistent.eqn2}).
+
+ (\ref{prf.covConsistent.eqn3}) second. By Assumption \ref{a.linearRegular}, we can write the $\{\xi_t\}$ as
+\bestar
+\xi_t = \Phi(L) \ep_t \quad \Rightarrow \quad \ep_t = \Phi(L)^{-1} \xi_t = (1 - \sum_{k = 1}^{\infty} \Pi_k L^k) \xi_t,
+\eestar
+where $L$ is a backshift operator. Recall that $\{\widehat \ep_{l, t}\}$ is generated by picking a large $l$ and running the ordinary least square regression, i.e.,
+\bestar
+\widehat{\ep}_{l,t} = (1 - \sum_{k = 1}^{l} \widehat{\Pi}_k L^k) \xi_t,
+\eestar
+where $\widehat{\Pi}_i$ are the OLS estimators of the real coefficients $\Pi_i$. To show (\ref{prf.covConsistent.eqn3}), we  define a truncated sequence $\{\ep_{l,t}\}$,
+\bestar
+\ep^*_{l,t} = (1 - \sum_{k = 1}^{l} \Pi_k L^k) \xi_t,
+\eestar
+where $\Pi_i$ are the {\it real} coefficients and $l$ is chosen in the regression in (\ref{eqn.artificial}). We have
+\be
+\frac{1}{m}\sum_{t =1}^m ( \widehat{\ep}_{l,t}  - \ep_{t})^2 \le \frac{C}{m}\sum_{t = 1}^m( \widehat{\ep}_{l,t}  - \ep^*_{l,t})^2  + \frac{C}{m}\sum_{t=1}^m ( \ep^*_{l,t}  - \ep_{t})^2 .
+\ee
+Note that for large enough $l$,
+\be \la{prf.covConsistent.eqn9}
+\E \Big [  \frac{1}{m}\sum_{t = 1}^m( \ep^*_{l,t}  - \ep_{t})^2 \Big ] \le \max_{1 \le t \le m}  \E ( \ep^*_{l,t}  - \ep_t )^2 = O(l^{-s}),
+\ee
+and if $l = o(\sqrt{n})$, we have
+\be\la{prf.covConsistent.eqn10}
+\sum_{i = 1}^{l} | \widehat{\Pi}_i - \Pi_i |^2 = O_P(l^{1 - s}) + O_P(n^{-1} l),
+\ee
+see, e.g. \cite{berk1974} and \cite{changparkphillips2001}. Also note that $E(\sum_{t = 1}^n \xi_t)^2 \sim \phi n$, therefore uniformly for all $k = 1, ..., l$,
+\be
+\frac{1}{m} \sum_{t = 1}^{m} \xi^2_{t - k} = O_P(1),
+\ee
+and it follows that
+\begin{align}
+ \frac{1}{m} \sum_{t =1}^n( \widehat{\ep}_{l,t}  - \ep^*_{l,t})^2  &= \frac{1}{m} \sum_{t = 1}^m \Big ( \sum_{k = 1}^l (\Pi_k - \widehat{\Pi}_k) \xi_{t - k} \Big )^2  \no\\
+ &\le \Big (\sum_{k = 1}^l (\Pi_k - \widehat{\Pi}_k )^2 \Big ) \Big ( \frac{1}{m} \sum_{t = 1}^{m} \sum_{k = 1}^l \xi^2_{t - k} \Big )  \no\\
+&= O_P(l^{2 - s}) + O_P(n^{-1} l^2) = o_P(1).\la{prf.covConsistent.eqn11}
+\end{align}
+Combining (\ref{prf.covConsistent.eqn9}) and (\ref{prf.covConsistent.eqn11}) imply the required (\ref{prf.covConsistent.eqn3}).
+
+Finally (\ref {prf.covConsistent.eqn4}) follows immediately from (\ref{prf.covConsistent.eqn3}) and the fact that $n^{-1/2} \sum_{t = 1}^n \ep_t = O_P(1)$. Hence, we have proved the first part of Lemma \ref{prop.covConsistent}.
+
+We next prove (\ref{prop.covConsistent.eqn2}). Note that by (\ref{prf.covConsistent.eqn10}) and Assumption \ref{a.linearRegular}, we have
+\be \la{phiConsistent}
+| \widehat{\phi}^{-1} - \phi^{-1}| = \sum_{i = 1}^l |  \widehat{\Pi}_i   - \Pi_i |  + \sum_{i = l+1}^\infty \Pi_i  \to_P 0,
+\ee
+as $n \to \infty$. Also by (\ref{prop.covConsistent.eqn1}), we have
+\be
+\E( \lambda_i e_i) = \widehat{\si}_{\ep,u} \to_P \si_{\ep,u}.
+\ee
+As $\{\lambda_t, e_t\}$ is a sequence of   standard bivariate normal variables, it is readily seen that
+\be
+\Big ( \frac{\widehat{\phi}\tilde{x}_t}{ \sqrt{T}}, \frac{1}{\sqrt{T}} \sum_{j = 1}^{[Tt]} e_j \Big ) = \Big ( \frac{\widehat{\phi}}{\sqrt{T}} \sum_{j = 1}^{[Tt]} \lambda_j, \frac{1}{\sqrt{T}} \sum_{j = 1}^{[Tt]} e_j \Big ) \Rightarrow  (\phi W(t), U(t) ),
+\ee
+on $D[0,1]^2$, where $(W(t), U(t))$ is bivariate Brownian Motion with covariance matrix
+\be
+\Delta = \begin{pmatrix}
+1 & \si_{u,\ep} \\
+\si_{u,\ep} & 1
+\end{pmatrix}.
+\ee
+The proof of Lemma \ref{prop.covConsistent} is now complete.
+\end{proof}
 
 % ------------------------------------------------------------------------
 

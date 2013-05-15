@@ -1,13 +1,22 @@
 \chapter{Local Time Process}
 
-This appendix gives the definition and some basic results on the local time of a Gaussian process. We first consider the local time of Brownian motion. The local time up to time $t$ at the point $x$ of a Brownian motion $\{B(t), t\ge 0\}$ can be expressed as the following limit:
+This appendix gives the definition and some basic results on the local time of a continuous Gaussian process. The local time up to time $t$ at the point $x$ of a continuous Gaussian process $\{G(t), t\ge 0\}$ can be expressed as the following limit:
 \begin{align}
-L_B(t,x) &= \lim_{\ep \to 0} \frac{1}{2\ep} \int_{0}^{t} 1_{(x-\ep, x+\ep)}[B(s)] ds \no\\
-&= \lim_{\ep \to 0} \frac{1}{2\ep} m\{ s \in [0,t] : B(s) \in (x - \ep, x+\ep) \},
+L_G(t,x) &= \lim_{\ep \to 0} \frac{1}{2\ep} \int_{0}^{t} 1_{(x-\ep, x+\ep)}[G(s)] ds \no\\
+&= \lim_{\ep \to 0} \frac{1}{2\ep} m\{ s \in [0,t] : G(s) \in (x - \ep, x+\ep) \},
 \end{align}
-where $m$ is the Lebesgue measure. Such limit can be interpreted as the time spent by the Brownian motion $B(s)$ at the spatial point $x$ over the time interval $[0, t]$.
+where $m$ is the Lebesgue measure. Such limit can be interpreted as the time spent by the process $G(s)$ at the spatial point $x$ over the time interval $[0, t]$.
 
-The following theorem is known as the occupation times formula and comes from Corollary 7.4 of \cite{chungwilliams1990}.
+The following theorem from Theorem 22.1 of \cite{gemanhorowitz1980} guarantees the existence of the limit.
+\begin{thm}
+Let $\si^2(t) = EG^2(t)$ for $0 \le t \le 1$. If $G(t)$ has stationary increment, $G(0) = 0$ and 
+\bestar
+\int_{0}^{1} \frac{1}{\si(t)} dt < \infty,
+\eestar
+then the local time $L_G(t, x)$ of the process $G(t)$ exists with probability one.
+\end{thm}
+
+The following theorem is known as the occupation times formula for a Brownian motion $B(t)$. It comes from Corollary 7.4 of \cite{chungwilliams1990}.
 \begin{thm}
 For any Borel measurable, locally integrable function $T$ on $\mathbb R$, we have for each fixed $t$,
 \bestar
@@ -16,7 +25,7 @@ For any Borel measurable, locally integrable function $T$ on $\mathbb R$, we hav
 with probability one.
 \end{thm}
 
-The following theorem gives the distribution of the local time variable. It comes from \cite{takacs1995}.
+The following theorem gives the distribution of the local time variable, when $B(t)$ is a standard Brownian motion. It comes from \cite{takacs1995}.
 \begin{thm} \la{thm:app2:localDist}
 Let $\Phi(x)$ be the standard normal distribution function, then
 \bestar
@@ -25,14 +34,6 @@ P( L_B(1, \al) \le x ) = 2 \Phi(|\al| + x) - 1.
 \end{thm}
 By Theorem \ref{thm:app2:localDist}, it immediately follows that $P(L(1, 0) = 0) = 0$ and $P(L(1, x) = 0) > 0$ for any fixed $x \ne 0$.
 
-The above properties of local time also hold for some general stochastic process. Let $\{\xi(t), t\ge 0\}$ be a measurable process. The following theorem is from Theorem 22.1 of \cite{gemanhorowitz1980}.
-\begin{thm}
-Let $\si^2(t) = E\xi^2(t)$ for $0 \le t \le 1$. If $\xi(t)$ has stationary increment, $\xi(0) = 0$ and 
-\bestar
-\int_{0}^{1} \frac{1}{\si(t)} dt < \infty,
-\eestar
-then the local time $L_\xi(t, x)$ of the process $\xi(t)$ exists with probability one.
-\end{thm}
 
 % ------------------------------------------------------------------------
 

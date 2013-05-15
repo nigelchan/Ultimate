@@ -16,30 +16,14 @@ There exists a stochastic process $G(t)$ having a continuous local time $L_{G}(t
 On a suitable probability space, there exists a stochastic process $G(t)$ having a continuous local time $L_G(t, s)$ such that $\sup_{0 \le t \le 1} | x_{[nt], n} - G(t) | = o_P(1)$.
 \end{assump_1}
 
-In the Assumption \ref{assump:A:density} below we shall make use of the notation: $ \Omega_n(\eta)=\big\{(l,k): \eta\, n\le k\le (1-\eta)\, n,\ k+\eta \, n\le l\le n \big\},$ where $0<\eta<1$.
-
 \begin{assump} \la{assump:A:density}
-For all $0\leq k<l\leq n,n\geq 1$, there exist a sequence of constants $d_{l,k,n}$ and a sequence of $\sigma$-fields ${\mathcal F}_{k,n}$ (define ${\mathcal F}_{0,n}=\sigma \{\phi ,\Omega \}$, the trivial $\sigma$-field) such that,
-
-(i) for some  $m_{0}>0$ and $C>0$, $\inf_{(l,k)\in \Omega _{n}(\eta)}d_{l,k,n}\geq \eta ^{m_{0}}/C$ as $n\rightarrow \infty $, 
-\begin{align}
-\lim_{\eta \rightarrow 0}\lim_{n\rightarrow \infty }\frac{1}{n} \,\sum_{k=(1-\eta )\,n}^{n}(d_{k,0,n})^{-1}&= 0,  \label{p9aa} \\
-\lim_{\eta \rightarrow 0}\lim_{n\rightarrow \infty }\frac{1}{n} \,\max_{0\leq k\leq (1-\eta )\,n}\,\sum_{l=k+1}^{k+\eta \,n}(d_{l,k,n})^{-1}&= 0,  \label{p9a} \\
-\lim \,\sup_{n\rightarrow \infty }\,\frac{1}{n}\max_{0\leq k\leq n-1}\sum_{l=k+1}^{n}\big(d_{l,k,n}\big)^{-1}&<\infty ;  \label{p9}
-\end{align}
-
-(ii) $x_{k,n}$\textit{\ are adapted to }${\mathcal F}_{k,n}$\textit{\
-and, conditional on }${\mathcal F}_{k,n}$\textit{,
-}$(x_{l,n}-x_{k,n})/d_{l,k,n}$\textit{\ has a density
-}$h_{l,k,n}(x)$\textit{\ satisfying that }$h_{l,k,n}(x)$\textit{\ is
-uniformly bounded by a constant }$K$\textit{\ and }
-\be
-\lim_{\de \to 0} \lim_{n \to \infty} \sup_{(l,k) \in \Omega_n[\de^{1/(2m_0)}} \sup_{|u| \le \de} | h_{l,k,n}(u) - h_{l,k,n}(0)| = 0.
+ For all $0\leq k<l\leq n,n\geq 1$, there exist a sequence of constants $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$ for some $0< d<1$ and a sequence of increasing $\sigma $-fields ${\mathcal F}_{k,n}$ (define ${\mathcal F}_{0,n}=\sigma \{\phi ,\Omega \}$\textit{, the trivial }$\sigma $-field such that $x_{k,n}$ are adapted to ${\mathcal F}_{k,n}$ and, conditional on ${\mathcal F}_{k,n}$, $(x_{l,n}-x_{k,n})/d_{l,k,n}$ has a density $h_{l,k,n}(x)$ satisfying that $h_{l,k,n}(x)$ is uniformly bounded by a constant $K$ and uniformly for $j-k$ sufficiently large
+ \be
+ \sup_y | h_{l,k,n}(y + u) - h_{l,k,n}(y)| \le C \min\{|u|, 1\}. \la {eqn:app3:77}
 \ee
 \end{assump}
 
-The following theorem comes from Theorem 2.2 of \cite{wangphillips2010a}.
-
+As Assumptions \ref{assump:A:density} implies Assumption 2.3 in \cite{wangphillips2010a}, the following theorem comes from Theorem 2.2 of \cite{wangphillips2010a}.
 
 \begin{thm}
 Suppose Assumptions \ref{assump:A:integrable}--\ref{assump:A:density} hold. Then, for any $c_n \to \infty$, $c_n / n \to 0$, and $r \in [0, 1]$,

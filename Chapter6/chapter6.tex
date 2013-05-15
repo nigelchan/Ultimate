@@ -17,7 +17,7 @@ Consider a typical nonlinear parametric cointegrating regression model has the f
 f(x_t, \theta_0)+\,  u_t, \quad t=1,...,n,\la {intro.eqn1}
 \ee
 where  $f:\mathbb{R} \times \mathbb{R}^m \rightarrow \mathbb{R}$ is a known nonlinear function,
-$x_t$ and  $u_t$ are regressor and regression errors, and   $\theta_0$ is an $m$-dimensional true parameter vector that lies in the parameter set $\Theta$. With the observed nonstationary data $\{y_t, x_t\}_{t=1}^n$, this paper is concerned with the nonlinear least squares (NLS) estimation of the unknown parameters $\theta\in \Theta$. In this regard, \cite{parkphillips2001} (PP henceforth) considered $x_t$ to be an integrated, $I(1)$, process. Based on PP framework, \cite{changparkphillips2001} introduced additional linear time trend term and stationary regressors into model (\ref{intro.eqn1}). \cite{changpark2003} extended to nonlinear index models driven by integrated processes.  More recently, \cite{choisaikkonen2010}, \cite{gaokinglutjostheim2009} and \cite{wangphillips2012} developed statistical tests  for the existence of a nonlinear cointegrating relation. \cite{changpark2010} allowed the regressors $x_t$ to be contemporaneously correlated with the regression errors $u_t$ and \cite{shiphillips2010} extended the model (\ref{intro.eqn1}) by incorporating a loading coefficient.
+$x_t$ and  $u_t$ are regressor and regression errors, and   $\theta_0$ is an $m$-dimensional true parameter vector that lies in the parameter set $\Theta$. With the observed nonstationary data $\{y_t, x_t\}_{t=1}^n$, this paper is concerned with the nonlinear least squares (NLS) estimation of the unknown parameters $\theta\in \Theta$. In this regard, \cite{parkphillips2001} (PP henceforth) considered $x_t$ to be an integrated, $I(1)$, process. Based on PP framework, \cite{changparkphillips2001} introduced additional linear time trend term and stationary regressors into model (\ref{intro.eqn1}). \cite{changpark2003} extended to nonlinear index models driven by integrated processes.  More recently, \cite{choisaikkonen2010}, \cite{gaomaxwelllutjostheim2009b} and \cite{wangphillips2012} developed statistical tests  for the existence of a nonlinear cointegrating relation. \cite{changpark2010} allowed the regressors $x_t$ to be contemporaneously correlated with the regression errors $u_t$ and \cite{shiphillips2010} extended the model (\ref{intro.eqn1}) by incorporating a loading coefficient.
 
 
 The present chapter has a similar goal to the previously mentioned papers but offers more general results, which have some advantages for empirical studies. First of all, we establish a general framework for  weak consistency of the NLS estimator $\hat{\theta}_n$, allowing for the $x_t$ to be  a  wider class of nonstationary time series.
@@ -185,7 +185,7 @@ if in addition Assumption \ref{assumpClose} and \ref{assumpMartingale} and the a
 
 
 Assumptions \ref{assumpClose} and \ref{assumpHomo} are quite general, including many commonly used regression functions. Typical examples include $f(x, \theta)=(x+\theta)^2,\ \theta e^{x}/(1 + e^x),\ \theta \log |x|,\ \theta |x|^\al$ ($\al$ is fixed) and $\theta_0+\theta_1 |x|+...+\theta_k|x|^k$.
-The class of functions satisfying Assumptions \ref{assumpClose} and \ref{assumpHomo} are similar to, but wider than the  $H_0$-regular functions on $\Theta$ imposed in Theorem 4.2 of PP. For instance,   Assumptions \ref{assumpClose} and \ref{assumpHomo} (hence Theorem 2.4) are applicable for   the function $f(x, \theta)=(x+\theta)^2$  [with $T(x)= T_1(x)=|x|$, $v(\lam)=\lam$ and $g(x, \theta, \theta_0)=2(\theta-\theta_0)\, x$], but Theorem 4.2 of PP is not  directly applicable for this function. See, e.g., Example 4.1 (c) of PP. We also mention that our condition on the regressor $x_t$ is much general than that of PP, as we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process. This kind of weak convergence condition is very likely close to be necessary.
+The class of functions satisfying Assumptions \ref{assumpClose} and \ref{assumpHomo} are similar to, but wider than the  $H_0$-regular functions on $\Theta$ imposed in Theorem 4.2 of PP. For instance,   Assumptions \ref{assumpClose} and \ref{assumpHomo} (hence Theorem \ref{thmHomoConsistency}) are applicable for   the function $f(x, \theta)=(x+\theta)^2$  [with $T(x)= T_1(x)=|x|$, $v(\lam)=\lam$ and $g(x, \theta, \theta_0)=2(\theta-\theta_0)\, x$], but Theorem 4.2 of PP is not  directly applicable for this function. See, e.g., Example 4.1 (c) of PP. We also mention that our condition on the regressor $x_t$ is much general than that of PP, as we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process. This kind of weak convergence condition is very likely close to be necessary.
 
 \medskip
 We next consider  a class of asymptotically homogeneous functions. In this regard, we follow PP. Let $f:\mathbb{R} \times \Theta \rightarrow \mathbb{R} $ have the structure:
@@ -305,18 +305,6 @@ W(t), & \mbox{under {\bf C2}.}
 \end{cases}
 \ee
 \end{thm}
-Here and below, $W_{\beta}(t)$ denotes the fractional Brownian motion with $0<\beta<1$ on
-$D[0,1]$, defined as follows:
-\begin{eqnarray*}
-W_{\beta}(t)=\frac 1{A(\beta)} \big [ \int_{-\infty}^0\Big[(t-s)^{%
-\beta-1/2}-(-s)^{\beta-1/2}\Big]dW(s)+
-\int_{0}^t(t-s)^{\beta-1/2}dW(s) \big ],
-\end{eqnarray*}
-where $W(s)$ is a standard Brownian motion and
-\begin{equation*}
-A(\beta)=\Big (\frac 1{2\beta}+\int_{0}^{\infty}\Big[(1+s)^{\beta-1/2}-s^{%
-\beta-1/2}\Big]^2ds\Big)^{1/2}.
-\end{equation*}
 
 \begin{rem}
 Theorem \ref{thmIntegrablelimit} improves Theorem 5.1 of PP by allowing $x_t$ to be a long memory process, which includes fractional integrated processes as an example.
@@ -463,7 +451,7 @@ Using a nonparametric approach, \cite{wangphillips2009} considered kernel estima
 
 \subsection{Asymptotics: integrable functions} \la{sec:6:endoIntegrable}
 
-We first consider the situation that $f$ satisfies Assumption 2.1 with $T$
+We first consider the situation that $f$ satisfies Assumption \ref{assumpClose} with $T$
 being integrable.  Let $\eta_i\equiv (\ep_i, \nu_i)$, $i\in Z$ be a sequence of i.i.d. random vectors satisfying $E\eta_0=0$ and $E\|\eta_0\|^{2q}<\infty$,
  where $q \ge 1$. Let the characteristic function $\varphi(t)$ of $\ep_0$ satisfy $\int_{-\infty}^{\infty} | \varphi(t)|^2 dt < \infty$ and $\int_{-\infty}^{\infty} |t|^3 |\varphi(t)|^m dt < \infty$ for some $m > 0$. As noticed in Remark 4 of \cite{jaganathan2008}, the conditions on the characteristics function $\varphi(t)$ are not very restrictive.
 
@@ -481,7 +469,7 @@ being integrable.  Let $\eta_i\equiv (\ep_i, \nu_i)$, $i\in Z$ be a sequence of 
 As we do not impose the independence between $\ep_k$ and $\nu_k$, Assumption \ref {4.1} provides the endogeneity in the model (\ref {intro.eqn1}), and it is much general than the conditions set given in \cite{changpark2010}.
 We have the following result.
 
-\begin{thm} \la {endo11} Suppose Assumptions 2.1 and \ref{4.1} hold. Further assume:
+\begin{thm} \la {endo11} Suppose Assumptions \ref{assumpClose} and \ref{4.1} hold. Further assume:
 \begin{enumerate}[label=(\roman{*}), leftmargin=*] \itemsep0pt \parskip0pt \parsep0pt
 \item $T$ is bounded and integrable, and
 \item $\int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 ds>0$ for all $\theta\not=\theta_0$.
@@ -496,13 +484,13 @@ Then the NLS estimator $\hat{\theta}_n$ defined by (\ref {sad2}) is a consistent
 \be\la{thmInfLaglimit.eqn2}
 \Lambda &= (2\pi)^{-1}\int\widehat{\dot{f}}(\mu)\widehat{\dot{f}}(\mu)' [ Eu_0^2 + 2 \sum_{r = 1}^{\infty}E(u_0u_r e^{-i\mu x_r})]\,d\mu,
 \ee
-and other notations are given as in Theorem 3.1.
+and other notations are given as in Theorem \ref{th3.1}.
 \end{thm}
 
 
 \subsection{Asymptotics: beyond integrable functions} \la{sec:6:endoNonIntegrable}
 
-This section considers the situation that $f$ satisfies Assumption 2.1 with $T$ being non-integrable. Let again $\eta_i\equiv (\ep_i, \nu_i), i\in Z $ be a sequence of i.i.d. random vectors satisfying $E\eta_0=0$ and $E\|\eta_0\|^{2q}<\infty$, where $q > 2$, and we make use of the following assumption in related to the model (\ref {intro.eqn1}).
+This section considers the situation that $f$ satisfies Assumption \ref{assumpClose} with $T$ being non-integrable. Let again $\eta_i\equiv (\ep_i, \nu_i), i\in Z $ be a sequence of i.i.d. random vectors satisfying $E\eta_0=0$ and $E\|\eta_0\|^{2q}<\infty$, where $q > 2$, and we make use of the following assumption in related to the model (\ref {intro.eqn1}).
 
 
 
@@ -606,7 +594,7 @@ where $\si_{\xi u} = \sum_{j = 0}^{\infty} E(\ep_0 u_j)$ and
 
 In our simulations, we draw samples of sizes $n = 200, 500$ to estimate the NLS estimators and their $t$-ratios. Each simulation is run for 10,000 times, and their densities are estimated using kernel method with normal kernel function. Our results are presented in 16 tables. Table \ref{If_num}--\ref{Hf_num} present the numerical values of the means and standard errors of the NLS estimators, $\hat{\theta}_n$ and $(\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$, as well as those of the error variance estimates $\hat{\si}^2_n$. Table \ref{theta_unscaled}--\ref{beta2_unscaled} are the estimated densities of the centered distributions of the estimators. Table \ref{theta_scaled}--\ref{beta2_scaled} are the estimated densities of the centered distributions scaled by their respective convergence rates, that is, $n^{1/4}$ and $(n^{1/2}, n, n^{3/2})$. Table \ref{theta_t}--\ref{beta2_t} are the $t$-ratios. In all tables, the left columns are simulation results based on 200 samples, while the right columns are based on 500 samples. We expect that as $\rho$ increases, the degree of endogeneity increases, and hence the variance of the distribution will increase due to (\ref{thmInfLaglimit.eqn1}) and (\ref{thmInfLagHomo.eqn1}). We also expect that the more serial correlation of $u_t$, the higher the variance of the limit distribution  due to the cross terms appeared in (\ref{thmInfLaglimit.eqn2}) and (\ref{thmInfLagHomo.eqn1}).
 
-Our simulation results largely corroborate with our theoretical results in Section 4. Firstly, the means of the estimators are close to the true values, and the deviations from true values decrease as the sample sizes increase. Also, the reductions of standard errors from $n = 200$ to 500 are close to the theoretical values. For example, the ratio of standard errors for $\hat{\al}_n$ between the sample size $200$ and $500$ is 1.564 in scenario {\bf S1}, which is close to theoretical value $\sqrt{\frac{500}{200}} = 1.581$. This confirms that our estimators are accurate in all scenarios. Secondly, comparing the {\bf S1}--{\bf S3} curves in each plot, we can see that the {\bf S3} curves have fat tails and lower peak than those of {\bf S1}--{\bf S2}. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Thirdly, comparing the shapes of the curves for different values of $\rho$, the curves with $\rho = 0$ have highest peaks, and the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase.
+Our simulation results largely corroborate with our theoretical results in Section \ref{sec:6:endo}. Firstly, the means of the estimators are close to the true values, and the deviations from true values decrease as the sample sizes increase. Also, the reductions of standard errors from $n = 200$ to 500 are close to the theoretical values. For example, the ratio of standard errors for $\hat{\al}_n$ between the sample size $200$ and $500$ is 1.564 in scenario {\bf S1}, which is close to theoretical value $\sqrt{\frac{500}{200}} = 1.581$. This confirms that our estimators are accurate in all scenarios. Secondly, comparing the {\bf S1}--{\bf S3} curves in each plot, we can see that the {\bf S3} curves have fat tails and lower peak than those of {\bf S1}--{\bf S2}. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Thirdly, comparing the shapes of the curves for different values of $\rho$, the curves with $\rho = 0$ have highest peaks, and the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase.
 
 Finally, the sampling results for $t$-ratios are also much expected from our limit theories. In particular, we have interesting results for the $t$-ratios of $\hat{\beta}_{1n}$ in Table \ref{beta1_t}. In scenario {\bf S1}, there is no endogeneity and the limiting $t$-ratios overlap with the normal curve. However, as we introduce endogeneity to the model in scenarios {\bf S2} and {\bf S3}, the $t$-ratios is shifted away from the standard normal. Such behavior can be explained by looking at the limit distribution of $\hat{\beta}_{1n}$ in (\ref{sim.eqn1}). When $\rho \ne 0$, there exists an extra term of $ \Sigma^{-1} \si_{\xi u}$, and such term will introduce bias to the limit distribution.
 
@@ -738,12 +726,12 @@ satisfying $\int_{-\infty}^{\infty} |g_i(x)| dx < \infty$ and $\int_{-\infty}^{\
 \end{lem}
 
 \begin{proof} For (\ref {tya}),  see Lemma 3.2 of \cite{wangphillips2009}.
-Theorem 2.2 of \cite{wang2011} provides  (\ref {lemJoint.eqn1}) with $g_2(x)=g_1^2(x)$. It is not difficult to see that (\ref {lemJoint.eqn1}) still holds for general $g_2(x)$. We omit the details.
+Theorem 2.2 of \cite{wang2013} provides  (\ref {lemJoint.eqn1}) with $g_2(x)=g_1^2(x)$. It is not difficult to see that (\ref {lemJoint.eqn1}) still holds for general $g_2(x)$. We omit the details.
 \end{proof}
 
 
 
-\begin{lem} \la{lemMarkov} Let Assumption \ref {ad1}*(i) hold. For any $g$ such that $\int_{-\infty}^{\infty} |g(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g(x) \pi(dx) \ne 0$, we have
+\begin{lem} \la{lemMarkov} Let Assumption \ref {ad1}* (i) hold. For any $g$ such that $\int_{-\infty}^{\infty} |g(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g(x) \pi(dx) \ne 0$, we have
 \be
 \sum_{t = 1}^n g(x_t) &=& O_P[a(n)], \quad
 \big [\sum_{t = 1}^n g(x_t)\big ]^{-1} = O_P[a(n)^{-1}]. \la {ty}
@@ -853,7 +841,7 @@ We omit the details.
 \end{proof}
 
 \begin{lem} \la{lemC}
-Under Assumptions \ref{ad1}(i) and  \ref {ad2},   we have
+Under Assumptions \ref{ad1} (i) and  \ref {ad2},   we have
 \be \la{lemC.eqn1}
 \frac {d_n}n\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}
 \sum_{t = 1}^n \big|\dot f_i(x_t, \theta)\,\dot f_j(x_t, \theta) - \dot f_i(x_t, \theta_0)\,\dot f_j(x_t, \theta_0)\big|  &\to_P& 0, \\
@@ -916,7 +904,7 @@ This implies that
 \bestar
 \frac 1n\sum_{t = 1}^n\big[ |\dot h_i(x_t/d_n)|+ T_{1\dot f_i}(x_t/d_n) \big]\to_D \int_0^1\big[ |\dot h_i(G(t))|+ T_{1\dot f_i}(G(t))\big] dt=O_P(1),
 \eestar
-due to Assumptions \ref{assumpLimitHomo1} (iii) and 3.4 (iii).
+due to Assumptions \ref{assumpLimitHomo1} (iii) and \ref{assumpLimitHomo2} (iii).
 
 The proof of (\ref {lemC.eqn2a}) is similar and hence the details are omitted. As for (\ref {lemC.eqn3a}), by noting
 \bestar
@@ -1014,8 +1002,8 @@ Recalling $T(\lam x)\le v(\lam)\, T_1(x)$,  we have
 &\to_D&\int_0^1[T_1(G(t))+T_1^2(G(t))]dt, \la {101}
 \ee
 where the convergence in distribution comes from \cite{berkeshorvath2006}.
-This proves (4) with $\kappa_n = \sqrt{n}v(d_n) $ due to the local integrability of $T_1+T_1^2$.
-To prove (5), by letting $G(\lambda, x) := f(\lambda x, \theta) - f(\lambda x, \theta_0) - v(\lambda) g(x,\theta, \theta_0)$, we have
+This proves (\ref{20}) with $\kappa_n = \sqrt{n}v(d_n) $ due to the local integrability of $T_1+T_1^2$.
+To prove (\ref{21}), by letting $G(\lambda, x) := f(\lambda x, \theta) - f(\lambda x, \theta_0) - v(\lambda) g(x,\theta, \theta_0)$, we have
 \begin{align}
 &\frac{1}{nv^2(d_n)} \sum_{t = 1}^n ( f(x_t, \theta) - f(x_t, \theta_0))^2  \no\\
 &=\frac{1}{nv^2(d_n)} \sum_{t = 1}^n \Big [G\Big (d_n, \frac{x_t}{d_n} \Big ) + v(d_n) g\Big(\frac{x_t}{d_n},\theta, \theta_0\Big)\Big]^2  \no\\
@@ -1059,11 +1047,10 @@ P \Big (\inf_{\theta \in \Theta_0}M_n^*(\theta, \theta_0)\Big [1  - \frac{2\sqrt
 \ee
 where $M_n^*(\theta, \theta_0)= \frac{1}{n} \sum_{t = 1}^n (f(x_t^*, \theta) - f(x_t^*, \theta_0))^2$.
 
-Recalling $x_{[nt]}/d_n \to_D G(t)$ on $D[0,1]$ and
+Recalling $x_{[nt]}/d_n \Rightarrow G(t)$ on $D[0,1]$ and
  $G(t)$ is a continuous
 Gaussian process, by the so-called
-Skorohod-Dudley-Wichura representation theorem (e.g., Shorack and
-Wellner, 1986, p. 49, Remark 2), we can choose   an
+Skorohod-Dudley-Wichura representation theorem (e.g., \cite{shorackwellner1986}, p. 49, Remark 2), we can choose   an
 equivalent process $x_{k}^*$ of $x_k$  so that
 \be
 \sup_{0\le t\le 1}|x_{[nt]}^*/d_n-G(t)| &=&o_P(1). \la {a17}
@@ -1188,7 +1175,7 @@ under Assumptions \ref {4.1}.
 
 The proofs for (i) and (ii) are exactly the same as those of Theorem \ref{thmIntegrablelimit}. Using similar arguments as in the proof of (\ref {prfIntegrablelimit.eqn5}), (iv)'  follow from Lemma \ref{lemLagJoint}.
 
-Finally, note that (\ref {prf11.eqn1}) and (\ref {prf11.eqn2}) still hold if we replace $f(x, \theta)$ by  $\ddot{f}_{ij}(x, \theta)$ due to Assumption 3.2. By choosing $k_n \to \infty$ in the same way as in the proof of Theorem \ref{thmIntegrablelimit}, we have, for any $1 \le i,j \le m$,
+Finally, note that (\ref {prf11.eqn1}) and (\ref {prf11.eqn2}) still hold if we replace $f(x, \theta)$ by  $\ddot{f}_{ij}(x, \theta)$ due to Assumption \ref{ad2}. By choosing $k_n \to \infty$ in the same way as in the proof of Theorem \ref{thmIntegrablelimit}, we have, for any $1 \le i,j \le m$,
 \begin{align}
  &\sup_{\theta:\parallel D_n(\theta-\theta_0)\parallel\le k_n} \Big |\frac{d_n}{n}  \sum_{t = 1}^n \ddot{f}_{ij}(x_t, \theta) u_t \Big | \no\\
  &\le\sup_{\theta:\parallel D_n(\theta-\theta_0)\parallel\le k_n}  \Big | \frac{d_n}{n}  \sum_{t = 1}^n [\ddot{f}_{ij}(x_t, \theta) - \ddot{f}_{ij}(x_t, \theta_0)]\, u_t \Big |  + \Big | \frac{d_n}{n}  \sum_{t = 1}^n  \ddot{f}_{ij}(x_t, \theta_0) u_t\Big |\no\\

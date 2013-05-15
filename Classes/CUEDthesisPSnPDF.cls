@@ -40,7 +40,7 @@
 \usepackage[centertags]{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-%\usepackage{graphicx}
+\usepackage[pdftex]{graphicx}
 \usepackage{fancyhdr}
 \usepackage{eucal}
 \usepackage[english]{babel}
@@ -53,6 +53,7 @@
 \usepackage[title,titletoc]{appendix}% http://ctan.org/pkg/appendix
 \renewcommand{\appendixname}{APPENDIX}
 \usepackage{titlesec}
+\usepackage{rotating}
 
 %Bibliography
 %uncomment next line to change bibliography name to references for Book document class
@@ -107,7 +108,7 @@
                  hyperindex = true,
                  hyperfigures
                  ]{hyperref} 
-    \usepackage[pdftex]{graphicx}
+    %\usepackage[pdftex]{graphicx}
     \DeclareGraphicsExtensions{.png, .jpg, .pdf}
 
     \pdfcompresslevel=9

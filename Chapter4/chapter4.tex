@@ -23,7 +23,7 @@ non-parametric estimation for certain non-stationary processes in the
 framework of recurrent Markov chains. \cite{karlsenmyklebusttjostheim2007}
 developed an asymptotic theory for non-parametric estimation of a
 time series regression equation involving stochastically
-non-stationary time series. More recently,  \citet[][\citeyear{wangphillips2010a}, \citeyear{wangphillips2010b}]{wangphillips2009} and \cite{cailipark2009} considered an alternative treatment by making use of local
+non-stationary time series. More recently,  \citet[][\citeyear{wangphillips2009}, \citeyear{wangphillips2010b}]{wangphillips2010a} and \cite{cailipark2009} considered an alternative treatment by making use of local
 time limit theory. Instead of recurrent Markov chains, they considered the case when
 $x_t$ is a partial sum representation of general linear processes. \cite{kasparisphillips2012} investigated dynamic misspecification in the nonlinear cointegration model. \cite{choisaikkonen2010} proposed a test for nonlinear cointegration relationship. For other related works, we refer to \citet[][\citeyear{parkphillips2001}]{parkphillips1999}, \cite{bandi2004}, \citet[][\citeyear{gaomaxwelllutjostheim2009b}]{gaomaxwelllutjostheim2009a}, \cite{choisaikkonen2004},  \cite{marmer2008}, \cite{chengaoli2009}, \cite{wangphillips2012}, and \cite{wang2013}.
 
@@ -87,7 +87,7 @@ of functionals. Typical examples  include that $f(x)=\theta_1+\theta_2x+...+\the
  $f(x)=(\al+\beta\, e^{x})/(1+e^x)$.
 
 
-\subsection{Harris Recurrent Markov Chain}
+\subsection{Harris recurrent Markov chain}
 
 This section considers an application of Theorem \ref{thm:1:th1} to the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}(x)$ when the regressor is a Harris recurrent Markov chain. Let $\{x_k\}_{k\ge 0}$ is a $\beta$-regular Harris recurrent Markov chain defined as in Section \ref{sec:1:markov}, where the invariant measure $\pi$ has a bounded  density function $p(s)$ on $R$; We have the following asymptotic result.
 
@@ -123,7 +123,7 @@ O_{P}\left\{\big(\sqrt{n}h\big)^{-1/2}\,\log^{1/2}n
 where $b_n'\le \tau_n\sqrt n$ for any $0<\tau_n\to 0$ and $\delta_n=\sup_{|x|\le b_n'}\lambda(x)$.
 \end{cor}
 
-\subsection{Partial Sum of General Linear Processes}
+\subsection{Partial sum of general linear processes}
 
 This section considers an application of Theorem \ref{th11} (Corollary \ref{cor:3:cor2}) to the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}(x)$ when the regressor is a partial sum of general linear processes. Let $x_t=\sum_{j=1}^t\xi_j$, where $\xi_j$ is defined as in (\ref {eqn:3:f1}) with $\phi_k$ satisfying {\bf C1} or {\bf C2}. We have the following uniform asymptotic result.
 
@@ -145,11 +145,11 @@ When $f(x)$ has a light tail such as $f(x)=(\al+\beta\, e^{x})/(1+e^x)$, $\delta
 
 \begin{rem} \la{rmk:4:convergence} The convergence rates in (\ref {eqn:4:q1}) (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are sharp and are probably optimal. In the  situation where $x_t$ is stationary regressor, the sharp rate of convergence is $O_P[(nh)^{-1/2} \log^{1/2}n]$ (see, e.g., \cite{hansen2008}). The reason behind the difference is due to the fact that, the integrated series wanders over the entire real line but spends only $O(n/d_n)$ amount of sample time around any specific point ($O[a(n)]$ for Markov chain), while stationary time series spends $O(n)$. More explanation can be found in Remark 3.3 of \cite{wangphillips2010a}.
 
-However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\widehat f(x)$. For instance, as in \citet[][\citeyear{wangphillips2010a}]{wangphillips2009} with minor modification, we may show that, for each  $x$, \be \widehat f(x)-f(x) &=& O_{P}
+However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\widehat f(x)$. For instance, as in \citet[][\citeyear{wangphillips2009}]{wangphillips2010a} with minor modification, we may show that, for each  $x$, \be \widehat f(x)-f(x) &=& O_{P}
 \left\{(nh^2)^{-1/4}+h^{\alpha}\right\},\ee
 whenever  $x_t$ is a random walk defined as in Corollary \ref {cor:4:randomWalk}.
 Furthermore $\widehat f(x)$ has an asymptotic distribution that is
-mixing normal, under minor additional conditions. More details are  referred to \citet[][\citeyear{wangphillips2010a}]{wangphillips2009}. 
+mixing normal, under minor additional conditions. More details are  referred to \citet[][\citeyear{wangphillips2009}]{wangphillips2010a}. 
 \end{rem}
 
 \begin{rem} \cite{wangphillips2010b} established a similar result to (\ref {eqn:4:q1a}) with the $x_t$ being a partial sum of linear process, but only for the $x$ being a compact support and imposing  a bounded condition on $u_t$. The setting on the $x_t$ in this chapter is similar to that given in \cite{gaolitjostheim2011}, but our result provides the optimal range for the uniform convergence holding true and removes  the independence between the error $u_t$ and $x_t$ required by \cite{gaolitjostheim2011}.
@@ -289,7 +289,7 @@ for $j = 0$ and $ 2$. It follows from these facts  that
 \begin{align}
 \Big\{h\inf_{|x| \le B_n} | V^{-1}_{n, 2}(x) \sum_{i = 1}^n w_i(x) |\Big\}^{-1} &\le \Big\{h \inf_{|x| \le B_n}  \big |V_{n, 0}(x) - \frac{V_{n, 1}(x)^2}{V_{n,2}(x)} \big | \Big\}^{-1} \no\\
 &= \Big\{ h \inf_{|x| \le B_n}  |V_{n, 0}(x)| - o_P(nh/d_n) \Big\}^{-1} \no\\
-&= O_P (d_n/nh).\la{prf.th4.eqn3}
+&= O_P (d_n/nh),\la{prf.th4.eqn3}
 \end{align}
 and
 \begin{align}
