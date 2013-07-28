@@ -65,7 +65,7 @@
 \usepackage{nomentbl}
 \makenomenclature
 \renewcommand{\nomname}{List of Symbols}
-\renewcommand{\nompreamble}{The following notation will be used in this thesis without further explanations.}
+\renewcommand{\nompreamble}{The following notations will be used in this thesis without further explanations.}
 \renewcommand\nomgroup[1]{}%
 \setlength{\LTleft}{0pt}
 \setlength{\nomitemsep}{-\parsep}
@@ -101,9 +101,9 @@
                  linktocpage,
                  %pagebackref,
                  colorlinks = true,
-                 linkcolor = blue,
-                 urlcolor  = blue,
-                 citecolor = magenta,
+                 linkcolor = black,
+                 urlcolor  = black,
+                 citecolor = black,
                  anchorcolor = red,
                  hyperindex = true,
                  hyperfigures

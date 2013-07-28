@@ -7,32 +7,32 @@
     \graphicspath{{Chapter6/Chapter6Figs/EPS/}{Chapter6/Chapter6Figs/}}
 \fi
 
- In this chapter we extend from nonparametric estimation methods to parametric approch. We develop asymptotic theory for a nonlinear parametric cointegrating regression model. We establish a general framework for  weak consistency that is easy to apply for various nonstationary time series, including partial sum of linear processes and  Harris recurrent Markov chains. We provide  limit distributions for  nonlinear least squares  estimators,    extending the previous work.  We also introduce endogeneity to the model by allowing the error to be serially dependent and cross correlated with the regressors.
+ In this chapter we extend from nonparametric estimation methods to parametric approach. We develop asymptotic theory for a nonlinear parametric cointegrating regression model. We establish a general framework for  weak consistency that is easy to apply to various nonstationary time series, including partial sum of linear processes and  Harris recurrent Markov chains. We provide  limit distributions for  nonlinear least squares  estimators,    extending the previous work.  We also introduce endogeneity to the model by allowing the error to be serially dependent and cross correlated with the regressors.
 
 
 
 \section{Introduction} \la{sec:6:intro}
-Consider a typical nonlinear parametric cointegrating regression model has the form
+Consider a typical nonlinear parametric cointegrating regression model having the form
  \be y_t&=&
 f(x_t, \theta_0)+\,  u_t, \quad t=1,...,n,\la {intro.eqn1}
 \ee
 where  $f:\mathbb{R} \times \mathbb{R}^m \rightarrow \mathbb{R}$ is a known nonlinear function,
-$x_t$ and  $u_t$ are regressor and regression errors, and   $\theta_0$ is an $m$-dimensional true parameter vector that lies in the parameter set $\Theta$. With the observed nonstationary data $\{y_t, x_t\}_{t=1}^n$, this paper is concerned with the nonlinear least squares (NLS) estimation of the unknown parameters $\theta\in \Theta$. In this regard, \cite{parkphillips2001} (PP henceforth) considered $x_t$ to be an integrated, $I(1)$, process. Based on PP framework, \cite{changparkphillips2001} introduced additional linear time trend term and stationary regressors into model (\ref{intro.eqn1}). \cite{changpark2003} extended to nonlinear index models driven by integrated processes.  More recently, \cite{choisaikkonen2010}, \cite{gaomaxwelllutjostheim2009b} and \cite{wangphillips2012} developed statistical tests  for the existence of a nonlinear cointegrating relation. \cite{changpark2010} allowed the regressors $x_t$ to be contemporaneously correlated with the regression errors $u_t$ and \cite{shiphillips2010} extended the model (\ref{intro.eqn1}) by incorporating a loading coefficient.
+$x_t$ and  $u_t$ are regressor and regression errors, and   $\theta_0$ is an $m$-dimensional true parameter vector that lies in the parameter set $\Theta$. With the observed nonstationary data $\{y_t, x_t\}_{t=1}^n$, this chapter is concerned with the nonlinear least squares (NLS) estimation of the unknown parameter $\theta_0 \in \Theta$. In this regard, \cite{parkphillips2001} (PP henceforth) considered $x_t$ to be an integrated, $I(1)$, process. Based on PP framework, \cite{changparkphillips2001} introduced additional linear time trend term and stationary regressors into model (\ref{intro.eqn1}). \cite{changpark2003} extended to nonlinear index models driven by integrated processes.  More recently, \cite{choisaikkonen2010}, \cite{gaomaxwelllutjostheim2009b} and \cite{wangphillips2012} developed statistical tests  for the existence of a nonlinear cointegrating relation. \cite{changpark2010} allowed the regressors $x_t$ to be contemporaneously correlated with the regression errors $u_t$ and \cite{shiphillips2010} extended the model (\ref{intro.eqn1}) by incorporating a loading coefficient.
 
 
-The present chapter has a similar goal to the previously mentioned papers but offers more general results, which have some advantages for empirical studies. First of all, we establish a general framework for  weak consistency of the NLS estimator $\hat{\theta}_n$, allowing for the $x_t$ to be  a  wider class of nonstationary time series.
- The set of sufficient conditions are easy to apply to various nonstationary regressors, including partial sum of linear processes and recurrent Markov chains. Furthermore, we  provide limit distributions for the NLS estimator $\hat{\theta}_n$. It  deserves to mention that  the routine employed in this chapter to establish the limit distributions of $\hat\theta_n$ is different from those used in the previous works, e.g. PP. Roughly speaking, our routine is related to joint distributional convergence of a martingale under target and its conditional variance, rather than using classical martingale limit theorem which requires establishing the convergence in probability for the conditional variance.  In nonlinear cointegrating regressions, there are   some advantages for our methodology  since it is usually difficult to establish the convergence in probability for the conditional variance, in particular, in the situation that the regressor $x_t$ is a nonstationary time series.
-Second, in addition to the commonly used martingale innovation structure, our model allows for serial dependence in the equilibrium errors $u_t$ and the innovations driving $x_t$. It is important as our model  permits joint determination of $x_t$ and $y_t$, and hence the system is a time series structural model. Under such situation, the weak consistency and limit distributions of the NLS estimator $\hat{\theta}_n$ are also established.
+The present chapter has a similar goal to the previously mentioned papers but offers more general results, which have some advantages for empirical studies. First of all, we establish a general framework for  weak consistency of the NLS estimator $\hat{\theta}_n$, allowing for $x_t$ to be  a  wider class of nonstationary time series.
+ The set of sufficient conditions are easy to be applied to various nonstationary regressors, including partial sum of linear processes and recurrent Markov chains. Furthermore, we  provide limit distributions for the NLS estimator $\hat{\theta}_n$. It  should be mentioned that  the routine employed in this chapter to establish the limit distributions of $\hat\theta_n$ is different from those used in the previous works, e.g. PP. Roughly speaking, our routine is related to joint distributional convergence of a martingale under target and its conditional variance, rather than using classical martingale limit theorem which requires establishing the convergence in probability for the conditional variance.  In nonlinear cointegrating regression, there are   some advantages for our methodology  since it is usually difficult to establish the convergence in probability for the conditional variance, in particular, in the situation that the regressor $x_t$ is a nonstationary time series.
+Furthermore, in addition to the commonly used martingale innovation structure, our model allows for serial dependence in the equilibrium errors $u_t$ and the innovations driving $x_t$. It is important as our model  permits joint determination of $x_t$ and $y_t$, and hence the system is a time series structural model. Under such situation, the weak consistency and limit distributions of the NLS estimator $\hat{\theta}_n$ are also established.
 
-This chapter is organized as follow. Section \ref{sec:6:weakConsistency} presents our main results on weak consistency of the NLS estimator $\hat \theta_n$. Theorem \ref{thmConsistency} provides a general framework.  Its applications to integrable and non-integrable $f$  are given in Theorems \ref{thmLinearConsistency}--\ref{thmHomoConsistent1}, respectively.  \ref{sec:6:limitDistribution} investigates the limit distributions of $\hat \theta_n$ in which the model (\ref {intro.eqn1}) has a martingale structure. Extension to endogeneity is presented in Section \ref{sec:6:endo}. As mentioned above, 
-our routine establishing the limit distribution of $\hat \theta_n$ is different from previous works. Section \ref{sec:6:simulation} performs simulation,  reporting and discussing the numerical values of means and standard errors which provide the evidence of accuracies of our NLS estimator. Section \ref{sec:6:example} presents  an empirical example,  providing a link between our theory and real applications. The model of interest is the carbon Kuznets curve relating the per capita CO$_2$ emissions and per capita GDP. Endogeneity occurs in this example due to potential misreporting of GDP, omitted variable bias and reverse causality. Section \ref{sec:6:conclusion} concludes the paper. Technical proofs are postponed to Section \ref{sec:6:proof}.
+This chapter is organized as follow. Section \ref{sec:6:weakConsistency} presents our main results on weak consistency of the NLS estimator $\hat \theta_n$. Theorem \ref{thmConsistency} provides a general framework.  Its applications to integrable and non-integrable $f$  are given in Theorems \ref{thmLinearConsistency}--\ref{thmHomoConsistent1}, respectively.  Section \ref{sec:6:limitDistribution} investigates the limit distributions of $\hat \theta_n$ under the setting that the model (\ref {intro.eqn1}) has a martingale structure. Extension to endogeneity is presented in Section \ref{sec:6:endo}. As mentioned above, 
+our routine establishing the limit distribution of $\hat \theta_n$ is different from previous works. Section \ref{sec:6:simulation} performs simulation,  reporting and discussing the numerical values of means and standard errors which provide the evidence of accuracies of our NLS estimator. Section \ref{sec:6:example} presents  an empirical example,  providing a link between our theory and real applications. The model of interest is the carbon Kuznets curve relating the per capita CO$_2$ emissions and per capita GDP. Endogeneity occurs in this example due to potential misreporting of GDP, omitted variable bias and reverse causality. Section \ref{sec:6:conclusion} concludes the chapter. Technical proofs are postponed to Section \ref{sec:6:proof}.
 
 Throughout the chapter, we denote constants by $C, C_1, C_2,...$ which may be different at each appearance. For a vector $x=(x_1,...,x_m)$, assume that $\|x\|=(x_1^2+...+x_m^2)^{1/2}$, and for a matrix $A$, the norm operator $\|\cdot\|$ is defined by $\|A\| =\sup_{x: \|x\| = 1} \|xA\|$. Furthermore,  the parameter set $\Theta \subset \mathbb {R}^m$ is assumed to be compact and convex, and the true parameter vector $\theta_0$ is an interior point of $\Theta$.
 
 
 \section {Weak consistency} \la{sec:6:weakConsistency}
 
-This section considers the estimation of the unknown parameters $\theta$ in model (\ref {intro.eqn1}) by NLS.
+This section considers the estimation of the unknown parameter $\theta_0$ in model (\ref {intro.eqn1}) by NLS.
 Let $Q_n(\theta) = \sum_{t = 1}^n ( y_t - f(x_t, \theta))^2$. The NLS estimator $\hat\theta_n$ of $\theta$
 is defined to be the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$, that is,
 \be
@@ -40,7 +40,7 @@ is defined to be the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$, that i
 \ee
 and the error estimator is defined by $\hat{\si}_n^2 = n^{-1} \sum_{t = 1}^n \hat{u}_t^2$, where $\hat{u}_t = y_t - f(x_t, \hat{\theta}_n)$. To investigate the weak consistency for the NLS estimator $\hat\theta_n$,
 this section assumes the  regression model (\ref {intro.eqn1}) to have a martingale structure.
-In this situation, our sufficient conditions are  closely related  to those of \cite{wu1981}, \cite{lai1994} and \cite{skouras2000}, and they intend  to provide a general framework. In comparison to the papers mentioned, our assumptions are easy to apply, particularly in nonlinear cointegrating regression situation as stated in the two examples below. Extension to endogeneity between $x_t$ and $u_t$ is investigated in Section \ref{sec:6:endo}.
+In this situation, our sufficient conditions are  closely related  to those of \cite{wu1981}, \cite{lai1994} and \cite{skouras2000}, and they intend  to provide a general framework. In comparison to the papers mentioned, our assumptions are easy to apply, particularly in nonlinear cointegrating regression situations as stated in the two examples below. Extension to endogeneity between $x_t$ and $u_t$ is investigated in Section \ref{sec:6:endo}.
 
 \subsection{A framework} \la{sec:6:framework}
 
@@ -51,7 +51,7 @@ For each $\pi,\pi_0 \in \Theta$, there exists a real function $T:\mathbb{R} \rig
 \be
 |f(x, \pi) - f(x, \pi_0)| \le h(||\pi - \pi_0||) \,T(x), \la {45}
  \ee
- where $h(x)$ is a bounded real function such that $h(x)\downarrow h(0)=0$, as $x\downarrow 0.$
+ where $h$ is a bounded real function such that $h(x)\downarrow h(0)=0$, as $x\downarrow 0.$
 \end{assump}
 
 \begin{assump} \la{assumpMartingale}
@@ -80,7 +80,7 @@ If in addition $\kappa_n^2 n^{-1} = O(1)$, then $\hat{\si}^2_n \to_P \si^2$, as 
 Assumptions \ref {assumpClose} and \ref{assumpMartingale} are the same as those used in \cite{skouras2000}, which are standard in the NLS estimation theory. Also see \cite{wu1981} and \cite{lai1994}. Assumption \ref {assumpLowerBound} is used to replace (3.8), (3.9) and (3.11) in \cite{skouras2000}, in which some uniform conditions are used. In comparison to \cite{skouras2000}, our Assumption \ref {assumpLowerBound} is related to the conditions on the regressor $x_t$ and is more natural and easy to apply. In particular, it is directly applicable in the situation that $T$ is integrable and the regressor $x_t$ is a nonstationary time series, as stated in the following sub-section.
 
 \subsection{Identification of Assumption \ref{assumpLowerBound}: integrable functions } \la{sec:6:consistencyIntegrable}
-Due to Assumption \ref{assumpClose}, $f(x, \theta)-f(x, \theta_0)$ is integrable in $x$ if $T$ is an integrable function. This class of functions includes $f(x, \theta_1, \theta_2)=\theta_1 |x|^{\theta_2}I(x\in [a, b])$, where $a$ and $b$ are finite constants,  the Gaussian function $f(x, \theta) = e^{-\theta x^2}$, the Laplacian function $f(x, \theta) = e^{-\theta |x|}$, the logistic regression function $f(x, \theta)=e^{\theta |x|}/(1+e^{\theta |x|})$,  etc. In this sub-section, two commonly used  non-stationary regressors $x_t$ are shown to satisfy Assumption \ref{assumpLowerBound} if $T(x)$ is integrable.
+Due to Assumption \ref{assumpClose}, $f(x, \theta)-f(x, \theta_0)$ is integrable in $x$ if $T$ is an integrable function. This class of functions includes $f(x, \theta_1, \theta_2)=\theta_1 |x|^{\theta_2}I(x\in [a, b])$, where $a$ and $b$ are finite constants,  the Gaussian function $f(x, \theta) = e^{-\theta x^2}$, the Laplacian function $f(x, \theta) = e^{-\theta |x|}$, the logistic regression function $f(x, \theta)=e^{\theta |x|}/(1+e^{\theta |x|})$,  etc. In this sub-section, two commonly used  nonstationary regressors $x_t$ are shown to satisfy Assumption \ref{assumpLowerBound} if $T$ is integrable.
 
 \medskip \noindent
 {\bf Example 1 (Partial sum of linear processes).}
@@ -91,15 +91,15 @@ defined by
 \end{equation}
 where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of i.i.d.
 random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$ and the
-characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfying
+characteristic function $\varphi $ of $\epsilon _{0}$ satisfying
 $\int_{-\infty }^{\infty }|\varphi (t)|dt<\infty $.
 The coefficients $\phi_k$ are assumed to satisfy one of the following conditions:
 
-{\textbf{C1.}} $\phi_k \sim  k^{-\mu} \rho(k)$, where $1 / 2 < \mu < 1$ and $\rho(k)$ is a function slowly varying at $\infty$.
+{\textbf{C1.}} $\phi_k \sim  k^{-\mu} \rho(k)$, where $1 / 2 < \mu < 1$ and $\rho$ is a function slowly varying at $\infty$.
 
 {\textbf{C2.}} $\sum_{k=0}^{\infty }k|\phi _{k}|<\infty $ and $\phi \equiv \sum_{k=0}^{\infty }\phi_{k}\not =0$.
 
-\noindent Put $d_n^2 = \E x_n^2.$ As in \cite{wanglingulati2003}, we have
+\noindent Put $d_n^2 = \E x_n^2.$ It is well known that
 \be
 d_n^2 = \E x_n^2 \sim
 \begin{cases}
@@ -107,8 +107,7 @@ c_{\mu} n^{3-2\mu} \rho^2(n),  & \mbox{under {\bf C1},} \\
 \phi^2 n, & \mbox{under {\bf C2},}
 \end{cases}
 \ee
-where $c_\mu = 1 / ((1 - \mu)(3-2\mu )) \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$.
-We have the following result.
+where $c_\mu = \frac{1}{(1 - \mu)(3-2\mu )} \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$. See Theorem \ref{thm:app1:asym} in Appendix \ref{chap:app1}. We have the following result.
 
 \begin{thm} \la{thmLinearConsistency} Suppose $x_t$ is defined as in Example 1 and Assumption \ref{assumpClose} holds. Assume:
 \begin{enumerate}[label=(\roman{*}), leftmargin=*] \itemsep0pt \parskip0pt \parsep0pt
@@ -119,7 +118,7 @@ Then (\ref {20}) and (\ref {21}) hold with $\kappa^2_n=n/d_n$.  Consequently,
 if in addition  Assumption \ref{assumpMartingale}, then $\hat{\theta}_n \rightarrow_P \theta_0$.
 \end{thm}
 
-Theorem \ref{thmLinearConsistency} improves Theorem 4.1 of PP in two folds. Firstly, we allow for more general regressor. The result under {\bf C1} is new, which allows $x_t$ to be long memory process, including the fractionally integrated process as an example. PP only allow $x_t$ to satisfy {\bf C2} with additional conditions on $\phi_k$, that is, they require $x_t$ to be a partial sum of short memory process. Secondly, we remove the part (b) required in the definition of I-regular function given in their Definition 3.3. Furthermore,  we allow for certain  non-integrable $f$  such as the logistic regression function $f(x, \theta)=e^{\theta |x|}/(1+e^{\theta |x|})$, $ \theta\ge \theta_0$ for some $\theta_0>0$, although we assume the integrability of  $T$.
+Theorem \ref{thmLinearConsistency} improves Theorem 4.1 of PP in two folds. Firstly, we allow for more general regressor. The result under {\bf C1} is new, which allows $x_t$ to be long memory process, including the fractionally integrated process as an example. PP only allow $x_t$ to satisfy {\bf C2} with additional conditions on $\phi_k$, that is, they require $x_t$ to be a partial sum of short memory processes. Secondly, we remove part (b) required in the definition of I-regular function given in PP's Definition 3.3. Furthermore,  we allow for certain  non-integrable $f$  such as the logistic regression function $f(x, \theta)=e^{\theta |x|}/(1+e^{\theta |x|})$, $ \theta\ge \theta_0$ for some $\theta_0>0$, although we assume the integrability of  $T$.
 
 \medskip \noindent
 {\bf Example 2  (Recurrent Markov Chain).}
@@ -130,8 +129,8 @@ for the $k$-step transition of $\{x_k\}_{k\ge 0}$.  A subset $D$ of $E$ with $0<
 $$
 \sup_{x\in E} E_x\big(\sum_{k=1}^{\tau_A}I_D(x_k)\big)<\infty,
 $$
-where $ \mathcal{E}^+=\{A\in  \mathcal{E}: \pi(A)>0\}$ and $\tau_A=\inf\{n\ge 1: \ x_n\in A\}$. By Theorem 6.2 of \ref{orey1971},
-$D$-sets not only exist,  but generate the entire sigma $\mathcal{E}$, and
+where $ \mathcal{E}^+=\{A\in  \mathcal{E}: \pi(A)>0\}$ and $\tau_A=\inf\{n\ge 1: \ x_n\in A\}$. By Theorem 6.2 of \cite{orey1971},
+$D$-sets not only exist,  but also generate the entire sigma field $\mathcal{E}$, and
  for any $D$-sets $C, D$ and any probability measure $\nu, \mu$ on $(E, \mathcal{E})$,
 \be
 \lim_{n\to\infty}\sum_{k=1}^n\nu P^k(C)/\sum_{k=1}^n\mu P^k(D) &=&\frac {\pi (C)}{\pi (D)}, \la {1.3}
@@ -178,14 +177,14 @@ as $\lam \to \infty$.
 \end{enumerate}
 \end{assump}
 
-\begin{thm} \la {thmHomoConsistency} Suppose Assumption \ref{assumpHomo} holds. Suppose that there exists a continuous Gaussian process $G(t)$ such that $x_{[nt], n} \Rightarrow G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers.
+\begin{thm} \la {thmHomoConsistency} Suppose Assumption \ref{assumpHomo} holds. Suppose that there exists a continuous Gaussian process $G$ such that $x_{[nt], n} \Rightarrow G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers.
 Then (\ref {20}) and (\ref {21}) hold with $\kappa^2_n=nv^2(d_n)$. Consequently,
-if in addition Assumption \ref{assumpClose} and \ref{assumpMartingale} and the assumption that the $T$'s in \ref{assumpClose} and \ref{assumpHomo} coincide,, then $\hat{\theta}_n \rightarrow_P \theta_0$.
+if in addition Assumption \ref{assumpClose} and \ref{assumpMartingale} and the assumption that the $T$'s in \ref{assumpClose} and \ref{assumpHomo} coincide, then $\hat{\theta}_n \rightarrow_P \theta_0$.
 \end{thm}
 
 
-Assumptions \ref{assumpClose} and \ref{assumpHomo} are quite general, including many commonly used regression functions. Typical examples include $f(x, \theta)=(x+\theta)^2,\ \theta e^{x}/(1 + e^x),\ \theta \log |x|,\ \theta |x|^\al$ ($\al$ is fixed) and $\theta_0+\theta_1 |x|+...+\theta_k|x|^k$.
-The class of functions satisfying Assumptions \ref{assumpClose} and \ref{assumpHomo} are similar to, but wider than the  $H_0$-regular functions on $\Theta$ imposed in Theorem 4.2 of PP. For instance,   Assumptions \ref{assumpClose} and \ref{assumpHomo} (hence Theorem \ref{thmHomoConsistency}) are applicable for   the function $f(x, \theta)=(x+\theta)^2$  [with $T(x)= T_1(x)=|x|$, $v(\lam)=\lam$ and $g(x, \theta, \theta_0)=2(\theta-\theta_0)\, x$], but Theorem 4.2 of PP is not  directly applicable for this function. See, e.g., Example 4.1 (c) of PP. We also mention that our condition on the regressor $x_t$ is much general than that of PP, as we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process. This kind of weak convergence condition is very likely close to be necessary.
+Assumptions \ref{assumpClose} and \ref{assumpHomo} are quite general, and they include many commonly used regression functions. Typical examples include $f(x, \theta)=(x+\theta)^2,\ \theta e^{x}/(1 + e^x),\ \theta \log |x|,\ \theta |x|^\al$ ($\al$ is fixed) and $\theta_0+\theta_1 |x|+...+\theta_k|x|^k$.
+The class of functions satisfying Assumptions \ref{assumpClose} and \ref{assumpHomo} are similar to, but wider than the  $H_0$-regular functions on $\Theta$ imposed in Theorem 4.2 of PP. For instance,   Assumptions \ref{assumpClose} and \ref{assumpHomo} (hence Theorem \ref{thmHomoConsistency}) are applicable for   the function $f(x, \theta)=(x+\theta)^2$  [with $T(x)= T_1(x)=|x|$, $v(\lam)=\lam$ and $g(x, \theta, \theta_0)=2(\theta-\theta_0)\, x$], but Theorem 4.2 of PP is not  directly applicable for this function. See, e.g., Example 4.1 (c) of PP. We also mention that our condition on the regressor $x_t$ is much general than that of PP, as we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process. This kind of weak convergence condition is very likely close to necessary.
 
 \medskip
 We next consider  a class of asymptotically homogeneous functions. In this regard, we follow PP. Let $f:\mathbb{R} \times \Theta \rightarrow \mathbb{R} $ have the structure:
@@ -200,7 +199,7 @@ We next consider  a class of asymptotically homogeneous functions. In this regar
 for any $\bar{\theta} \ne \theta_0$ and $\bar{p}, \bar{q} > 0$.
 
 
-\begin{thm} \la {thmHomoConsistent1} Suppose that $f$ in model (\ref {intro.eqn1}) has the structure (\ref {sad1}), and in addition to Assumption \ref{assumpMartingale}, there exists a continuous Gaussian process $G(t)$ such that $x_{[nt], n} \to_D G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers. Then,
+\begin{thm} \la {thmHomoConsistent1} Suppose that $f$ in model (\ref {intro.eqn1}) has the structure (\ref {sad1}), and in addition to Assumption \ref{assumpMartingale}, there exists a continuous Gaussian process $G$ such that $x_{[nt], n} \Rightarrow G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers. Then,
  the NLS estimator $\hat{\theta}_n$ defined by (\ref {sad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
 \end{thm}
 
@@ -208,7 +207,7 @@ for any $\bar{\theta} \ne \theta_0$ and $\bar{p}, \bar{q} > 0$.
 
 
 
- The conditions on $f$ given in Theorem \ref {thmHomoConsistent1} are the same as those used in Theorem 4.3 of PP, which are satisfied by the functions such as  the Box-Cox transformation $(|x|^\theta - 1)/\theta$. The difference between current Theorem \ref{thmHomoConsistent1} and Theorem 4.3 of PP is   we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process, which  is  close to be necessary.
+ The conditions on $f$ given in Theorem \ref {thmHomoConsistent1} are the same as those used in Theorem 4.3 of PP, which are satisfied by the functions such as  the Box-Cox transformation $(|x|^\theta - 1)/\theta$. The difference between current Theorem \ref{thmHomoConsistent1} and Theorem 4.3 of PP is that we only require $x_{[nt]} / d_n$ to converge weakly to a continuous Gaussian  process. Such condition is close to necessary.
 
 
 To investigate the weak consistency of $\hat\theta_n$, this section makes use of three conditions sets on $f$: Assumption \ref{assumpClose} with $T$ being integrable (Theorems \ref{thmLinearConsistency}--\ref{thmMarkovConsistency}); Assumptions \ref{assumpClose}--\ref{assumpHomo} (Theorem \ref{thmHomoConsistency}) and the condition (\ref {sad1}) (Theorem \ref{thmHomoConsistent1}). We remark that these conditions sets are mutually exclusive. There are examples on the $f$ such that one of these assumptions holds, but not for other two. For instance, the function $f(x, \theta)=\theta/(1+x^2)$ satisfies Assumption \ref{assumpClose}  with $h(x)=x$ and $T(x)=1/(1+x^2)$, but Assumption \ref{assumpHomo} and  the condition (\ref {sad1}) fail; the function $f(x, \theta)=(x+\theta)^2$ satisfies Assumptions \ref{assumpClose}--\ref{assumpHomo}, but not for Assumption \ref{assumpClose} with $T$ being integrable and the condition (\ref {sad1}).
@@ -242,21 +241,17 @@ $$(\al_1'\, Y_n\al_2,\ \ \al_3' Z_n)\ \to_D\ (\al_1'\,M\, \al_2,\ \al_3'\, Z),$$
 $P(Z<\infty)=1$.
 \end{thm}
 
-Our routine in  establishing the limit distribution of $\hat\theta_n$ is essentially different from that of PP, and is particularly convenient in the situation that $f$, $\dot{f}$  and $\ddot{f}$ all are integrable in which  $D_n=\kappa_n\, \mbox{{\bf I}}$ for some $0<\kappa_n\to\infty$, where {\bf I} is an identity matrix. See next section for examples. The condition AD3 of PP requires to show $Y_n\to_P M$
+Our routine in  establishing the limit distribution of $\hat\theta_n$ is essentially different from that of PP, and is particularly convenient in the situation that $f$, $\dot{f}$  and $\ddot{f}$ all are integrable in which  $D_n=\kappa_n\, \mbox{{\bf I}}$ for some $0<\kappa_n\to\infty$, where {\bf I} is an identity matrix. See the next section for examples. The condition AD3 of PP requires to show $Y_n\to_P M$
  instead of  (iv). It is equivalent to say that, under the PP's routine,
 one requires to show (at least under an enlarged probability space)
 \be \la{eqnConvergeP}
 \frac{1}{\sqrt{n}} \sum_{t=1}^n g(x_t) \to_P \int_{-\infty}^{\infty} g(s) ds\, L_W(1,0),
 \ee
-where  $x_t$ is an integrated process, $g$ is a real integrable function and $L_W(t,s)$ is the local time of the standard Brownian Motion $W(t)$\footnote{
-Here and below, the local time process $L_G(t, s)$ of a Gaussian process $G(t)$ is defined by
-\bestar
-L_G(t,s) = \lim_{\ep \to 0} \frac{1}{2\ep} \int_0^t I \big \{ | G(r) - s| \le \ep \big \} dr.
-\eestar}.  The convergence in probability is usually hard or impossible to establish without enlarging the probability space. Our routine essentially reduces the  convergence in probability to less restrictive convergence in distribution. Explicitly, in comparison  to (\ref {eqnConvergeP}), we only need to show that
+where  $x_t$ is an integrated process, $g$ is a real integrable function and $L_W(t,s)$ is the local time of the standard Brownian Motion $W$.  The convergence in probability is usually hard or impossible to establish without enlarging the probability space. Our routine essentially reduces the  convergence in probability to less restrictive convergence in distribution. Explicitly, in comparison  to (\ref {eqnConvergeP}), we only need to show that
 \be
 \frac{1}{\sqrt{n}} \sum_{t=1}^n g(x_t) \to_D \int_{-\infty}^{\infty} g(s) ds\, L_W(1,0).
 \ee
-This allows to extend the nonlinear regressions to much wider class of nonstationary regressor data series, and enables our methodology and proofs  straightforward and neat.
+This allows to extend the nonlinear regression to much wider class of nonstationary regressor data series, and enables our methodology and proofs  straightforward and neat.
 
 
 
@@ -288,16 +283,16 @@ We now establish our results on convergence in distribution for the $\hat{\theta
 $
 |p(x, \theta) - p(x, \theta_0)| \le h_p(||\theta - \theta_0||) \,T_p(x),
  $
-for each $\theta,\theta_0 \in \Theta$, where $h_p(x)$ is a bounded real function such that $h_p(x)\downarrow h_p(0)=0$, as $x\downarrow 0.$
+for each $\theta,\theta_0 \in \Theta$, where $h_p$ is a bounded real function such that $h_p(x)\downarrow h_p(0)=0$, as $x\downarrow 0.$
  \end{enumerate}
 \end{assump}
 
 
 \begin{thm} \la{thmIntegrablelimit} Under Assumptions \ref {ad1} and \ref {ad2}, we have
-\be \la{thmIntegrablelimit.eqn1}
+\begin{align} \la{thmIntegrablelimit.eqn1}
 \sqrt{n/d_n} ( \hat{\theta}_n - \theta_0) \rightarrow_D \Sigma^{-1/2}\,  \mbox{{\bf N}}\, L_{G}^{-1/2}(1,0),
-\ee
-where   $\mbox{{\bf N}}$ is a standard normal random vector, which is independent of $G(t)$ defined by
+\end{align}
+where   $\mbox{{\bf N}}$ is a standard normal random vector, which is independent of $G$ defined by
  \be
  G(t) &=&\begin{cases}
  W_{3/2 - \mu}(t),  & \mbox{under {\bf C1},} \\
@@ -332,7 +327,7 @@ Using the same routine and slight modification of assumptions, we have the follo
 $
 |p(x, \theta) - p(x, \theta_0)| \le h_p(||\theta - \theta_0||) \,T_p(x),
  $
-for each $\theta,\theta_0 \in \Theta$, where $h_p(x)$ is a bounded real function such that $h_p(x)\downarrow h_p(0)=0$, as $x\downarrow 0.$
+for each $\theta,\theta_0 \in \Theta$, where $h_p$ is a bounded real function such that $h_p(x)\downarrow h_p(0)=0$, as $x\downarrow 0.$
 \end{enumerate}
 \end{assump_ad2}
 
@@ -361,7 +356,7 @@ Unlike linear cointegration, integrable regression function does not proportiona
 \end{rem}
 
 \begin{rem}
-The convergence rates in (\ref{thmIntegrablelimit.eqn1}) and (\ref{thmIntegrableMarkovlimit.eqn1}) are reduced by the nonstationarity property of the regressor $x_t$ when $f$ is an integrable function. For the partial sum of linear processes in Theorem \ref{thmIntegrablelimit}, comparing to the stationary situation where the convergence rate is $n^{1/2}$, the rate is reduced to $n^{3 / 4 - \mu / 2}\rho^{1/2}(n)$ for the long memory case, and is further reduced to $n^{1/4}$ for the short memory case. For the $\beta$-regular Harris recurrent Markov chain, note that by (\ref{d1}), the asymptotic order $a(n)$ is regularly varying at infinity, i.e., there exists a slowly varying function $\rho(n)$ such that $a(n) \sim  n^{\beta} \rho(n)$. Therefore, the convergence rate of the NLS estimator decreases as the regularity index $\beta$ of the chain decreases from one (stationary situation) to zero.
+The convergence rates in (\ref{thmIntegrablelimit.eqn1}) and (\ref{thmIntegrableMarkovlimit.eqn1}) are reduced by the nonstationarity property of the regressor $x_t$ when $f$ is an integrable function. For the partial sum of linear processes in Theorem \ref{thmIntegrablelimit}, comparing to the stationary situation where the convergence rate is $n^{1/2}$, the rate is reduced to $n^{1/4}$ for the short memory case, and is further reduced to $n^{\mu/2 - 1/4} \rho^{1/2}(n)$ for the long memory case. For the $\beta$-regular Harris recurrent Markov chain, note that by (\ref{d1}), the asymptotic order $a(n)$ is regularly varying at infinity, i.e., there exists a slowly varying function $\rho(n)$ such that $a(n) \sim  n^{\beta} \rho(n)$. Therefore, the convergence rate of the NLS estimator decreases as the regularity index $\beta$ of the chain decreases from one (stationary situation) to zero.
 \end{rem}
 
 \subsection{Limit distribution: beyond integrable functions } \la{sec:6:limitDistributionNonIntegrable}
@@ -385,7 +380,7 @@ We next consider the limit distribution of $\hat{\theta}_n$ when the regression 
 $
 |p(x, \theta) - p(x, \theta_0)| \le A_p(||\theta - \theta_0||) \,T_p(x),
  $
-for each $\theta,\theta_0 \in \Theta$, where $A_p(x)$ is a bounded real function satisfying $A_p(x)\downarrow A_p(0)=0$, as $x\downarrow 0;$
+for each $\theta,\theta_0 \in \Theta$, where $A_p$ is a bounded real function satisfying $A_p(x)\downarrow A_p(0)=0$, as $x\downarrow 0;$
 	\item For any bounded $x$,
 	$
 	\sup_{\theta\in \Theta}|p(\lam x, \theta) - v_p(\lam)\,h_p(x, \theta)|/T_p(\lam x) =o(1),
@@ -408,7 +403,7 @@ on $D[0,1]$, as $n \to \infty$, where $\Psi(t)  =  \dot h(G(t), \theta_0) $ and 
 
 \end{thm}
 
-\begin{rem} Except the joint convergence,  other conditions in establishing Theorem \ref {thmHomoLimit1} are similar to Theorem 5.2 of PP. PP made use of the concept of $H_0$-regular. Our conditions on $f$, $\dot{f}_i$ and $\ddot{f}_{ij}$, $1\le i,j\le m$ are more straightforward  and easy to identify. Furthermore, the joint convergence assumption under present paper
+\begin{rem} Except the joint convergence,  other conditions in establishing Theorem \ref {thmHomoLimit1} are similar to Theorem 5.2 of PP. PP made use of the concept of $H_0$-regular. Our conditions on $f$, $\dot{f}_i$ and $\ddot{f}_{ij}$, $1\le i,j\le m$ are more straightforward  and easy to identify. Furthermore, the joint convergence assumption under present chapter
   is quite natural when $f, \dot{f}$ and $ \ddot{f}$ all satisfy Assumption \ref {assumpLimitHomo2} (ii).   Indeed, under $\dot {f}_i( \lambda x, \theta) \sim \dot {v}_i(\lambda) \dot{h}_i (x, \theta)$, one can easily obtain  the following asymptotics under our joint convergence.
 \be
 D_n^{-1}\, \sum_{t = 1}^n \dot {f}(x_{t}, \theta_0)u_t \to_D \int_{0}^1 \dot{h}(G(t), \theta_0)dU(t),
@@ -417,8 +412,8 @@ on $D[0,1]$, which is required in the proof of (\ref {thmHomoLimit1.eqn1}). See,
 \end{rem}
 
 \begin{rem}
-If we further assume that  $U(t)$ and $G(t)$ are asymptotic independent, that is, the long run relationship between the regressor sequence $x_t$ and the innovative sequence $u_t$ vanishes asymptotically, the limiting distribution in (\ref{thmHomoLimit1.eqn1}) will become mixed normal. In particular,
- when $U(t)$ is a standard Wiener process,  we  have
+If we further assume that  $U$ and $G$ are asymptotic independent, that is, the long run relationship between the regressor sequence $x_t$ and the innovative sequence $u_t$ vanishes asymptotically, the limiting distribution in (\ref{thmHomoLimit1.eqn1}) will become mixed normal. In particular,
+ when $U$ is a standard Wiener process,  we  have
 \be
 D_n\, ( \hat{\theta}_n - \theta_0) \rightarrow_D \Big( \int_0^1 \Psi(t) \Psi(t)' dt \Big )^{-1/2}  \text{{\bf N}},
 \ee
@@ -426,11 +421,11 @@ where {\bf N} is a standard normal random vector.
 \end{rem}
 
 \begin{rem}
-Nonlinear cointegrating regressions with structure described in Theorem \ref{thmHomoLimit1} are useful to modelling money demand functions. In such case, $y_t$ is the logarithm of the real money balance, $x_t$ is the nominal interest rate, and $f(x, \theta)$ can either be $f(x, \al, \beta) = \al + \beta \log | x |$ or $f(x, \al, \beta) = \al + \beta \log (\frac{1 + |x|}{|x|})$. See \cite{baedejong2007} and \cite{baekakkarogaki2006} for empirical studies investigating the estimation of money demand functions in USA and Japan respectively. Also, see \cite{baekakkarogaki2004} for the derivation of these functional forms from the underlying money demand theories studied in macro-economics.
+Nonlinear cointegrating regression with structure described in Theorem \ref{thmHomoLimit1} are useful for modelling money demand functions. In such case, $y_t$ is the logarithm of the real money balance, $x_t$ is the nominal interest rate, and $f(x, \theta)$ can either be $f(x, \al, \beta) = \al + \beta \log | x |$ or $f(x, \al, \beta) = \al + \beta \log (\frac{1 + |x|}{|x|})$. See \cite{baedejong2007} and \cite{baekakkarogaki2006} for empirical studies investigating the estimation of money demand functions in USA and Japan respectively. Also, see \cite{baekakkarogaki2004} for the derivation of these functional forms from the underlying money demand theories studied in macro-economics.
 \end{rem}
 
 \begin{rem}
-Another example is the Michaelis--Menton model, which was considered by \cite{lai1994}. In such case, the regression function is $f(x, \theta_1, \theta_2) = \theta_1 / (\theta_2 + x) I \{ x \ge 0 \}$. \cite{bateswatts1988} employs such model to investigate the dependence of rate of enzymatic reactions on the concentration of substrate.
+Another example is the Michaelis--Menton model, which was considered by \cite{lai1994}. In such case, the regression function is $f(x, \theta_1, \theta_2) = \theta_1 / (\theta_2 + x) I \{ x \ge 0 \}$. \cite{bateswatts1988} employed such model to investigate the dependence of rate of enzymatic reactions on the concentration of substrate.
 \end{rem}
 
 \begin{rem}
@@ -443,17 +438,17 @@ having the structure (\ref {sad1}), it is also possible to extend PP's result fr
 
 \section{Extension to endogeneity } \la{sec:6:endo}
 
-Assumption \ref{assumpMartingale} ensures the model (\ref {intro.eqn1}) having a martingale structure.
+Assumption \ref{assumpMartingale} ensures the model (\ref {intro.eqn1}) to have a martingale structure.
 The result in this regard is now well known. However, there is little work
 on allowing for contemporaneous correlation between the regressors and regression errors.
-Using a nonparametric approach, \cite{wangphillips2009} considered kernel estimate of $f$ and allowed the equation error $u_t$ to be serially dependent and cross correlated with $x_s$ for $|t-s|<m_0$, thereby inducing endogeneity in the regressor, i.e., $cov (u_t, x_t)\not=0$. In relation to present paper \cite{dejong2002} considered model (\ref{intro.eqn1}) without exogeneity, and assuming certain mixing conditions. \cite{changpark2010} considered a simple prototypical model, where the regressor and regression error are driven by i.i.d. innovations. This section  provides some  extensions to these works. Our main results  show that there is an essential effect of endogeneity on the asymptotics,  introducing the bias in the related limit distribution. Full investigation in this regard requires new asymptotic results, which will be left for future work.
+Using a nonparametric approach, \cite{wangphillips2009} considered kernel estimate of $f$ and allowed the equation error $u_t$ to be serially dependent and cross correlated with $x_s$ for $|t-s|<m_0$, thereby inducing endogeneity in the regressor, i.e., $cov (u_t, x_t)\not=0$. In relation to present chapter \cite{dejong2002} considered model (\ref{intro.eqn1}) without exogeneity, and assuming certain mixing conditions. \cite{changpark2010} considered a simple prototypical model, where the regressor and regression error were driven by i.i.d. innovations. This section  provides some  extensions to these works. Our main results  show that there is an essential effect of endogeneity on the asymptotics,  introducing the bias in the related limit distribution. Full investigation in this regard requires new asymptotic results, and we leave them for future work.
 
 
 \subsection{Asymptotics: integrable functions} \la{sec:6:endoIntegrable}
 
 We first consider the situation that $f$ satisfies Assumption \ref{assumpClose} with $T$
 being integrable.  Let $\eta_i\equiv (\ep_i, \nu_i)$, $i\in Z$ be a sequence of i.i.d. random vectors satisfying $E\eta_0=0$ and $E\|\eta_0\|^{2q}<\infty$,
- where $q \ge 1$. Let the characteristic function $\varphi(t)$ of $\ep_0$ satisfy $\int_{-\infty}^{\infty} | \varphi(t)|^2 dt < \infty$ and $\int_{-\infty}^{\infty} |t|^3 |\varphi(t)|^m dt < \infty$ for some $m > 0$. As noticed in Remark 4 of \cite{jaganathan2008}, the conditions on the characteristics function $\varphi(t)$ are not very restrictive.
+ where $q \ge 1$. Let the characteristic function $\varphi$ of $\ep_0$ satisfy $\int_{-\infty}^{\infty} | \varphi(t)|^2 dt < \infty$ and $\int_{-\infty}^{\infty} |t|^3 |\varphi(t)|^m dt < \infty$ for some $m > 0$. As noticed in Remark 4 of \cite{jaganathan2008}, the conditions on the characteristics function $\varphi$ are not very restrictive.
 
 
 
@@ -466,7 +461,7 @@ being integrable.  Let $\eta_i\equiv (\ep_i, \nu_i)$, $i\in Z$ be a sequence of 
 \end{assump}
 
 
-As we do not impose the independence between $\ep_k$ and $\nu_k$, Assumption \ref {4.1} provides the endogeneity in the model (\ref {intro.eqn1}), and it is much general than the conditions set given in \cite{changpark2010}.
+As we do not impose independence between $\ep_k$ and $\nu_k$, Assumption \ref {4.1} provides the endogeneity in the model (\ref {intro.eqn1}), and it is much general than the conditions set given in \cite{changpark2010}.
 We have the following result.
 
 \begin{thm} \la {endo11} Suppose Assumptions \ref{assumpClose} and \ref{4.1} hold. Further assume:
@@ -540,7 +535,7 @@ as $n \to \infty$, where $\Psi(t)  =  \dot{h}(W(t), \theta_0) $, $\dot{\Psi}(t) 
 
 
 \section{Simulation} \la{sec:6:simulation}
-In this section, we investigate the finite sample performance of the NLS estimator $\hat{\theta}_n$ of nonlinear regressions with endogeneity. \cite{changpark2010} performed simulation of similar model, but only considered the error structure $u_t$ to be i.i.d. innovation. We intend to investigate the sampling behavior of $\hat{\theta}_n$ under different degree of serially dependence of $u_t$ on itself. To this end, we generate our data in the following way:
+In this section, we investigate the finite sample performance of the NLS estimator $\hat{\theta}_n$ of nonlinear regression with endogeneity. \cite{changpark2010} performed simulations of similar model, but only considered the error structure $u_t$ to be i.i.d. innovation. We intend to investigate the sampling behavior of $\hat{\theta}_n$ under different degree of serially dependence of $u_t$ on itself. To this end, we generate our data in the following way:
 \begin{align}
 x_t &= x_{t - 1} + \ep_t,  \no\\
 v_t &= \sqrt{1 - \rho^2}\, w_t + \rho \ep_t, \no
@@ -594,7 +589,7 @@ where $\si_{\xi u} = \sum_{j = 0}^{\infty} E(\ep_0 u_j)$ and
 
 In our simulations, we draw samples of sizes $n = 200, 500$ to estimate the NLS estimators and their $t$-ratios. Each simulation is run for 10,000 times, and their densities are estimated using kernel method with normal kernel function. Our results are presented in 16 tables. Table \ref{If_num}--\ref{Hf_num} present the numerical values of the means and standard errors of the NLS estimators, $\hat{\theta}_n$ and $(\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$, as well as those of the error variance estimates $\hat{\si}^2_n$. Table \ref{theta_unscaled}--\ref{beta2_unscaled} are the estimated densities of the centered distributions of the estimators. Table \ref{theta_scaled}--\ref{beta2_scaled} are the estimated densities of the centered distributions scaled by their respective convergence rates, that is, $n^{1/4}$ and $(n^{1/2}, n, n^{3/2})$. Table \ref{theta_t}--\ref{beta2_t} are the $t$-ratios. In all tables, the left columns are simulation results based on 200 samples, while the right columns are based on 500 samples. We expect that as $\rho$ increases, the degree of endogeneity increases, and hence the variance of the distribution will increase due to (\ref{thmInfLaglimit.eqn1}) and (\ref{thmInfLagHomo.eqn1}). We also expect that the more serial correlation of $u_t$, the higher the variance of the limit distribution  due to the cross terms appeared in (\ref{thmInfLaglimit.eqn2}) and (\ref{thmInfLagHomo.eqn1}).
 
-Our simulation results largely corroborate with our theoretical results in Section \ref{sec:6:endo}. Firstly, the means of the estimators are close to the true values, and the deviations from true values decrease as the sample sizes increase. Also, the reductions of standard errors from $n = 200$ to 500 are close to the theoretical values. For example, the ratio of standard errors for $\hat{\al}_n$ between the sample size $200$ and $500$ is 1.564 in scenario {\bf S1}, which is close to theoretical value $\sqrt{\frac{500}{200}} = 1.581$. This confirms that our estimators are accurate in all scenarios. Secondly, comparing the {\bf S1}--{\bf S3} curves in each plot, we can see that the {\bf S3} curves have fat tails and lower peak than those of {\bf S1}--{\bf S2}. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Thirdly, comparing the shapes of the curves for different values of $\rho$, the curves with $\rho = 0$ have highest peaks, and the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase.
+Our simulation results largely corroborate with our theoretical results in Section \ref{sec:6:endo}. Firstly, the means of the estimators are close to the true values, and that the deviations from true values decrease as the sample sizes increase. Also, the reductions of standard errors from $n = 200$ to 500 are close to the theoretical values. For example, the ratio of standard errors for $\hat{\al}_n$ between the sample size $200$ and $500$ is 1.564 in scenario {\bf S1}, which is close to theoretical value $\sqrt{\frac{500}{200}} = 1.581$. This confirms that our estimators are accurate in all scenarios. Secondly, comparing the {\bf S1}--{\bf S3} curves in each plot, we can see that the {\bf S3} curves have fatter tails and lower peak than those of {\bf S1}--{\bf S2}. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Thirdly, comparing the shapes of the curves for different values of $\rho$, the curves with $\rho = 0$ have highest peaks, and that the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase.
 
 Finally, the sampling results for $t$-ratios are also much expected from our limit theories. In particular, we have interesting results for the $t$-ratios of $\hat{\beta}_{1n}$ in Table \ref{beta1_t}. In scenario {\bf S1}, there is no endogeneity and the limiting $t$-ratios overlap with the normal curve. However, as we introduce endogeneity to the model in scenarios {\bf S2} and {\bf S3}, the $t$-ratios is shifted away from the standard normal. Such behavior can be explained by looking at the limit distribution of $\hat{\beta}_{1n}$ in (\ref{sim.eqn1}). When $\rho \ne 0$, there exists an extra term of $ \Sigma^{-1} \si_{\xi u}$, and such term will introduce bias to the limit distribution.
 
@@ -617,11 +612,11 @@ The formula that we currently consider has a quadratic formulation and is given 
 \be \la{example.eqn1}
 \ln(e_{t}) = \al + \beta_1 \ln(x_t) + \beta_2 (\ln(x_t))^2 + u_t, \quad 1 \le t \le n,
 \ee
-where $e_t$ and $y_t$ denote the per capital emissions of CO$_2$ and GDP in period $t$, and $u_t$ is a stochastic error term. In the usual CKC formulation, the logarithm of per capita CO$_2$ emissions and GDP are assumed to be integrated processes, see \cite{mullerwagner2007}. Also, it is clear that the nonlinear link function $f(x, \al, \beta_1, \beta_2) = \al + \beta_1 x + \beta_2 x^2$ satisfies the conditions in Theorem \ref{endo14}, and is considered in our simulations. There are studies which employ more complicated models, by including time trend, stochastic terms and additional explanatory variables such as the energy structure. To avoid complicating our discussion, we only consider GDP as the only explanatory variable.
+where $e_t$ and $y_t$ denote the per capital emissions of CO$_2$ and GDP in period $t$, and $u_t$ is a stochastic error term. In the usual CKC formulation, the logarithm of per capita CO$_2$ emissions and GDP are assumed to be integrated processes, see \cite{mullerwagner2007}. Also, it is clear that the nonlinear linked function $f(x, \al, \beta_1, \beta_2) = \al + \beta_1 x + \beta_2 x^2$ satisfies the conditions in Theorem \ref{endo14}, and is considered in our simulations. There are studies which employ more complicated models, by including time trend, stochastic terms and additional explanatory variables such as the energy structure. To avoid complicating our discussion, we only consider GDP as the only explanatory variable.
 
 In the literature most studies assumed that the parameters $(\beta_1, \beta_2)$ are homogeneous across different counties. Several works investigated the appropriateness of restricting all countries adhering to the same values of $(\beta_1, \beta_2)$. For example, \cite{listgallet1999}, \cite{dijkgraafvollebergh2005}, \cite{piaggiopadilla2010}. Particularly, \cite{piaggiopadilla2010} tested this assumption by checking whether the confidence intervals of $(\beta_1, \beta_{2})$ across different countries overlap. They rejected the homogeneity assumption of parameters across different countries, based on the result that they could not find any possible group with more than 4 countries whose confidence intervals overlap with each other.
 
-As an example of employing our NLS estimators $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ and calculating their confidence intervals, we carry out similar study and examine whether the 95\% confidence intervals of the parameters ($\hat{\beta}_{1n}, \hat{\beta}_{2n})$ across different countries overlap with each other. We extend previous studies by incorporating the endogeneity in the model. The assumption that $x_t$ is an exogenous variable does not usually hold in practise as there are many potential sources of endogeneity. Firstly, endogeneity occurs due to measurement error of the explanatory variables $x_t$, including the misreporting of GDP of each country. Secondly, there might be omitted variable bias, which arises if there exists a relevant explanatory variable that is correlated with the regressor $x_t$ (per capita GDP), but is excluded from the model. Finally, potential reverse causality will give rise to endogeneity. That is, the CO$_2$ emissions $y_t$ might at the same time has a feedback effect on the GDP $x_t$ (e.g., due to stricter government regulation).
+As an example of employing our NLS estimators $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ and calculating their confidence intervals, we carry out similar study and examine whether the 95\% confidence intervals of the parameters ($\hat{\beta}_{1n}, \hat{\beta}_{2n})$ across different countries overlap with each other. We extend previous studies by incorporating the endogeneity in the model. The assumption that $x_t$ is an exogenous variable does not usually hold in practice as there are many potential sources of endogeneity. Firstly, endogeneity occurs due to measurement error of the explanatory variables $x_t$, including the misreporting of GDP of each country. Secondly, there might be omitted variable bias, which arises if there exists a relevant explanatory variable that is correlated with the regressor $x_t$ (per capita GDP), but is excluded from the model. Finally, potential reverse causality will give rise to endogeneity. That is, the CO$_2$ emissions $y_t$ might at the same time has a feedback effect on the GDP $x_t$ (e.g., due to stricter government regulation).
 
 
 We consider 15 countries, which are shown in \cite{piaggiopadilla2010} that their response variables have a quadratic relationship described in (\ref{example.eqn1}) with the regressors. We use annual data in this example and for each country, there are 58 observations of the CO$_2$ emission data from 1951--2008 published by the Carbon Dioxide Information Analysis Center (\cite{bodenmarlandandres2009}). For per capita GDP, we adopt the GDP data from \cite{maddison2003}, which is transformed to 1990 Geary-Khamis dollars.
@@ -659,12 +654,12 @@ Table \ref{beta1_est} and \ref{beta2_est} report the estimates and 95\% confiden
 
 \section{Conclusion and discussion} \la{sec:6:conclusion}
 
-In this paper, we establish an asymptotic theory for a nonlinear parametric cointegrating regression model. A general framework is developed for establishing the weak consistency of the NLS estimator $\hat{\theta}_n$. The framework can easily be applied to a wide class of nonstationary regressors, including the partial sum of linear processes and Harris recurrent Markov chains. Limit distribution of $\hat{\theta}_n$ is also established, which  extends previous works. Furthermore, we introduce endogeneity to our model by allowing the error term to be serially dependent on itself, and cross-dependent on the regressor. We show that the limit distribution of $\hat{\theta}_n$ under the endogeneity situation is different from that with martingale error structure. This result is of interest in the applied econometric research area. 
+In this chapter, we establish an asymptotic theory for a nonlinear parametric cointegrating regression model. A general framework is developed for establishing the weak consistency of the NLS estimator $\hat{\theta}_n$. The framework can easily be applied to a wide class of nonstationary regressors, including the partial sum of linear processes and Harris recurrent Markov chains. Limit distribution of $\hat{\theta}_n$ is also established, which  extends previous works. Furthermore, we introduce endogeneity to our model by allowing the error term to be serially dependent on itself, and cross-dependent on the regressor. We show that the limit distribution of $\hat{\theta}_n$ under the endogeneity situation is different from that with martingale error structure. This result is of interest in the applied econometric research area. 
 
-Asymptotics in this paper are limited to univariate regressors and 
+Asymptotics in this chapter are limited to univariate regressors and 
 nonlinear parametric cointegrating regression models. Specification of the nonlinear regression function $f$ depends usually on the underlying theories of the subject. Illustration can be found in  \cite{baekakkarogaki2004}, where  the concept of the money in the utility function with the constant elasticity of substitution (MUFCES) is used  to relate the money balance with nominal interest rate by the link function $f(x, \al, \beta) = \al + \beta \log(\frac{x}{1 + x})$. More currently, nonparametric method
- has been developed to test the specification of $f$. See, e.g., \cite{wangphillips2012},  for instance.
-Extension to multivariate regressors require substantial different techniques. This is because  local time theory can not in general be extended to multivariate data, in which the techniques play a key rule in  the asymptotics of the NLS estimator with nonstationary regressor when $f$ is an integrable function.   Possible extension to multivariate regressors is the index model discussed in \cite{changpark2003}. This again requires some new techniques, and hence we leave it for future  work.
+ has been developed to test the specification of $f$. See \cite{wangphillips2012},  for instance.
+Extension to multivariate regressors require substantial different techniques. This is because  local time theory can not in general be extended to multivariate data, in which the techniques play a key role in  the asymptotics of the NLS estimator with nonstationary regressor when $f$ is an integrable function.   Possible extension to multivariate regressors is the index model discussed in \cite{changpark2003}. This again requires some new techniques, and hence we leave it for future  work.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -683,9 +678,9 @@ This section provides proofs of the main results. We start with some preliminari
 
 Denote $\mathcal N_{\de}(\theta_0) = \{ \theta: \| \theta - \theta_0\| < \de\}$, where $\theta_0 \in \Theta$ is fixed.
 \begin{lem} \la{lemClose} Let Assumption \ref{assumpClose} hold. Then, for any $x_t$ satisfying   (\ref {20}) with $T$ being given as in Assumption \ref{assumpClose},
-\be \la{lemClose.eqn0}
+\begin{align} \la{lemClose.eqn0}
 \sup_{\theta \in \mathcal N_{\de}(\theta_0)} \kappa_n^{-2} \sum_{t = 1}^n \big(|f(x_t, \theta) - f(x_t, \theta_0)| + |f(x_t, \theta) - f(x_t, \theta_0)|^2\big)  &\to_P& 0,
-\ee
+\end{align}
 as $n\to\infty$ first and then $\de \to 0$. If in addition Assumption \ref{assumpMartingale}, then
 \be
 \kappa_n^{-2} \sum_{t = 1}^n [f(x_t, \theta_0) - f(x_t, \pi_0)]\, u_t   \to_P 0, \la {98}
@@ -713,20 +708,20 @@ and $\sum_{t = 1}^n T(x_t)\, |u_t|\le C\sum_{t = 1}^n T(x_t)+
 
 
 \begin{lem} \la{lemJoint} Let Assumption \ref{ad1} (i) hold.
- For any bounded $g (x)$ satisfying  $\int_{-\infty}^{\infty} |g(x)| dx < \infty$, we have
+ For any bounded $g $ satisfying  $\int_{-\infty}^{\infty} |g(x)| dx < \infty$, we have
 \be
 \sum_{t = 1}^n g(x_t) &=& O_P(n/d_n). \la {tya}
 \ee
-If in addition Assumption \ref{ad1} (ii)--(iii), then, for any bounded $g_i(x), i=1,2,$
+If in addition Assumption \ref{ad1} (ii)--(iii), then, for any bounded $g_i, i=1,2,$
 satisfying $\int_{-\infty}^{\infty} |g_i(x)| dx < \infty$ and $\int_{-\infty}^{\infty} g_i(x) dx  \ne 0$,
-\be \la{lemJoint.eqn1}
+\begin{align} \la{lemJoint.eqn1}
 \Big \{ \big(\frac {d_n}n\big)^{1/2}\sum_{t=1}^n g_1(x_t) u_t ,\, \frac {d_n}n\sum_{t=1}^n g_2(x_t) \Big \} &\rightarrow_D& \Big \{\tau_1 \, N \, L^{1/2}_{G}(1,0), \tau_2\, L_{G}(1,0) \Big \},
-\ee
- where $\tau_1^2 = \int_{-\infty}^{\infty} g_1^2(s) ds$, $\tau_2= \int_{-\infty}^{\infty} g_2(s) ds$ and $N$ is a standard normal variate independent of $G(t)$.
+\end{align}
+ where $\tau_1^2 = \int_{-\infty}^{\infty} g_1^2(s) ds$, $\tau_2= \int_{-\infty}^{\infty} g_2(s) ds$ and $N$ is a standard normal variate independent of $G$.
 \end{lem}
 
 \begin{proof} For (\ref {tya}),  see Lemma 3.2 of \cite{wangphillips2009}.
-Theorem 2.2 of \cite{wang2013} provides  (\ref {lemJoint.eqn1}) with $g_2(x)=g_1^2(x)$. It is not difficult to see that (\ref {lemJoint.eqn1}) still holds for general $g_2(x)$. We omit the details.
+Theorem 2.2 of \cite{wang2013} provides  (\ref {lemJoint.eqn1}) with $g_2(x)=g_1^2(x)$. It is not difficult to see that (\ref {lemJoint.eqn1}) still holds for general $g_2$. We omit the details.
 \end{proof}
 
 
@@ -736,7 +731,7 @@ Theorem 2.2 of \cite{wang2013} provides  (\ref {lemJoint.eqn1}) with $g_2(x)=g_1
 \sum_{t = 1}^n g(x_t) &=& O_P[a(n)], \quad
 \big [\sum_{t = 1}^n g(x_t)\big ]^{-1} = O_P[a(n)^{-1}]. \la {ty}
 \ee
-If in addition Assumption \ref{ad1}* (ii)--(iii), then, for any bounded $g_i(x), i=1,2,$ satisfying $\int_{-\infty}^{\infty} |g_i(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g_i(x) \pi(dx)  \ne 0$,
+If in addition Assumption \ref{ad1}* (ii)--(iii), then, for any bounded $g_i, i=1,2,$ satisfying $\int_{-\infty}^{\infty} |g_i(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g_i(x) \pi(dx)  \ne 0$,
 \be \la{lemMarkov.eqn2}
 \Big \{ a(n)^{-1/2}\sum_{t=1}^n g_1(x_t) u_t ,\, a(n)^{-1}\sum_{t=1}^n g_2(x_t) \Big \}  \rightarrow_D   \Big \{\tau_5 \, N \, \Pi^{1/2}_{\beta}, \tau_6\,\Pi_\beta \Big \},
 \ee
@@ -746,9 +741,9 @@ If in addition Assumption \ref{ad1}* (ii)--(iii), then, for any bounded $g_i(x),
 
 \begin{proof}
 The proof of (\ref {ty}) sees Theorem 2.1 of \cite{chen1999}. To prove (\ref{lemMarkov.eqn2}), we first impose an additional assumption that $g_2(x) = g_1^2(x)$. Denote
-\be
+\begin{align}
 \Delta^2_n = a(n)^{-1}\sum_{t = 1}^n g_1^2(x_t), \quad Z_{nt} = a(n)^{-1/2}g_1(x_t) \Delta_n^{-1}, \quad  \mbox{and} \quad W_n = \sum_{t = 1}^n Z_{nt} u_k.
-\ee
+\end{align}
 Recalling that $E(u_t|\F_{nt}) = 0$, it is readily seen that given $\{x_1, ..., x_n\}$, $\{Z_{nt} u_t, \F_{nt}\}_{t = 1}^n$ forms a martingale difference sequence. The result (\ref{lemMarkov.eqn2}) will follow if we prove,
 \be \la{prfMarkov.eqn1}
 \sup_{x} \big | P\big ( W_n \le x \, | \, x_1, ..., x_n \big ) - \Phi(x) \big | \to_P 0.
@@ -802,11 +797,11 @@ Hence, by continuous mapping theorem,
 \bestar
 \frac{ \sum_{t=1}^n g_1^2(x_t) }{\sum_{t=1}^n g_2(x_t)} \to_P \int_{-\infty}^{\infty} g_1^2(s)\,  \pi(ds) \Big /  \int_{-\infty}^{\infty} g_2(s) \, \pi(ds) .
 \eestar
-This shows that (\ref{lemMarkov.eqn2}) is still true with general $g_2(x)$.
+This shows that (\ref{lemMarkov.eqn2}) is still true with general $g_2$.
 \end{proof}
 
 
-\begin{lem} \la{lemLagJoint} Under Assumption \ref {4.1}, for any bounded $g_i(x), i=1,2,$
+\begin{lem} \la{lemLagJoint} Under Assumption \ref {4.1}, for any bounded $g_i, i=1,2,$
 satisfying $\int_{-\infty}^{\infty} |g_i(x)|dx < \infty$ and $\int_{-\infty}^{\infty} g_i(x) dx  \ne 0$, we have
 \be \la{lemLagJoint.eqn1}
  \sum_{t = 1}^n g_1(x_t) |u_t| = O_P(n / d_n),
@@ -823,7 +818,7 @@ and
 See Theorem 3 and 5 of \cite{jaganathan2008}.
 \end{proof}
 
-\begin{lem} \la{lemEndo} Under Assumption \ref{4.2}, for any twice continuous differentiable function $g_i(x)$, $i = 1, 2$, satisfying $|g_i'(x)| \le K (1 + |x|^{\al})$ for some constants $K, \al > 0$ for all $x \in R$, and if $q \ge \max(3, 2\al)$ where $q$ is given Assumption \ref{4.2}, we have
+\begin{lem} \la{lemEndo} Under Assumption \ref{4.2}, for any twice continuous differentiable function $g_i$, $i = 1, 2$, satisfying $|g_i'(x)| \le K (1 + |x|^{\al})$ for some constants $K, \al > 0$ for all $x \in R$, and if $q \ge \max(3, 2\al)$ where $q$ is given Assumption \ref{4.2}, we have
 \begin{align} \la{lemEndo.eqn1}
 &\Big \{ \frac{1}{\sqrt{n}} \sum_{t = 1}^{n} g_1 \Big ( \frac{x_t}{\sqrt{n}}\Big) u_t, \frac{1}{n} \sum_{t = 1}^{n} g_2  \Big ( \frac{x_t}{\sqrt{n}}\Big) \Big \} \no\\
 &\to_D \Big \{ \sigma_{\xi u} \int_{0}^{1} g_1'(W(t))dt + \int_0^1 g_1(W(t)) dU(t), \int_0^1 g_2(W(t)) dt\Big \},
@@ -877,14 +872,14 @@ from an application of Lemma \ref{lemClose} with $\kappa_n^2=n/d_n$.
 
 \begin{lem}  \la{lemHomoC}
  Under Assumptions \ref{assumpLimitHomo1} and \ref{assumpLimitHomo2},   we have
-\be \la{lemC.eqn1a}
+\begin{align} \la{lemC.eqn1a}
 \frac {1}{n\dot v_i (d_n)\dot v_j (d_n)}\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}
 \sum_{t = 1}^n \big|\dot f_i(x_t, \theta)\,\dot f_j(x_t, \theta) - \dot f_i(x_t, \theta_0)\,\dot f_j(x_t, \theta_0)\big|  &\to_P& 0, \\
 \frac {1}{nv(d_n)\ddot v_{ij} (d_n)}\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}\la{lemC.eqn2a}
 \sum_{t = 1}^n \big|\ddot f_{ij}(x_t, \theta)\,[ f(x_t, \theta) -  f(x_t, \theta_0)]\big|  &\to_P& 0,\\
 \la{lemC.eqn3a}
 \frac {1}{n\ddot v_{ij} (d_n)}\,\sup_{\theta \in \mathcal N_{\de}(\theta_0)}\big| \sum_{t = 1}^n\ddot f_{ij}(x_t, \theta)\,u_t \big| &\to_P& 0,
-\ee
+\end{align}
 as $n\to\infty$ first and then $\de \to 0$,  for any $1\le i, j\le m$.
 \end{lem}
 
@@ -937,7 +932,7 @@ See Lemma 1 of \cite{wu1981}.
 
 
 
-\subsection{Proof of Theorems}
+\subsection{Proofs of theorems}
 
 \begin{proof}[Proof of Theorem \ref {thmConsistency}]
 Let $\mathcal N$ be any open subset of $\Theta$ containing $\theta_0$. Since $\hat{\theta}_n$ is the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$,  by Lemma \ref{lemWu}, proving consistency is equivalent to showing that, for any $0<\eta<1$ and $\theta \ne \theta_0$, where $\theta, \theta_0\in \Theta$, there exist
@@ -1041,14 +1036,14 @@ To prove (\ref{prfHomoConsistent2.eqn1}),  first note that  $\sum_{t=1}^nu_t^2/n
 where $M_n(\theta, \theta_0)=
  \frac{1}{n} \sum_{t = 1}^n (f(x_t, \theta) - f(x_t, \theta_0))^2$. Hence, for any equivalent process $x_{k}^*$ of $x_k$ (i.e., $x_{k}^*=_D x_{k}, 1\le
 k\le n, n\ge 1$, where $=_D$ denotes equivalence in distribution), we have
-\be
+\begin{align}
 P \Big (n^{-1} \inf_{\theta \in \Theta_0} D_n(\theta, \theta_0) > M_0 \Big ) \ge
 P \Big (\inf_{\theta \in \Theta_0}M_n^*(\theta, \theta_0)\Big [1  - \frac{2\sqrt{M_0 + o_P(1) }}{M_n^*(\theta, \theta_0 )^{1/2} } \Big ] >M_0 \Big ), \la {14}
-\ee
+\end{align}
 where $M_n^*(\theta, \theta_0)= \frac{1}{n} \sum_{t = 1}^n (f(x_t^*, \theta) - f(x_t^*, \theta_0))^2$.
 
 Recalling $x_{[nt]}/d_n \Rightarrow G(t)$ on $D[0,1]$ and
- $G(t)$ is a continuous
+ $G$ is a continuous
 Gaussian process, by the so-called
 Skorohod-Dudley-Wichura representation theorem (e.g., \cite{shorackwellner1986}, p. 49, Remark 2), we can choose   an
 equivalent process $x_{k}^*$ of $x_k$  so that
@@ -1089,7 +1084,7 @@ It is readily seen that
  $\lam_{min}(A)$ denotes the smallest eigenvalue of $A$ and $\eta_n\to 0$
  can be chosen as slowly as required. Due to these facts, a modification of  Lemma 1 in \cite{andrewssun2004} implies (\ref {ad191}). Note that  (iv)' implies (iv).
  The result $D_n(\hat\theta_n-\theta_0)\to_D M^{-1}Z$ follows from (\ref {ad191}) and
- the continuing mapping theorem.
+ the continuous mapping theorem.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref {thmIntegrablelimit}]
@@ -1107,7 +1102,7 @@ On the other hand, it follows from Lemma \ref{lemJoint} with $g_1(x)=\al_3'\dot{
 &= \Big \{ \Big (\frac{d_n}{n}\Big)^{1/2}\,\sum_{t=1}^n \al_3'\, \dot{f}(x_t, \theta_0) u_t ,\,\frac{d_n}{n}\sum_{t=1}^n \al_1'\dot{f}(x_t, \theta_0)\,\dot{f}(x_t, \theta_0)'\al_2  \Big \} \no\\
 &\rightarrow_D  \Big \{\tau\,N\, L_G^{1/2}(1, 0), \al_1'\,M\, \al_2\Big \} =_D \Big \{ \al_3' \,Z,\ \al_1'\,M\, \al_2 \Big \},
 \end{align}
-where $\tau^2 = \int_{-\infty}^{\infty} [\al_3'\dot{f}(s, \theta_0)]^2 ds $, $N$ is a standard normal random variable independent of $G(t)$ and we have used the fact that
+where $\tau^2 = \int_{-\infty}^{\infty} [\al_3'\dot{f}(s, \theta_0)]^2 ds $, $N$ is a standard normal random variable independent of $G$ and we have used the fact that
 \bestar
 \tau\, N &=& \Big(\int_{-\infty}^{\infty} [\al_3'\dot{f}(s, \theta_0)]^2 ds\Big)^{1/2}\,  N \no\\
 &=_D& \al_3' \Big(\int_{-\infty}^{\infty} \dot{f}(s, \theta_0)\dot{f}(s, \theta_0)' ds\Big)^{1/2}\, \mbox{{\bf N}} =\al_3'\, \Sigma^{1/2}\,\mbox{{\bf N}}.

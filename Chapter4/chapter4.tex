@@ -5,39 +5,37 @@
     \graphicspath{{Chapter4/Chapter4Figs/EPS/}{Chapter4/Chapter4Figs/}}
 \fi
 
-In this chapter, we apply the main results presented in the previous chapters to the nonlinear cointegration model. The uniform convergence for the Nadara-Watson estimator and the local linear nonparametric  estimator of the linked function is investigated. Sharp convergence rates and optimal range in which the uniform convergence holds are obtained. Unlike the point-wise situation, it is shown that the performance of the local linear nonparametric  estimator is superior to that of the Nadaraya-Watson estimator in uniform asymptotics.
+In this chapter, we apply the main results presented in the previous chapters to the nonlinear cointegration model. The uniform convergence for the Nadaraya-Watson estimator and the local linear nonparametric  estimator of the linked function is investigated. Sharp convergence rates and optimal range in which the uniform convergence holds are obtained. Unlike the point-wise situation, the performance of the local linear nonparametric  estimator is superior to that of the Nadaraya-Watson estimator in uniform asymptotics.
 
 
 \section{Introduction}
 
-Consider a non-linear cointegrating regression model:
+Consider a nonlinear cointegrating regression model:
 \begin{equation}
 y_{t}=f(x_{t})+u_{t},\quad t=1,2,...,n,  \label{eqn:4:mo1}
 \end{equation}%
 where $\{u_{t}\}$ is a  zero mean  equilibrium error, $x_{t}$ is a
-non-stationary  regressor and  $f(\cdot)$ is an unknown  real function on $R$. With given observations $(x_t, y_t)$ which may include
-non-stationary components, the point-wise estimation  and
-inference of the unknown $f(\cdot)$ have been becoming increasing
-interests in literature. \cite{karlsentjostheim2001} and \cite{guerre2004} studied
-non-parametric estimation for certain non-stationary processes in the
+nonstationary  regressor and  $f$ is an unknown  real function on $R$. With the observed nonstationary $\{y_t, x_t\}_{t=1}^n$ data, the point-wise estimation  and
+inference of the unknown $f$ have been receiving increasing attention in literature. \cite{karlsentjostheim2001} and \cite{guerre2004} studied
+nonparametric estimation for certain nonstationary processes in the
 framework of recurrent Markov chains. \cite{karlsenmyklebusttjostheim2007}
-developed an asymptotic theory for non-parametric estimation of a
+developed an asymptotic theory for nonparametric estimation of a
 time series regression equation involving stochastically
-non-stationary time series. More recently,  \citet[][\citeyear{wangphillips2009}, \citeyear{wangphillips2010b}]{wangphillips2010a} and \cite{cailipark2009} considered an alternative treatment by making use of local
-time limit theory. Instead of recurrent Markov chains, they considered the case when
-$x_t$ is a partial sum representation of general linear processes. \cite{kasparisphillips2012} investigated dynamic misspecification in the nonlinear cointegration model. \cite{choisaikkonen2010} proposed a test for nonlinear cointegration relationship. For other related works, we refer to \citet[][\citeyear{parkphillips2001}]{parkphillips1999}, \cite{bandi2004}, \citet[][\citeyear{gaomaxwelllutjostheim2009b}]{gaomaxwelllutjostheim2009a}, \cite{choisaikkonen2004},  \cite{marmer2008}, \cite{chengaoli2009}, \cite{wangphillips2012}, and \cite{wang2013}.
+nonstationary time series. More recently,  \citet[][\citeyear{wangphillips2009}, \citeyear{wangphillips2010b}]{wangphillips2010a} and \cite{cailipark2009} considered an alternative treatment by making use of local
+time limit theory. Instead of recurrent Markov chains, they considered the case where
+$x_t$ was a partial sum representation of general linear processes. \cite{kasparisphillips2012} investigated dynamic misspecification in the nonlinear cointegration model. \cite{choisaikkonen2010} proposed a test for nonlinear cointegration relationship. For other related works, we refer to \citet[][\citeyear{parkphillips2001}]{parkphillips1999}, \cite{bandi2004}, \citet[][\citeyear{gaomaxwelllutjostheim2009b}]{gaomaxwelllutjostheim2009a}, \cite{choisaikkonen2004},  \cite{marmer2008}, \cite{chengaoli2009}, \cite{wangphillips2012}, and \cite{wang2013}.
 
-Different from these aforementioned point-wise asymptotics papers, this chapter is concerned with the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}(x)$ of $f(x)$ in the non-linear cointegrating
+Different from these aforementioned point-wise asymptotics papers, this chapter is concerned with the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}$ of $f$ in the nonlinear cointegrating
 regression model (\ref {eqn:4:mo1}), defined by
 \be \widehat{f}(x)=
 \frac{\sum_{s=1}^{n}y_{s}\,K[(x_{s}-x)/h]}
 {\sum_{s=1}^{n}K[(x_{s}-x)/h]},\la {m4}
 \ee
-where $K(x)$ is a nonnegative real function and  the bandwidth parameter $h\equiv h_n\to 0$ as $n\to\infty$. As illustrated in the Introduction, the uniform convergence of the NW estimator can be used to further extend the analysis nonlinear cointegration model, such as incorporating a time varying error structure and developing a simultaneous confidence band.
+where $K$ is a nonnegative real function and  the bandwidth parameter $h\equiv h_n\to 0$ as $n\to\infty$. As illustrated in the introduction chapter, the uniform convergence of the NW estimator can be used to further extend the analysis nonlinear cointegration model, such as incorporating a time varying error structure and developing a simultaneous confidence band.
 
-In this regard, for a near $I(1)$ regressor $x_t$, \cite{wangwang2012} established uniform consistency for  both the regression and the volatility functions under  a compact set. Without the compact set restriction,  \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where the $x_k$ is a null recurrent Markov chain,  but  imposed the independence between $u_k$ and $x_k$. This chapter has a similar goal to \cite{gaolitjostheim2011}. However, we remove the independence conditions between the regressor and the error sequence. Also, in additional to recurrent Markov chian, we also work on general non-stationary regressor $x_k$ that is similar to \cite{wangphillips2010a}, including a partial sum of general linear processes. As noticed in \cite{wangphillips2010a}, this kind of regressor has an essential difference from the null recurrent Markov chain, and is more natural for econometric applications.  We confirm that the uniform asymptotics in \cite{wangwang2012} can be extended to a unbounded set and the independence between the $u_t$ and $x_t$ in \cite{gaolitjostheim2011} can be removed. Furthermore  our uniform convergence rates are sharp and may be optimal.
+In this regard, for a near $I(1)$ regressor $x_t$, \cite{wangwang2012} established uniform consistency for  both the regression and the volatility functions under  a compact set. Without the compact set restriction,  \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where $x_k$ was a null recurrent Markov chain,  but  imposed  independence between $u_k$ and $x_k$. This chapter has a similar goal to \cite{gaolitjostheim2011}. However, we remove the independence condition between the regressor and the error sequence. Also, in additional to recurrent Markov chain, we also work on general nonstationary regressor $x_k$ that is similar to \cite{wangphillips2010a}, and includes partial sum of general linear processes. As noticed in \cite{wangphillips2010a}, this kind of regressor has an essential difference from the null recurrent Markov chain, and is more natural for econometric applications.  We confirm that the uniform asymptotics in \cite{wangwang2012} can be extended to an unbounded set and independence between $u_t$ and $x_t$ in \cite{gaolitjostheim2011} can be removed. Furthermore  our uniform convergence rates are sharp and may be optimal.
 
-This chapter also investigates the uniform convergence for the local linear non-parametric estimator $\widehat{f}^L(x)$ of $f(x)$, defined by
+This chapter also investigates uniform convergence for the local linear nonparametric estimator $\widehat{f}^L$ of $f$, defined by
 \be \la{local}
 \widehat{f}^L(x) = \sum_{i = 1}^n w_i(x) y_i / \sum_{i = 1}^n w_i(x), \quad
 \ee
@@ -46,17 +44,17 @@ and
 $$
 w_i(x) = K_h(x_i - x) \{ V_{n,2}(x) - (x_i - x) V_{n,1}(x) \}.
 $$
- In point-wise situation, \cite{wangphillips2010b} proved that $\widehat{f}^L(x)$ has the same limit distribution (to the second order including bias) as that of   $\widehat{f}(x)$, and hence there are no advantages  for  the local linear non-parametric  estimator in the bias reduction in non-linear cointegrating regression. There are some differences in the investigation of  uniform convergence. The result in this paper shows that the linear term  of $\widehat{f}(x)$ can not be simply eliminated in the bias expression. As a consequence,   the performance of $\widehat{f}^L(x)$ is superior to that of $\widehat{f}(x)$ in uniform asymptotics. 
+ In point-wise situation, \cite{wangphillips2010b} proved that $\widehat{f}^L$ had the same limit distribution (to the second order including bias) as that of   $\widehat{f}$, and hence there were no advantages  for  the local linear nonparametric  estimator in  bias reduction in nonlinear cointegrating regression. There are some differences in the investigation of  uniform convergence. The result in this chapter shows that the linear term  of $\widehat{f}$ can not simply be eliminated in the bias expression. As a consequence,   the performance of $\widehat{f}^L$ is superior to that of $\widehat{f}$ in uniform asymptotics. 
 
-The starting point in our development is to show the uniform (upper and lower) bounds for kernel averages functional $\sum_{t=1}^{n}K[(x_{t}-x)/h]$ and covariance functional $\sum_{t=1}^{n}u_t K[(x_{t}-x)/h]$ of nonstationary time series. We show that these kinds of uniform bounds will be direct consequences of the uniform convergence of a class of martingale we established in Chapter \ref{chap:1} and a general functional of nonstationary time series we investigated in Chapter \ref{chap:2} and \ref{chap:3}. 
+The starting point of our development is to show the uniform (upper and lower) bounds for kernel averages functional $\sum_{t=1}^{n}K[(x_{t}-x)/h]$ and covariance functional $\sum_{t=1}^{n}u_t K[(x_{t}-x)/h]$ of nonstationary time series. We show that these kinds of uniform bounds will be direct consequences of the uniform convergence of a class of martingale we established in Chapter \ref{chap:1} and of a general functional of nonstationary time series we investigated in Chapter \ref{chap:2} and \ref{chap:3}. 
 
-This chapter is organized as follow. Section \ref{sec:4:nw} considers the uniform convergence results of  the Nadaraya-Watson estimator $\widehat{f}(x)$. Theorem \ref{thm:4:markov} presents the result when $x_k$ is a Harris recurrent Markov chain and Theorem \ref{thm:4:linear} presents the result when $x_k$ is a partial sum of linear processes. Section \ref{sec:4:linear} considers the local linear estimator $\widehat{f}^L(x)$. Technical proofs are postponed to Section \ref{sec:4:proof}.
+This chapter is organized as follows. Section \ref{sec:4:nw} considers the uniform convergence results of  the Nadaraya-Watson estimator $\widehat{f}$. Theorem \ref{thm:4:markov} presents the result when $x_k$ is a Harris recurrent Markov chain and Theorem \ref{thm:4:linear} presents the result when $x_k$ is a partial sum of linear processes. Section \ref{sec:4:linear} considers the local linear estimator $\widehat{f}^L$ and bias analysis of the NW estimator. Technical proofs are postponed to Section \ref{sec:4:proof}.
 
 \section{Uniform convergence for the Nadaraya-Watson estimator} \la{sec:4:nw}
 We make use of the following assumptions in the development of main results.
 
 \begin{assump} \la{assump:4:martingale}
- $\{u_t, {\mathcal F}_t\}_{t\ge 1}$ is a martingale difference, where\\ ${\mathcal F}_t=\si (x_1, ..., x_{t+1}, u_1,...,u_t)$, satisfying $ \sup_{t\ge 1}E(|u_t|^{2p}\mid {\mathcal F}_{t-1})<\infty$, where  $p\ge 1+1/\ep_0$ for some $\ep_0>0$.
+ $\{u_t, {\mathcal F}_t\}_{t\ge 1}$ is a martingale difference, where\\ ${\mathcal F}_t=\si (x_1, ..., x_{t+1}, u_1,...,u_t)$, satisfying $ \sup_{t\ge 1}E(|u_t|^{2p}\mid {\mathcal F}_{t-1})<\infty$, where  $p\ge 1+[1/\ep_0]$ for some $\ep_0>0$.
  \end{assump}
 
 \begin{assump} \la{assump:4:kernel}
@@ -65,18 +63,18 @@ The kernel $K$ satisfies that $\int_{-\infty}^{\infty}K(s)ds<\infty$, $\sup_xK(x
 \end{assump}
 
 \begin{assump} \la{assump:4:lipschitz}
-There exists a real positive function $\lambda(x)$ such that
+There exists a real positive function $\lambda$ such that
 \bestar
 |f(y)-f(x)| &\leq& C\,|y-x|^{\alpha} \lambda(x),
 \eestar
-uniformly for some $0<\al\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficient small and $ \Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}. $
+uniformly for some $0<\al\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficiently small and $ \Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}. $
 \end{assump}
 
 
 \vskip 0.3cm
 Assumption \ref{assump:4:martingale} is similar to, but weaker than  those appeared in \cite{karlsenmyklebusttjostheim2007}, where  the authors considered the point-wise convergence in distribution.
 
-Assumption \ref{assump:4:kernel} is a standard condition on $K(x)$  as in the stationary situation. The Lipschitz condition on $K(x)$ is not necessary if we only investigate the point-wise asymptotics. See Remark \ref{rmk:4:convergence} for further details.
+Assumption \ref{assump:4:kernel} is a standard condition on $K$  as in the stationary situation. The Lipschitz condition on $K$ is not necessary if we only investigate the point-wise asymptotics. See Remark \ref{rmk:4:convergence} for further details.
 
 Assumption \ref{assump:4:lipschitz} requires a Lipschitz-type condition in a small
 neighborhood of the targeted  set for the functionals to be
@@ -89,7 +87,7 @@ of functionals. Typical examples  include that $f(x)=\theta_1+\theta_2x+...+\the
 
 \subsection{Harris recurrent Markov chain}
 
-This section considers an application of Theorem \ref{thm:1:th1} to the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}(x)$ when the regressor is a Harris recurrent Markov chain. Let $\{x_k\}_{k\ge 0}$ is a $\beta$-regular Harris recurrent Markov chain defined as in Section \ref{sec:1:markov}, where the invariant measure $\pi$ has a bounded  density function $p(s)$ on $R$; We have the following asymptotic result.
+This section considers an application of Theorem \ref{thm:1:th1} to the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}$ when the regressor is a Harris recurrent Markov chain. Let $\{x_k\}_{k\ge 0}$ be a $\beta$-regular Harris recurrent Markov chain defined as in Section \ref{sec:1:markov}, where the invariant measure $\pi$ has a bounded  density function $p$ on $R$; We have the following asymptotic result.
 
 \begin{thm} \la {thm:4:markov} Suppose Assumptions \ref{assump:4:martingale}--\ref{assump:4:lipschitz} hold, $h\to 0$ and $n^{-\ep_0}a(n)h\to \infty$ where $0<\ep_0<\beta$  is given as in Assumption \ref{assump:4:martingale}.
 It follows that
@@ -105,7 +103,7 @@ where $b_n'\le b_n$, $\delta_n=\sup_{|x|\le b_n'}\lambda(x)$ and $b_n$ satisfies
 for some $C_0>0$ and all $n$ sufficiently large. 
 \end{thm}
 
-Note that random walk is a $1/2$-regular  Harris recurrent Markov chain.
+Note that a random walk is a $1/2$-regular  Harris recurrent Markov chain.
 The following corollary on a random walk shows the range $|x|\le b_n$
 can be taken to be optimal as well.
 
@@ -113,7 +111,7 @@ can be taken to be optimal as well.
 \begin{cor} \la{cor:4:randomWalk}
 Let  $\{\nu_{j}, 1 \le j\le n \}$ be a sequence of i.i.d.
 random variables with $E\nu_{0}=0$, $E\nu _{0}^{2}=1$ and the
-characteristic function $\varphi (t)$ of $\nu_{0}$ satisfying
+characteristic function $\varphi $ of $\nu_{0}$ satisfying
 $\int_{-\infty }^{\infty }|\varphi (t)|dt<\infty $. Write $x_t=\sum_{j=1}^t\nu_j$, $t\ge 1$. If in addition to Assumption \ref{assump:4:martingale}--\ref{assump:4:lipschitz}, then,  for  $h> 0$  and $n^{1/2-\ep_0}\, h\to \infty$ where $0<\ep_0<1/2$, we have
 \begin{equation}
 \sup_{|x|\le b_n'}|\widehat{f}(x)-f(x)|=
@@ -125,7 +123,7 @@ where $b_n'\le \tau_n\sqrt n$ for any $0<\tau_n\to 0$ and $\delta_n=\sup_{|x|\le
 
 \subsection{Partial sum of general linear processes}
 
-This section considers an application of Theorem \ref{th11} (Corollary \ref{cor:3:cor2}) to the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}(x)$ when the regressor is a partial sum of general linear processes. Let $x_t=\sum_{j=1}^t\xi_j$, where $\xi_j$ is defined as in (\ref {eqn:3:f1}) with $\phi_k$ satisfying {\bf C1} or {\bf C2}. We have the following uniform asymptotic result.
+This section considers an application of Theorem \ref{th11} (Corollary \ref{cor:3:cor2}) to the uniform convergence for the Nadaraya-Watson estimator $\widehat{f}$ when the regressor is a partial sum of general linear processes. Let $x_t=\sum_{j=1}^t\xi_j$, where $\xi_j$ is defined as in (\ref {eqn:3:f1}) with $\phi_k$ satisfying {\bf C1} or {\bf C2}. We have the following uniform asymptotic result.
 
 \begin{thm} \la {thm:4:linear} Under Assumptions \ref{assump:4:martingale}--\ref{assump:4:lipschitz},
 for any $h$ satisfying $h\to 0$ and $n^{1-\ep_0}h/d_n\to \infty$ where $\ep_0>0$ is given as in Assumption \ref{assump:4:martingale}, we have
@@ -139,37 +137,37 @@ where $b_n'\le \tau_n\,d_n $ for any  $0<\tau_n \to 0$ and $\delta_n=\sup_{|x|\l
 
 
 \begin{rem} When a high moment exists on the error $u_t$,
-the $\ep_0$ can be chosen sufficient small so that there are more bandwidth choices  in practice. It is understandable that the results (\ref {eqn:4:q1}), (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are meaningful if only $h^{\al}\delta_n\to 0$, which depends on the tail of the unknown regression function $f(x)$, the bandwidth $h$ and the range $|x|\le b_n'$.
-When $f(x)$ has a light tail such as $f(x)=(\al+\beta\, e^{x})/(1+e^x)$, $\delta_n$ may be bounded by a constant. In this situation, the $b_n'$ in (\ref {eqn:4:q1a}) can be chosen to be $\tau_n d_n$ for some $0<\tau_n\to 0$. Similar to the arguments in Remark \ref{rem:3:optimal}, this kind of range $|x|\le \tau_n d_n$ is optimal, that is, the $b_n'$ cannot be improved  to $b_n' / d_n \to \infty$ for the same rate of convergence rate as in (\ref {eqn:4:q1a}).
+the $\ep_0$ can be chosen sufficiently small so that there are more bandwidth choices  in practice. It is understandable that the results (\ref {eqn:4:q1}), (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are meaningful only if $h^{\al}\delta_n\to 0$, which depends on the tail of the unknown regression function $f$, the bandwidth $h$ and the range $|x|\le b_n'$.
+When $f$ has a light tail such as $f(x)=(\al+\beta\, e^{x})/(1+e^x)$, $\delta_n$ may be bounded by a constant. In this situation, the $b_n'$ in (\ref {eqn:4:q1a}) can be chosen to be $\tau_n d_n$ for some $0<\tau_n\to 0$. Similar to the arguments in Remark \ref{rem:3:optimal}, this kind of range $|x|\le \tau_n d_n$ is optimal, that is, the $b_n'$ cannot be improved  to $b_n' / d_n \to \infty$ for the same rate of convergence rate as in (\ref {eqn:4:q1a}).
 \end{rem}
 
-\begin{rem} \la{rmk:4:convergence} The convergence rates in (\ref {eqn:4:q1}) (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are sharp and are probably optimal. In the  situation where $x_t$ is stationary regressor, the sharp rate of convergence is $O_P[(nh)^{-1/2} \log^{1/2}n]$ (see, e.g., \cite{hansen2008}). The reason behind the difference is due to the fact that, the integrated series wanders over the entire real line but spends only $O(n/d_n)$ amount of sample time around any specific point ($O[a(n)]$ for Markov chain), while stationary time series spends $O(n)$. More explanation can be found in Remark 3.3 of \cite{wangphillips2010a}.
+\begin{rem} \la{rmk:4:convergence} The convergence rates in (\ref {eqn:4:q1}) (\ref {eqn:4:q1a}) and (\ref {eqn:4:q1b}) are sharp and are probably optimal. In the  situation where $x_t$ is stationary regressor, the sharp rate of convergence is $O_P[(nh)^{-1/2} \log^{1/2}n]$ (see, e.g., \cite{hansen2008}). The reason behind the difference is the fact that, the integrated series wanders over the entire real line but spends only $O(n/d_n)$ amount of sample time around any specific point ($O[a(n)]$ for Markov chain), while stationary time series spends $O(n)$. More explanations can be found in Remark 3.3 of \cite{wangphillips2010a}.
 
-However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\widehat f(x)$. For instance, as in \citet[][\citeyear{wangphillips2009}]{wangphillips2010a} with minor modification, we may show that, for each  $x$, \be \widehat f(x)-f(x) &=& O_{P}
+However, a better result can be obtained if we are only interested in the point-wise asymptotics for $\widehat f$. For instance, as in \citet[][\citeyear{wangphillips2009}]{wangphillips2010a} with minor modification, we may show that, for each  $x$, \be \widehat f(x)-f(x) &=& O_{P}
 \left\{(nh^2)^{-1/4}+h^{\alpha}\right\},\ee
 whenever  $x_t$ is a random walk defined as in Corollary \ref {cor:4:randomWalk}.
-Furthermore $\widehat f(x)$ has an asymptotic distribution that is
-mixing normal, under minor additional conditions. More details are  referred to \citet[][\citeyear{wangphillips2009}]{wangphillips2010a}. 
+Furthermore $\widehat f$ has an asymptotic distribution that is
+mixing normal, under minor additional conditions. Refer to \citet[][\citeyear{wangphillips2009}]{wangphillips2010a} for more details.
 \end{rem}
 
-\begin{rem} \cite{wangphillips2010b} established a similar result to (\ref {eqn:4:q1a}) with the $x_t$ being a partial sum of linear process, but only for the $x$ being a compact support and imposing  a bounded condition on $u_t$. The setting on the $x_t$ in this chapter is similar to that given in \cite{gaolitjostheim2011}, but our result provides the optimal range for the uniform convergence holding true and removes  the independence between the error $u_t$ and $x_t$ required by \cite{gaolitjostheim2011}.
+\begin{rem} \cite{gaolitjostheim2011} established a similar result to (\ref{eqn:4:q1}), but they imposed independence between $x_t$ and $u_t$. \cite{wangwang2012} gave a similar result to (\ref {eqn:4:q1b}) with $x_t$ being a partial sum of linear processes, but they restricted $x$ to be in a compact support and imposed a bounded condition on $u_t$. Our results improve these existing works by removing independence between the error $u_t$ and the regressor $x_t$, and providing the optimal range for uniform convergence to hold true.
 \end{rem}
 
 \section{Uniform convergence for the local linear nonparametric estimator and bias analysis of the Nadaraya-Watson estimator} \la{sec:4:linear}
-This section considers an application of Theorem \ref{thm:2:MainLower} (Corollary \ref {corZero}) to the uniform convergence for the  local linear nonparametric estimator $\widehat{f}^L(x)$ defined by (\ref{local}), and investigates the bias effect on the Nadaraya-Watson estimator. To do this, we need stronger smoothness conditions on $K(x)$ and $f(x)$, as stated in the following assumptions. 
+This section considers an application of Theorem \ref{thm:2:MainLower} (Corollary \ref {corZero}) to uniform convergence for the  local linear nonparametric estimator $\widehat{f}^L$ defined by (\ref{local}), and investigates the bias effect on the Nadaraya-Watson estimator. To do this, we need stronger smoothness conditions on $K$ and $f$, as stated in the following assumptions. 
 
 \begin{assump} \la{assump:4:kernelLocal} The kernel $K$ has a compact support and is twice continuously differentiable on $R$, satisfying that $\int x K(x) dx=0$ and $\int y^{2}K(y)dy\not=0.$
 \end{assump}
 
 
 \begin{assump} \la{assump:4:lipschitzLocal}
-The first derivative of $f$ exists  and there   exists a real positive function $g_1(x)$ such that
+The first derivative of $f$ exists  and there   exists a real positive function $g_1$ such that
 \bestar
 |f'(y)-f'(x)| &\leq& C\,|y-x|^{\tau} g_1(x),\eestar
 uniformly for some $0<\tau\le 1$ and  any  $(x, y)\in \Omega_\ep$, where $\ep$ can be chosen sufficiently small and $ \Omega_{\ep} = \{(x,y): |y-x|\le \ep, x\in R\}. $
 \end{assump}
 
-The following theorem provides a result on the uniform convergence of $\widehat{f}^L(x)$.
+The following theorem provides a result on the uniform convergence of $\widehat{f}^L$.
 
 \begin{thm} \la {thm:4:localLinear} Under Assumptions \ref{assump:4:martingale}--\ref{assump:4:kernel} and \ref{assump:4:kernelLocal}--\ref{assump:4:lipschitzLocal},
 for  any $h$ satisfying $h\to 0$ ($h^2\log n\to 0$ under {\bf C2}) and $n^{\al - \de_0} h \to \infty$, we have
@@ -191,7 +189,7 @@ where $B_n=M_0d_n/\log^{1+\gamma_0} n$,  $\delta_{2n}=\sup_{|x|\le B_n}g_1(x)$ a
 
 
 \begin{rem} \la{bias} If incorporating a bias term in (\ref{eqn:4:q1b}), under the conditions of Theorem \ref {thm:4:localLinear},
- we may achieve the same uniform convergence rate for the Nadaraya-Watson estimator $\widehat f(x)$, namely we have the  result:
+ we may achieve the same uniform convergence rate for the Nadaraya-Watson estimator $\widehat f$, namely we have the  result:
 \be
 &\sup_{|x|\le B_n} \Big |\widehat{f}(x)-f(x) -I_n(x) \Big| = O_{P}\big[\big(\frac {d_n } {nh}\big)^{1/2} \, \log^{1/2}n +h^{\tau + 1}\, \delta_{2n}\big],\la {h17}
 \ee
@@ -199,10 +197,10 @@ where, with $K_1(x) = xK(x)$,
 \bestar
 I_n(x)=h\, f'(x)\,\frac{\sum_{i = 1}^nK_1[(x_i - x) / h]}{\sum_{i = 1}^nK[(x_i - x) / h]} .
 \eestar
-Note that $\int|\widehat K_1(t)|dt<\infty$ and $|\widehat K_1(t)|\le C\min\{|t|,1\}$, where $\widehat K_1(t)=\int e^{itx}K_1(x)dx$. See Lemma 5.3 below. The standard arguments as in \cite{wangphillips2010b} yields that $I_n(x)=O_P\big[\big(\frac {d_n } {nh}\big)^{1/2}\, h \big]$ for each fixed $x$, which is negligible in comparison to $\big(\frac {d_n } {nh}\big)^{1/2}$.  Hence, in point-wise situation,  $\widehat f(x)$ and $\widehat{f}^L(x)$
+Note that $\int|\widehat K_1(t)|dt<\infty$ and $|\widehat K_1(t)|\le C\min\{|t|,1\}$, where $\widehat K_1(t)=\int e^{itx}K_1(x)dx$. See Lemma \ref{lem3} below. The standard arguments as in \cite{wangphillips2010b} yield that $I_n(x)=O_P\big[\big(\frac {d_n } {nh}\big)^{1/2}\, h \big]$ for each fixed $x$, which is negligible in comparison to $\big(\frac {d_n } {nh}\big)^{1/2}$.  Hence, in point-wise situation,  $\widehat f$ and $\widehat{f}^L$
 achieve the same asymptotic results as described in Theorem 2.3 of \cite{wangphillips2010b}.
 
-The situation becomes very different if we consider the uniform convergence. It is obvious that $f'(x)$ plays a role in uniform asymptotics. To illustrate, let $f(x)=x^2, d_n\sim \sqrt n$ and $B_n=\sqrt n/\log^{1+\gamma_0}n$. Simple calculations show that, as $n\to\infty$,
+The situation becomes very different if we consider the uniform convergence. It is obvious that $f'$ plays a role in uniform asymptotics. To illustrate, let $f(x)=x^2, d_n\sim \sqrt n$ and $B_n=\sqrt n/\log^{1+\gamma_0}n$. Simple calculations show that, as $n\to\infty$,
 \be
 \sup_{|x|\le B_n} |I_n(x)| &\ge& \frac {2\sqrt nh} {\log^{1+\gamma_0}n}\, \frac{\big|\sum_{i = 1}^nK_1(x_i  / h)\big|}{\sum_{i = 1}^nK(x_i  / h)}
 \ge 2(nh^2)^{1/4}/\log^{2+\gamma_0}n, \la {h31}
@@ -212,11 +210,11 @@ in probability, where we have used the fact: it follows from Remark 2.4 of \cite
 \frac{\big|\sum_{i = 1}^nK_1(x_i  / h)\big|}{\sum_{i = 1}^nK(x_i  / h)} \ge (nh^2)^{-1/4}/\log n.
 \eestar
 Due to (\ref {h31}), $I_n(x)$ can not be eliminated from (\ref {h17}). As a consequence,
- the performance of the local linear nonparametric estimator $\widehat{f}^L(x)$ is superior to that of  Nadaraya-Watson estimator $\widehat f(x)$. However, as discussed in Remark \ref{rmk:2:shorter}, it is possible to find a smaller range $\Omega_n\subset [-B_n, B_n]$ so that
+ the performance of the local linear nonparametric estimator $\widehat{f}^L$ is superior to that of  Nadaraya-Watson estimator $\widehat f$. However, as discussed in Remark \ref{rmk:2:shorter}, it is possible to find a smaller range $\Omega_n\subset [-B_n, B_n]$ so that
  \be
  \sup_{x\in \Omega_n}|I_n(x)| =o_P\big[\big(\frac {d_n } {nh}\big)^{1/2} \, \log^{1/2}n\big]. \la {h28}
  \ee
-  Located in this range, $I_n(x)$ can be eliminated from (\ref{h17}).  Consequently, as in point-wise situation, the local linear nonparametric estimator $\widehat{f}^L(x)$ has no advantage in reducing the bias. Since the choice of $\Omega_n$ heavily depends on the performance of $f(x)$ and $x_t$, a full discussion is avoided in this work.
+  Located in this range, $I_n(x)$ can be eliminated from (\ref{h17}).  Consequently, as in point-wise situation, the local linear nonparametric estimator $\widehat{f}^L$ has no advantage in reducing the bias. Since the choice of $\Omega_n$ heavily depends on the performance of $f$ and $x_t$, a full discussion is avoided in this work.
 \end{rem}
 
 \section{Proofs of main results} \la{sec:4:proof}
@@ -226,25 +224,25 @@ Due to (\ref {h31}), $I_n(x)$ can not be eliminated from (\ref {h17}). As a cons
 $\int|\hat K_1(t)|dt<\infty$ and $|\hat K_1(t)|\le C\min\{|t|,1\}$, where $\hat K_1(t)=\int e^{itx}K_1(x)dx$.
 \end{lem}
 
-\begin{proof} Recall that $K(x)$ has a compact
+\begin{proof} Recall that $K$ has a compact
 support with twice continuous differentials.
  $K_1(x)$ is twice continuously differentiable satisfying $\int_{-\infty}^{\infty}
 \big[|K_1'(x)|+|K_1''(x)|\big]dx<\infty$.
-Hence $\widehat K_1(t)$ is integrable, where
+Hence $\widehat K_1$ is integrable, where
  $\widehat K_1(t)=\int_{-\infty}^{\infty}e^{itx}K_1(x)dx$.
 See Proposition 18.1.2 of \cite{gasquetwitomski1999} for instance.
 Furthermore $|\widehat K_1(t)|\le C\min\{|t|, 1\}$ as $\int K_1(x)dx=0$.
 \end{proof}
 
-\subsection{Proof of theorems}
+\subsection{Proofs of theorems}
 \begin{proof}[Proof of Theorem \ref {thm:4:markov}]  We split the $\widehat{f}(x)-f(x)$ as
-\be
-\widehat{f}(x)-f(x) &=& \frac{\sum_{t=1}^{n}u_{t}K[(x_{t}-x)/h]}{%
+\begin{align}
+\widehat{f}(x)-f(x) &= \frac{\sum_{t=1}^{n}u_{t}K[(x_{t}-x)/h]}{%
 \sum_{t=1}^{n}K[(x_{t}-x)/h]}+\frac{\sum_{t=1}^{n}\big[f(x_{t})-f(x)\big]%
 \,K[(x_{t}-x)/h]}{\sum_{t=1}^{n}K[(x_{t}-x)/h]}  \no\\
-& :=& \Theta_{1n}(x)+\Theta_{2n}(x).
- \la {q3}\ee
-Under Assumptions \ref{assump:4:kernel} and \ref{assump:4:lipschitz}, it is readily seen  that, whenever $n$ is sufficiently large,
+& := \Theta_{1n}(x)+\Theta_{2n}(x).
+ \la {q3}\end{align}
+Under Assumptions \ref{assump:4:kernel} and \ref{assump:4:lipschitz}, it is readily seen that, whenever $n$ is sufficiently large,
 \bestar
  \sup_{|x|\le b_n'}|\Theta_{2n}(x)| &\le &  Ch^{\beta}\,\delta_n.
 \eestar
@@ -258,7 +256,7 @@ for any $h$ satisfying $n^{-\ep_0}a(n) h  \to \infty$. Now, by (\ref{eqn:4:marko
 \be 
 \sup_{|x|\le b_n'} \sum_{k=1}^n K^2[(x_k-x)/h] &=& O_P[ a(n)h], \la {eqn:4:1.2a}
 \ee
-for any $h$ satisfying $n^{-\ep_0}a(n) h  \to \infty$. In fact, with $p\ge 1+1/\ep_0$ and $c_n=a(n)h\to\infty$, we have
+for any $h$ satisfying $n^{-\ep_0}a(n) h  \to \infty$. In fact, with $p\ge 1+[1/\ep_0]$ and $c_n=a(n)h\to\infty$, we have
 \bestar
 n\, c_n^{-p}\,\log^{p-1}n\le (n^{-\ep_0}a(n)h)^{-1-1/\ep_0} n^{-\ep_0}\log^{p-1}n \to 0,
 \eestar
@@ -270,9 +268,10 @@ The proof goes along the same line as in that of Theorem \ref{thm:4:markov}, exc
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref {thm:4:localLinear}]  We split the $\widehat{f}^L(x)-f(x)$ as
-\be
-\widehat{f}^L(x) - f(x) = \frac{\sum_{i = 1}^n w_i(x) u_i }{\sum_{i = 1}^n w_i(x)} + \frac{\sum_{i = 1}^n w_i(x) \big [ f(x_i) - f(x) \big ] }{\sum_{i = 1}^n w_i(x)} := \Gamma_{1n}(x)  + \Gamma_{2n}(x). \la{prf.th4.eqn0}
-\ee
+\begin{align}
+\widehat{f}^L(x) - f(x) &= \frac{\sum_{i = 1}^n w_i(x) u_i }{\sum_{i = 1}^n w_i(x)} + \frac{\sum_{i = 1}^n w_i(x) \big [ f(x_i) - f(x) \big ] }{\sum_{i = 1}^n w_i(x)}  \no\\
+&:= \Gamma_{1n}(x)  + \Gamma_{2n}(x). \la{prf.th4.eqn0}
+\end{align}
 Write $K_j(x) = x^jK(x)$, $j = 0, 1, 2$. Recall Lemma \ref {lem3}, $$V_{n,j}=h^{j-1}
 \sum_{i=1}^nK_j[(x_i-x)/h],\quad  j=0,1,2,$$
  and note that   $h\to 0$ ($h^2\log n\to 0$ under {\bf C2}) and $n^{1 - \de_0} h / d_n \asymp n^{\al - \de_0 } h \to \infty$.

@@ -5,13 +5,13 @@
 % \hspace*{1cm}
 % \pagebreak[4]
 
-\chapter{Uniform Convergence Rates for a Class of Martingales} \la{chap:1}
+\chapter{Uniform Convergence for a Class of Martingales} \la{chap:1}
 \ifpdf
     \graphicspath{{Chapter1/Chapter1Figs/PNG/}{Chapter1/Chapter1Figs/PDF/}{Chapter1/Chapter1Figs/}}
 \else
     \graphicspath{{Chapter1/Chapter1Figs/EPS/}{Chapter1/Chapter1Figs/}}
 \fi
-For a class of martingales, this chapter provides a framework on the uniform consistency with broad applicability. The main condition imposed is only related to the conditional variance of the martingale. Our results not only  provide sharp convergence rate, but also the optimal range for the uniform convergence to be held. This chapter also considers the uniform upper and lower  bound estimates for a functional of Harris recurrent Markov chain, which  are of independent interests. These results will be useful for the study of sample covariance functional and sample average functional appear in a nonlinear cointegration model.
+For a class of martingales, this chapter provides a framework on uniform convergence with broad applicability. The main condition imposed is only related to the conditional variance of the martingale. Our results not only  provide sharp convergence rate, but also the optimal range for uniform convergence to hold. This chapter also considers the uniform upper and lower  bound estimates for a functional of Harris recurrent Markov chain, which  are of independent interests. These results will be useful for the study of sample covariance functional and sample average functional appearing in a nonlinear cointegration model.
 
 \section{Introduction}
 Let $(u_k, x_k)$ with $x_k=(x_{k1},..., x_{kd}), d\ge 1,$ be a sequence of random vectors. A common functional of interests $S_{1n}(x)$ of
@@ -19,20 +19,20 @@ $(u_k, x_k)$ is defined by
 \be
   S_{1n}(x) =\sum_{k=1}^n u_k g[(x_k+x)/h], \quad x\in R^d,\la {eqn:1:in1}
 \ee
-where $h=h_n\to 0$ is a certain sequence of positive constants and $g$ is a real function on $R^d$. Such functionals arise in nonparametric estimation problems, where $g$ may be a kernel function $K$ or a squared kernel function $K^{2}$ and the
+where $h=h_n\to 0$ is a certain sequence of positive constants and $g$ is a real function on $R^d$. Such functional arises in nonparametric estimation problems, where $g$ may be a kernel function $K$ or a squared kernel function $K^{2}$ and the
 sequence $h$ is the bandwidth used in the nonparametric regression.
 
 
-The uniform convergence of $S_{1n}(x)$ in the situation that the $(u_k, x_k)$ satisfy certain stationary conditions was studied in many articles. \cite{liero1989}, \cite{peligrad1992} and \cite{nzedoukhan2004} considered the uniform convergence over a fixed compact set, while \cite{masry1996}, \cite{bosq1998} and \cite{fanyao2003} gave uniform results over an unbounded set. These work mainly focus on random sequence $x_t$ which satisfies different types of mixing conditions. Investigating a more general framework, \cite{andrews1995} gave result on kernel estimate when the data sequence is near-epoch dependent on another underlying mixing sequence. More recently, \cite{hansen2008} provided a set of general uniform consistency results, allowing for stationary strong mixing multivariate data with infinite support, kernels with unbounded support and general bandwidth sequences. \cite{kristensen2009} further extended Hansen's results to the heterogenous dependent case under $\alpha$-mixing condition. Also see \cite{wuhuanghuang2010} for kernel estimation in general time series settings.
+The uniform convergence of $S_{1n}(x)$ in the situation that $(u_k, x_k)$ satisfies certain stationary conditions was studied in many articles. \cite{liero1989}, \cite{peligrad1992} and \cite{nzedoukhan2004} considered the uniform convergence over a fixed compact set, while \cite{masry1996}, \cite{bosq1998} and \cite{fanyao2003} gave uniform results over an unbounded set. These work mainly focused on random sequence $x_t$ which satisfied different types of mixing conditions. Investigating a more general framework, \cite{andrews1995} gave result on kernel estimate when the data sequence was near-epoch dependent on another underlying mixing sequence. More recently, \cite{hansen2008} provided a set of general uniform consistency results, which allowed for stationary strong mixing multivariate data with infinite support, kernels with unbounded support, and general bandwidth sequences. \cite{kristensen2009} further extended Hansen's results to the heterogeneous dependent case under $\alpha$-mixing condition. Also see \cite{wuhuanghuang2010} for kernel estimation in general time series settings.
 
 
-In comparison to the extensive results where the  $x_k$ comes from a stationary time series data, there is little investigation on the the uniform convergence of $S_{1n}(x)$ for the $x_k$ being a non-stationary time series. In this regard, \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where the $x_k$ is a null-recurrent Markov chain. \cite{wangwang2012} worked  with partial sum processes of the type $x_k=\sum_{j=1}^k\xi_j$ where $\xi_j$ is a general linear process. While the rate of convergence   in \cite{gaolitjostheim2011} is sharp,  they impose the independence between $u_k$ and $x_k$. Using a quite different method, \cite{wangwang2012} allowed for the endogeneity between $u_k$ and $x_k$, but their results hold  only for the $x$ being in a fixed compact set.
+In comparison to the extensive results where $x_k$ comes from a stationary time series data, there is little investigation on the uniform convergence of $S_{1n}(x)$ for $x_k$ being a nonstationary time series. In this regard, \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where $x_k$ was a null recurrent Markov chain. \cite{wangwang2012} worked  with partial sum processes of the type $x_k=\sum_{j=1}^k\xi_j$ where $\xi_j$ was a general linear process. While the rate of convergence   in \cite{gaolitjostheim2011} is sharp,  they imposed independence between $u_k$ and $x_k$. Using a quite different method, \cite{wangwang2012} allowed endogeneity between $u_k$ and $x_k$, but their results held true only for $x$ being in a fixed compact set.
 
-The aim of this chapter is to present a general uniform consistency  result for $S_{1n}(x)$ with broad applicability. As a framework,  our  assumption on the $x_t$ is only related to the conditional variance of the  martingale, that is, $ \sum_{t=1}^n g^2[(x_t+x)/h]$. See Assumption \ref{assump:1:highLevel} in Section \ref{sec:1:martingale}.
-This of course is a ``high level" condition, but it in fact is quite natural which holds true for many interesting and important examples, including stationary mixing time series, stationary  iterated random function and Harris  recurrent Markov chain. See Sections \ref{sec:1:identification} and \ref{sec:1:markov} for the identification of Assumption \ref{assump:1:highLevel}. This condition also holds true for $I(1)$ processes with innovations being a linear process, but the identification is complicated and requires quite different techniques. We will report related work in Chapter \ref{chap:2} and \ref{chap:3}. It should be mentioned that our work on the uniform upper and lower  bound estimation for a functional of Harris recurrent Markov chain is of independent interests.
+The aim of this chapter is to present a general uniform convergence result for $S_{1n}(x)$ with broad applicability. As a framework,  our  assumption on $x_t$ is only related to the conditional variance of the  martingale, that is, $ \sum_{t=1}^n g^2[(x_t+x)/h]$. See Assumption \ref{assump:1:highLevel} in Section \ref{sec:1:martingale}.
+This is of course a ``high level" condition, but it is in fact quite natural and holds true for many interesting and important examples, including stationary mixing time series, stationary  iterated random functions and Harris  recurrent Markov chain. See Sections \ref{sec:1:identification} and \ref{sec:1:markov} for the identification of Assumption \ref{assump:1:highLevel}. This condition also holds true for $I(1)$ processes with innovation being a linear process, but the identification is complicated and requires quite different techniques. We will report related works in Chapter \ref{chap:2} and \ref{chap:3}. It should be mentioned that our work on the uniform upper and lower  bounds estimation for a functional of Harris recurrent Markov chain is of independent interests.
 
 
-This chapter is organized as follows. Our main results are presented in next section, which includes the establishment of a framework on the uniform convergence for a class of martingale and uniform upper and lower  bound estimation for a functional of Harris recurrent Markov chain. All proofs are postponed to Section \ref{sec:1:proof}. 
+This chapter is organized as follows. Our main results are presented in the next section, which includes the establishment of a framework on the uniform convergence for a class of martingale. Section \ref{sec:1:identification} presents several examples satisfying our high level condition on $x_t$. Uniform upper and lower  bounds estimation for a functional of Harris recurrent Markov chain are presented in Section \ref{sec:1:markov}. All proofs are postponed to Section \ref{sec:1:proof}. 
 
 
 \section{Uniform convergence for a class of martingales} \la{sec:1:martingale}
@@ -44,7 +44,7 @@ Recall $x_k=(x_{k1},..., x_{kd})$ where $ d\ge 1$ is an integer.
 \end{assump}
 
 \begin{assump} \la{assump:1:lipschitz}
-  $g(x)$ is a  real function on $R^d$ satisfying $\sup_{x\in R^d} |g(x)|<\infty$ and
+  $g$ is a  real function on $R^d$ satisfying $\sup_{x\in R^d} |g(x)|<\infty$ and
   $|g(x)-g(y)| \le C\, \|x-y\| $ for all $x, y\in R^d$ and some constant $C>0$.
 \end{assump}
 
@@ -60,11 +60,11 @@ Recall $x_k=(x_{k1},..., x_{kd})$ where $ d\ge 1$ is an integer.
 \end{assump}
 
 \medskip
-We remark that Assumption \ref{assump:1:martingale} ensures that  $\{S_{1n}(x), {\mathcal F}_n\}_{n\ge 1}$ is a martingale for each fixed $x$ and is quite weak. Clearly, Assumption \ref{assump:1:martingale} is satisfies if $u_t$ is a sequence of i.i.d. random variables, which is independent of $x_1,..., x_t$, with $Eu_1=0$ and $E|u_1|^{2p}<\infty$. 
-The Lipschitz condition  used in Assumption \ref{assump:1:lipschitz} is standard in the investigation of uniform consistency, where we do not require the $g(x)$ to have finite compact support.
-Assumption \ref{assump:1:highLevel} is a ``high level" condition for the $x_k$. We use it here to provide a framework. In Sections \ref{sec:1:identification} and \ref{sec:1:markov}, we will show that this condition is in fact quite natural which holds true by many interesting and important examples. Assumption \ref{assump:1:bandwidth} provides the connections among the moment condition required in Assumption \ref{assump:1:martingale}, the condition (\ref {eqn:1:m1}) and the bandwidth $h$. In many applications, we have
+We remark that Assumption \ref{assump:1:martingale} ensures that  $\{S_{1n}(x), {\mathcal F}_n\}_{n\ge 1}$ is a martingale for each fixed $x$ and is quite weak. Clearly, Assumption \ref{assump:1:martingale} is satisfied if $u_t$ is a sequence of i.i.d. random variables, which is independent of $x_1,..., x_t$, with $Eu_1=0$ and $E|u_1|^{2p}<\infty$. 
+The Lipschitz condition  used in Assumption \ref{assump:1:lipschitz} is standard in the investigation of uniform consistency, which we do not require the $g$ to have finite compact support.
+Assumption \ref{assump:1:highLevel} is a ``high level" condition for $x_k$, and we use it here to provide a framework. In Sections \ref{sec:1:identification} and \ref{sec:1:markov}, we will show that this condition is in fact quite natural and it holds true for many interesting and important examples. Assumption \ref{assump:1:bandwidth} provides the connections among the moment condition required in Assumption \ref{assump:1:martingale}, the condition (\ref {eqn:1:m1}) and the bandwidth $h$. In many applications, we have
  $c_n=n^{\al}\,h^{d}\,l(n)$, where $ 0<\al\le 1$ and
- $l(n)$ is a slowly varying function at infinite. See Section \ref{sec:1:markov} and Examples 1-3 in Section \ref{sec:1:identification}. In the typical situation that $c_n=n^{\al}\,h^{d}\,l(n)$, if there exists a $0<\ep_0<\alpha$ such that $n^{\al-\ep_0}h^{d}\to \infty$, the $p$ required in Assumption \ref{assump:1:martingale} can be specified  to $p=[1/\ep_0]+1$.
+ $l$ is a slowly varying function at infinite. See Section \ref{sec:1:markov} and Examples 1-3 in Section \ref{sec:1:identification}. In the typical situation that $c_n=n^{\al}\,h^{d}\,l(n)$, if there exists a $0<\ep_0<\alpha$ such that $n^{\al-\ep_0}h^{d}\to \infty$, the $p$ required in Assumption \ref{assump:1:martingale} can be specified  to $p=[1/\ep_0]+1$.
 
 
 \medskip
@@ -86,7 +86,7 @@ We have the following main result.
   \ee
 \end{thm}
 
-Theorem \ref {thm:1:th4} can be extended to  uniform convergence for the $S_{1n}(x)=\sum_{t=1}^{n}\,u_t\,g[(x_t+x)/h]$ over  unrestricted space $R^d$. This requires additional condition on the $x_k$ and the tail decay for the function $g(x)$.
+Theorem \ref {thm:1:th4} can be extended to  uniform convergence for the $S_{1n}(x)=\sum_{t=1}^{n}\,u_t\,g[(x_t+x)/h]$ over  unrestricted space $R^d$. This requires additional condition on $x_k$ and the tail decay for the function $g$.
 
 \begin{thm} \la {thm:1:th4a}
   In addition to Assumptions \ref{assump:1:martingale}--\ref{assump:1:bandwidth}, $n\,\sup_{\|x\|> b_n/2} |g(x/h)| =O\big[(c_n \log n)^{1/2}\big]$ and there exists a $k_0>0$ such that
@@ -111,32 +111,32 @@ Theorem \ref {thm:1:th4} can be extended to  uniform convergence for the $S_{1n}
 
 
 \begin{rem}
-Theorems \ref {thm:1:th4}--\ref {thm:1:th4a} allow for the  $x_t$ to be a stationary  or  non-stationary time series. See Examples 1--3 and Section \ref{sec:1:markov} below. More examples on non-stationary time series will be reported in the Chapter \ref{chap:2} and \ref{chap:3}.  The rates of convergence in both theorems are sharp. For instance, in the well-known stationary situation such as those appeared in Examples 1-3, the $c_n$ can be chosen as $c_n=nh$. Hence, when there are enough moment conditions on the $u_t$ (i.e., $p$ is large enough), we obtain the optimal rate $n^{2/5}\log^{3/5} n$, by taking $h\sim (\log n/n)^{1/5}$. In non-stationary situation, the rate of convergence is different. In particular we have $c_n=\sqrt nh$ for the $x_t$ to be a random walk given in Corollary \ref {cor:1:th3}. The reason behind this fact is that the amount of time spent by the random walk around any particular point is of order $\sqrt n$ rather than $n$ for a stationary time series. More explanation in this regard, we refer to \citet[][\citeyear{wangphillips2009}]{wangphillips2010a}.
+Theorems \ref {thm:1:th4}--\ref {thm:1:th4a} allow for the  $x_t$ to be a stationary  or  nonstationary time series. See Examples 1--3 and Section \ref{sec:1:markov} below. More examples on nonstationary time series will be reported in the Chapter \ref{chap:2} and \ref{chap:3}.  The rates of convergence in both theorems are sharp. For instance, in the well-known stationary situation such as those appeared in Examples 1-3, the $c_n$ can be chosen as $c_n=nh$. Hence, when there are enough moment conditions on the $u_t$ (i.e., $p$ is large enough), we obtain the optimal rate $n^{2/5}\log^{3/5} n$, by taking $h\sim (\log n/n)^{1/5}$. In nonstationary situation, the rate of convergence is different. In particular we have $c_n=\sqrt nh$ for $x_t$ to be a random walk given in Corollary \ref {cor:1:th3}. The reason behind this fact is that the amount of time spent by the random walk around any particular point is of order $\sqrt n$ rather than $n$ for a stationary time series. Refer to \citet[][\citeyear{wangphillips2009}]{wangphillips2010a} for more explanation in this regard.
 \end{rem}
 
 \section{Identifications of Assumption \ref{assump:1:highLevel}} \la{sec:1:identification}
-This section  provides several  stationary time series examples which satisfy Assumption \ref{assump:1:highLevel}. Examples 1 and 2  come from \cite{wuhuanghuang2010}, where more general settings on the $x_t$  are established. Example 3 discusses a strongly mixing time series. This example comes from \cite{hansen2008}. By making use of other related works such as \cite{peligrad1992}, \cite{nzedoukhan2004},  \cite{masry1996}, \cite{bosq1998} and \cite{andrews1995}, similar results can be established for other mixing time series like $\rho$-mixing  and near-epoch-dependent time series. In these examples, we only consider the situation that $d=1$. The extension to $d> 1$ is straightforward and hence  the details are omitted. Throughout Examples 1--3, we use the notation $g^2_h(x)= h^{-1}g^2(x/h)$.
+This section  provides several  stationary time series examples that satisfy Assumption \ref{assump:1:highLevel}. Examples 1 and 2  come from \cite{wuhuanghuang2010}, where more general settings on the $x_t$  are established. Example 3 discusses a strong mixing time series. This example comes from \cite{hansen2008}. By making use of other related works such as \cite{peligrad1992}, \cite{nzedoukhan2004},  \cite{masry1996}, \cite{bosq1998} and \cite{andrews1995}, similar results can be established for other mixing time series like $\rho$-mixing  and near-epoch-dependent time series. In these examples, we only consider the situation that $d=1$. The extension to $d> 1$ is straightforward and hence  the details are omitted. Throughout Examples 1--3, we use the notation $g^2_h(x)= h^{-1}g^2(x/h)$.
 
-Example on Harris recurrent Markov chain, which allows for stationary (positive recurrent) or non-stationary (null recurrent), is given in Section \ref{sec:1:markov}. In the section, we also consider the uniform lower bound, which is of independent interests.
-More examples on $I(1)$ processes with innovations being a linear process will be reported in Chapter \ref{chap:2} and \ref{chap:3}.
+Example on Harris recurrent Markov chain, which allows for stationary (positive recurrent) or nonstationary (null recurrent) situations, is given in Section \ref{sec:1:markov}. In the next section, we also consider the uniform lower bound, which is of independent interests.
+More examples on $I(1)$ processes with innovation being a linear process will be reported in Chapter \ref{chap:2} and \ref{chap:3}.
 
 \medskip
 {\bf Example 1.} Let $\{x_{t}\}_{t\geq 0}$ be a linear process defined by
 \bestar
 x_{t}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon_{t-k},
 \eestar
-where $\{\epsilon _{j} \}_{j\in Z}$ is a sequence of iid
-random variables with $E\epsilon _{0}^{2}<\infty$ and a density $p_\ep$ satisfying $\sup_x|p_\ep^{(r)}(x)|<\infty$ and
+where $\{\epsilon _{j} \}_{j\in Z}$ is a sequence of i.i.d.
+random variables with $E\epsilon_{0}^{2}<\infty$ and a density $p_\ep$ satisfying $\sup_x|p_\ep^{(r)}(x)|<\infty$ and
 \bestar
-\int_{ R} |p_\ep^{(r)}(x)|^2  dx< \infty, \quad r=0,\ 1, 2,
+\int_{ R} |p_\ep^{(r)}(x)|^2  dx< \infty, \quad r=0, 1, 2,
 \eestar
-where $p_\ep^{(r)}(x)$ denotes the $r$-order derivative of $p_\ep(x)$. Suppose that $\sum_{k=0}^\infty |\phi_k| < \infty$ and $\phi \equiv \sum_{k=0}^\infty \phi_k \ne 0$, and in addition Assumption \ref{assump:1:lipschitz}, $g(x)$ has a compact support. It follows from Section 4.1 of \cite{wuhuanghuang2010} that,
+where $p_\ep^{(r)}(x)$ denotes the $r$-order derivative of $p_\ep(x)$. Suppose that $\sum_{k=0}^\infty |\phi_k| < \infty$ and $\phi \equiv \sum_{k=0}^\infty \phi_k \ne 0$, and in addition Assumption \ref{assump:1:lipschitz}, $g$ has a compact support. It follows from Section 4.1 of \cite{wuhuanghuang2010} that,
  for any $h \rightarrow 0$ and $nh \log^{-1}n \rightarrow \infty$,
 \begin{equation}
 \sup_{x \in  R} \Big | \frac{1}{n} \sum_{t =1}^{n} \big[g_h^2(x_t + x) - Eg_h^2(x_t + x)\big] \Big | = O \Big [\sqrt{\frac{\log n}{nh}} + n^{-1/2} l(n) \Big ] \quad a.s.
 \end{equation}
-where $l(n)$ is a slowly varying function.
-Note that $x_t$ is stationary process with a bounded density $g(x)$ under the given conditions on $\ep_k$. Simple calculations show that
+where $l$ is a slowly varying function.
+Note that $x_t$ is stationary process with a bounded density $p$ under the given conditions on $\ep_k$. Simple calculations show that
 \begin{equation}
 \sup_{x \in  R} \sum_{t =1}^{n} g^2[(x_t + x)/h] = O_P(nh),
 \end{equation}
@@ -147,7 +147,7 @@ that is, $x_t$ satisfies Assumption \ref{assump:1:highLevel}.
 \bestar
 x_k = R(x_{k-1}, \ep_k)
 \eestar
-where $R$ is a bivariate measurable function and $\ep_k$ are iid innovations. This is the iterated random function framework that encompasses a lot of popular nonlinear time series models. For example, if $R(x, \ep) = a_1\, x\,  I(x < \tau) + a_2\, x\,  I(x \ge \tau) + \ep$, it is the threshold autoregressive (TAR) model, (see \cite{tong1990}). If $R(x, \ep) = \ep \sqrt{a_1^2 + a_2^2\, x}$, then it is autoregressive model with conditional heteroscedasticity (ARCH) model. Other nonlinear time series models, including random coefficient model, bilinear autoregressive model and exponential autoregressive model can be fitted in this framework similarly. See \cite{wushao2004} for details.
+where $R$ is a bivariate measurable function and $\ep_k$ are i.i.d. innovations. This is the iterated random function framework that encompasses a lot of popular nonlinear time series models. For example, if $R(x, \ep) = a_1\, x\,  I(x < \tau) + a_2\, x\,  I(x \ge \tau) + \ep$, it is the threshold autoregressive (TAR) model, (see \cite{tong1990}). If $R(x, \ep) = \ep \sqrt{a_1^2 + a_2^2\, x}$, then it is autoregressive model with conditional heteroskedasticity (ARCH) model. Other nonlinear time series models, including random coefficient model, bilinear autoregressive model and exponential autoregressive model can be fitted in this framework similarly. See \cite{wushao2004} for details.
 
 In order to identify Assumption \ref{assump:1:highLevel}, we need some regularity conditions on the initial distribution of $x_0$  and the function $R(x, \ep)$. Define
 \begin{equation}
@@ -155,7 +155,7 @@ L_{\ep} = \sup_{x \ne x'} \frac{ | R(x, \ep) - R(x', \ep) | } { |x - x'| }.
 \end{equation}
 Denote by $g(x|x_0)$ the conditional density of $x_1$ at $x$ given $x_0$. Further let  $g'(y|x) = \partial g(y|x) / \partial y$ and
 \begin{equation}
-I(x) = \Big [ \int_{{R}} \Big | \frac{\partial}{\partial x} g(y|x) \Big |^2 dy \Big ]^{1/2} \quad and \quad J(x) = \Big [ \int_{{R}} \Big | \frac{\partial}{\partial x} g'(y|x) \Big |^2 dy \Big ]^{1/2}
+I(x) = \Big [ \int_{{R}} \Big | \frac{\partial}{\partial x} g(y|x) \Big |^2 dy \Big ]^{1/2} \quad and \quad J(x) = \Big [ \int_{{R}} \Big | \frac{\partial}{\partial x} g'(y|x) \Big |^2 dy \Big ]^{1/2}.
 \end{equation}
 $I(x)$ and $J(x)$ can be interpreted as a prediction sensitivity measure. These quantities measure the change in 1-step predictive distribution of $x_1$ with respect to change in initial value $x_0$. Suppose that
 \begin{itemize}
@@ -165,14 +165,14 @@ E\big(\big|L_{\ep_0}|^{\al} + | R(z_0, \ep_0)|^\al\big)<\infty,  \quad E [ \log(
 \eestar
 \item[(ii)]
 $\sup_x [I(x) + J(x)] < \infty$;
-\item[(iii)] in addition to Assumption \ref{assump:1:lipschitz}, $g(x)$ has a compact support.
+\item[(iii)] in addition to Assumption \ref{assump:1:lipschitz}, $g$ has a compact support.
 \end{itemize}
 It follows from Section 4.2 of \cite{wuhuanghuang2010} that,
 for any $h \rightarrow 0$ and $nh \log^{-1}n \rightarrow \infty$
 \begin{equation}
 \sup_{x \in  R} \Big | \frac{1}{n} \sum_{t =1}^{n} \big[g_h^2(x_t + x) - Eg_h^2(x_t + x)\big] \Big | = O \Big [\sqrt{\frac{\log n}{nh}} + n^{-1/2} l(n) \Big ] \quad a.s.
 \end{equation}
-where $l(n)$ is a slowly varying function.
+where $l$ is a slowly varying function.
 Note that $x_t$ has  a  unique and stationary distribution under the
 given condition (i) and (ii). See \cite{diaconis1999} for instance.  Simple calculations show that
 \be
@@ -181,11 +181,11 @@ given condition (i) and (ii). See \cite{diaconis1999} for instance.  Simple calc
 that is, $x_t$ satisfies Assumption \ref{assump:1:highLevel}.
 
 \medskip
-{\bf Example 3.}  Let $\{x_k\}_{k\ge0}$ be a strictly stationary time series with density $g(x)$. Suppose that
+{\bf Example 3.}  Let $\{x_k\}_{k\ge0}$ be a strictly stationary time series with density $p$. Suppose that
  \begin{itemize}
 \item [(i)] $x_t$ is strongly mixing with mixing coefficients $\al(m)$ that satisfy  $\al(m) \le A\, m^{-\beta}$ where $\beta > 2 $ and $A < \infty$;
-\item[(ii)] $\sup_x|x|^q g(x) < \infty$ for some $q\ge 1$ satisfying $\beta>2+1/q$ and there is some $j^* < \infty$ such that for all $j \ge j^*$, $\sup_{x, y} g_j(x, y) < \infty$ where $g_j(x, y)$ is the joint density of $\{x_0, x_j\}$;
-\item[(iii)] in addition to Assumption \ref{assump:1:lipschitz}, $g(x)$ has a compact support.
+\item[(ii)] $\sup_x|x|^q p(x) < \infty$ for some $q\ge 1$ satisfying $\beta>2+1/q$ and there is some $j^* < \infty$ such that for all $j \ge j^*$, $\sup_{x, y} g_j(x, y) < \infty$ where $g_j(x, y)$ is the joint density of $\{x_0, x_j\}$;
+\item[(iii)] in addition to Assumption \ref{assump:1:lipschitz}, $g$ has a compact support.
 \end{itemize}
  It follows from Theorem 4 (with $Y_i=1$) of \cite{hansen2008} that,
 for any $h \rightarrow 0$ and $n^{\theta}h \log^{-1}n \rightarrow \infty$
@@ -210,7 +210,7 @@ $$
 \sup_{x\in E} E_x\big(\sum_{k=1}^{\tau_A}I_D(x_k)\big)<\infty,
 $$
 where $ \mathcal{E}^+=\{A\in  \mathcal{E}: \pi(A)>0\}$ and $\tau_A=\inf\{n\ge 1: \ x_n\in A\}$. As is well-known,
-$D$-sets not only exist,  but generate the entire sigma $\mathcal{E}$, and
+$D$-sets not only exist,  but also generate the entire sigma field $\mathcal{E}$, and
  for any $D$-sets $C, D$ and any probability measure $\nu, \mu$ on $(E, \mathcal{E})$,
 \be
 \lim_{n\to\infty}\sum_{k=1}^n\nu P^k(C)/\sum_{k=1}^n\mu P^k(D) &=&\frac {\pi (C)}{\pi (D)}, \la {eqn:1:1.3}
@@ -221,27 +221,25 @@ Let a $D$-set $D$ and a probability measure $\nu$ on $(E, \mathcal{E})$ be fixed
 \bestar
   a(t) &=& \pi^{-1}(D)\sum_{k=1}^{[t]}\nu P^k(D), \quad t\ge 0.
 \eestar
- By recurrence, $a(t)\to\infty$.
-By virtue of (\ref {eqn:1:1.3}), the asymptotic order of $a(t)$
-depends only on $\{x_k\}_{k\ge 0}$. As in \cite{chen2000}, a Harris recurrent Markov chain $\{x_k\}_{k\ge 0}$ is called
+ By recurrence, $a(t)\to\infty$, and the asymptotic order of $a(t)$ depends only on $\{x_k\}_{k\ge 0}$. As in \cite{chen2000}, a Harris recurrent Markov chain $\{x_k\}_{k\ge 0}$ is called
 $\beta$-regular if
 \be
 \lim_{\lam\to \infty} a(\lam t)/a(\lam) &=&t^\beta,\quad \forall t>0, \la {eqn:1:d1}
 \ee
 where $0< \beta\le 1$. It is interesting to notice that, under the condition (\ref {eqn:1:d1}), the function $a(t)$ is regularly varying at infinity, i.e.,
- there exists a slowly varying function  $l(x)$ such that $a(t)\sim t^{\beta}\, l(t)$. This implies that
+ there exists a slowly varying function  $l$ such that $a(t)\sim t^{\beta}\, l(t)$. This implies that
  the definition of $\beta$-regular Harris recurrent Markov chain is similar to that of $\beta$-null recurrent given in \cite{karlsentjostheim2001} and \cite{gaolitjostheim2011},
  but it is more natural and simple.
 
  The following theorem provides uniform upper and lower bounds for a functional of $x_t$.
- The upper bound implies that $x_t$ satisfies Assumption \ref{assump:1:highLevel}, allowing for the $x_t$ being stationary ($\beta=1$, positive recurrent Markov chain) and non-stationary ($0<\beta<1$, null recurrent Markov chain).
- The lower bound plays a key role in the investigation of the uniform consistency for the kernel estimator in a non-linear co-integrating regression,
+ The upper bound implies that $x_t$ satisfies Assumption \ref{assump:1:highLevel}, allowing for $x_t$ to be stationary ($\beta=1$, positive recurrent Markov chain) and nonstationary ($0<\beta<1$, null recurrent Markov chain).
+ The lower bound plays a key role in the investigation of uniform consistency for the kernel estimator in a nonlinear cointegrating regression model,
   and hence is of independent interests. See Chapter \ref{chap:4} for more details. Both upper and lower bounds are optimal, which is detailed in  Remarks \ref{rmk:1:minimal} and \ref{rmk:1:randomWalk}.
 
 \begin{thm} \la {thm:1:th1} Suppose that
 \begin{itemize}
 \item [(i)] $\{x_k\}_{k\ge 0}$ is a $\beta$-regular Harris recurrent Markov chain,
-where   the invariant measure $\pi$ has a bounded  density function $p(s)$ on $R$;
+where   the invariant measure $\pi$ has a bounded  density function $p$ on $R$;
 \item [(ii)] in addition to Assumption \ref{assump:1:lipschitz}, $\int_{-\infty}^{\infty}|g(x)|dx<\infty$.
 \end{itemize}
 Then, for any  $h>0$ satisfying $n^{-\ep_0}a(n)\, h\to \infty$ for some $\ep_0>0$, we have
@@ -276,15 +274,15 @@ for any  $0<\eta<1$,  the condition (\ref {eqn:1:wond}) is close to minimal.
 
 
 
-Note that random walk is a $1/2$-regular  Harris recurrent Markov chain.
+Note that a random walk is a $1/2$-regular  Harris recurrent Markov chain.
 The following corollary on a random walk shows the range $|x|\le b_n$
 can be taken to be optimal as well.
 
 
 
-\begin{cor} \la {cor:1:th3} Let  $\{\epsilon _{j}, 1 \le j\le n \}$ be a sequence of iid
+\begin{cor} \la {cor:1:th3} Let  $\{\epsilon _{j}, 1 \le j\le n \}$ be a sequence of i.i.d.
 random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$ and the
-characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfying
+characteristic function $\varphi$ of $\epsilon _{0}$ satisfying
 $\int_{-\infty
 }^{\infty }|\varphi (t)|dt<\infty $. Write $x_t=\sum_{j=1}^t\ep_j, t\ge 1.$ If in addition to Assumption \ref{assump:1:lipschitz}, $\int_{-\infty}^{\infty}|g(x)|dx<\infty$, then,  for  $h> 0$  and $n^{1/2-\ep_0}\, h\to \infty$ where $0<\ep_0<1/2$, we have
 \be
@@ -302,16 +300,16 @@ for any $0<\tau_n\to 0$.
 \be
  \frac{1}{\sqrt nh} \sum_{t=1}^{n} g^2 [(x_t + y_n )/h]&\to_D&\int g^2(s) ds\, L_W(1,y), \la {eqn:1:ez1}
 \ee
-where $L_{W}(1,y)$ is a local time of a Brownian motion $W(t)$,  and
+where $L_{W}(1,y)$ is a local time of a Brownian motion $W$,  and
 $y=0$ if $y_n/\sqrt n\to 0$ and $y=y_0$ if $y_n/\sqrt n\to y_0$. See Appendix \ref{chap:app3} for more details. Since $L_W(1,y)\to 0$, in probability, as $y\to\infty$, 
 it follows from (\ref {eqn:1:ez1}) that the range $\inf_{|x| \le \tau_n \sqrt{n}}$ in (\ref {eqn:1:m15}) can not be extended to $\inf_{|x|\le d \sqrt n}$ for any $d > 0$.
 \end{rem}
 
 \medskip
-\begin{rem} As in Examples 1--3, we may obtain a better result if $\{x_t\}_{t\ge0}$ is stationary (positive null recurrent) and satisfied certain other restrictive conditions. Indeed, \cite{kristensen2009} provided such a result.
+\begin{rem} As in Examples 1--3, we may obtain a better result if $\{x_t\}_{t\ge0}$ is stationary (positive null recurrent) and satisfies certain other restrictive conditions. Indeed, \cite{kristensen2009} provided such a result.
 
  Let $\{x_n\}_{n\ge0}$ be a time-homogeneous, geometrically ergodic Markov Chain.  Denote the 1-step transition probability by $p(y|x)$, such that $P(x_{i+1} \in A\, |\, x_i) = \int_A p(y|x) dy$. Also denote the $i$-step transition probability by $p_i(y|x)$, such that $p_i(y|x) = \int_{ R} p(y|z)p_{i-1}(z|x) dz$.
-Since $x_t$ is geometrically ergodic, it has a density $g(x)$. Further suppose that
+Since $x_t$ is geometrically ergodic, it has a density $\bar{p}$. Further suppose that
 \begin{itemize}
 \item [(i)] (strong Doeblin condition) there exists $s \ge 1$ and $\rho \in (0, 1)$ such that for all $y \in  R$,
 \begin{equation}
@@ -320,13 +318,13 @@ p_s(y | x) \ge \rho\, \lambda(y);
 \item[(ii)] $\partial^r p(y|x) / \partial y^r$ exists and is uniformly continuous for all $x$, for some $r \ge 1$;
     \item
      [(iii)] $\sup_y [ \,\lambda(y) + |y|^q \lambda(y)]<\infty$ for some $q \ge 1$,
-\item [(iv)] in addition to Assumption \ref{assump:1:lipschitz}, $g(x)$ has a compact support.
+\item [(iv)] in addition to Assumption \ref{assump:1:lipschitz}, $g$ has a compact support.
 \end{itemize}
 It follows from \cite{kristensen2009} that, for any $h\to 0$ and $nh\to\infty$,
 \begin{equation}
-\sup_{x \in  R} \Big | \frac{1}{nh} \sum_{t=1}^{n} g^2 [(x_t + x )/h] - g(x)\, \int g^2(s) ds\Big | = O_P \Big [h^r + \sqrt{\frac{\log n}{nh} } \Big ], \la {eqn:1:ex3}
+\sup_{x \in  R} \Big | \frac{1}{nh} \sum_{t=1}^{n} g^2 [(x_t + x )/h] - \bar{p}(x)\, \int g^2(s) ds\Big | = O_P \Big [h^r + \sqrt{\frac{\log n}{nh} } \Big ], \la {eqn:1:ex3}
 \end{equation}
-which yields (\ref {eqn:1:1.2}) with $a(n)=n$ and (\ref {eqn:1:1.2a}) with $a(n)=n$ and $b_n=C_0$, where $C_0$ is a constant such that $\inf_{|x|\le C_0} g(x)>0$.
+which yields (\ref {eqn:1:1.2}) with $a(n)=n$ and (\ref {eqn:1:1.2a}) with $a(n)=n$ and $b_n=C_0$, where $C_0$ is a constant such that $\inf_{|x|\le C_0} \bar{p}(x)>0$.
 \end{rem}
 
 \medskip
@@ -338,7 +336,7 @@ for some $b_n\to \infty$ and $c_n\to 0$. Note that (\ref {eqn:1:ez2}) implies th
 \be
  \frac{1}{\sqrt nh} \sum_{t=1}^{n} g^2 [(x_t + y )/h]&\to_P&\int g^2(s) ds\, L_W(1,0), \la {eqn:1:ez3}
 \ee
-for any fixed $y$. This is a stronger convergence than that given in (\ref {eqn:1:ez1}). Our experience show that it might not be possible to prove (\ref {eqn:1:ez2}) without enlarging the probability space in which  the $x_t$ host.
+for any fixed $y$. This is a stronger convergence than that given in (\ref {eqn:1:ez1}). Our experience shows that it might not be possible to prove (\ref {eqn:1:ez2}) without enlarging the probability space in which  the $x_t$ hosts.
 \end{rem}
 
 
@@ -503,7 +501,7 @@ for $j=1,\ 2, ....$ It is well-known that the blocks
 \bestar
 (x_{\rho_i+1},...,x_{\rho_{i+1}}), \quad i=0, 1,2,...
 \eestar
-are iid blocks, $x_{\rho_i+1}$ having the distribution $\nu$. Hence,  for each $h$ and $x$, $\{Z_j^*(x), \rho_j-\rho_{j-1}\}_{j=1}^{\infty}$, where $Z_j^*(x)=Z_j(x)$ or $Z_{jn}(x)$ is a sequence of iid random vectors. Furthermore, by recalling that  $\pi$ has a bounded density function $p(s)$,  $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ and $\sup_s|g(s)|<\infty$, we have
+are i.i.d. blocks, $x_{\rho_i+1}$ having the distribution $\nu$. Hence,  for each $h$ and $x$, $\{Z_j^*(x), \rho_j-\rho_{j-1}\}_{j=1}^{\infty}$, where $Z_j^*(x)=Z_j(x)$ or $Z_{jn}(x)$ is a sequence of i.i.d. random vectors. Furthermore, by recalling that  $\pi$ has a bounded density function $p$,  $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ and $\sup_s|g(s)|<\infty$, we have
 \be
 EZ_1(x) &=& b\,\int_{-\infty}^{\infty} g^2[(s+x)/h] \pi(ds) \no\\
 &=&b\,h\, \int_{-\infty}^{\infty} g^2(s)\, p(-x+sh) ds \le C^*\, h, \la {eqn:1:45}
@@ -553,7 +551,7 @@ for any $t\le (n^{-\ep_0/2} a(n)h)^{-1}$ and some $C_0>0$, the standard Markov i
 &\le& C\, m_n\,\exp(-M\,t n^{-\ep_0/4} a(n)h +C_{\ep}a(n)t^2h) \no\\
 &\le&  C\, m_n\,\exp(-M\,n^{\ep_0/4}/4 )\to 0, \la {eqn:1:l1}
 \ee
-as $n\to \infty$. Hence, $R_{1n}=O_P[n^{-\ep_0/4}\,a(n)\, h]$. Combining (\ref {eqn:1:b1}) -- (\ref {eqn:1:l1}), we prove (\ref {eqn:1:95}).
+as $n\to \infty$. Hence, $R_{1n}=O_P[n^{-\ep_0/4}\,a(n)\, h]$. Combining (\ref {eqn:1:b1})--(\ref {eqn:1:l1}), we prove (\ref {eqn:1:95}).
 
 The proof of (\ref {eqn:1:96}) is similar except more simpler. Indeed, by independence of $\widetilde Z_{ i}(x)$, we obtain
 \bestar
@@ -621,12 +619,11 @@ P\big(\Delta_{1n}\ge a\big)&\ge&
 P\big(\inf_{0\le j\le m_n} \sum_{i=1}^{C_{1\ep}\, a(n)} Z_{ in}(y_j)\ge a\big)-\ep. \la {eqn:1:146}
 \ee
 On the other hand, it follows from (\ref {eqn:1:95}) with $Z_k^*(x)=Z_{kn}(x)$ that
-\be
-\inf_{0\le j\le m_n} \sum_{i=1}^{C_{1\ep}\, a(n)} Z_{ in}(y_j) &\ge&
-C_{1\ep}\, a(n)\inf_{0\le j\le m_n}EZ_{ 1n}(y_j) -R_n \no\\
-&\ge& C_{1\ep}\, a(n)\inf_{0\le j\le m_n}EZ_{ 1n}(y_j) -O_{P}[n^{-\ep_0/4}\, a(n)h]. \la {eqn:1:147}
-\ee
-Combining (\ref {eqn:1:145})-(\ref {eqn:1:147}), the result (\ref {eqn:1:1.2a}) under  (\ref {eqn:1:1}) will follow if we prove: there exists a $b_0>0$ such that
+\begin{align}
+\inf_{0\le j\le m_n} \sum_{i=1}^{C_{1\ep}\, a(n)} Z_{ in}(y_j) &\ge C_{1\ep}\, a(n)\inf_{0\le j\le m_n}EZ_{ 1n}(y_j) -R_n \no\\
+&\ge C_{1\ep}\, a(n)\inf_{0\le j\le m_n}EZ_{ 1n}(y_j) -O_{P}[n^{-\ep_0/4}\, a(n)h]. \la {eqn:1:147}
+\end{align}
+Combining (\ref {eqn:1:145})--(\ref {eqn:1:147}), the result (\ref {eqn:1:1.2a}) under  (\ref {eqn:1:1}) will follow if we prove: there exists a $b_0>0$ such that
 \be
 \inf_{0\le j\le m_n}EZ_{ 1n}(y_j) \ge b_0\,h,\la {eqn:1:148}
 \ee
@@ -660,7 +657,7 @@ $(E, \mathcal{E})$ by
 \bestar
 P_t(x, A) &=&(1-t)\, \sum_{k=1}^{\infty}t^{k-1}\, P^k(x, A), \quad x\in E,\ \ A\in \mathcal{E}.
 \eestar
-Let $\{\beta_n\}_{n\ge 1}$ be an iid Bernoulli random variables with the common law
+Let $\{\beta_n\}_{n\ge 1}$ be an i.i.d. Bernoulli random variables with the common law
 \bestar
 P(\beta_1=0)=t \quad \mbox{and}\quad P(\beta_1=1)=1-t
 \eestar
@@ -697,7 +694,7 @@ The proof of (\ref {eqn:1:1.2a}) under general situation is similar and hence th
 \begin{proof}[\bf Proof of Corollary \ref {cor:1:th3}]
 We first notice that
 \begin{itemize}
-\item[{\bf F.}] $x_k=\sum_{j=1}^k\ep_{j}$ is a Harris  null recurrent Markov chain,  satisfying (\ref {eqn:1:1}), $a(t)=\sqrt t$ and  the invariant measure $\pi$ is the Lebesgue measure.
+\item[{\bf F.}] $x_k=\sum_{j=1}^k\ep_{j}$ is a Harris recurrent Markov chain,  satisfying (\ref {eqn:1:1}), $a(t)=\sqrt t$ and  the invariant measure $\pi$ is the Lebesgue measure.
 \end{itemize}
 Due to the fact {\bf F}, (\ref {eqn:1:1.2a1}) follows immediately  from  Theorem \ref{thm:1:th1}.
 
@@ -724,11 +721,11 @@ as required. The proof of Corollary \ref {cor:1:th3} is now complete.
 % ------------------------------------------------------------------------
 
 \nomenclature{$B$}{backshift operator}{}{}
-\nomenclature{i.i.d}{independent and identically distributed}{}{}
+\nomenclature{i.i.d.}{independent and identically distributed}{}{}
 \nomenclature{$D[0,1]$}{the metric space with the Skorohod topology of all real-valued right continuous functions having finite left-hand limits on the interval $[0,1]$}{}{}
 \nomenclature{$W(t)$}{the standard Brownian motion}{}{}
 \nomenclature{$\to_D$}{convergence in distribution}{}{}
-\nomenclature{$\to_P$}{convergence in distribution}{}{}
+\nomenclature{$\to_P$}{convergence in probability}{}{}
 \nomenclature{$\to_{a.s.}$}{convergence almost surely}{}{}
 \nomenclature{$\Rightarrow$}{weak convergence of probability measures}{}{}
 \nomenclature{$[a]$}{integer part of the real number $a$}{}{}

@@ -1,12 +1,12 @@
 
-\chapter{Uniform Bounds for Functionals of Non-stationary Time Series} \la{chap:2}
+\chapter{Uniform Bounds for Functionals of Nonstationary Time Series} \la{chap:2}
 \ifpdf
     \graphicspath{{Chapter2/Chapter2Figs/PNG/}{Chapter2/Chapter2Figs/PDF/}{Chapter2/Chapter2Figs/}}
 \else
     \graphicspath{{Chapter2/Chapter2Figs/EPS/}{Chapter2/Chapter2Figs/}}
 \fi
 
-In this chapter, we establish uniform convergence of the sample average functional $S_{2n}(x)$, under the situation that $x_t$ is a general class of non-stationary time series, including integrated and fractionally integrated time series. Such kind of structure has an essential different from the Harris recurrent Markov chian considered in Chapter \ref{chap:1}. Sharp upper and lower uniform bounds are established, and the results will be useful in the investigation of uniform convergence for kernel estimates in nonlinear cointegrating regression.
+In this chapter, we establish uniform convergence for the sample average functional, under the situation that the sample is a general class of nonstationary time series, including integrated and fractionally integrated time series. Such kind of structure has an essential difference from the Harris recurrent Markov chain considered in Chapter \ref{chap:1}. Sharp upper and lower uniform bounds are established, and the results will be useful for the investigation of uniform convergence for kernel estimates in nonlinear cointegrating regression.
 
 \section{Introduction}
 Consider a triangular array ${x_{k,n},1\leq k\leq n,n\geq
@@ -17,18 +17,18 @@ is a partial sum and $0 < d_n\to \infty$ in such a way that $x_n/d_n$ has a limi
 S_{2n} (x)=\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)], \quad x\in R,
 \eestar
 where $c_{n}$ is a certain sequence of positive constants and $g$ is
-a real function on $R$. Such functionals commonly arise in non-linear regression with integrated time series [\citet[][\citeyear{parkphillips2001}]{parkphillips1999}] and non-parametric estimation in relation to nonlinear cointegration models [\cite{phillipspark1998}, \cite{karlsentjostheim2001}]. The limit behavior of $S_{2n}(x)$ in the situation that $c_{n}\rightarrow \infty $ and $n/c_{n}\rightarrow \infty $ is particularly interesting and important for practical applications as it provides a setting that accommodates a sufficiently wide range of bandwidth choices to be relevant for non-parametric kernel estimation.
+a real function on $R$. Such functional commonly arises in nonlinear regression with integrated time series [\citet[][\citeyear{parkphillips2001}]{parkphillips1999}] and nonparametric estimation in relation to nonlinear cointegration models [\cite{phillipspark1998}, \cite{karlsentjostheim2001}]. The limit behavior of $S_{2n}(x)$ in the situation that $c_{n}\rightarrow \infty $ and $n/c_{n}\rightarrow \infty $ is particularly interesting and important for practical applications as it provides a setting that accommodates a sufficiently wide range of bandwidth choices to be relevant for nonparametric kernel estimation.
 
-For a fixed $x$, the limit distribution of $S_{2n}(x)$ has been established by many authors. For example, \cite{borodinibragimov1995}, \cite{akonom1993} and \cite{phillipspark1998} investigated the particular situation where $x_{k}$ is a partial sum of i.i.d. random variables. \cite{jeganathan2004} studied the asymptotic form of similar functionals when $x_{k}$ is a partial sum of long memory linear processes. \cite{wangphillips2010a} improved the above papers by allowing more general conditions on $x_t$.  \cite{wangphillips2010b} considered the point-wise asymptotics of the $S_{2n}(x)$ for the zero energy functional.  
+For a fixed $x$, the limit distribution of $S_{2n}(x)$ has been established by many authors. For example, \cite{borodinibragimov1995}, \cite{akonom1993} and \cite{phillipspark1998} investigated the particular situation where $x_{k}$ was a partial sum of i.i.d. random variables. \cite{jeganathan2004} studied the asymptotic form of similar functionals when $x_{k}$ was a partial sum of long memory linear processes. \cite{wangphillips2010a} improved the above papers by allowing more general conditions on $x_t$.  \cite{wangphillips2010b} considered the point-wise asymptotics of a class of zero energy functionals.  
 
-The aim of this chapter is to investigate the uniform (upper and lower) bound  for $S_{2n}(x)$ on a compact set or on $R$. As discussed in the introduction of this thesis, these results will be useful in the investigation of uniform convergence for kernel estimates in a non-linear cointegrating regression. In this regard, for a near $I(1)$ regressor $x_t$, \cite{wangwang2012} established uniform consistency for  both the regression and the volatility functions under  a compact set. Without the compact set restriction,  \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where the $x_k$ is a null recurrent Markov chain,  but  imposed the independence between $u_k$ and $x_k$. The independence condition in \cite{gaolitjostheim2011} was removed in our Chapter \ref{chap:1}, where we also investigate the uniform convergence for a class of martingales.
+The aim of this chapter is to investigate uniform (upper and lower) bounds  for $S_{2n}(x)$ on a compact set or on $R$. As discussed in the introduction of this thesis, these results will be useful for the investigation of uniform convergence for kernel estimates in a nonlinear cointegrating regression model. In this regard, for a near $I(1)$ regressor $x_t$, \cite{wangwang2012} established uniform consistency for  both the regression and the volatility functions under  a compact set. Without the compact set restriction,  \cite{gaolitjostheim2011} derived strong and weak consistency results for the case where $x_k$ was a null recurrent Markov chain,  but  imposed independence between $u_k$ and $x_k$. The independence condition in \cite{gaolitjostheim2011} was removed in our Chapter \ref{chap:1}, where we also investigate the uniform convergence for a class of martingales.
 
- The present paper has a similar goal to \cite{gaolitjostheim2011} and Chapter \ref{chap:1}. However, instead of the null recurrent Markov chain, we work on the
-  general non-stationary regressor $x_k$ that is similar to \cite{wangphillips2010a}, including a partial sum of general linear process. As noticed in \cite{wangphillips2010a}, this kind of regressor has an essential difference from the null recurrent Markov chain, and is more natural for econometric applications. Furthermore  our uniform convergence rates are sharp and may be optimal.
+ The present chapter has a similar goal to \cite{gaolitjostheim2011} and Chapter \ref{chap:1}. However, instead of the null recurrent Markov chain, we work on the
+  general nonstationary regressor $x_k$ that is similar to \cite{wangphillips2010a}, including a partial sum of general linear processes. As noticed in \cite{wangphillips2010a}, this kind of regressor has an essential difference from the null recurrent Markov chain, and is more natural for econometric applications. Furthermore, our uniform convergence rates are sharp and may be optimal.
 
- It deserves to mention that the results established in this chapter have applications not only in nonlinear cointegration model, but also in other areas such as nonlinear autoregression and  nonlinear regression with nonlinear non-stationary heteroskedastic (NNH) errors. For the latter case, we refer to \cite{wangwang2012} and the reference therein for more details.
+ It should be mentioned that the results established in this chapter have applications not only in nonlinear cointegration model, but also in other areas such as nonlinear autoregression and  nonlinear regression with nonlinear nonstationary heteroskedasticity (NNH) errors. For the latter case, we refer to \cite{wangwang2012} and the reference therein for more details.
 
-This chapter is organized as follow. Section \ref{sec:2:main} presents the uniform (upper and lower) bounds for a class of functionals  of non-stationary time series. Theorem \ref{thm:2:MainLower} gives the bounds for general non-stationary time series and Corollary \ref{corZero} provides the results when $x_t$ is a partial sum of linear processes. Technical proofs are postponed to Section \ref{sec:2:proof}.
+This chapter is organized as follows. Section \ref{sec:2:main} presents the uniform (upper and lower) bounds for a class of functionals  of nonstationary time series. Theorem \ref{thm:2:MainLower} gives the bounds for general nonstationary time series and Corollary \ref{corZero} provides the results when $x_t$ is a partial sum of linear processes. Technical proofs are postponed to Section \ref{sec:2:proof}.
 
 \section{Main results} \la{sec:2:main}
 
@@ -36,12 +36,12 @@ We make use of the following assumptions in the development of main results.
 
 \begin{assump} \la{assump:2:lipschitz}
 	$\sup_x|g(x)|<\infty$, $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ \textit{and }\textit{\
-	$|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficient small on }$R$.
+	$|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficiently small on }$R$.
 \end{assump}
 
 \begin{assump} \la{assump:2:weakConvergence}
 \textit{There exists a stochastic process }%
-$G(t)$\textit{\ having a continuous local time
+$G$\textit{\ having a continuous local time
 }$L_{G}(t,s)$\textit{\ such that }$x_{[nt],n}\Rightarrow
 G(t)$\textit{, on }$D[0,1],$\textit{\ where
 weak convergence is understood w.r.t the Skorohod topology on the space }$%
@@ -56,7 +56,7 @@ sequence of increasing }$\sigma $\textit{-fields }${\mathcal F}_{k,n}$\textit{\ 
 -field) such that} $x_{k,n}$\textit{\ are adapted to }${\mathcal F}_{k,n}$\textit{\
 and, conditional on }${\mathcal F}_{k,n}$\textit{,
 }$(x_{l,n}-x_{k,n})/d_{l,k,n}$\textit{\ has a density
-}$h_{l,k,n}(x)$\textit{\ satisfying that }$h_{l,k,n}(x)$\textit{\ is
+}$h_{l,k,n}$\textit{\ satisfying that }$h_{l,k,n}$\textit{\ is
 uniformly bounded by a constant }$K$\textit{\ and uniformly for $j-k$ sufficiently large}
 \be
  \sup_y | h_{l,k,n}(y + u) - h_{l,k,n}(y)| \le C \min\{|u|, 1\}. \la {eqn:2:77}
@@ -64,12 +64,12 @@ uniformly bounded by a constant }$K$\textit{\ and uniformly for $j-k$ sufficient
 \end{assump}
 
 We mention that Assumption \ref{assump:2:lipschitz} is standard in the investigation of uniform convergence,
-which provides rich choices for kernel estimation applications. Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} are similar to those used in Theorem 2.1 of \cite{wangphillips2010a}. The additional requirement on $d_{l,k,n}$ is mild, which is used here for technical convenience.
-Indeed, in  most practical situations, $x_{k,n}=\sum_{j=1}^k \eta_j/d_n$, where $d_n^2= var (\sum_{j=1}^n\eta_j)\sim C_0n^{2d}$ for some $0< d<1$, as stated in the following Examples 2.1 and 2.2. In this situation, it is natural to set $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$.
+which provides rich choices for kernel estimation applications. Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} are similar to those used in Theorem 2.1 of \cite{wangphillips2010a} (see Appendix \ref{chap:app3}). The additional requirement on $d_{l,k,n}$ is mild, which is used here for technical convenience.
+Indeed, in  most practical situations, $x_{k,n}=\sum_{j=1}^k \eta_j/d_n$, where $d_n^2= var (\sum_{j=1}^n\eta_j)\sim C_0n^{2d}$ for some $0< d<1$, as stated in the following Examples 3.1 and 3.2. In this situation, it is natural to set $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$.
 
 
 \medskip
-{\bf Example 3.1.} Let $\{ \xi_j, j \ge 1\}$ be a stationary sequence of Gaussian random variables  with $\E \xi_1 = 0$ and covariances $\gamma( j - i) = \E \xi_j \xi_i$ satisfying the following condition for some $0 < \beta < 2$ and $\lambda > 1$,
+{\bf Example 3.1.} Let $\{ \xi_j, j \ge 1\}$ be a stationary sequence of Gaussian random variables  with $\E \xi_1 = 0$ and covariances $\gamma( j - i) = \E \xi_j \xi_i$ satisfying the following conditions for some $0 < \beta < 2$ and $\lambda > 1$,
 \be
 d_n^2 \equiv \sum_{1 \le i,j\le n} \gamma(j-i) \sim n^\beta \quad  and \quad  | \tilde{\gamma}_{l,k} | \le \lambda d_k d_{l-k},
 \ee
@@ -84,14 +84,14 @@ Let $x_{k,n}= \sum_{j = 1}^k \xi_j/d_n$, $1 \le k \le n$. Then $x_{k,n}$ satisfi
 $
 \xi _{j}=\sum_{k=0}^{\infty }\,\phi _{k}\,\epsilon _{j-k},
 $
-where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of iid
+where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of i.i.d.
 random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
-characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfies
+characteristic function $\varphi $ of $\epsilon _{0}$ satisfies
 $\int_{-\infty
 }^{\infty }(1+|t|)|\varphi (t)|dt<\infty $. The coefficients $\phi_k$, $k \ge 0$ are assumed to satisfy one of the following conditions:
 \begin{itemize}
 \item[\textbf{C1.}] $\phi _{k}\sim k^{-\mu }\,\rho(k),$ where $1/2<\mu <1$ and $%
-\rho(k)$ is a function slowly varying at $\infty $.
+\rho$ is a function slowly varying at $\infty $.
 \item[\textbf{C2.}] $\sum_{k=0}^{\infty } |\phi _{k}|<\infty $ and $\phi \equiv
 \sum_{k=0}^{\infty }\phi_{k}\not =0$.
 \end{itemize}
@@ -101,11 +101,11 @@ Write $x_{t}=\sum_{j=1}^t \xi_{j}$ and $d_n^2 = \E x_n^2$. We have
 d_n^2 = \E x_n^2 \sim
 \begin{cases}
 c_{\mu} n^{3-2\mu} \rho^2(n),  & \mbox{under {\bf C1},} \\
-\phi^2 n, & \mbox{under {\bf C2}.}
+\phi^2 n, & \mbox{under {\bf C2},}
 \end{cases}
 \ee
-where $c_\mu = 1 / ((1 - \mu)(3-2\mu )) \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$. See Theorem \ref{thm:app1:asym} in Appendix \ref{chap:app1}.
-In Section \ref{sec:2:proof}, we prove that  $x_{k,n}\equiv x_k/d_n, 1\le k\le n,$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with
+where $c_\mu = \frac{1}{(1 - \mu)(3-2\mu )} \int_{0}^{\infty} x^{-\mu} (x+1)^{-\mu} dx$. See Theorem \ref{thm:app1:asym} in Appendix \ref{chap:app1}.
+In the end of Section \ref{sec:2:proofThm}, we prove that  $x_{k,n}\equiv x_k/d_n, 1\le k\le n,$ satisfies Assumptions \ref{assump:2:weakConvergence} and \ref{assump:2:density} with
 \be
  G(t) &=&\begin{cases}
  W_{\mu - 3/2}(t),  & \mbox{under {\bf C1},} \\
@@ -127,8 +127,8 @@ We now state our main results.
 \be \la{thmMainUpper.eqn1}
 \sup_{|x|\le n^{m_0}} |S_{2n}(x)| =O[(n/c_n)\log n],\quad a.s., \la {eqn:2:ad1}
 \ee
- for any $c_n\to\infty$ and $c_n/n\to 0$, and any fixed constant $0<m_0<\infty$. If there exist positive constants  $m$ (allow to be sufficient large) and
- $k$ (allow to be sufficient small) such that $n\sup_{|x|>n^{m}/2}|g(c_n\, x)|=O[(n/c_n)\log n]$  and $
+ for any $c_n\to\infty$ and $c_n/n\to 0$, and any fixed constant $0<m_0<\infty$. If there exist positive constants  $m$ (allow to be sufficiently large) and
+ $k$ (allow to be sufficiently small) such that $n\sup_{|x|>n^{m}/2}|g(c_n\, x)|=O[(n/c_n)\log n]$  and $
 n^{-m k} \sum_{t=1}^n |x_{t,n}|^k  = O(1)\, a.s.,
 $
 then
@@ -162,16 +162,16 @@ If in addition to Assumptions \ref{assump:2:lipschitz}--\ref{assump:2:density}, 
 \be
 \frac{c_n}{n}\sum_{t = 1}^{n} g[c_n\, (x_{t,n}+y_n)] \to_D \int_{-\infty}^{\infty} g(x)dx\, L_G(1,y), \la {eqn:2:99}
 \ee
-whenever $c_n\to\infty$, $n/c_n\to\infty$ and $y_n\to y$. This, together with the fact that $P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (See, for instance, \cite{takacs1995}) implies that both convergence rates in (\ref {eqn:2:MainLower0}) and (\ref {eqn:2:MainLower1}) are optimal and  the range  $|x|\le M_0/ \log^{\gamma_1} n$ in   (\ref {eqn:2:MainLower1}) can not be improved  to $|x|\le b$ for any constant $b>0$. It keeps an open problem  for the optimal range to make the result (\ref {eqn:2:MainLower1}) hold.
+whenever $c_n\to\infty$, $n/c_n\to\infty$ and $y_n\to y$. This, together with the fact that $P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see Theorem \ref{thm:app2:localDist} in Appendix \ref{chap:app2}) implies that both convergence rates in (\ref {eqn:2:MainLower0}) and (\ref {eqn:2:MainLower1}) are optimal and  the range  $|x|\le M_0/ \log^{\gamma_1} n$ in   (\ref {eqn:2:MainLower1}) can not be improved  to $|x|\le b$ for any constant $b>0$. In Chapter \ref{chap:3}, we use a complete different technique to establish a stronger version of Theorem \ref{thm:2:MainLower}. Corollary \ref{cor1} provides an optimal range to make result (\ref {eqn:2:MainLower1}) hold. See Remark \ref{rem:3:optimal} for details.
 \end{rem}
 
 
 \begin{rem} Results similar to (\ref{eqn:2:MainLower0}) and (\ref{eqn:2:MainLower1}) were established  in
-chapter 1 for a Harris recurrent Markov chain. As stated in \cite{wangphillips2010a}, our Assumption \ref{assump:2:density}, which includes a partial sum of general linear process (see Examples 3.2), is more natural for econometric applications and has an essential difference from the  Markov chain.
+Chapter \ref{chap:1} for a Harris recurrent Markov chain. As stated in \cite{wangphillips2010a}, our Assumption \ref{assump:2:density}, which includes a partial sum of general linear processes (see Examples 3.2), is more natural for econometric applications and has an essential difference from the  Markov chain.
 \end{rem}
 
 
-The essential behind the proof of Theorem \ref {thm:2:MainLower} is a fact   that $S_{2n}(x)$ can be approximated by $S_{2n}(0)$ under a reasonable rate. Explicitly we have the following theorem.
+The essential idea behind the proof of Theorem \ref {thm:2:MainLower} is a fact   that $S_{2n}(x)$ can be approximated by $S_{2n}(0)$ under a reasonable rate. Explicitly we have the following theorem.
 
 \begin{thm} \la{thm:2:thm7} Let $\gamma \ge 0$. Under Assumptions \ref{assump:2:lipschitz}--\ref{assump:2:density},  we have
 \be
@@ -211,13 +211,13 @@ provided $c_n\to\infty$ and $(n/c_n) \log^{-\theta_0}n \to \infty$, where  $\the
 
 \begin{rem}
 Note that $S_n(0)=O_P[(n / c_n)^{1/2}]$ under certain conditions by \cite{wangphillips2010b}. By taking $D_n$ small, the result (\ref {eqn:2:ad121a}) can be used to investigate
- the uniform convergence for zero energy function of non-stationary time series.
+ the uniform convergence for zero energy function of nonstationary time series.
  See (\ref {ad1211}) in the following  Corollary \ref {corZero}  for an example.
 \end{rem}
 
 
 \begin{cor} \la{corZero} Suppose Assumption \ref{assump:2:lipschitz} holds, and  $x_t$ and $d_n^2=var (x_n)$ are defined as in Example 3.2. Then,
-for any $h$ satisfying $h\to 0$ and $n^{ 1- \de_0} h/d_n \to \infty$, where  $\de_0>0$ can be as small as required, we have
+for any $h$ satisfying $h\to 0$ and $n^{ 1- \de_0} h/d_n \to \infty$, where  $\de_0>0$ can be made as small as required, we have
 \be
 \sup_{|x|\le  M_0\,d_n/\log^{\gamma_0} n} \big|\sum_{t = 1}^n g\Big (\frac{x_t - x}{h} \Big )\big| =O_P (nh / d_n),\quad  \la {h11}
 \ee
@@ -267,7 +267,7 @@ Throughout this section, we denote constants by $C, C_1, C_2,...$, which may be 
 
 \subsection{Preliminaries}
 
-\begin{lem} \la {lem:2:lem1} Under Assumption \ref{assump:2:density}, for any real function $l(x)$ satisfying $\sup_x|l(x)|<\infty$ and $\int_{-\infty}^{\infty}|l(x)|dx<\infty$, there exist a constant $H_0$ (not depending  on $t_1, t_2, t_3$) and $m$  such that
+\begin{lem} \la {lem:2:lem1} Under Assumption \ref{assump:2:density}, for any real function $l$ satisfying $\sup_x|l(x)|<\infty$ and $\int_{-\infty}^{\infty}|l(x)|dx<\infty$, there exist a constant $H_0$ (not depending  on $t_1, t_2, t_3$) and $m$  such that
 \be
 && \sup_x\, E\big(|\sum_{k=t_2}^{t_3}l[c_n\, (x_{k,n}+x)]|^m\mid {\mathcal F}_{n,t_1}\big) \no\\
 &\le &  H_0^m \, (m+1)!\, n^d\,c_n^{-1}  (t_3-t_1)^{1-d}\big[1+ \big\{(t_3-t_2)^{1-d} n^d\,c_n^{-1}\big\}^{m-1}  \big], \la {lm90}
@@ -281,9 +281,9 @@ for all $0\le t_1<t_2<t_3\le n$ and integer $m\ge 1$. In particular, by letting 
 \end{lem}
 
 \begin{proof}
-First recall that, given on ${\mathcal F}_{s,n}$, $(x_{t,n}-x_{s,n})/d_{t,s,n}$
-has a density $h_{t,s,n}(x)$ which is uniformly bounded by a constant $K$. Simple calculations show that, for $1\le s<t\le n$,
-\be \E\big\{|l[c_n(x_{t,n}+x)]|\mid {\mathcal F}_{s,n}\big\}
+First recall that, conditional on ${\mathcal F}_{n,s}$, $(x_{t,n}-x_{s,n})/d_{t,s,n}$
+has a density $h_{t,s,n}$ which is uniformly bounded by a constant $K$. Simple calculations show that, for $1\le s<t\le n$,
+\be \E\big\{|l[c_n(x_{t,n}+x)]|\mid {\mathcal F}_{n,s}\big\}
 &=&
 \int_{-\infty}^{\infty}|l[c_n d_{t, s,n}\, y + c_n (x_{s, n}+x)] |h_{t, s,n}(y)dy\no\\
 &\le& \frac {K}{c_n d_{t,s,n}}
@@ -313,7 +313,7 @@ Therefore, by recalling $d_{t,s,n}\sim C_0\,[(n/(t-s)]^{-d}$ for some $0< d<1$ a
  This proves Lemma \ref {lem:2:lem1}. 
 \end{proof}
 
-\subsection{Proof of theorems}
+\subsection{Proofs of theorems} \la{sec:2:proofThm}
 
 \begin{proof}[\bf Proof of Theorem \ref {thmMainUpper}] Let
  \be y_j=-[n^{m_0}]-1+j\,/ m_n',\quad  j=0, 1,2,...,\,m_n, \la {eqn:2:m1a}
@@ -538,7 +538,7 @@ S_n(0) = \sum_{t = 1}^n g\Big ( \frac{x_t}{h} \Big ) = O_P\big [( nh / d_n)^{1/2
 \eestar
 \end{proof}
 
-\begin{proof}[Verification of Example 2.2]
+\begin{proof}[Verification of Example 3.2]
 This is similar to  the proof of Corollary 2.2 in \cite{wangphillips2010a}. The only additional work is to show (\ref{eqn:2:77}) hold as well. In fact, by writing
 \be
 x_l &=&\sum_{j=1}^{l}\,\sum_{i=-\infty}^{j}\ep_i\phi_{j-i} \no\\
@@ -548,7 +548,7 @@ x_l &=&\sum_{j=1}^{l}\,\sum_{i=-\infty}^{j}\ep_i\phi_{j-i} \no\\
 the similar arguments as in the proof of Corollary 2.2
 in \cite{wangphillips2010a} yields that
  $x'_{k,l} / d_{l - k}$, where $d_n$ is defined as in (\ref {sec2.f2}),
-  has a density $h_{l,k}(x)$ and $\int_{-\infty}^{\infty} (1 + |t|)|\varphi_{l,k}(t)| dt<\infty$ uniformly for $0 \le k < l \le n$, where $\varphi_{l,k}(t) = Ee^{itx'_{l,k}/d_{l-k}}$, due to $\int (1+|t|)|Ee^{it\ep_0}|dt<\infty$.
+  has a density $h_{l,k}$ and $\int_{-\infty}^{\infty} (1 + |t|)|\varphi_{l,k}(t)| dt<\infty$ uniformly for $0 \le k < l \le n$, where $\varphi_{l,k}(t) = Ee^{itx'_{l,k}/d_{l-k}}$, due to $\int (1+|t|)|Ee^{it\ep_0}|dt<\infty$.
   Hence, conditional on $\F_{k,n} = \si(\ep_j, -\infty < j \le k)$,
 \be
 (x_{l,n} - x_{k,n})  / d_{l,k,n} \mbox{ has a density } h_{l,k}(x - x^*_{k, l} / d_{l - k})

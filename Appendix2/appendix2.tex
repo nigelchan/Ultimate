@@ -1,38 +1,30 @@
-\chapter{Local Time Process}
+\chapter{Local Time Process} \la{chap:app2}
 
-This appendix gives the definition and some basic results on the local time of a continuous Gaussian process. The local time up to time $t$ at the point $x$ of a continuous Gaussian process $\{G(t), t\ge 0\}$ can be expressed as the following limit:
-\begin{align}
-L_G(t,x) &= \lim_{\ep \to 0} \frac{1}{2\ep} \int_{0}^{t} 1_{(x-\ep, x+\ep)}[G(s)] ds \no\\
-&= \lim_{\ep \to 0} \frac{1}{2\ep} m\{ s \in [0,t] : G(s) \in (x - \ep, x+\ep) \},
-\end{align}
-where $m$ is the Lebesgue measure. Such limit can be interpreted as the time spent by the process $G(s)$ at the spatial point $x$ over the time interval $[0, t]$.
+This appendix gives the definition and some basic results on the local time of a continuous Gaussian process. The process $\{L_G(t,x), t\ge 0, x \in R\}$ is called the local time of a continuous Gaussian process $\{G(t), t\ge 0\}$ if, for any locally integrable function $T$,
+\bestar
+\int_{0}^{t} T[G(s)] ds = \int_{-\infty}^{\infty} T(s) L_G(t, s) ds, \quad \mbox{all } t \in  R,
+\eestar
+with probability one. Such quantity can be interpreted as the time spent by the process $G$ at the spatial point $x$ over the time interval $[0, t]$.
 
-The following theorem from Theorem 22.1 of \cite{gemanhorowitz1980} guarantees the existence of the limit.
-\begin{thm}
-Let $\si^2(t) = EG^2(t)$ for $0 \le t \le 1$. If $G(t)$ has stationary increment, $G(0) = 0$ and 
+The following theorem from Theorem 22.1 of \cite{gemanhorowitz1980} guarantees the existence of the local time process.
+\begin{thm}\la{thm:app2:exist}
+Let $\si^2(t) = EG^2(t)$ for $0 \le t \le 1$. If $G$ is a continuous Gaussian process having stationary increment, $G(0) = 0$ and 
 \bestar
 \int_{0}^{1} \frac{1}{\si(t)} dt < \infty,
 \eestar
-then the local time $L_G(t, x)$ of the process $G(t)$ exists with probability one.
+then the local time $L_G(t, x)$ of the process $G$ exists with probability one.
 \end{thm}
 
-The following theorem is known as the occupation times formula for a Brownian motion $B(t)$. It comes from Corollary 7.4 of \cite{chungwilliams1990}.
-\begin{thm}
-For any Borel measurable, locally integrable function $T$ on $\mathbb R$, we have for each fixed $t$,
-\bestar
-\int_{0}^{t} T[B(s)] ds = \int_{-\infty}^{\infty} T(s) L_B(t, s) ds, \quad \mbox{all } t \in \mathbb R,
-\eestar
-with probability one.
-\end{thm}
+Due to $E W_d^2(t) = t^{2d+1}$, where $-1/2<d<1/2$, $W_d$ is a continuous Gaussian process having stationary increment and $W_d(0) = 0$, by Theorem \ref{thm:app2:exist}, the local time for  the class of fractional Brownian motion $W_d$ exists with probability one.
 
-The following theorem gives the distribution of the local time variable, when $B(t)$ is a standard Brownian motion. It comes from \cite{takacs1995}.
+The following theorem gives the distribution of the local time variable, when $B$ is a standard Brownian motion. It comes from \cite{takacs1995}.
 \begin{thm} \la{thm:app2:localDist}
-Let $\Phi(x)$ be the standard normal distribution function, then
+Let $\Phi$ be the standard normal distribution function, then
 \bestar
 P( L_B(1, \al) \le x ) = 2 \Phi(|\al| + x) - 1.
 \eestar
 \end{thm}
-By Theorem \ref{thm:app2:localDist}, it immediately follows that $P(L(1, 0) = 0) = 0$ and $P(L(1, x) = 0) > 0$ for any fixed $x \ne 0$.
+By Theorem \ref{thm:app2:localDist}, it immediately follows that $P(L_B(1, 0) = 0) = 0$ and $P(L_B(1, x) = 0) > 0$ for any fixed $x \ne 0$.
 
 
 % ------------------------------------------------------------------------

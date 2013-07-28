@@ -5,7 +5,7 @@
     \graphicspath{{Chapter3/Chapter3Figs/EPS/}{Chapter3/Chapter3Figs/}}
 \fi
 
-In this chapter, we establish uniform strong approximation of a functional of non-stationary time series to a local time process. As a direct consequence, sharp upper and lower uniform bounds are established for a general class of functionals of non-stationary time series. As the range in which uniform convergence is held is optimal, the results essentially improve those presented in Chapter \ref{chap:2}.
+In this chapter, we use a completely different set of techniques to establish a stronger results than those presented in Chapter \ref{chap:2}. We establish uniform strong approximation of a functional of nonstationary time series to a local time process. As a direct consequence, sharp upper and lower uniform bounds are established for a general class of functionals of nonstationary time series. As the range in which uniform convergence holds is optimal, the results essentially improve those presented in Chapter \ref{chap:2}.
 
 \section{Introduction}
 Let ${x_{k,n},1\leq k\leq n,n\geq 1}$
@@ -21,17 +21,15 @@ the sample quantity%
 S_{2n} (x)=\sum_{k=1}^{n}g[c_{n}\,(x_{k,n}+x)], \quad x\in R,
 \end{equation}
 where $c_{n}$ is a certain sequence of positive constants and $g$ is a real
-integrable function on $R$. These functionals arise in nonparametric
-estimation and inference  problems, particularly, problems involving nonlinear cointegration
-models. In such situations, the underlying time series $x_{k}$ is nonstationary, $g$ is a
-kernel function, and the secondary sequence $c_{n}$ depends on the bandwidth. For related work in the literature, refer to the reference cited in Chapter \ref{chap:2}.
+integrable function on $R$. This functional arises in nonparametric
+estimation and inference  problems, particularly, problems involving nonlinear cointegrating regression. In such situations, the underlying time series $x_{k}$ is nonstationary, $g$ is a
+kernel function, and the secondary sequence $c_{n}$ depends on the bandwidth. For related works in the literature, refer to the references cited in Chapter \ref{chap:2}.
 
-This chapter is concerned with developing a uniform approximation of $S_{2n}(x)$ to the local time $L_{G}(1,-x)$ of the process $G(t)$. Such cases are important in nonlinear cointegrating regression and they appear in the investigation  of   uniform convergence in relation to  non-parametric estimation.  In order to investigate the uniform convergence for a Nadaraya-Watson estimator, for example, we need to consider the lower bound for $\inf _{|x|\le \gamma_n}S_{2n}(x)$ in
-the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K(s) $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  a ``optimal" range for the $x$ being held. This result essentially improves the previous ones in Chapter \ref{chap:2}. 
+This chapter is concerned with developing a uniform approximation of $S_{2n}(x)$ to the local time $L_{G}(1,-x)$ of the process $G$. Such cases are important in nonlinear cointegrating regression and they appear in the investigation  of   uniform convergence in relation to  nonparametric estimation.  In order to investigate the uniform convergence for a Nadaraya-Watson estimator, for example, we need to consider the lower bound for $\inf _{|x|\le \gamma_n}S_{2n}(x)$ in
+the form $g( s) =K( s),$ where $\gamma_n$ is a sequence of positive numbers approaching zero and $K $ is the kernel function used in nonparametric estimation. As  a direct consequence of our uniform approximation  (Theorem \ref{th1}), Corollary \ref{cor1} provides a uniform lower  bound of the $S_{2n}(x)$ under  an ``optimal" range where $x$ is held. This result essentially improves the previous ones presented in Chapter \ref{chap:2}. 
 
-This chapter is organized as follows.  In next section, we present our
-main results. Theorem \ref {th1} provides a framework for the uniform approximation. It is shown that, under certain conditions and a rich probability space, $S_{2n}(x)$ can be approximated by a local time process over $R$ with certain rate. The rate might be not optimal, but it is enough for many practical applications.
-Theorem \ref {th11} gives an important application of
+This chapter is organized as follows.  In the next section, we present our
+main results. Theorem \ref {th1} provides a framework for the uniform approximation. It is shown that, under certain conditions and a rich probability space, $S_{2n}(x)$ can be approximated by a local time process over $R$ with certain rate. Theorem \ref {th11} gives an important application of
 Theorem \ref {th1} to general linear processes. Our result includes
  the $x_k$ being a partial sum of ARMA processes and fractionally integrated processes, which are most commonly used in practice. All technical proofs are given in Section \ref{sec:3:proof}.
 
@@ -49,11 +47,11 @@ $|g(x)-g(y)|\le C|x-y|$ whenever  $|x-y|$ is sufficiently small on }$R$.
 
 
 \begin{assump} \la{assumpApprox}
- \textit{On a rich probability space, there exist a continuous Gaussian process $G(t)$ with covariance function satisfying
+ \textit{On a rich probability space, there exist a continuous Gaussian process $G$ with covariance function satisfying
  \be
 E G(t) G(s) = \frac{c}{2} \{ |t|^{2w} + |s|^{2w} - |t - s|^{2w} \},
 \ee
-where $0 < w < 1$ and a sequence of stochastic processes $G_n(t)$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and
+where $0 < w < 1$ and a sequence of stochastic processes $G_n$  such that $\{G_n(t); 0 \le t \le 1\} =_D \{G(t); 0 \le t \le 1\}$ for each $n \ge 1$ and
 \be
  \sup_{0\le t\le 1}|x_{[nt],n}-G_n(t)| &=&o_{a.s.}(n^{-\delta}).
  \la {a2}
@@ -71,7 +69,7 @@ sequence of }$\sigma $\textit{-fields }${\mathcal F}_{k,n}$\textit{\ (define }$%
 (i) $x_{j,n}$\textit{\ are adapted to }${\mathcal F}_{j,n}$\textit{\
 and, conditional on }${\mathcal F}_{j,n}$\textit{,
 }$[n/(k-j)]^d(x_{k,n}-x_{j,n})$\textit{ where $0<d<1,$ has a density
-}$h_{k,j,n}(x)$\textit{\ satisfying that }$h_{k,j,n}(x)$\textit{\ is
+}$h_{k,j,n}$\textit{\ satisfying that }$h_{k,j,n}$\textit{\ is
 uniformly bounded by a constant }$K$\textit{\ and }%
 
 (ii) $  \sup_{u\in R}\big|h_{k,j,n}(u+t)-h_{k,j,n}(u)\big|\le C\, \min\{|t|, 1\},$
@@ -83,8 +81,8 @@ whenever $n$ and $k-j$ are sufficiently large and $t\in R$.
 \end{assump}
 
 We remark that Assumption \ref{assumpFuncG} is weak and standard
-  for this type of problem, and it is satisfied by many functionals such as $g(x)$ is differentiable and has compact support. Assumption \ref{assumpApprox} is strong approximation version of the result $x_{n, [nt]}\to_D G(t)$ on $D[0,1]$, and it is obtainable for many random sequences. For instance,  if $\{\ep_k\}_{k\ge 1}$ are i.i.d. random variables with $E\ep_1=0, E\ep_1^2=1$ and $E|\ep_1|^{r}<\infty$
-  for some $r>2$, then (\ref {a2}) holds true with $x_{n,k}=\sum_{j=1}^k\ep_j/\sqrt n$, $G_n(t) = n^{-1/2} W(nt)$ and $\delta=(r - 2) / (2r)$. More examples can be found in Proposition \ref{prop1} where we establish  Assumption \ref{assumpApprox} for general linear processes. Note that, $G_n(x)$ can not be replaced by one single process $G(x)$ which is independent of $n$. Explanation in this regards can be found in \cite{csorgorevesz1981}.
+  for this type of problem, and it is satisfied by many functionals such as $g$ is differentiable and has compact support. Assumption \ref{assumpApprox} is strong approximation version of the result $x_{[nt],n}\Rightarrow G(t)$ on $D[0,1]$, and it is obtainable for many random sequences. For instance,  if $\{\ep_k\}_{k\ge 1}$ are i.i.d. random variables with $E\ep_1=0, E\ep_1^2=1$ and $E|\ep_1|^{r}<\infty$
+  for some $r>2$, then (\ref {a2}) holds true with $x_{k,n}=\sum_{j=1}^k\ep_j/\sqrt n$, $G_n(t) = n^{-1/2} W(nt)$ and $\delta=(r - 2) / (2r)$. More examples can be found in Proposition \ref{prop1} where we establish  Assumption \ref{assumpApprox} for general linear processes. Note that, $G_n$ can not be replaced by one single process $G$ which is independent of $n$. Explanation in this regards can be found in \cite{csorgorevesz1981}.
   Assumption \ref{assumpDensity} is  similar to Assumption \ref{assumpDensity} given in \cite{wangphillips2010a} which is also used in Chapter \ref{chap:2}.
 
 
@@ -100,7 +98,7 @@ where $\varphi= \int_{-\infty}^{\infty} g(t) dt$.
 \end{thm}
 
 \begin{rem} Due to technical difficulties, the convergence rate in (\ref {th1.eqn1}) may not be optimal. To our guess, the rate should have the form $n^{-\gamma}$, where $\gamma>0$ is related to $\delta>0$ given in Assumption \ref{assumpApprox}. However, the result
-(\ref {th1.eqn1}) suffices in many applications. As a direct consequence, we have the following corollary that provides the uniform bounds for $S_{2n}(x)$ under ``optimal" range.   As stated in the introduction chapter, these uniform bounds are the key to investigate the uniform asymptotics in non-linear regression with non-stationary time series.
+(\ref {th1.eqn1}) suffices in many applications. As a direct consequence, we have the following corollary that provides the uniform bounds for $S_{2n}(x)$ under ``optimal" range.   As stated in the introduction chapter, these uniform bounds are the key to investigate the uniform asymptotics in nonlinear cointegrating regression with nonstationary time series.
 \end{rem}
 
 \begin{cor} \la{cor1}  Under Assumptions \ref{assumpFuncG}--\ref{assumpGenH}, we have
@@ -114,7 +112,7 @@ If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$ and $\lim_{n\to \infty}P(
 \end{cor}
 
 \begin{rem} \la{rem:3:optimal} Corollary \ref {cor1} essentially improves Theorem \ref{thm:2:MainLower} of
-Chapter \ref{chap:2}. To illustrate, let $G(x)$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le \tau_n} L_G(1, -x)=0)=0$ for any $0<\tau_n\to 0$, due to the continuity of  local time process. This yields that
+Chapter \ref{chap:2}. To illustrate, let $G$ be a standard Wiener process. In this situation, $P(L_G(1, 0)=0)=0$. Hence $\lim_{n\to \infty}P( \inf_{|x|\le \tau_n} L_G(1, -x)=0)=0$ for any $0<\tau_n\to 0$, due to the continuity of  local time process. This yields that
 \be
 \big[\inf_{|x|\le \tau_n} | S_{2n}(x)|\big]^{-1}=O_P(c_n / n), \la {78}
  \ee
@@ -123,7 +121,7 @@ Chapter \ref{chap:2}. To illustrate, let $G(x)$ be a standard Wiener process. In
 \big [ \inf_{|x|\le M_0/\log^{\gamma} n}| S_{2n}(x)|\big]^{-1}=O_P(c_n / n),
 \eestar
 for some $\gamma > 0$. Furthermore, by noting that
-$P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see, for instance, \cite{takacs1995}), the range  $|x|\le  \tau_n$ in   (\ref {78}) might be  optimal. In other words, it can not be improved  to $|x|\le b$ for any constant $b>0$.
+$P(L_G(1, x)=0)>0$ for any fixed $x\not=0$ (see Theorem \ref{thm:app2:localDist} in Appendix \ref{chap:app2}), the range  $|x|\le  \tau_n$ in   (\ref {78}) might be  optimal. In other words, it can not be improved  to $|x|\le b$ for any constant $b>0$.
 \end{rem}
 
 \subsection{An application to linear processes}\la{section:3:application}
@@ -134,13 +132,13 @@ Let $\{\xi _{j},j\geq 1\}$ be linear processes defined by
 \end{equation}
 where $\{\epsilon _{j},-\infty <j<\infty \}$ is a sequence of i.i.d.
 random variables with $E\epsilon _{0}=0$, $E\epsilon _{0}^{2}=1$, $\E|\ep_0|^r < \infty$ for some $r > 2$ and the
-characteristic function $\varphi (t)$ of $\epsilon _{0}$ satisfies
+characteristic function $\varphi $ of $\epsilon _{0}$ satisfies
 $\int_{-\infty
 }^{\infty }|\varphi (t)|dt<\infty $. Throughout the section, the coefficients $\phi_k$, $k \ge 0$ are assumed to satisfy one of the following conditions:
 
 \noindent
 \ \ \textbf{C1.} $\phi _{k}\sim k^{-\mu }\,\rho(k),$ where $1/2<\mu <1$ and $
-\rho(k)$ is a function slowly varying at $\infty $, satisfying
+\rho$ is a function slowly varying at $\infty $, satisfying
 $
 |\rho(m+n)/\rho(n)-1| \le C_0\, m/n$ for $1\le m\le n,$
 where $C_0$ is a positive constant.
@@ -149,9 +147,9 @@ where $C_0$ is a positive constant.
 \ \ \textbf{C2.} $\sum_{k=0}^{\infty }k |\phi _{k}|<\infty $ and $\phi \equiv
 \sum_{k=0}^{\infty }\phi_{k}\not =0$.
 
-\noindent We remark that the requirement on $\rho(k)$ under condition {\bf C1} is weak,
+\noindent We remark that the requirement on $\rho$ under condition {\bf C1} is weak,
 which is satisfied by a large class of slowly varying functions such as $\log^{\al}x$,
-$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See Theorem \ref{thm:app1:asym} in Appendix \ref{chap:app1}.
+$\log\log^{\al}x$ and $\exp(\log ^{\beta}x)$, where $\al\in R$ and $0<\beta<1$. See \cite{wanglingulati2003a}.
 
 Put $x_{k}=\sum_{j=1}^{k}\xi _{j}$ and $d_n^2=Ex_n^2$.
 It is well-known that
@@ -166,8 +164,7 @@ c_{\mu }\,n^{3-2\mu }\,\rho ^{2}(n), & \mbox{under {\bf C1}}, \\
 where   $c_{\mu
 }=\frac{1}{(1-\mu )(3-2\mu )}\int_{0}^{\infty }x^{-\mu }(x+1)^{-\mu
 }dx$.
-See, e.g.,  \cite{wanglingulati2003a} for instance.
- We consider the uniform limit behavior of sample functions of the form:
+See Theorem \ref{thm:app1:asym} in Appendix \ref{chap:app1}. We consider the uniform limit behavior of sample functions of the form:
  \be
 S^*_{2n} (x)&=&  \sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x\, d_n)
 \big],
@@ -192,14 +189,14 @@ c_{\mu}^{-1/2}\,n^{-(3/2-\mu) }\,\rho^{-1}(n) \, W_{1-\mu}(nt), & \mbox{under {\
 \sup_{x\in R} \Big |\frac {d_n}{nh}S^*_{2n}(x)- \varphi\, L_{Y_n}(1, -x)\Big| &=&o_P(\log^{-\beta} n),
 \ee
 where $\varphi= \int_{-\infty}^{\infty} g(x) dx$,
-provided  that $g(x)$ satisfies Assumptions \ref{assumpFuncG}, $h\to 0$ and $n^{-1+\ep_0}d_n/h\to 0$ for some $\ep_0>0$.
+provided  that $g$ satisfies Assumptions \ref{assumpFuncG}, $h\to 0$ and $n^{-1+\ep_0}d_n/h\to 0$ for some $\ep_0>0$.
 \end{thm}
 
 \begin{cor} \la{cor:3:cor2} If there exists an $\ep_0>0$ such that $h\to 0$ and $n^{-1+\ep_0}d_n/h\to 0$, then
 \be\la{cor1.eqn10}
 \sup_{x\in R} | \sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x)\big]| =O_P(nh/d_n),\quad  \la {ad12a}
 \ee
-provided that $g(x)$ satisfies  Assumptions \ref{assumpFuncG}.  If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
+provided that $g$ satisfies  Assumptions \ref{assumpFuncG}.  If in addition  $\int_{-\infty}^{\infty} g(x)dx\not=0$,  then
 \be \la{cor1.eqn20}
 \Big [ \inf_{|x|\le \tau_n\,d_n}|\sum_{k=1}^{n}g\big[h^{-1}\,(x_{k}+x)\big]|\Big]^{-1} =O_P(d_n/(nh)) ,
 \ee
@@ -231,7 +228,7 @@ Similarly, under the condition {\bf C2}, on a rich probability space, there exis
 This section provides proofs of the main results. We start with several preliminary lemmas in Section \ref{section:3:lemma}.  These lemmas, in particular Lemma \ref{lemma3},  are of interests in their own rights. The proof of Theorem \ref{th1} is given in Section \ref{section:3:proof}. As stated in Section \ref{section:3:application}, Theorem \ref{th11} is a direct sequence of Theorem \ref{th1} and Proposition \ref{prop1}. 
 
 \subsection{Preliminaries} \la{section:3:lemma}
-Throughout this section, we set $f_{t,s}(x)=g(c_nx+t)-g(c_nx+s)$ where $g(x)$ satisfies Assumption \ref{assumpFuncG}, and assume that $x_{k,n}$ is defined as in Assumption \ref{assumpDensity}.
+Throughout this section, we set $f_{t,s}(x)=g(c_nx+t)-g(c_nx+s)$ where $g$ satisfies Assumption \ref{assumpFuncG}, and assume that $x_{k,n}$ is defined as in Assumption \ref{assumpDensity}.
 
 \begin{lem} \la{lemSinBound} We have, for any $k > j$,
 \begin{align}
@@ -245,19 +242,19 @@ where $C$ is a uniformly bounded constant on $t, s, k$ and $j$.
 \begin{proof}
 Let $d_{k,j,n} = [(k - j) / n]^d$. Due to Assumption \ref{assumpDensity} (i), we have  
 \bestar
-&& \E (  f_{t,s}(x_{n,k})\mid {\mathcal F}_{n, j}) \no\\
+&& \E (  f_{t,s}(x_{k,n})\mid {\mathcal F}_{n, j}) \no\\
 &=&  \int_{-\infty}^{\infty}  \big [ g(c_n x_{j,n} + c_n d_{k,j,n} y + t) - g(c_n x_{j,n} + c_n d_{k,j,n} y + s)  \big ]  h_{k, j, n}(y) \,dy \no\\
 &=& c_n^{-1}d_{k,j, n}^{-1}\, \int_{-\infty}^{\infty} g(y) \Big [ h_{k, j, n} (\frac{y - t - c_n x_{j,n}}{ c_n d_{k,j, n}}) -  h_{j, k, n} (\frac{y - s - c_n x_{j,n}}{ c_n d_{k,j, n}}) \Big ]\,dy
 \eestar
 Now,   Assumption \ref{assumpDensity} (ii) and $\int_{-\infty}^{\infty}|g(x)|dx<\infty$ yield that, for any $k>j$,
 \bestar
-|\E (  f_{t,s}(x_{n,k})\mid {\mathcal F}_{n, j})| & \le& C\, c_n^{-1}\,  d_{k,j, n}^{-1} \min\{|t - s|c_n^{-1} d_{k,j, n}^{-1}, 1\}\no\\
+|\E (  f_{t,s}(x_{k,n})\mid {\mathcal F}_{n, j})| & \le& C\, c_n^{-1}\,  d_{k,j, n}^{-1} \min\{|t - s|c_n^{-1} d_{k,j, n}^{-1}, 1\}\no\\
  &\le & C\,n^{d} c_n^{-1}\, (k-j)^{-d} \min\{|t - s|n^d c_n^{-1} (k-j)^{-d},1\}.
 \eestar
 Similarly, using Assumptions \ref{assumpFuncG} and \ref{assumpDensity}, it follows that
 \bestar
-&& \E (  f^2_{t,s}(x_{n,k})\mid {\mathcal F}_{n, j}) \le C\,
- \E (  |f_{t,s}(x_{n,k})|\mid {\mathcal F}_{n, j}) \no\\
+&& \E (  f^2_{t,s}(x_{k,n})\mid {\mathcal F}_{n, j}) \le C\,
+ \E (  |f_{t,s}(x_{k,n})|\mid {\mathcal F}_{n, j}) \no\\
 &&\quad =\ C\,
  \int_{-\infty}^{\infty}  \big | g(c_n x_{j,n} + c_n d_{k,j,n} y + t) 
  - g(c_n x_{j,n} + c_n d_{k,j,n} y + s)  \big |\,  h_{k, j, n}(y) \,dy \no\\
@@ -293,7 +290,7 @@ By virtue of Lemma \ref {lem1}, the proof follows from the similar arguments as 
 We omit the details.
 \end{proof}
 
-\begin{lem} \la{lemLocal} For any continuous Gaussian process $G(t)$ with covariance function satisfying
+\begin{lem} \la{lemLocal} For any continuous Gaussian process $G$ with covariance function satisfying
  \be
 E G(t) G(s) = \frac{c}{2} \{ |t|^{2w} + |s|^{2w} - |t - s|^{2w} \},
 \ee
@@ -348,10 +345,10 @@ and let $T_n$ be the largest integer $s$ such that $s b_n \le n$. Also let $-c_n
 n/b_n \sim n^{\nu}, \quad T_n b_n \le n,\quad n-T_nb_n\le b_n, \quad q_{n1}, q_{n2} \le n^{10}
 \ee
 due to $c_n \to \infty$. Under these notation, to prove (\ref {s19}), by the local Lipschitz continuity of $g$, it suffices to prove that
-\be
-&& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}  \Big | \sum_{k = 1}^n f_{t_i, t_i + s_j}(x_{k,n}) \Big | \no\\
-&\le& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}} \Big \{ | \sum_{w=2}^{T_n-1} \Delta_{nw}(t_i, s_j)|+\Delta_n(t_i, s_j) \Big \}+ O_{a.s.}[(n / c_n)^{1/2}],  \la {95}
-\ee
+\begin{align}
+& \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}  \Big | \sum_{k = 1}^n f_{t_i, t_i + s_j}(x_{k,n}) \Big | \no\\
+&\le \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}} \Big \{ | \sum_{w=2}^{T_n-1} \Delta_{nw}(t_i, s_j)|+\Delta_n(t_i, s_j) \Big \}+ O_{a.s.}[(n / c_n)^{1/2}],  \la {95}
+\end{align}
 where, for  $w = 1,..., T_n$ ,
 \bestar
 \Delta_{nw}(t,s) &=& \sum_{k = wb_n + 1}^{(w+1)b_n} f_{t, t+s}(x_{k,n})  ,\no\\
@@ -363,9 +360,9 @@ Recall $\eta_n=(n/c_n)\log^{-(\beta + 1)}n$. Using Lemma \ref{lemUniBound} and (
 &\le& C\, (n/c_n)\,n^{-\nu} \le C\, \eta_n\, \log n,\quad a.s.
 \eestar
 This, together with (\ref {95}), implies that (\ref {stat}) will follow if we prove
-\be
- \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\Big(| \sum_{\substack{w = 2 \\ w \in even}}^{T_n} \Delta_{nw}(t_i, s_j)|+| \sum_{\substack{w = 2 \\ w \in odd}}^{T_n} \Delta_{nw}(t_i, s_j)|\Big)  &=& O_{a.s.} (\eta_n \, \log n).  \la {eqn:3:21}
-\ee
+\begin{align}
+ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\Big(| \sum_{\substack{w = 2 \\ w \in even}}^{T_n} \Delta_{nw}(t_i, s_j)|+| \sum_{\substack{w = 2 \\ w \in odd}}^{T_n} \Delta_{nw}(t_i, s_j)|\Big)  &= O_{a.s.} (\eta_n \, \log n).  \la {eqn:3:21}
+\end{align}
 We only prove (\ref {eqn:3:21}) for $w\in even$. The other is similar and hence the details are omitted.
 To this end, let $\F_{n, v}^*= \F_{n, (2v+1)b_n}, v\ge 0$, and $M_1 > 0$ is chosen later,
 \bestar
@@ -394,7 +391,7 @@ due to Lemma \ref{lemSinBound}. It follows from (\ref {ineq}) and (\ref {24.5}) 
 \ee
 which yields (\ref {23}).
 
-We next prove (\ref {24}). Using Lemma \ref {lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$, we haev
+We next prove (\ref {24}). Using Lemma \ref {lem1} with $t_1=0, t_2=2sb_n+1$ and $t_3=(2s+1)b_n$,  for any integer $m\ge 1$, we have
 \bestar
 \sup_{t,s} \E |\Delta_{n, 2w}(t,s)|^m &\le& H_0^m (m+1)!\, (n/c_n)\, \big\{1+ \big [(n/c_n) (n/ b_n)^{d-1} \big ]^{m-1}\big\}\no\\
 &\le& 2H_0^m (m+1)! (n/c_n)^m (n/b_n)^{(d - 1)(m-1)},
@@ -453,21 +450,21 @@ This, together with the facts that  $|\Delta_{nw}^{*}(t_i, y_j)|\le \eta_n$ and 
 $\{\Delta_{nw}^{*}(t_i, s_j), {\mathcal F}_{n, w}^*\}$ forms a martingale difference, and
 the well-known martingale exponential inequality
 (see, e.g., \cite{delapena1999}) implies that there exists a $M_0\ge 22$ such that, as $n \to \infty$,
-\be
-&& P[\lam_{1n} \ge  M_0 \eta_n\, \log n, i.o.] \no\\
-&\le& P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n, i.o.  \Big] \no\\
-&\le& \lim_{s \to \infty} \sum_{n = s}^{\infty} P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n \Big] \no\\
- &\le&  \lim_{s \to \infty} \sum_{n = s}^{\infty}\sum_{i=1}^{q_{n1}} \sum_{j=1}^{q_{n2}}P\Big[\sum_{w=1}^{T_n/2} \Delta_{nw}^*(t_i, y_j)\ge M_0 \eta_n\, \log n, \ \
- \sum_{w=1}^{T_n/2}\,\E [\Delta_{nw}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\,\eta_n^2 \, \log n \Big]  \no\\
- &\le&\lim_{s \to \infty} \sum_{n = s}^{\infty}q_{n1}q_{n2}\, \exp\Big\{-\frac {M_0^2 \,\log^2 n} {2C\log n+2M_0\log n} \Big \}  \no\\
- &\le&\lim_{s \to \infty} \sum_{n = s}^{\infty}q_{n1}q_{n2}\, \exp \{-M_0\log n \}  = 0, \la {p10}
-\ee
+\begin{align}
+& P[\lam_{1n} \ge  M_0 \eta_n\, \log n, i.o.] \no\\
+&\le P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n, i.o.  \Big] \no\\
+&\le \lim_{s \to \infty} \sum_{n = s}^{\infty} P\Big[\lam_{1n} \ge  M_0 \eta_n \, \log n,\ \ \max_{1 \le i \le q_{n1}} \max_{1 \le j \le q_{n2}}\, \sum_{w=1}^{T_n/2}\,\E [\Delta_{ns}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\, \eta_n^2\, \log n \Big] \no\\
+ &\le  \lim_{s \to \infty} \sum_{n = s}^{\infty}\sum_{i=1}^{q_{n1}} \sum_{j=1}^{q_{n2}}P\Big[\sum_{w=1}^{T_n/2} \Delta_{nw}^*(t_i, y_j)\ge M_0 \eta_n\, \log n, \no\\
+ &\hskip 6.5cm \sum_{w=1}^{T_n/2}\,\E [\Delta_{nw}^{*2}(t_i, y_j)\mid {\mathcal F}_{n, w-1}^*]\le C\,\eta_n^2 \, \log n \Big]  \no\\
+ &\le \lim_{s \to \infty} \sum_{n = s}^{\infty}q_{n1}q_{n2}\, \exp\Big\{-\frac {M_0^2 \,\log^2 n} {2C\log n+2M_0\log n} \Big \}  \no\\
+ &\le \lim_{s \to \infty} \sum_{n = s}^{\infty}q_{n1}q_{n2}\, \exp \{-M_0\log n \}  = 0, \la {p10}
+\end{align}
 where the last inequality follows from (\ref {110}).
  This yields $\lam_{1n}=O_{a.s.}\big( \eta_n \, \log n \big )$.
 Combining (\ref {25})--(\ref {p10}), we establish (\ref {eqn:3:21}), and also completes the proof of Lemma \ref{lemma3}.
 \end{proof}
 
-\subsection{Proof of theorems} \la{section:3:proof}
+\subsection{Proofs of theorems} \la{section:3:proof}
 
 \begin{proof}[Proof of Theorem \ref{th1}]
 Without loss of generality, we first assume $\varphi = \int g(x) dx = 1$. Define $\bar{g}(x)=g(x)I\{|x|\leq n^{\zeta}/2\}$, where $0 < \zeta < 1 - \de / \rho$ is small enough such that $n^{\zeta}/c_n\le n^{-\delta}$, where $\rho$ and $\de$ are given in Assumption \ref{assumpFuncG} and \ref{assumpApprox} respectively. Further let $\varepsilon=n^{-\alpha}$ with $0<\alpha< \de / 2$, and for a fixed $x_{0}$, define a triangular function

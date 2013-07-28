@@ -1,23 +1,23 @@
 \chapter{Limit theorems for functional of normalised sum} \la{chap:app3}
 
-This appendix gives the following theorem, which comes from \cite{wangphillips2010a}. We list the following assumptions.
+This appendix gives some limit theorems for functional of non-stationary time series, which come from \cite{wangphillips2010a}. We list the following assumptions.
 
 \begin{assump} \la{assump:A:integrable}
-$|g(x)|$ and $g^2(x)$ are Lebesgue integrable functions on $R$ with $\tau \equiv \int g(x) dx \ne 0$.
+$|g|$ and $g^2$ are Lebesgue integrable functions on $R$ with $\tau \equiv \int g(x) dx \ne 0$.
 \end{assump}
 
 \begin{assump} \la{assump:A:weakConvergence}
-There exists a stochastic process $G(t)$ having a continuous local time $L_{G}(t,s)$ such that $x_{[nt],n}\Rightarrow G(t)$, on $D[0,1]$, where weak convergence is understood w.r.t the Skorohod topology on the space $D[0,1]$.
+There exists a stochastic process $G$ having a continuous local time $L_{G}(t,s)$ such that $x_{[nt],n}\Rightarrow G(t)$, on $D[0,1]$, where weak convergence is understood w.r.t the Skorohod topology on the space $D[0,1]$.
 \end{assump}
 
 \newenvironment{assump_1}{ \par \medskip\noindent  {\bf Assumption \ref{assump:A:weakConvergence}*.}}{\par\medskip}
 
 \begin{assump_1} 
-On a suitable probability space, there exists a stochastic process $G(t)$ having a continuous local time $L_G(t, s)$ such that $\sup_{0 \le t \le 1} | x_{[nt], n} - G(t) | = o_P(1)$.
+On a suitable probability space, there exists a stochastic process $G$ having a continuous local time $L_G(t, s)$ such that $\sup_{0 \le t \le 1} | x_{[nt], n} - G(t) | = o_P(1)$.
 \end{assump_1}
 
 \begin{assump} \la{assump:A:density}
- For all $0\leq k<l\leq n,n\geq 1$, there exist a sequence of constants $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$ for some $0< d<1$ and a sequence of increasing $\sigma $-fields ${\mathcal F}_{k,n}$ (define ${\mathcal F}_{0,n}=\sigma \{\phi ,\Omega \}$\textit{, the trivial }$\sigma $-field such that $x_{k,n}$ are adapted to ${\mathcal F}_{k,n}$ and, conditional on ${\mathcal F}_{k,n}$, $(x_{l,n}-x_{k,n})/d_{l,k,n}$ has a density $h_{l,k,n}(x)$ satisfying that $h_{l,k,n}(x)$ is uniformly bounded by a constant $K$ and uniformly for $j-k$ sufficiently large
+ For all $0\leq k<l\leq n,n\geq 1$, there exist a sequence of constants $d_{l,k,n}\sim C_0 [n/(l-k)]^{-d}$ for some $0< d<1$ and a sequence of increasing $\sigma $-fields ${\mathcal F}_{k,n}$ (define ${\mathcal F}_{0,n}=\sigma \{\phi ,\Omega \}$\textit{, the trivial }$\sigma $-field such that $x_{k,n}$ are adapted to ${\mathcal F}_{k,n}$ and, conditional on ${\mathcal F}_{k,n}$, $(x_{l,n}-x_{k,n})/d_{l,k,n}$ has a density $h_{l,k,n}$ satisfying that $h_{l,k,n}$ is uniformly bounded by a constant $K$ and uniformly for $j-k$ sufficiently large
  \be
  \sup_y | h_{l,k,n}(y + u) - h_{l,k,n}(y)| \le C \min\{|u|, 1\}. \la {eqn:app3:77}
 \ee
@@ -25,7 +25,7 @@ On a suitable probability space, there exists a stochastic process $G(t)$ having
 
 As Assumptions \ref{assump:A:density} implies Assumption 2.3 in \cite{wangphillips2010a}, the following theorem comes from Theorem 2.2 of \cite{wangphillips2010a}.
 
-\begin{thm}
+\begin{thm} \la{thm:app3:main}
 Suppose Assumptions \ref{assump:A:integrable}--\ref{assump:A:density} hold. Then, for any $c_n \to \infty$, $c_n / n \to 0$, and $r \in [0, 1]$,
 \be
 \frac{c_n}{n}\sum_{k = 1}^{[nr]} g(c_n x_{k,n}) \to_D \tau L_G(r, 0).
@@ -37,6 +37,21 @@ If Assumption \ref{assump:A:weakConvergence} is replaced by Assumption \ref{assu
 under the same probability space defined as in Assumption \ref{assump:A:weakConvergence}*.
 \end{thm}
 
+
+The following corollary is a direct consequence of Theorem  \ref{thm:app3:main}. It comes from Corollary 2.2 of \cite{wangphillips2010a}.
+\begin{cor}
+Let $x_t$ be defined as in Appendix \ref{chap:app2}. In additional to Assumptions \ref{assump:A:integrable}--\ref{assump:A:density}, suppose $E|\ep_0|^r < \infty$ for some $r > 2$ and the characteristic function $\varphi$ of $\ep_0$ satisfies $\int_{-\infty}^{\infty} (1 + |t|)|\varphi(t)|dt < \infty$.
+\begin{enumerate}[label=(\roman{*}), leftmargin=*, widest=0] \itemsep0pt \parskip0pt \parsep0pt
+\item If the coefficients $\phi_k$ satisfy {\bf C1}, then for $r \in [0,1]$ and any $c_n >0$ satisfying $c_n n^{3/2} \rho(n) \to \infty$ and $c_n \rho(n) / n^{\mu - / 12} \to 0$,
+\bestar
+\frac{c_n\rho(n)}{n^{\mu - 1/2}} \sum_{k = 1}^{[nr]} g(c_n x_k) \to_D (\sqrt{c_\mu})^{-1} \tau L_{W_{3/2-\mu}}(r, 0).
+\eestar
+\item If the coefficients $\phi_k$ satisfy {\bf C2}, then for $r \in [0,1]$ and any $c_n >0$ satisfying $c_n \sqrt{n} \to \infty$ and $c_n / \sqrt{n} \to 0$,
+\bestar
+\frac{c_n}{\sqrt{n}} \sum_{k = 1}^{[nr]} g(c_n x_k) \to_D \phi^{-1} \tau L_{W}(r, 0).
+\eestar
+\end{enumerate}
+\end{cor}
 
 % ------------------------------------------------------------------------
 
