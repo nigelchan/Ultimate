@@ -366,6 +366,11 @@ Recalling the Assumption \ref{assump:1:lipschitz},  it is readily seen that
 &\le&
  C\, (c_n \log n)^{1/2}\, \frac 1n  \sum_{t=1}^n|u_t| =
 O[(c_n \log n)^{1/2}] ,\quad a.s., \la {eqn:1:p7} \ee
+where we have used the fact that
+\begin{align}
+\frac 1n  \sum_{t=1}^n|u_t| &\le \frac{1}{n} \Big | \sum_{t = 1}^n \big [ |u_t| - E(|u_t| \mid \F_{t - 1}) \big ] \Big | + \sup_t E(|u_t| \mid \F_{t - 1}) \no\\ 
+&= O(1) \quad a.s., \no
+\end{align}
 by the strong law of large number.
 
 In order to investigate $\lam_{2n}$, write $u_t'=u_tI[|u_t|\le (c_n/\log n)^{1/2}]$ and $u_t^*=u_t'-E(u_t'\mid {\mathcal F}_{t-1})$. Recalling

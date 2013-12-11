@@ -186,7 +186,7 @@
 
 \rhead{\bfseries{\leftmark}}
 
-\newcommand{\submittedtext}{{in Candicacy for the Degree of}}
+\newcommand{\submittedtext}{{in fulfilment of the requirements for the degree of}}
 %
 %
 % DECLARATIONS
@@ -229,13 +229,16 @@
 {\large \vspace*{25mm} {{\@crest} \par} \vspace*{25mm}}
 {
 \vspace*{1ex}
-    {{A Dissertation} \par}
+    {{A thesis submitted} \par}
 % \vspace*{1ex}
-    {{Presented to the \@collegeordept} \par}
-    {{of} \par}
-    {{\@university} \par}
     {{\submittedtext} \par}
     {\it {\@degree} \par}
+\vspace*{4mm}
+    {{\@collegeordept} \par}
+    {{\@university} \par}
+   % {{Presented to the \@collegeordept} \par}
+   % {{of} \par}
+   % {{\@university} \par}
 \vspace*{10mm}
     {{by} \par}
     {{\@author} \par}

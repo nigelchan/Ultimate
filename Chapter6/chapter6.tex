@@ -7,7 +7,7 @@
     \graphicspath{{Chapter6/Chapter6Figs/EPS/}{Chapter6/Chapter6Figs/}}
 \fi
 
- In this chapter we extend from nonparametric estimation methods to parametric approach. We develop asymptotic theory for a nonlinear parametric cointegrating regression model. We establish a general framework for  weak consistency that is easy to apply to various nonstationary time series, including partial sum of linear processes and  Harris recurrent Markov chains. We provide  limit distributions for  nonlinear least squares  estimators,    extending the previous work.  We also introduce endogeneity to the model by allowing the error to be serially dependent and cross correlated with the regressors.
+ In this chapter we extend from nonparametric estimation methods to parametric approach. We develop asymptotic theory for a nonlinear parametric cointegrating regression model. We establish a general framework for  weak consistency that is easy to apply to various nonstationary time series, including partial sum of linear processes and  Harris recurrent Markov chains. We provide  limit distributions for  nonlinear least squares  estimators,    extending the previous work.  We also introduce endogeneity to the model by allowing the error to be serially dependent on and cross correlated with the regressors.
 
 
 
@@ -21,7 +21,7 @@ $x_t$ and  $u_t$ are regressor and regression errors, and   $\theta_0$ is an $m$
 
 
 The present chapter has a similar goal to the previously mentioned papers but offers more general results, which have some advantages for empirical studies. First of all, we establish a general framework for  weak consistency of the NLS estimator $\hat{\theta}_n$, allowing for $x_t$ to be  a  wider class of nonstationary time series.
- The set of sufficient conditions are easy to be applied to various nonstationary regressors, including partial sum of linear processes and recurrent Markov chains. Furthermore, we  provide limit distributions for the NLS estimator $\hat{\theta}_n$. It  should be mentioned that  the routine employed in this chapter to establish the limit distributions of $\hat\theta_n$ is different from those used in the previous works, e.g. PP. Roughly speaking, our routine is related to joint distributional convergence of a martingale under target and its conditional variance, rather than using classical martingale limit theorem which requires establishing the convergence in probability for the conditional variance.  In nonlinear cointegrating regression, there are   some advantages for our methodology  since it is usually difficult to establish the convergence in probability for the conditional variance, in particular, in the situation that the regressor $x_t$ is a nonstationary time series.
+ The set of sufficient conditions is easy to be applied for various nonstationary regressors, including partial sum of linear processes and recurrent Markov chains. Furthermore, we  provide limit distributions for the NLS estimator $\hat{\theta}_n$. It  should be mentioned that  the routine employed in this chapter to establish the limit distributions of $\hat\theta_n$ is different from those used in the previous works, e.g. PP. Roughly speaking, our routine is related to joint distributional convergence of a martingale under target and its conditional variance, rather than using classical martingale limit theorem which requires establishing the convergence in probability for the conditional variance.  In nonlinear cointegrating regression, there are   some advantages for our methodology  since it is usually difficult to establish the convergence in probability for the conditional variance, in particular, in the situation that the regressor $x_t$ is a nonstationary time series.
 Furthermore, in addition to the commonly used martingale innovation structure, our model allows for serial dependence in the equilibrium errors $u_t$ and the innovations driving $x_t$. It is important as our model  permits joint determination of $x_t$ and $y_t$, and hence the system is a time series structural model. Under such situation, the weak consistency and limit distributions of the NLS estimator $\hat{\theta}_n$ are also established.
 
 This chapter is organized as follow. Section \ref{sec:6:weakConsistency} presents our main results on weak consistency of the NLS estimator $\hat \theta_n$. Theorem \ref{thmConsistency} provides a general framework.  Its applications to integrable and non-integrable $f$  are given in Theorems \ref{thmLinearConsistency}--\ref{thmHomoConsistent1}, respectively.  Section \ref{sec:6:limitDistribution} investigates the limit distributions of $\hat \theta_n$ under the setting that the model (\ref {intro.eqn1}) has a martingale structure. Extension to endogeneity is presented in Section \ref{sec:6:endo}. As mentioned above, 
@@ -40,7 +40,7 @@ is defined to be the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$, that i
 \ee
 and the error estimator is defined by $\hat{\si}_n^2 = n^{-1} \sum_{t = 1}^n \hat{u}_t^2$, where $\hat{u}_t = y_t - f(x_t, \hat{\theta}_n)$. To investigate the weak consistency for the NLS estimator $\hat\theta_n$,
 this section assumes the  regression model (\ref {intro.eqn1}) to have a martingale structure.
-In this situation, our sufficient conditions are  closely related  to those of \cite{wu1981}, \cite{lai1994} and \cite{skouras2000}, and they intend  to provide a general framework. In comparison to the papers mentioned, our assumptions are easy to apply, particularly in nonlinear cointegrating regression situations as stated in the two examples below. Extension to endogeneity between $x_t$ and $u_t$ is investigated in Section \ref{sec:6:endo}.
+In this situation, our sufficient conditions are  closely related  to those of \cite{wu1981}, \cite{lai1994} and \cite{skouras2000}, intending  to provide a general framework. In comparison to the papers mentioned, our assumptions are easy to apply, particularly in nonlinear cointegrating regression situations as stated in the two examples below. Extension to endogeneity between $x_t$ and $u_t$ is investigated in Section \ref{sec:6:endo}.
 
 \subsection{A framework} \la{sec:6:framework}
 
@@ -79,7 +79,7 @@ If in addition $\kappa_n^2 n^{-1} = O(1)$, then $\hat{\si}^2_n \to_P \si^2$, as 
 
 Assumptions \ref {assumpClose} and \ref{assumpMartingale} are the same as those used in \cite{skouras2000}, which are standard in the NLS estimation theory. Also see \cite{wu1981} and \cite{lai1994}. Assumption \ref {assumpLowerBound} is used to replace (3.8), (3.9) and (3.11) in \cite{skouras2000}, in which some uniform conditions are used. In comparison to \cite{skouras2000}, our Assumption \ref {assumpLowerBound} is related to the conditions on the regressor $x_t$ and is more natural and easy to apply. In particular, it is directly applicable in the situation that $T$ is integrable and the regressor $x_t$ is a nonstationary time series, as stated in the following sub-section.
 
-\subsection{Identification of Assumption \ref{assumpLowerBound}: integrable functions } \la{sec:6:consistencyIntegrable}
+\subsection{Assumption \ref{assumpLowerBound}: integrable functions } \la{sec:6:consistencyIntegrable}
 Due to Assumption \ref{assumpClose}, $f(x, \theta)-f(x, \theta_0)$ is integrable in $x$ if $T$ is an integrable function. This class of functions includes $f(x, \theta_1, \theta_2)=\theta_1 |x|^{\theta_2}I(x\in [a, b])$, where $a$ and $b$ are finite constants,  the Gaussian function $f(x, \theta) = e^{-\theta x^2}$, the Laplacian function $f(x, \theta) = e^{-\theta |x|}$, the logistic regression function $f(x, \theta)=e^{\theta |x|}/(1+e^{\theta |x|})$,  etc. In this sub-section, two commonly used  nonstationary regressors $x_t$ are shown to satisfy Assumption \ref{assumpLowerBound} if $T$ is integrable.
 
 \medskip \noindent
@@ -97,7 +97,7 @@ The coefficients $\phi_k$ are assumed to satisfy one of the following conditions
 
 {\textbf{C1.}} $\phi_k \sim  k^{-\mu} \rho(k)$, where $1 / 2 < \mu < 1$ and $\rho$ is a function slowly varying at $\infty$.
 
-{\textbf{C2.}} $\sum_{k=0}^{\infty }k|\phi _{k}|<\infty $ and $\phi \equiv \sum_{k=0}^{\infty }\phi_{k}\not =0$.
+{\textbf{C2.}} $\sum_{k=0}^{\infty }|\phi _{k}|<\infty $ and $\phi \equiv \sum_{k=0}^{\infty }\phi_{k}\not =0$.
 
 \noindent Put $d_n^2 = \E x_n^2.$ It is well known that
 \be
@@ -161,12 +161,12 @@ It is interesting to notice that Theorem \ref {thmMarkovConsistency} does not im
 where $0< \beta\le 1$. See \cite{chen1999} for instance.
 
 
-\subsection{Identification of Assumption \ref{assumpLowerBound}: beyond integrable functions} \la{sec:6:consistencyNonIntegrable}
-As noticed in Section \ref{sec:6:consistencyIntegrable},  Assumption \ref{assumpLowerBound} still holds for certain non-integrable $f$, although we require the integrability of $T$. However,   identification of Assumption \ref{assumpLowerBound} is more involved for  general non-integrable $f$. In this situation, instead of requiring $T$ to be integrable, we impose certain relationship between  $f$ and $T$.
+\subsection{Assumption \ref{assumpLowerBound}: beyond integrable functions} \la{sec:6:consistencyNonIntegrable}
+As noticed in Section \ref{sec:6:consistencyIntegrable},  Assumption \ref{assumpLowerBound} holds for certain non-integrable $f$ although we require the integrability of $T$. Assumption \ref{assumpLowerBound} is more involved for  general non-integrable $f$ when $T$ is also non-integrable. In the latter situation, we require certain relationship between  $f$ and $T$.
 
 \begin{assump} \la{assumpHomo}
 \begin{enumerate}[label=(\roman{*}), leftmargin=*, widest=0] \itemsep0pt \parskip0pt \parsep0pt
-\item There exist a regular function\footnote{Function $H$ is called regular on $\Theta$ if (a) for all $\theta \in \Theta$, there exist for each $\epsilon > 0$ continuous functions $\underline{H}_\epsilon$, $\overline{H}_\epsilon$, and a constant $\delta_\epsilon > 0$ such that $\underline{H}_\epsilon(x, \theta) \le H(y, \theta) \le \overline{H}_\epsilon(x, \theta)$ for all $|x - y| < \delta_\epsilon$ on $K$, a compact set of $R$, and such that $\int_K (\overline{H}_\epsilon - \underline{H}_\epsilon)(x, \theta)dx \rightarrow 0$ as $\epsilon \rightarrow 0$, and
+\item There exists a regular function\footnote{Function $H$ is called regular on $\Theta$ if (a) for all $\theta \in \Theta$, there exist for each $\epsilon > 0$ continuous functions $\underline{H}_\epsilon$, $\overline{H}_\epsilon$, and a constant $\delta_\epsilon > 0$ such that $\underline{H}_\epsilon(x, \theta) \le H(y, \theta) \le \overline{H}_\epsilon(x, \theta)$ for all $|x - y| < \delta_\epsilon$ on $K$, a compact set of $R$, and such that $\int_K (\overline{H}_\epsilon - \underline{H}_\epsilon)(x, \theta)dx \rightarrow 0$ as $\epsilon \rightarrow 0$, and
 (b) for all $x \in R$, $H(x, \cdot)$ is equicontinuous in a neighborhood of $x$.
 } $g(x, \theta, \theta_0)$ on $\Theta$ satisfying $$\int_{|s| \le \de} g^2(s, \theta, \theta_0) ds > 0$$  for all $\theta \ne \theta_0$ and $\de > 0$, a real function $T: \mathbb{R} \to  \mathbb{R}$ and a positive real function  $v(\lambda)$ which is bounded away from zero as $\lambda \to \infty$, such that for any bounded $x$,
 \be
@@ -179,12 +179,12 @@ as $\lam \to \infty$.
 
 \begin{thm} \la {thmHomoConsistency} Suppose Assumption \ref{assumpHomo} holds. Suppose that there exists a continuous Gaussian process $G$ such that $x_{[nt], n} \Rightarrow G(t)$, on $D[0,1]$, where $x_{i,n} = x_i / d_n$  and $0 < d_n \to \infty$ is a sequence of real numbers.
 Then (\ref {20}) and (\ref {21}) hold with $\kappa^2_n=nv^2(d_n)$. Consequently,
-if in addition Assumption \ref{assumpClose} and \ref{assumpMartingale} and the assumption that the $T$'s in \ref{assumpClose} and \ref{assumpHomo} coincide, then $\hat{\theta}_n \rightarrow_P \theta_0$.
+if in addition Assumption \ref{assumpClose} and \ref{assumpMartingale} and the assumption that the $T$s in \ref{assumpClose} and \ref{assumpHomo} coincide, then $\hat{\theta}_n \rightarrow_P \theta_0$.
 \end{thm}
 
 
 Assumptions \ref{assumpClose} and \ref{assumpHomo} are quite general, and they include many commonly used regression functions. Typical examples include $f(x, \theta)=(x+\theta)^2,\ \theta e^{x}/(1 + e^x),\ \theta \log |x|,\ \theta |x|^\al$ ($\al$ is fixed) and $\theta_0+\theta_1 |x|+...+\theta_k|x|^k$.
-The class of functions satisfying Assumptions \ref{assumpClose} and \ref{assumpHomo} are similar to, but wider than the  $H_0$-regular functions on $\Theta$ imposed in Theorem 4.2 of PP. For instance,   Assumptions \ref{assumpClose} and \ref{assumpHomo} (hence Theorem \ref{thmHomoConsistency}) are applicable for   the function $f(x, \theta)=(x+\theta)^2$  [with $T(x)= T_1(x)=|x|$, $v(\lam)=\lam$ and $g(x, \theta, \theta_0)=2(\theta-\theta_0)\, x$], but Theorem 4.2 of PP is not  directly applicable for this function. See, e.g., Example 4.1 (c) of PP. We also mention that our condition on the regressor $x_t$ is much general than that of PP, as we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process. This kind of weak convergence condition is very likely close to necessary.
+The class of functions satisfying Assumptions \ref{assumpClose} and \ref{assumpHomo} are similar to, but wider than those imposed in Theorem 4.2 of PP. For instance,   Assumptions \ref{assumpClose} and \ref{assumpHomo} (hence Theorem \ref{thmHomoConsistency}) are applicable for   the function $f(x, \theta)=(x+\theta)^2$  [with $T(x)= T_1(x)=|x|$, $v(\lam)=\lam$ and $g(x, \theta, \theta_0)=2(\theta-\theta_0)\, x$], but Theorem 4.2 of PP is not  directly applicable for this function. See, e.g., Example 4.1 (c) of PP. We also mention that our condition on the regressor $x_t$ is much general than that of PP, as we only require that $x_{[nt]} / d_n$ converges weakly to a continuous Gaussian  process. This kind of weak convergence condition is very likely close to necessary.
 
 \medskip
 We next consider  a class of asymptotically homogeneous functions. In this regard, we follow PP. Let $f:\mathbb{R} \times \Theta \rightarrow \mathbb{R} $ have the structure:
@@ -210,7 +210,7 @@ for any $\bar{\theta} \ne \theta_0$ and $\bar{p}, \bar{q} > 0$.
  The conditions on $f$ given in Theorem \ref {thmHomoConsistent1} are the same as those used in Theorem 4.3 of PP, which are satisfied by the functions such as  the Box-Cox transformation $(|x|^\theta - 1)/\theta$. The difference between current Theorem \ref{thmHomoConsistent1} and Theorem 4.3 of PP is that we only require $x_{[nt]} / d_n$ to converge weakly to a continuous Gaussian  process. Such condition is close to necessary.
 
 
-To investigate the weak consistency of $\hat\theta_n$, this section makes use of three conditions sets on $f$: Assumption \ref{assumpClose} with $T$ being integrable (Theorems \ref{thmLinearConsistency}--\ref{thmMarkovConsistency}); Assumptions \ref{assumpClose}--\ref{assumpHomo} (Theorem \ref{thmHomoConsistency}) and the condition (\ref {sad1}) (Theorem \ref{thmHomoConsistent1}). We remark that these conditions sets are mutually exclusive. There are examples on the $f$ such that one of these assumptions holds, but not for other two. For instance, the function $f(x, \theta)=\theta/(1+x^2)$ satisfies Assumption \ref{assumpClose}  with $h(x)=x$ and $T(x)=1/(1+x^2)$, but Assumption \ref{assumpHomo} and  the condition (\ref {sad1}) fail; the function $f(x, \theta)=(x+\theta)^2$ satisfies Assumptions \ref{assumpClose}--\ref{assumpHomo}, but not for Assumption \ref{assumpClose} with $T$ being integrable and the condition (\ref {sad1}).
+To investigate the weak consistency of $\hat\theta_n$, this section makes use of three different set of conditions sets on $f$: Assumption \ref{assumpClose} with $T$ being integrable (Theorems \ref{thmLinearConsistency}--\ref{thmMarkovConsistency}); Assumptions \ref{assumpClose} and \ref{assumpHomo} (Theorem \ref{thmHomoConsistency}) and the condition (\ref {sad1}) (Theorem \ref{thmHomoConsistent1}). We remark that these conditions sets are mutually exclusive. There are examples on the $f$ such that one of these assumptions holds, but not for other two. For instance, the function $f(x, \theta)=\theta/(1+x^2)$ satisfies Assumption \ref{assumpClose}  with $h(x)=x$ and $T(x)=1/(1+x^2)$, but Assumption \ref{assumpHomo} and  the condition (\ref {sad1}) fail; the function $f(x, \theta)=(x+\theta)^2$ satisfies Assumptions \ref{assumpClose} and \ref{assumpHomo}, but not for the condition (\ref {sad1}).
 
 
 \section{Limit distribution} \la{sec:6:limitDistribution}
@@ -251,7 +251,7 @@ where  $x_t$ is an integrated process, $g$ is a real integrable function and $L_
 \be
 \frac{1}{\sqrt{n}} \sum_{t=1}^n g(x_t) \to_D \int_{-\infty}^{\infty} g(s) ds\, L_W(1,0).
 \ee
-This allows to extend the nonlinear regression to much wider class of nonstationary regressor data series, and enables our methodology and proofs  straightforward and neat.
+This allows to extend the nonlinear regression to a much wider class of nonstationary regressor data series, and enables our methodology and proofs  straightforward and neat.
 
 
 
@@ -314,8 +314,7 @@ Using the same routine and slight modification of assumptions, we have the follo
 \begin{assump_ad1}
 \begin{enumerate}[label=(\roman{*}), leftmargin=*, widest=0] \itemsep0pt \parskip0pt \parsep0pt
 \item $x_t$ is defined as in Example 2 satisfying (\ref{d1}), that is, $x_t$ is a $\beta$-regular Harris recurrent Markov chain;
-\item $\{u_k, \mathcal F_k\}_{k\ge 1}$ forms a martingale difference;
-\item $\max_{k\ge m}|E(u_{k+1}^2\mid \mathcal F_{nk})-1|\to 0$  a.s., and for some $\delta>0$, $ \max_{k\ge 1 } E(|u_{k+1}|^{2+\delta}\mid \mathcal F_{nk})<\infty. $ and $E(u_k\mid \F_{nk})=0$ for any $1\le k\le n$, $n \ge 1$, where $\F_{nk} = \si( \F_k, x_1, ..., x_n)$.
+\item $E(u_k\mid \F_{nk})=0$ for any $1\le k\le n$, $n \ge 1$, $\max_{k\ge m}|E(u_{k+1}^2\mid \mathcal F_{nk})-1|\to 0$  a.s., and for some $\delta>0$, $ \max_{k\ge 1 } E(|u_{k+1}|^{2+\delta}\mid \mathcal F_{nk})<\infty,$ where $\F_{nk} = \si( \F_k, x_1, ..., x_n)$.
 \end{enumerate}
 \end{assump_ad1}
 
@@ -348,11 +347,11 @@ Theorem \ref{thmIntegrablelimit1} is new, even for the stationary case ($\beta =
 
 
 
-\begin{rem} Assumption \ref{ad1}* (iii) imposes a strong orthogonal property between the regressor $x_t$ and the error sequence $u_t$. It is not clear at the moment whether such condition can be relaxed to a less restrictive one where $x_t$ is adapted to $\F_{nt}$ and $x_{t+1}$ is independent of $\F_{nt}$ for all $1 \le t \le n$. We leave this for future research.
+\begin{rem} Assumption \ref{ad1}* (ii) imposes a strong orthogonal property between the regressor $x_t$ and the error sequence $u_t$. It is not clear at the moment whether such condition can be relaxed to a less restrictive one where $x_t$ is adapted to $\F_{nt}$ and $x_{t+1}$ is independent of $\F_{nt}$ for all $1 \le t \le n$. We leave this for future research.
 \end{rem}
 
 \begin{rem}
-Unlike linear cointegration, integrable regression function does not proportionately transfer the effect of outliers of the nonstationary regressor to the response. This is useful when practitioners want to lessen the impact of extreme values of $x_t$ on the response. In addition, such function arises in macro-economics when the dependent variable has an uneven response to the regressor. Empirical examples include central banks' market intervention and the currency exchange target zones, described in \cite{phillips2001}.
+Unlike linear cointegration, integrable regression function does not proportionately transfer the effect of outliers of the nonstationary regressor to the response. This is useful when practitioners want to lessen the impact of extreme values of $x_t$ on the response. In addition, such functions arise in macro-economics when the dependent variable has an uneven response to the regressor. Empirical examples include central banks' market intervention and the currency exchange target zones, described in \cite{phillips2001}.
 \end{rem}
 
 \begin{rem}
@@ -369,7 +368,7 @@ We next consider the limit distribution of $\hat{\theta}_n$ when the regression 
 	\item $x_t$ is adapted to $\F_{t - 1}$, $t = 1, ..., n$, $\max_{1\le t\le n}|x_t|/d_n=O_P(1)$, where $d_n^2=var (x_n)\to \infty$; and
 	\item There exists a vector of continuous Gaussian processes $(G, U)$ such that \be
 (x_{[nt], n}, n^{-1 / 2}\sum_{i = 1}^{[nt]} u_i) \Rightarrow (G(t),U(t)), \la {nm1}
- \ee on $D[0,1]^2$, where $x_{t,n}=x_t/d_n$.
+ \ee on $D_{R^2}[0,1]$, where $x_{t,n}=x_t/d_n$.
 \end{enumerate}
 \end{assump}
 
@@ -454,9 +453,8 @@ being integrable.  Let $\eta_i\equiv (\ep_i, \nu_i)$, $i\in Z$ be a sequence of 
 
 \begin{assump}\la {4.1}
 \begin{enumerate}[label=(\roman{*}), leftmargin=*, widest=0] \itemsep0pt \parskip0pt \parsep0pt
-\item $x_t=\sum_{j=1}^t\xi_j$ where $\xi_j$ is defined as in (\ref {sec2.f1}), that is, $\xi_j=\sum_{k=0}^{\infty}\phi_k\ep_{j-k}$ with the coefficients $\phi_k$ satisfying {\bf C1} or {\bf C2};
-
-\item $u_t= \sum_{k=0}^{\infty}\psi_k\, \nu_{t-k}$, where the coefficients $\psi_k$ are assumed to satisfy  $\sum_{k=0}^{\infty}k^2 |\psi_k|^2<\infty$, $ \psi \equiv \sum_{k=0}^{\infty}\psi_k\not= 0$ and $\sum_{k=0}^{\infty} |\psi_k| \max\{1, |\tilde{\phi}_k|\}< \infty$ where $\tilde{\phi_k} = \sum_{i = 0}^k \phi_i$.
+\item $x_t=\sum_{j=1}^t\xi_j$ where $\xi_j$, where $\xi_j=\sum_{k=0}^{\infty}\phi_k\ep_{j-k}$ and the coefficients $\phi_k$ satisfies (i) $\sum_{k = 0}^{\infty} k |\phi_k|< \infty$ and $\sum_{k = 0}^{\infty} \phi_k \ne 0$ or (ii) $\phi_k \sim k^{-\mu} \rho(k)$, where $1/2 < \mu < 1$ and $\rho(k)$ is a function slowly varying at $\infty$.
+\item $u_t= \sum_{k=0}^{\infty}\psi_k\, \nu_{t-k}$, where the coefficients $\psi_k$ satisfies that  $\sum_{k=0}^{\infty}k^2 |\psi_k|^2<\infty$, $ \psi \equiv \sum_{k=0}^{\infty}\psi_k\not= 0$ and $\sum_{k=0}^{\infty} |\psi_k| \max\{1, |\tilde{\phi}_k|\}< \infty$ where $\tilde{\phi_k} = \sum_{i = 0}^k \phi_i$.
 \end{enumerate}
 \end{assump}
 
@@ -485,7 +483,7 @@ and other notations are given as in Theorem \ref{th3.1}.
 
 \subsection{Asymptotics: beyond integrable functions} \la{sec:6:endoNonIntegrable}
 
-This section considers the situation that $f$ satisfies Assumption \ref{assumpClose} with $T$ being non-integrable. Let again $\eta_i\equiv (\ep_i, \nu_i), i\in Z $ be a sequence of i.i.d. random vectors satisfying $E\eta_0=0$ and $E\|\eta_0\|^{2q}<\infty$, where $q > 2$, and we make use of the following assumption in related to the model (\ref {intro.eqn1}).
+This section considers the situation that $f$ satisfies Assumption \ref{assumpClose} with $T$ being non-integrable. Let again $\eta_i\equiv (\ep_i, \nu_i), i\in Z $ be a sequence of i.i.d. random vectors with $E\eta_0=0$ and $E\|\eta_0\|^{2q}<\infty$, where $q > 2$. We make use of the following assumption in related to the model (\ref {intro.eqn1}).
 
 
 
@@ -498,17 +496,18 @@ This section considers the situation that $f$ satisfies Assumption \ref{assumpCl
 
 
 
-\begin{thm} \la {endo13} Under Assumption \ref{assumpClose}* and \ref {4.2}, the NLS estimator $\hat{\theta}_n$ defined by (\ref {sad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
+\begin{thm} \la {endo13}Suppose that Assumption \ref {4.2} holds and in addition to Assumption \ref{assumpHomo}, for any $\theta\not= \theta_0$,
+ $g(x, \theta, \theta_0)$ is twice differentiable with that $g'(x, \theta, \theta_0)$ is locally bounded (i.e., bounded on any compact set). Then the NLS estimator $\hat{\theta}_n$ defined by (\ref {sad2}) is a consistent estimator of $\theta_0$, i.e. $\hat{\theta}_n \rightarrow_P \theta_0$.
 \end{thm}
 
 
 In the following, we define $\dot{h}^x(x, \theta)=\frac {\partial \dot{h}(x, \theta)}{\partial x}.$
 
 \begin{thm} \la{endo14}
-Suppose Assumptions \ref{assumpLimitHomo2} and \ref{4.2} hold. Further assume that:
+In addition to the conditions of Theorem \ref{endo13}, Assumptions \ref{assumpLimitHomo2} holds. Further assume that:
 \begin{enumerate}[label=(\roman{*}), leftmargin=*] \itemsep0pt \parskip0pt \parsep0pt
 \item $\sup_{1 \le i, j \le m} | \frac{v(\sqrt{n})\, \ddot v_{ij}(\sqrt{n})}{\dot v_i(\sqrt{n})\,  \dot v_j(\sqrt{n})}|<\infty$ and $\int_{|s| \le \de} \dot h(s,\theta_0) \dot h(s, \theta_0)' ds > 0$ for all $\de > 0$, and
-\item $\dot{h}^{x}(x, \theta)$ satisfies $|\dot{h}^{x}(x, \theta_0)| \le K (1 + |x|^\al)$ for some constants $K, \al > 0$ for all $x \in R$, and $q \ge \max(3, 2\al)$ where $q$ is given in Assumption \ref{4.2}.
+\item $\dot{h}^{x}(x, \theta)$ is locally bounded (i.e., bounded on any compact set).
 \end{enumerate}
 Then the limit distribution of $\hat{\theta}_n$ is given by
 \be \la{thmInfLagHomo.eqn1}
@@ -587,11 +586,29 @@ where $\si_{\xi u} = \sum_{j = 0}^{\infty} E(\ep_0 u_j)$ and
 
 
 
-In our simulations, we draw samples of sizes $n = 200, 500$ to estimate the NLS estimators and their $t$-ratios. Each simulation is run for 10,000 times, and their densities are estimated using kernel method with normal kernel function. Our results are presented in 16 tables. Table \ref{If_num}--\ref{Hf_num} present the numerical values of the means and standard errors of the NLS estimators, $\hat{\theta}_n$ and $(\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$, as well as those of the error variance estimates $\hat{\si}^2_n$. Table \ref{theta_unscaled}--\ref{beta2_unscaled} are the estimated densities of the centered distributions of the estimators. Table \ref{theta_scaled}--\ref{beta2_scaled} are the estimated densities of the centered distributions scaled by their respective convergence rates, that is, $n^{1/4}$ and $(n^{1/2}, n, n^{3/2})$. Table \ref{theta_t}--\ref{beta2_t} are the $t$-ratios. In all tables, the left columns are simulation results based on 200 samples, while the right columns are based on 500 samples. We expect that as $\rho$ increases, the degree of endogeneity increases, and hence the variance of the distribution will increase due to (\ref{thmInfLaglimit.eqn1}) and (\ref{thmInfLagHomo.eqn1}). We also expect that the more serial correlation of $u_t$, the higher the variance of the limit distribution  due to the cross terms appeared in (\ref{thmInfLaglimit.eqn2}) and (\ref{thmInfLagHomo.eqn1}).
+In our simulations, we draw samples of sizes $n = 200, 500$ to estimate the NLS estimators and their $t$-ratios. Each simulation is run for 10,000 times, and their densities are estimated using kernel method with normal kernel function. It is expected that as $\rho$ increases, the degree of endogeneity increases, and hence the variance of the distribution will increase due to (\ref{thmInfLaglimit.eqn1}) and (\ref{thmInfLagHomo.eqn1}). It is also expected that the more serial correlation of $u_t$, the higher the variance of the limit distribution  due to the cross terms appeared in (\ref{thmInfLaglimit.eqn2}) and (\ref{thmInfLagHomo.eqn1}). Our simulation results largely corroborate with our theoretical results in Section \ref{sec:6:endo}. 
 
-Our simulation results largely corroborate with our theoretical results in Section \ref{sec:6:endo}. Firstly, the means of the estimators are close to the true values, and that the deviations from true values decrease as the sample sizes increase. Also, the reductions of standard errors from $n = 200$ to 500 are close to the theoretical values. For example, the ratio of standard errors for $\hat{\al}_n$ between the sample size $200$ and $500$ is 1.564 in scenario {\bf S1}, which is close to theoretical value $\sqrt{\frac{500}{200}} = 1.581$. This confirms that our estimators are accurate in all scenarios. Secondly, comparing the {\bf S1}--{\bf S3} curves in each plot, we can see that the {\bf S3} curves have fatter tails and lower peak than those of {\bf S1}--{\bf S2}. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Thirdly, comparing the shapes of the curves for different values of $\rho$, the curves with $\rho = 0$ have highest peaks, and that the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase.
+Firstly, the means of the estimators are close to the true values, and that the deviations from true values decrease as the sample sizes increase. The reductions of standard errors from $n = 200$ to 500 are close to the theoretical values. For example, the ratio of standard errors for $\hat{\al}_n$ between the sample size $200$ and $500$ is 1.564 in scenario {\bf S1}, which is close to theoretical value $\sqrt{\frac{500}{200}} = 1.581$. This confirms that our estimators are accurate in all scenarios. We present all these numerical values in Tables \ref{If_num} and \ref{Hf_num}, which are given in the Appendix of this chapter.
 
-Finally, the sampling results for $t$-ratios are also much expected from our limit theories. In particular, we have interesting results for the $t$-ratios of $\hat{\beta}_{1n}$ in Table \ref{beta1_t}. In scenario {\bf S1}, there is no endogeneity and the limiting $t$-ratios overlap with the normal curve. However, as we introduce endogeneity to the model in scenarios {\bf S2} and {\bf S3}, the $t$-ratios is shifted away from the standard normal. Such behavior can be explained by looking at the limit distribution of $\hat{\beta}_{1n}$ in (\ref{sim.eqn1}). When $\rho \ne 0$, there exists an extra term of $ \Sigma^{-1} \si_{\xi u}$, and such term will introduce bias to the limit distribution.
+Secondly, comparing the {\bf S1}--{\bf S3} curves in each plot, we can see that the {\bf S3} curves have fatter tails and lower peak than those of {\bf S1}--{\bf S2}. This verifies that high dependence of $u_t$ on its own past will increase the variance of limit distribution. Thirdly, comparing the shapes of the curves for different values of $\rho$, the curves with $\rho = 0$ have highest peaks, and that the peakedness decrease as $\rho$ increases. This matches with our expectation that, if the cross dependence between $u_t$ and $x_t$ increases, the variance of limit distribution will increase. The following Figure \ref{theta_density_horizontal} provides the density estimates of $\hat{\theta}_n$ with $n=500$. Additional figures for density estimates of $\hat{\theta}_n$  and $(\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ are given in the Appendix of this chapter (Figures \ref{theta_unscaled}--\ref{beta2_unscaled}).
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=15cm]{theta_density_v3_horizontal}
+  \caption{Density estimates of $\hat{\theta}_n$.}\la{theta_density_horizontal}
+\end{figure}
+
+
+Finally, the sampling results for $t$-ratios are also much expected from our limit theories. In particular, we have interesting results for the $t$-ratios of $\hat{\beta}_{1n}$ in Figure \ref{fig.b1_t_ratio}. 
+
+\begin{figure}[hb]   \centering
+\includegraphics[width=15cm]{beta_1_t_ratio}
+\caption{Density of $\hat{\beta}_{1n}$ $t$-ratios.}
+\la{fig.b1_t_ratio}
+\end{figure}
+
+
+In scenario {\bf S1}, there is no endogeneity and the limiting $t$-ratios overlap with the normal curve. However, as we introduce endogeneity to the model in scenarios {\bf S2} and {\bf S3}, the $t$-ratios is shifted away from the standard normal. Such behavior can be explained by looking at the limit distribution of $\hat{\beta}_{1n}$ in (\ref{sim.eqn1}). When $\rho \ne 0$, there exists an extra term of $ \Sigma^{-1} \si_{\xi u}$, and such term will introduce bias to the limit distribution. More figures for $t$-ratios are given in the Appendix of this chapter (Figures \ref{theta_t}--\ref{beta2_t}).
 
 % that the NLS estimator asymptotically converges to mixed normal under all scenarios and different values of $\rho$. As can be seen in first row ($\rho = 0$) of Table 3, the curves overlap standard normal curve for both cases $n = 200, 500$, this indicates that the $t$-ratios converges to a standard normal distribution rapidly when $u_t$ is independent of $x_t$. However, for extreme case of complete endogeneity $\rho = 1$, the distribution is little away from standard normal when the sample size is small. Even when $n$ increases, the limit distribution curve still does not completely overlap the standard normal curve. The deviation from normal is the most serious for S3 curve. From this we can see that the serial correlation of $u_t$ and its cross dependence with the regressor $x_t$ have significant impact on the convergence rate of the NLS estimator, and in particular, the finite sampling behavior when $n$ is small.
 
@@ -612,14 +629,22 @@ The formula that we currently consider has a quadratic formulation and is given 
 \be \la{example.eqn1}
 \ln(e_{t}) = \al + \beta_1 \ln(x_t) + \beta_2 (\ln(x_t))^2 + u_t, \quad 1 \le t \le n,
 \ee
-where $e_t$ and $y_t$ denote the per capital emissions of CO$_2$ and GDP in period $t$, and $u_t$ is a stochastic error term. In the usual CKC formulation, the logarithm of per capita CO$_2$ emissions and GDP are assumed to be integrated processes, see \cite{mullerwagner2007}. Also, it is clear that the nonlinear linked function $f(x, \al, \beta_1, \beta_2) = \al + \beta_1 x + \beta_2 x^2$ satisfies the conditions in Theorem \ref{endo14}, and is considered in our simulations. There are studies which employ more complicated models, by including time trend, stochastic terms and additional explanatory variables such as the energy structure. To avoid complicating our discussion, we only consider GDP as the only explanatory variable.
+where $e_t$ and $y_t$ denote the per capital emissions of CO$_2$ and GDP in period $t$, and $u_t$ is a stochastic error term. Figure \ref{fig.co2gdp} presents the plots of logarithm of CO$_2$ versus logarithm of GDP for Belgium, Denmark and France. In the usual CKC formulation, the logarithm of per capita CO$_2$ emissions and GDP are assumed to be integrated processes, see \cite{mullerwagner2007}. Also, it is clear that the nonlinear linked function $f(x, \al, \beta_1, \beta_2) = \al + \beta_1 x + \beta_2 x^2$ satisfies the conditions in Theorem \ref{endo14}, and is considered in our simulations. There are studies which employ more complicated models, by including time trend, stochastic terms and additional explanatory variables such as the energy structure. To avoid complicating our discussion, we only consider GDP as the only explanatory variable.
+
+\medskip
+\begin{figure}[hb]
+  \centering
+\includegraphics[width=15cm]{GDP_plot}
+\caption{Plots of log(CO$_2$) against log(GDP) for Belgium, Denmark and France.}\la{fig.co2gdp}
+\end{figure}
 
 In the literature most studies assumed that the parameters $(\beta_1, \beta_2)$ are homogeneous across different counties. Several works investigated the appropriateness of restricting all countries adhering to the same values of $(\beta_1, \beta_2)$. For example, \cite{listgallet1999}, \cite{dijkgraafvollebergh2005}, \cite{piaggiopadilla2010}. Particularly, \cite{piaggiopadilla2010} tested this assumption by checking whether the confidence intervals of $(\beta_1, \beta_{2})$ across different countries overlap. They rejected the homogeneity assumption of parameters across different countries, based on the result that they could not find any possible group with more than 4 countries whose confidence intervals overlap with each other.
 
 As an example of employing our NLS estimators $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ and calculating their confidence intervals, we carry out similar study and examine whether the 95\% confidence intervals of the parameters ($\hat{\beta}_{1n}, \hat{\beta}_{2n})$ across different countries overlap with each other. We extend previous studies by incorporating the endogeneity in the model. The assumption that $x_t$ is an exogenous variable does not usually hold in practice as there are many potential sources of endogeneity. Firstly, endogeneity occurs due to measurement error of the explanatory variables $x_t$, including the misreporting of GDP of each country. Secondly, there might be omitted variable bias, which arises if there exists a relevant explanatory variable that is correlated with the regressor $x_t$ (per capita GDP), but is excluded from the model. Finally, potential reverse causality will give rise to endogeneity. That is, the CO$_2$ emissions $y_t$ might at the same time has a feedback effect on the GDP $x_t$ (e.g., due to stricter government regulation).
 
 
-We consider 15 countries, which are shown in \cite{piaggiopadilla2010} that their response variables have a quadratic relationship described in (\ref{example.eqn1}) with the regressors. We use annual data in this example and for each country, there are 58 observations of the CO$_2$ emission data from 1951--2008 published by the Carbon Dioxide Information Analysis Center (\cite{bodenmarlandandres2009}). For per capita GDP, we adopt the GDP data from \cite{maddison2003}, which is transformed to 1990 Geary-Khamis dollars.
+We consider 13 countries, which are shown in \cite{piaggiopadilla2010} that their response variables have a quadratic relationship described in (\ref{example.eqn1}) with the regressors. We use annual data in this example and for each country, there are 58 observations of the CO$_2$ emission data from 1951--2008 published by the Carbon Dioxide Information Analysis Center (\cite{bodenmarlandandres2009}). For per capita GDP, we adopt the GDP data from \cite{maddison2003}, which is transformed to 1990 Geary-Khamis dollars. We performed a unit root test to ensure the data are nonstationary, and the results are presented in   the Appendix of this chapter (Section \ref{sec.unitRootTest}).
+
 
 We first estimate the parameters by minimizing the error function given in (\ref{sad2}) using the \texttt{nls()} function in the statistical software R. Next, we calculate the confidence interval by finding the critical values of the limit distribution of $(\hat{\al}_{n}, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ given in (\ref{example.eqn1}). Note that most of the quantities in (\ref{example.eqn1}) involve only the standard Brownian motion or integral of Brownian motions, which can be easily obtained by direct simulations. However, there exist two nuisance parameters, including the covariance matrix $\Delta$ of Brownian motions $(W, U)$ and the autocovariances $\si_{\xi u}$ of linear processes $\{ \xi_t, u_t\}$. Thus we have to replace the unknown parameters with their consistent estimates and adopt the empirical critical values instead of the real ones. Using the linear process estimation procedures described in \cite{changparkphillips2001}, we have $\hat{\phi}$, $\hat{\psi}$ as the estimators of $\phi$, $\psi$, and $\hat{\ep}_t$ and $\hat{\nu}_t$ as the artificial error sequences. The parameters $\Delta$ and $\si_{\xi u}$ can then be estimated by
 \bestar \la{f.covMatrix}
@@ -630,18 +655,20 @@ n^{-1} \hat{\phi}\hat{\psi}\sum_{t = 1}^n \hat{\ep}_t \hat{\nu}_t &n^{-1} \hat{\
 \eestar
 for any $l = o(n^{1 / 4})$. See \cite{ibragimovphillips2008}, \cite{phillipssolo1992} and \cite{phillipsperron1988}.
 
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=16cm]{b_1_plot_v2} \\
+\caption{Estimates and 95\% Confidence Intervals of $\hat{\beta}_{1n}$.}\la{beta1_plot}
 
-\begin{table}[!ht]
-\selectfont \caption{Estimates and 95\% Confidence Intervals of $\hat{\beta}_{1n}$ and $\hat{\beta}_{2n}$}
-\label{beta12_plot} \center{
-\begin{tabular}{c}
-\includegraphics[width=16cm]{b_1_plot} \\
-\includegraphics[width=16cm]{b_2_plot} \\
-\end{tabular}
-}
-\end{table}
+\end{figure}
 
-Table \ref{beta1_est} and \ref{beta2_est} report the estimates and 95\% confidence intervals of parameters $\beta_{1}$ and $\beta_{2}$, and Table \ref{beta12_plot} presents the plots of the results. For the parameter $\beta_{1}$, we can not find any group with more than four groups of countries whose confidence intervals overlap. Such result is consistent with that of \cite{piaggiopadilla2010}. However, for the parameter $\hat{\beta}_{2n}$, among the 15 countries, we can find group of 11 countries whose confidence intervals overlap. Hence, the homogeneity of parameters can not be rejected as in \cite{piaggiopadilla2010}. There are two main reasons for the  differences between our results and theirs. Firstly, they assume the innovation is i.i.d. normally distributed while we allow the error to be serially correlated with itself. Secondly, we incorporate the effect of endogeneity in our limit distribution of estimator. Based on (\ref{example.eqn1}), both reasons will make the critical values and confidence intervals significantly larger than that of \cite{piaggiopadilla2010}.
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=16cm]{b_2_plot_v2} \\
+  \caption{Estimates and 95\% Confidence Intervals of $\hat{\beta}_{2n}$.}\la{beta2_plot}
+\end{figure}
+
+Table \ref{beta1_est} and \ref{beta2_est} report the estimates and 95\% confidence intervals of parameters $\beta_{1}$ and $\beta_{2}$, and Figure \ref{beta1_plot} and \ref{beta2_plot} here present the plots of the results. For the parameter $\beta_{1}$, we can not find any group with more than four groups of countries whose confidence intervals overlap. Such result is consistent with that of \cite{piaggiopadilla2010}. However, for the parameter $\hat{\beta}_{2n}$, among the 13 countries, we can find group of 11 countries whose confidence intervals overlap. Hence, the homogeneity of parameters can not be rejected as in \cite{piaggiopadilla2010}. There are two main reasons for the  differences between our results and theirs. Firstly, they assume the innovation is i.i.d. normally distributed while we allow the error to be serially correlated with itself. Secondly, we incorporate the effect of endogeneity in our limit distribution of estimator. Based on (\ref{example.eqn1}), both reasons will make the critical values and confidence intervals significantly larger than that of \cite{piaggiopadilla2010}. Similarly, we may construct the estimate and confidence interval for $\al$. See Table \ref{alpha_est} and Figure \ref{al_fig}  in the Appendix of this chapter for this kind of result.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -726,12 +753,12 @@ Theorem 2.2 of \cite{wang2013} provides  (\ref {lemJoint.eqn1}) with $g_2(x)=g_1
 
 
 
-\begin{lem} \la{lemMarkov} Let Assumption \ref {ad1}* (i) hold. For any $g$ such that $\int_{-\infty}^{\infty} |g(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g(x) \pi(dx) \ne 0$, we have
-\be
-\sum_{t = 1}^n g(x_t) &=& O_P[a(n)], \quad
-\big [\sum_{t = 1}^n g(x_t)\big ]^{-1} = O_P[a(n)^{-1}]. \la {ty}
-\ee
-If in addition Assumption \ref{ad1}* (ii)--(iii), then, for any bounded $g_i, i=1,2,$ satisfying $\int_{-\infty}^{\infty} |g_i(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g_i(x) \pi(dx)  \ne 0$,
+\begin{lem} \la{lemMarkov} Let $x_t$ be defined as in Example 2. For any $g$ such that $\int_{-\infty}^{\infty} |g(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g(x) \pi(dx) \ne 0$, we have
+\begin{align}
+\sum_{t = 1}^n g(x_t) &= O_P[a(n)], \la {ty} \\
+\big [\sum_{t = 1}^n g(x_t)\big ]^{-1} &= O_P[a(n)^{-1}]. \la {ty10}
+\end{align}
+If Assumption \ref{ad1}* holds, then, for any bounded $g_i, i=1,2,$ satisfying $\int_{-\infty}^{\infty} |g_i(x)| \pi(dx) < \infty$ and $\int_{-\infty}^{\infty} g_i(x) \pi(dx)  \ne 0$,
 \be \la{lemMarkov.eqn2}
 \Big \{ a(n)^{-1/2}\sum_{t=1}^n g_1(x_t) u_t ,\, a(n)^{-1}\sum_{t=1}^n g_2(x_t) \Big \}  \rightarrow_D   \Big \{\tau_5 \, N \, \Pi^{1/2}_{\beta}, \tau_6\,\Pi_\beta \Big \},
 \ee
@@ -830,9 +857,18 @@ as $n \to \infty$, where $\si_{\xi u} = \sum_{j = 0}^{\infty} E( \xi_0 u_j)$, an
 \phi\psi E \ep_0 \nu_0 & \psi^2 E\nu_0^2
 \end{pmatrix}.
 \eestar
+Consequently, under the conditions of Theorem \ref {endo13}, we have
+\be
+\sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0)) u_t = o_P\big [n\, v(\sqrt{n})\big ]. \la {999}
+\ee
 \end{lem}
-\begin{proof} See Theorem 4.3 of \cite{ibragimovphillips2008} with minor improvements.
-We omit the details.
+\begin{proof} See Theorem 4.3 of \cite{ibragimovphillips2008} with minor improvements. To see (\ref {999}), recall $\max_{1\le t\le n}|x_t|/\sqrt{n}=O_P(1)$. Without loss of generality, we assume $\max_{1\le t\le n}|x_t|/\sqrt{n}\le K_0$ for some $K_0>0$. It follows from Assumption \ref{assumpHomo} that
+\bestar
+&& \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0)) u_t \no\\
+&=& v(\sqrt n)\, \sum_{t = 1}^n g(x_t/\sqrt n, \pi_0, \theta_0)  u_t
++o_P(v(\sqrt n))\,\sum_{t = 1}^n T_1(x_t/\sqrt n)  |u_t| \no\\
+&=&o_P[nv(\sqrt n)], \eestar
+as required.
 \end{proof}
 
 \begin{lem} \la{lemC}
@@ -935,41 +971,52 @@ See Lemma 1 of \cite{wu1981}.
 \subsection{Proofs of theorems}
 
 \begin{proof}[Proof of Theorem \ref {thmConsistency}]
-Let $\mathcal N$ be any open subset of $\Theta$ containing $\theta_0$. Since $\hat{\theta}_n$ is the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$,  by Lemma \ref{lemWu}, proving consistency is equivalent to showing that, for any $0<\eta<1$ and $\theta \ne \theta_0$, where $\theta, \theta_0\in \Theta$, there exist
+Let $\mathcal N$ be any open subset of $\Theta$ containing $\theta_0$. Since $\hat{\theta}_n$ is the minimizer of $Q_n(\theta)$ over $\theta \in \Theta$,  by Lemma \ref{lemWu}, proving consistency is equivalent to showing that, for any $0<\eta<1/3$ and $\theta \ne \theta_0$, where $\theta, \theta_0\in \Theta$, there exist
  $n_0 > 0$ and $M_1>0$ such that
 \be \la{prfConsistency.eqn1}
-P \Big ( \inf_{\theta \in \Theta \cap \mathcal N^c}\, D_n(\theta, \theta_0) \ge  \kappa^2_n /M_1 \Big ) \ge 1 - \eta,
+P \Big ( \inf_{\theta \in \Theta \cap \mathcal N^c}\, D_n(\theta, \theta_0) \ge  \kappa^2_n /M_1 \Big ) \ge 1 -3 \eta,
 \ee
 for all $n > n_0$.
 
-Denote $\mathcal N_{\de}(\pi_0) = \{ \theta: \| \theta - \pi_0\| < \de\}$. Note that $\Theta \cap \mathcal N^c$ is compact, by the finite covering property of compact set, (\ref{prfConsistency.eqn1}) will follow if we prove that, for any fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
+Denote $\mathcal N_{\de}(\pi_0) = \{ \theta: \| \theta - \pi_0\| < \de\}$. Since $\Theta \cap \mathcal N^c$ is compact, by the finite covering property of compact set, (\ref{prfConsistency.eqn1}) will follow if we prove that, for any fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
 \be \la{prfConsistency.eqn2}
-\sup_{\theta \in \mathcal N_{\de}(\pi_0)} \kappa_n^{-2} \Big | D_n(\theta, \theta_0) - D_n(\pi_0, \theta_0) \Big | \to_P 0,
+I_n(\delta, \pi_0):=\sup_{\theta \in \mathcal N_{\de}(\pi_0)} \kappa_n^{-2} \Big | D_n(\theta, \theta_0) - D_n(\pi_0, \theta_0) \Big | \to_P 0,
 \ee
-as $n\to\infty$ first and then $\de \to 0$, and for $\forall \ep>0$, there exists $M_1 > 0$ and $n > n_0$ such that for all $n > n_0$,
+as $n\to\infty$ first and then $\de \to 0$, and for $\forall \eta>0$, there exist $M_0 > 0$ and $ n_0>0$ such that for all $n \ge n_0$ and $M\ge M_0$,
 \be \la{prfConsistency.eqn3}
-P\Big ( D_n(\pi_0, \theta_0) \ge \kappa^2_n/M_1 \Big ) \ge 1 -2 \eta.
+P\Big ( D_n(\pi_0, \theta_0) \ge \kappa^2_n/M \Big ) \ge 1 - 2\eta.
 \ee
-The result  (\ref{prfConsistency.eqn2}) is simple. Indeed, by Lemma \ref{lemClose},  for each fixed $\pi_0 \in \Theta \cap \mathcal N^c$, we have
-\begin{align}
-&\sup_{\theta \in \mathcal N_{\de}(\pi_0)}\kappa_n^{-2}\Big | D_n(\theta, \theta_0) - D_n(\pi_0, \theta_0) \Big | \no\\
+Indeed, due to  (\ref {prfConsistency.eqn2}), for any $0<\eta<1/3$ and $M_1>0$, there exist $n_0>0$ and $\delta_0>0$ such that
+\bestar
+P(\max_{1\le j\le m_0}I_n(\delta_0, \pi_j)\ge 1/2M_1)\le \eta,
+\eestar
+where $m_0$ and $\pi_j, 1\le j\le m_0,$ are chosen so that $\Theta \cap \mathcal N^c\subset \bigcup_{j=1}^{m_0}\mathcal N_{\de_0}(\pi_j)$. Consequently, by taking $M_1\ge M_0/(2m_0)$, it follows from (\ref {prfConsistency.eqn3}) that
+\bestar
+&& P \Big ( \inf_{\theta \in \Theta \cap \mathcal N^c}\, D_n(\theta, \theta_0) \ge  \kappa^2_n /M_1 \Big ) \no\\
+&\ge & P\Big ( \inf_{1\le j\le m_0}D_n(\pi_j, \theta_0) \ge \kappa^2_n/(2M_1) \Big )-\eta \no\\
+&\ge &\inf_{1\le j\le m_0}P\Big (D_n(\pi_j, \theta_0) \ge \kappa^2_n/(2m_0M_1) \Big )-\eta \ge 1-3\eta,
+\eestar
+which yields (\ref {prfConsistency.eqn1}).
+
+We next prove (\ref{prfConsistency.eqn2}) and (\ref{prfConsistency.eqn3}).
+The result  (\ref{prfConsistency.eqn2}) is simple, which follows immediately from Lemma \ref{lemClose} and the fact that,  for each fixed $\pi_0 \in \Theta \cap \mathcal N^c$,
+\begin{align*}
+I_n(\delta, \pi_0)
 &\le \sup_{\theta \in \mathcal N_{\de}(\pi_0)} \kappa_n^{-2}\sum_{t=1}^n (f(x_t, \theta) - f(x_t, \pi_0))^2 \no\\
-&\hskip 3.5cm + \sup_{\theta \in \mathcal N_{\de}(\pi_0)}\kappa_n^{-2} \sum_{t = 1}^n |f(x_t, \theta) - f(x_t, \pi_0)|| u_t|\no\\
-&\to_P 0,
-\end{align}
-as $n\to\infty$ first and then $\de \to 0$, which yields (\ref {prfConsistency.eqn2}).
+&\hskip 3.5cm + \sup_{\theta \in \mathcal N_{\de}(\pi_0)}\kappa_n^{-2} \sum_{t = 1}^n |f(x_t, \theta) - f(x_t, \pi_0)|| u_t|.
+\end{align*}
 
 To prove (\ref{prfConsistency.eqn3}), we  recall
 \bestar
 D_n(\pi_0, \theta_0) =  \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0))^2 -  \sum_{t = 1}^n (f(x_t, \pi_0) - f(x_t, \theta_0)) u_t.
 \eestar
 This, together with (\ref {21}) and (\ref {98}), implies that,
- for any $\eta>0$, there exists $n_0 > 0$ and $M_1 > 0$ such that for all $n > n_0$,
+ for any $\eta>0$, there exists $n_0 > 0$ and $M_0 > 0$ such that for all $n > n_0$ and $M\ge M_0$,
 \begin{align}
-P\Big ( D_n(\pi_0, \theta_0) \ge \kappa^2_n M_1^{-1} \Big ) &\ge P \Big ( \sum_{t = 1}^n ( f(x_t, \pi_0) - f(x_t, \theta_0))^2 \ge \kappa^2_n\, M_1^{-1}/2 \Big ) - \eta \no\\
+P\Big ( D_n(\pi_0, \theta_0) \ge \kappa^2_n M^{-1} \Big ) &\ge P \Big ( \sum_{t = 1}^n ( f(x_t, \pi_0) - f(x_t, \theta_0))^2 \ge \kappa^2_n\, M^{-1}/2 \Big ) - \eta \no\\
 &\ge1 -2 \eta, \no
 \end{align}
-which implies (\ref{prfConsistency.eqn3}).
+as required.
 
 Finally, by noting $Q_n(\theta_0) = n^{-1} \sum_{t = 1}^n u_t^2 \to_P \si^2$ due to  Assumption \ref{assumpMartingale} and strong law of large number,  it  follows from the consistency of $\hat{\theta}_n$ and (\ref{prfConsistency.eqn2}) that
 \bestar
@@ -986,8 +1033,8 @@ Finally, by noting $Q_n(\theta_0) = n^{-1} \sum_{t = 1}^n u_t^2 \to_P \si^2$ due
 
 \begin{proof}[Proof of Theorem \ref {thmMarkovConsistency}]
  (\ref {20}) follows from (\ref {ty}) of  Lemma \ref{lemMarkov} with $g(x)=T(x)+T^2(x)$.
-  (\ref {21}) follows from (\ref {lemMarkov.eqn2}) of Lemma \ref{lemMarkov} with   $g_2(x)=(f(x, \theta)-f(x, \theta_0))^2$ and the facts that
-   $P(\Pi_{\beta}> 0) = 1$ and $\int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 \pi(ds) > 0$, for any $\theta \ne \theta_0$.
+  (\ref {21}) follows from (\ref {ty10}) of Lemma \ref{lemMarkov} with   $g(x)=(f(x, \theta)-f(x, \theta_0))^2$ and the facts that
+   $\int_{-\infty}^{\infty} (f(s, \theta) - f(s, \theta_0))^2 \pi(ds) > 0$, for any $\theta \ne \theta_0$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref {thmHomoConsistency}]
@@ -1009,7 +1056,7 @@ The similar arguments as in the proof of (\ref {101}) yield that
 \be
 \frac{1}{n} \sum_{t = 1}^n g^2\Big(\frac{x_t}{d_n},\theta, \theta_0\Big) &\to_D& Z:=\int_0^1g^2(G(s), \theta, \theta_0)ds, \la {102}
 \ee
-where  $P(0<Z<\infty)=1$ due to  Assumption \ref{assumpClose}* (i). On the other hand, it follows from (10) that
+where  $P(0<Z<\infty)=1$ due to  Assumption \ref{assumpHomo}. On the other hand, it follows from (10) that
 \bestar
 \frac{1}{nv^2(d_n)}\sum_{t = 1}^n   G^2\Big (d_n, \frac{x_t}{d_n} \Big ) &\le& \frac {o(1)}{nv^2(d_n)}\sum_{t = 1}^n T^2(x_t) \le \frac {o(1)}{n}\sum_{t = 1}^n T_1^2(x_t/d_n) =o_P(1).
 \eestar
@@ -1225,7 +1272,41 @@ g_1(x)=\al_3'\dot{h}(x, \theta_0) \quad \mbox{and} \quad g_2(x)=\al_1'\dot{h}(x,
 \end{equation*}
 \end{proof}
 
+\section{Appendix}
 
+\subsection{A Unit Root Test} \la{sec.unitRootTest}
+In this section, we perform a unit root test to check the stationarity of the time series in our example. There exist many works in macro-economics that demonstrate that GDP and CO$_2$ are nonstationary. See, e.g., \cite{wagner2008}. We implement a simple unit root test to verify the nonstationarity of the data we adopt in Section \ref{sec:6:example}. Denote $y_t$ be the time series we want to test for unit root. It can either be the logarithm of GDP or logarithm of CO$_2$. For each country, the series is modeled in the following way:
+\bestar
+y_t = \alpha y_{t-1} + \varepsilon_t, \quad t = 1, ..., n,
+\eestar
+where $\varepsilon_t$ is a stationary error process. We are interested in testing the hypothesis: $H_0:\ \alpha=1\quad$ versus $H_1:\ \alpha < 1$. To achieve this, Dickey-Fuller test is performed on the logarithm of GDP and CO$_2$ for each country, by using the \texttt{adfTest()} function in the \texttt{fUnitRoots} package of the statistical software R. The critical value for a sample size of 58 is -1.947. Table \ref{unit_root_table} below presents the observed values of the test statistics for the logarithm of GPD and CO$_2$ for all countries. All observed values are greater than the critical value. Therefore,  we do not reject the hypothesis that there is a unit root in the model.
+
+\begin{table}[!ht]
+\selectfont \caption{Dickey-Fuller Test Results}
+\label{unit_root_table} \center{
+\begin{tabular}{|c | c | c |}
+\hline
+Countries & DF for $\log($GDP$)$ & DF for $\log($CO$_2)$ \\
+\hline
+ AUS & 4.9129 & 2.0222 \\
+ AUT & 3.6022 & 0.7622 \\
+ BEL & 4.8375 & -0.2559 \\
+ CAN & 3.8486 & 0.9752 \\
+ DEN & 5.0166 & 0.2707 \\
+ FIN & 3.1312 & -0.0394 \\
+ FRA & 3.0434 & -0.1289 \\
+ HOL & 4.1681 & 0.8059 \\
+ IRE & 3.2837 & 1.188 \\
+ ITA & 2.5805 & -1.1359 \\
+ JAP & 1.671 & -0.3775 \\
+ NOR & 4.3584 & 1.3698 \\
+ USA & 4.6961 & 0.2954 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\subsection{Additional Tables and Figures}
 \begin{table}[!ht]
 \selectfont \caption{Means and standard errors of $\hat{\theta}_n$ and $\hat{\si}^2_n$ with $f(x, \theta) = \exp\{ -\theta | x| \}$.}
 \label{If_num} \center{
@@ -1238,18 +1319,18 @@ g_1(x)=\al_3'\dot{h}(x, \theta_0) \quad \mbox{and} \quad g_2(x)=\al_1'\dot{h}(x,
 & $n$ & Mean & Std. error& & Mean & Std. error& &  Mean & Std. error \\
 \hline
 \multicolumn{10}{c} {Scenario {\bf S1}}  \\
-$ \hat{\theta}_n $  & 200   &0.10018 & (0.00511) & & 0.10018 & (0.00517) & & 0.10011 & (0.00563)\\
- & 500 & 0.10014 & (0.00413) & & 0.10013 & (0.00406) & & 0.10004 & (0.00366) \\
+$ \hat{\theta}_n $  & 200   &0.10018 & (0.00121) & & 0.10018 & (0.00125) & & 0.10011 & (0.00139)\\
+ & 500 & 0.10014 & (0.00074) & & 0.10013 & (0.00077) & & 0.10004 & (0.00086) \\
 $ \hat{\sigma}^2_n $ & 200 &8.95974 & (0.88064) & & 8.96749 & (0.89797) & & 8.98783 & (0.89446)  \\
  & 500 & 8.98116 & (0.57035) & & 8.98106 & (0.56659) & & 8.99062 & (0.57060) \\
 \multicolumn{10}{c} {Scenario {\bf S2}}  \\
-$ \hat{\theta}_n $  & 200   &0.10014 & (0.00521) & & 0.10024 & (0.00526) & & 0.10014 & (0.00546)  \\
- & 500 &0.10009 & (0.00418) & & 0.10017 & (0.00435) & & 0.10012 & (0.00416)  \\
+$ \hat{\theta}_n $  & 200   &0.10014 & (0.00131) & & 0.10024 & (0.00136) & & 0.10014 & (0.00146)  \\
+ & 500 &0.10009 & (0.00081) & & 0.10017 & (0.00083) & & 0.10012 & (0.00092)  \\
 $ \hat{\sigma}^2_n $ & 200 &8.97149 & (0.89930) & & 8.96567 & (0.88766) & & 9.00270 & (0.89405)  \\
  & 500 & 8.99296 & (0.57106) & & 9.00135 & (0.56876) & & 8.99701 & (0.56470) \\
 \multicolumn{10}{c} {Scenario {\bf S3}}  \\
-$ \hat{\theta}_n $  & 200   &0.10033 & (0.00595) & & 0.10017 & (0.00618) & & 0.10026 & (0.00616)  \\
- & 500 & 0.10022 & (0.00481) & & 0.10020 & (0.00499) & & 0.10012 & (0.00489) \\
+$ \hat{\theta}_n $  & 200   &0.10033 & (0.00192) & & 0.10017 & (0.00202) & & 0.10026 & (0.00223)  \\
+ & 500 & 0.10022 & (0.00122) & & 0.10020 & (0.00124) & & 0.10012 & (0.00138) \\
 $ \hat{\sigma}^2_n $ & 200 &9.08776 & (0.91758) & & 9.11416 & (0.92635) & & 9.12292 & (0.92537)  \\
  & 500 & 9.13221 & (0.58686) & & 9.12295 & (0.59715) & & 9.14155 & (0.59417) \\
 \hline
@@ -1282,6 +1363,7 @@ $ \hat{\al}_n $  & 200   &-19.99538 & (0.54080) & & -19.99210 & (0.54464) & & -2
  & 500 &-20.00287 & (0.33868) & & -20.00412 & (0.33885) & & -20.00142 & (0.34983)\\
 $ \hat{\beta_1}_n $  & 200   &10.00054 & (0.04456) & & 10.01464 & (0.04606) & & 10.02658 & (0.04718)\\
  & 500 &10.00025 & (0.01747) & & 10.00548 & (0.01829) & & 10.01142 & (0.01838) \\
+
 $ \hat{\beta_2}_n $  & 200   &0.10001 & (0.00145) & & 0.10000 & (0.00136) & & 0.10000 & (0.00118)\\
  & 500 &0.09999 & (0.00037) & & 0.10000 & (0.00034) & & 0.10000 & (0.00029)\\
 $ \hat{\sigma}^2_n $ & 200 &8.85807 & (0.89311) & & 8.83928 & (0.89470) & & 8.79743 & (0.89541) \\
@@ -1301,178 +1383,59 @@ $ \hat{\sigma}^2_n $ & 200 &8.96801 & (0.91677) & & 8.93070 & (0.91952) & & 8.86
 \end{table}
 
 
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\theta}_n$.}
+  \includegraphics[width=15cm]{theta_density_v3}\la{theta_unscaled}
+\end{figure}
 
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\theta}_n$ (unscaled).}
-\label{theta_unscaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{theta_density_200_0} & \includegraphics[width=8cm]{theta_density_500_0} \\
-\includegraphics[width=8cm]{theta_density_200_05} & \includegraphics[width=8cm]{theta_density_500_05} \\
-\includegraphics[width=8cm]{theta_density_200_1} & \includegraphics[width=8cm]{theta_density_500_1} \\
-\end{tabular}
-}
-\end{table}
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\al}_n$.}
+  \includegraphics[width=15cm]{alpha_density_unscaled}
+\end{figure}
 
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\beta}_{1n}$.}
+  \includegraphics[width=15cm]{beta1_density_unscaled}
+\end{figure}
 
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\beta}_{2n}$.}
+  \includegraphics[width=15cm]{beta2_density_unscaled}\la{beta2_unscaled}
+\end{figure}
 
-\clearpage
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\theta}_n$ $t$-ratios.}
+  \includegraphics[width=15cm]{theta_t_ratio}\la{theta_t}
+\end{figure}
 
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\al}_n$ (unscaled).}
-\label{alpha_unscaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{alpha_density_200_0} & \includegraphics[width=8cm]{alpha_density_500_0} \\
-\includegraphics[width=8cm]{alpha_density_200_05} & \includegraphics[width=8cm]{alpha_density_500_05} \\
-\includegraphics[width=8cm]{alpha_density_200_1} & \includegraphics[width=8cm]{alpha_density_500_1} \\
-\end{tabular}
-}
-\end{table}
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\al}_n$ $t$-ratios.}
+  \includegraphics[width=15cm]{alpha_t_ratio}
+\end{figure}
 
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\beta}_{1n}$ (unscaled).}
-\label{beta1_unscaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{beta1_density_200_0} & \includegraphics[width=8cm]{beta1_density_500_0} \\
-\includegraphics[width=8cm]{beta1_density_200_05} & \includegraphics[width=8cm]{beta1_density_500_05} \\
-\includegraphics[width=8cm]{beta1_density_200_1} & \includegraphics[width=8cm]{beta1_density_500_1} \\
-\end{tabular}
-}
-\end{table}
+\begin{figure}[hb]
+  \centering
+  \caption{Density estimate of $\hat{\beta}_{1n}$ $t$-ratios.}
+  \includegraphics[width=15cm]{beta_1_t_ratio_long}
+\end{figure}
 
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\beta}_{2n}$ (unscaled).}
-\label{beta2_unscaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{beta2_density_200_0} & \includegraphics[width=8cm]{beta2_density_500_0} \\
-\includegraphics[width=8cm]{beta2_density_200_05} & \includegraphics[width=8cm]{beta2_density_500_05} \\
-\includegraphics[width=8cm]{beta2_density_200_1} & \includegraphics[width=8cm]{beta2_density_500_1} \\
-\end{tabular}
-}
-\end{table}
+\begin{figure}[hb]
+\centering
+  \caption{Density estimate of $\hat{\beta}_{2n}$ $t$-ratios.}
+  \includegraphics[width=15cm]{beta_2_t_ratio}\la{beta2_t}
+\end{figure}
 
-
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\theta}_n$ (scaled by $n^{1/4}$).}
-\label{theta_scaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{theta_scaled_density_200_0} & \includegraphics[width=8cm]{theta_scaled_density_500_0} \\
-\includegraphics[width=8cm]{theta_scaled_density_200_05} & \includegraphics[width=8cm]{theta_scaled_density_500_05} \\
-\includegraphics[width=8cm]{theta_scaled_density_200_1} & \includegraphics[width=8cm]{theta_scaled_density_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\alpha}_n$ (scaled by $n^{1/2}$).}
-\label{alpha_scaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{alpha_scaled_density_200_0} & \includegraphics[width=8cm]{alpha_scaled_density_500_0} \\
-\includegraphics[width=8cm]{alpha_scaled_density_200_05} & \includegraphics[width=8cm]{alpha_scaled_density_500_05} \\
-\includegraphics[width=8cm]{alpha_scaled_density_200_1} & \includegraphics[width=8cm]{alpha_scaled_density_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\beta}_{1n}$ (scaled by $n$).}
-\label{beta1_scaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{beta1_scaled_density_200_0} & \includegraphics[width=8cm]{beta1_scaled_density_500_0} \\
-\includegraphics[width=8cm]{beta1_scaled_density_200_05} & \includegraphics[width=8cm]{beta1_scaled_density_500_05} \\
-\includegraphics[width=8cm]{beta1_scaled_density_200_1} & \includegraphics[width=8cm]{beta1_scaled_density_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-\begin{table}[!ht]
-\selectfont \caption{Density estimate of $\hat{\beta}_{2n}$ (scaled by $n^{3/2}$).}
-\label{beta2_scaled} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{beta2_scaled_density_200_0} & \includegraphics[width=8cm]{beta2_scaled_density_500_0} \\
-\includegraphics[width=8cm]{beta2_scaled_density_200_05} & \includegraphics[width=8cm]{beta2_scaled_density_500_05} \\
-\includegraphics[width=8cm]{beta2_scaled_density_200_1} & \includegraphics[width=8cm]{beta2_scaled_density_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density of $\hat{\theta}_n$ $t$-ratios.}
-\label{theta_t} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{theta_t_ratio_200_0} & \includegraphics[width=8cm]{theta_t_ratio_500_0} \\
-\includegraphics[width=8cm]{theta_t_ratio_200_05} & \includegraphics[width=8cm]{theta_t_ratio_500_05} \\
-\includegraphics[width=8cm]{theta_t_ratio_200_1} & \includegraphics[width=8cm]{theta_t_ratio_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density of $\hat{\alpha}_n$ $t$-ratios.}
-\label{alpha_t} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{alpha_t_ratio_200_0} & \includegraphics[width=8cm]{alpha_t_ratio_500_0} \\
-\includegraphics[width=8cm]{alpha_t_ratio_200_05} & \includegraphics[width=8cm]{alpha_t_ratio_500_05} \\
-\includegraphics[width=8cm]{alpha_t_ratio_200_1} & \includegraphics[width=8cm]{alpha_t_ratio_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density of $\hat{\beta}_{1n}$ $t$-ratios.}
-\label{beta1_t} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{beta1_t_ratio_200_0} & \includegraphics[width=8cm]{beta1_t_ratio_500_0} \\
-\includegraphics[width=8cm]{beta1_t_ratio_200_05} & \includegraphics[width=8cm]{beta1_t_ratio_500_05} \\
-\includegraphics[width=8cm]{beta1_t_ratio_200_1} & \includegraphics[width=8cm]{beta1_t_ratio_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-
-
-\begin{table}[!ht]
-\selectfont \caption{Density of $\hat{\beta}_{2n}$ $t$-ratios.}
-\label{beta2_t} \center{
-\begin{tabular}{c c}
-\includegraphics[width=8cm]{beta2_t_ratio_200_0} & \includegraphics[width=8cm]{beta2_t_ratio_500_0} \\
-\includegraphics[width=8cm]{beta2_t_ratio_200_05} & \includegraphics[width=8cm]{beta2_t_ratio_500_05} \\
-\includegraphics[width=8cm]{beta2_t_ratio_200_1} & \includegraphics[width=8cm]{beta2_t_ratio_500_1} \\
-\end{tabular}
-}
-\end{table}
-
-\begin{table}[!ht]
-\selectfont \caption{Estimate and 95\% Confidence Interval of $\hat{\al}_n$}
-\label{alpha_plot} \center{
-\begin{tabular}{c}
-\includegraphics[width=16cm]{a_plot}
-\end{tabular}
-}
-\end{table}
-
-% \begin{table}[!ht]
-% \selectfont \caption{Estmate and 95\% Confidence Interval of $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$}
-% \label{GseqTable} \center{
-% \begin{tabular}{c}
-% %\includegraphics[width=16cm]{a_plot} \\
-% \includegraphics[width=16cm]{b_1_plot} \\
-% \includegraphics[width=16cm]{b_2_plot} \\
-% \end{tabular}
-% }
-% \end{table}
-
+\begin{figure}[hb]
+  \centering
+  \caption{Estimates and 95\% Confidence Intervals of $\hat{\al}_{n}$.}
+  \includegraphics[width=16cm]{a_plot_v2}\la{al_fig} \\
+\end{figure}
 
 \begin{table}[!ht]
 \selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\alpha}_{n}$.}
@@ -1485,12 +1448,10 @@ AUS & -57.387 & -58.005 & -56.769 \\
 AUT & -25.352 & -26.414 & -24.290 \\
 BEL & -41.632 & -43.144 & -40.121 \\
 CAN & -44.442 & -45.615 & -43.268 \\
-CHN & -32.402 & -38.126 & -26.678 \\
 DEN & -113.670 & -115.375 & -111.965 \\
 FIN & -91.869 & -94.019 & -89.720 \\
 FRA & -76.449 & -78.162 & -74.735 \\
 HOL & -71.892 & -73.439 & -70.344 \\
-IND & -59.854 & -60.930 & -58.779 \\
 IRE & -33.058 & -34.265 & -31.851 \\
 ITA & -71.375 & -72.604 & -70.146 \\
 JAP & -27.674 & -29.293 & -26.056 \\
@@ -1514,12 +1475,10 @@ AUS & 11.520 & 10.810 & 12.230 \\
 AUT & 5.075 & 4.193 & 5.958 \\
 BEL & 9.116 & 7.922 & 10.310 \\
 CAN & 9.217 & 8.114 & 10.321 \\
-CHN & 7.609 & 5.063 & 10.154 \\
 DEN & 23.724 & 22.242 & 25.205 \\
 FIN & 18.967 & 17.225 & 20.709 \\
 FRA & 16.443 & 15.000 & 17.886 \\
 HOL & 14.921 & 13.579 & 16.262 \\
-IND & 14.908 & 13.894 & 15.923 \\
 IRE & 6.816 & 6.062 & 7.570 \\
 ITA & 14.502 & 13.647 & 15.356 \\
 JAP & 5.447 & 4.614 & 6.279 \\
@@ -1542,12 +1501,10 @@ AUS & -0.562 & -0.730 & -0.394 \\
 AUT & -0.246 & -0.389 & -0.102 \\
 BEL & -0.485 & -0.721 & -0.248 \\
 CAN & -0.462 & -0.732 & -0.192 \\
-CHN & -0.446 & -0.775 & -0.118 \\
 DEN & -1.226 & -1.586 & -0.865 \\
 FIN & -0.967 & -1.256 & -0.678 \\
 FRA & -0.875 & -1.190 & -0.559 \\
 HOL & -0.762 & -1.093 & -0.432 \\
-IND & -0.945 & -1.174 & -0.715 \\
 IRE & -0.341 & -0.443 & -0.238 \\
 ITA & -0.729 & -0.882 & -0.576 \\
 JAP & -0.258 & -0.365 & -0.151 \\
@@ -1558,6 +1515,339 @@ USA & -0.477 & -0.768 & -0.186 \\
 }
 \end{table}
 
+
+% \begin{table}[!ht]
+% \selectfont \caption{Means and standard errors of $\hat{\theta}_n$ and $\hat{\si}^2_n$ with $f(x, \theta) = \exp\{ -\theta | x| \}$.}
+% \label{If_num} \center{
+% \begin{tabular}{c c c c c c c c c c  }
+% \hline
+% & & \multicolumn{2}{c} { $\rho = 0$ }& & \multicolumn{2}{c} { $\rho = 0.5$ } & & \multicolumn{2}{c} { $\rho = 1$ } \\
+% \cline{3-4}
+% \cline{6-7}
+% \cline{9-10}
+% & $n$ & Mean & Std. error& & Mean & Std. error& &  Mean & Std. error \\
+% \hline
+% \multicolumn{10}{c} {Scenario {\bf S1}}  \\
+% $ \hat{\theta}_n $  & 200   &0.10018 & (0.00511) & & 0.10018 & (0.00517) & & 0.10011 & (0.00563)\\
+%  & 500 & 0.10014 & (0.00413) & & 0.10013 & (0.00406) & & 0.10004 & (0.00366) \\
+% $ \hat{\sigma}^2_n $ & 200 &8.95974 & (0.88064) & & 8.96749 & (0.89797) & & 8.98783 & (0.89446)  \\
+%  & 500 & 8.98116 & (0.57035) & & 8.98106 & (0.56659) & & 8.99062 & (0.57060) \\
+% \multicolumn{10}{c} {Scenario {\bf S2}}  \\
+% $ \hat{\theta}_n $  & 200   &0.10014 & (0.00521) & & 0.10024 & (0.00526) & & 0.10014 & (0.00546)  \\
+%  & 500 &0.10009 & (0.00418) & & 0.10017 & (0.00435) & & 0.10012 & (0.00416)  \\
+% $ \hat{\sigma}^2_n $ & 200 &8.97149 & (0.89930) & & 8.96567 & (0.88766) & & 9.00270 & (0.89405)  \\
+%  & 500 & 8.99296 & (0.57106) & & 9.00135 & (0.56876) & & 8.99701 & (0.56470) \\
+% \multicolumn{10}{c} {Scenario {\bf S3}}  \\
+% $ \hat{\theta}_n $  & 200   &0.10033 & (0.00595) & & 0.10017 & (0.00618) & & 0.10026 & (0.00616)  \\
+%  & 500 & 0.10022 & (0.00481) & & 0.10020 & (0.00499) & & 0.10012 & (0.00489) \\
+% $ \hat{\sigma}^2_n $ & 200 &9.08776 & (0.91758) & & 9.11416 & (0.92635) & & 9.12292 & (0.92537)  \\
+%  & 500 & 9.13221 & (0.58686) & & 9.12295 & (0.59715) & & 9.14155 & (0.59417) \\
+% \hline
+% \end{tabular}
+% }
+% \end{table}
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Means and standard errors of $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$ and $\hat{\si}^2_n$ with $f(x, \al, \beta_1, \beta_2) = \al + \beta_1 x+ \beta_2 x^2$.}
+% \label{Hf_num} \center{
+% \begin{tabular}{c c c c c c c c c c  }
+% \hline
+% & & \multicolumn{2}{c} { $\rho = 0$ }& & \multicolumn{2}{c} { $\rho = 0.5$ } & & \multicolumn{2}{c} { $\rho = 1$ } \\
+% \cline{3-4}
+% \cline{6-7}
+% \cline{9-10}
+% & $n$ & Mean & Std. error& & Mean & Std. error& &  Mean & Std. error \\
+% \hline
+% \multicolumn{10}{c} {Scenario {\bf S1}}  \\
+% $ \hat{\al}_n $  & 200   &-19.99444 & (0.52156) & & -19.99776 & (0.52417) & & -20.00214 & (0.53271) \\
+%  & 500 &-20.00171 & (0.33352) & & -20.00164 & (0.33260) & & -20.00333 & (0.33106) \\
+% $ \hat{\beta_1}_n $  & 200   &9.99995 & (0.04303) & & 10.01348 & (0.04427) & & 10.02649 & (0.04441)\\
+%  & 500 &9.99961 & (0.01713) & & 10.00537 & (0.01741) & & 10.01056 & (0.01790)\\
+% $ \hat{\beta_2}_n $  & 200   &0.09999 & (0.00137) & & 0.09999 & (0.00133) & & 0.10000 & (0.00115)\\
+%  & 500 &0.10000 & (0.00034) & & 0.10001 & (0.00034) & & 0.10000 & (0.00029) \\
+% $ \hat{\sigma}^2_n $ & 200 &8.87340 & (0.89132) & & 8.83901 & (0.89370) & & 8.79399 & (0.87995)\\
+%  & 500 & 8.94769 & (0.56790) & & 8.94198 & (0.57076) & & 8.91645 & (0.56403)\\
+% \multicolumn{10}{c} {Scenario {\bf S2}}  \\
+% $ \hat{\al}_n $  & 200   &-19.99538 & (0.54080) & & -19.99210 & (0.54464) & & -20.00177 & (0.53812)\\
+%  & 500 &-20.00287 & (0.33868) & & -20.00412 & (0.33885) & & -20.00142 & (0.34983)\\
+% $ \hat{\beta_1}_n $  & 200   &10.00054 & (0.04456) & & 10.01464 & (0.04606) & & 10.02658 & (0.04718)\\
+%  & 500 &10.00025 & (0.01747) & & 10.00548 & (0.01829) & & 10.01142 & (0.01838) \\
+% $ \hat{\beta_2}_n $  & 200   &0.10001 & (0.00145) & & 0.10000 & (0.00136) & & 0.10000 & (0.00118)\\
+%  & 500 &0.09999 & (0.00037) & & 0.10000 & (0.00034) & & 0.10000 & (0.00029)\\
+% $ \hat{\sigma}^2_n $ & 200 &8.85807 & (0.89311) & & 8.83928 & (0.89470) & & 8.79743 & (0.89541) \\
+%  & 500 & 8.95826 & (0.56801) & & 8.94974 & (0.56812) & & 8.92162 & (0.56690) \\
+% \multicolumn{10}{c} {Scenario {\bf S3}}  \\
+% $ \hat{\al}_n $  & 200   &-19.99784 & (0.62713) & & -20.00389 & (0.60584) & & -19.99447 & (0.62031) \\
+%  & 500 &-19.99644 & (0.39496) & & -19.99572 & (0.38897) & & -20.00707 & (0.40941)\\
+% $ \hat{\beta_1}_n $  & 200   &9.99962 & (0.04949) & & 10.01477 & (0.05129) & & 10.03178 & (0.05180)\\
+%  & 500 &10.00011 & (0.02033) & & 10.00647 & (0.02073) & & 10.01282 & (0.02142) \\
+% $ \hat{\beta_2}_n $  & 200   &0.10002 & (0.00165) & & 0.09998 & (0.00156) & & 0.10000 & (0.00131)\\
+%  & 500 &0.10000 & (0.00040) & & 0.10000 & (0.00039) & & 0.10000 & (0.00033)\\
+% $ \hat{\sigma}^2_n $ & 200 &8.96801 & (0.91677) & & 8.93070 & (0.91952) & & 8.86505 & (0.93340)\\
+%  & 500 & 9.08728 & (0.58567) & & 9.07935 & (0.58298) & & 9.03815 & (0.58235) \\
+% \hline
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\theta}_n$ (unscaled).}
+% \label{theta_unscaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{theta_density_200_0} & \includegraphics[width=8cm]{theta_density_500_0} \\
+% \includegraphics[width=8cm]{theta_density_200_05} & \includegraphics[width=8cm]{theta_density_500_05} \\
+% \includegraphics[width=8cm]{theta_density_200_1} & \includegraphics[width=8cm]{theta_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \clearpage
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\al}_n$ (unscaled).}
+% \label{alpha_unscaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{alpha_density_200_0} & \includegraphics[width=8cm]{alpha_density_500_0} \\
+% \includegraphics[width=8cm]{alpha_density_200_05} & \includegraphics[width=8cm]{alpha_density_500_05} \\
+% \includegraphics[width=8cm]{alpha_density_200_1} & \includegraphics[width=8cm]{alpha_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\beta}_{1n}$ (unscaled).}
+% \label{beta1_unscaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{beta1_density_200_0} & \includegraphics[width=8cm]{beta1_density_500_0} \\
+% \includegraphics[width=8cm]{beta1_density_200_05} & \includegraphics[width=8cm]{beta1_density_500_05} \\
+% \includegraphics[width=8cm]{beta1_density_200_1} & \includegraphics[width=8cm]{beta1_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\beta}_{2n}$ (unscaled).}
+% \label{beta2_unscaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{beta2_density_200_0} & \includegraphics[width=8cm]{beta2_density_500_0} \\
+% \includegraphics[width=8cm]{beta2_density_200_05} & \includegraphics[width=8cm]{beta2_density_500_05} \\
+% \includegraphics[width=8cm]{beta2_density_200_1} & \includegraphics[width=8cm]{beta2_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\theta}_n$ (scaled by $n^{1/4}$).}
+% \label{theta_scaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{theta_scaled_density_200_0} & \includegraphics[width=8cm]{theta_scaled_density_500_0} \\
+% \includegraphics[width=8cm]{theta_scaled_density_200_05} & \includegraphics[width=8cm]{theta_scaled_density_500_05} \\
+% \includegraphics[width=8cm]{theta_scaled_density_200_1} & \includegraphics[width=8cm]{theta_scaled_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\alpha}_n$ (scaled by $n^{1/2}$).}
+% \label{alpha_scaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{alpha_scaled_density_200_0} & \includegraphics[width=8cm]{alpha_scaled_density_500_0} \\
+% \includegraphics[width=8cm]{alpha_scaled_density_200_05} & \includegraphics[width=8cm]{alpha_scaled_density_500_05} \\
+% \includegraphics[width=8cm]{alpha_scaled_density_200_1} & \includegraphics[width=8cm]{alpha_scaled_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\beta}_{1n}$ (scaled by $n$).}
+% \label{beta1_scaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{beta1_scaled_density_200_0} & \includegraphics[width=8cm]{beta1_scaled_density_500_0} \\
+% \includegraphics[width=8cm]{beta1_scaled_density_200_05} & \includegraphics[width=8cm]{beta1_scaled_density_500_05} \\
+% \includegraphics[width=8cm]{beta1_scaled_density_200_1} & \includegraphics[width=8cm]{beta1_scaled_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density estimate of $\hat{\beta}_{2n}$ (scaled by $n^{3/2}$).}
+% \label{beta2_scaled} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{beta2_scaled_density_200_0} & \includegraphics[width=8cm]{beta2_scaled_density_500_0} \\
+% \includegraphics[width=8cm]{beta2_scaled_density_200_05} & \includegraphics[width=8cm]{beta2_scaled_density_500_05} \\
+% \includegraphics[width=8cm]{beta2_scaled_density_200_1} & \includegraphics[width=8cm]{beta2_scaled_density_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density of $\hat{\theta}_n$ $t$-ratios.}
+% \label{theta_t} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{theta_t_ratio_200_0} & \includegraphics[width=8cm]{theta_t_ratio_500_0} \\
+% \includegraphics[width=8cm]{theta_t_ratio_200_05} & \includegraphics[width=8cm]{theta_t_ratio_500_05} \\
+% \includegraphics[width=8cm]{theta_t_ratio_200_1} & \includegraphics[width=8cm]{theta_t_ratio_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density of $\hat{\alpha}_n$ $t$-ratios.}
+% \label{alpha_t} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{alpha_t_ratio_200_0} & \includegraphics[width=8cm]{alpha_t_ratio_500_0} \\
+% \includegraphics[width=8cm]{alpha_t_ratio_200_05} & \includegraphics[width=8cm]{alpha_t_ratio_500_05} \\
+% \includegraphics[width=8cm]{alpha_t_ratio_200_1} & \includegraphics[width=8cm]{alpha_t_ratio_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density of $\hat{\beta}_{1n}$ $t$-ratios.}
+% \label{beta1_t} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{beta1_t_ratio_200_0} & \includegraphics[width=8cm]{beta1_t_ratio_500_0} \\
+% \includegraphics[width=8cm]{beta1_t_ratio_200_05} & \includegraphics[width=8cm]{beta1_t_ratio_500_05} \\
+% \includegraphics[width=8cm]{beta1_t_ratio_200_1} & \includegraphics[width=8cm]{beta1_t_ratio_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Density of $\hat{\beta}_{2n}$ $t$-ratios.}
+% \label{beta2_t} \center{
+% \begin{tabular}{c c}
+% \includegraphics[width=8cm]{beta2_t_ratio_200_0} & \includegraphics[width=8cm]{beta2_t_ratio_500_0} \\
+% \includegraphics[width=8cm]{beta2_t_ratio_200_05} & \includegraphics[width=8cm]{beta2_t_ratio_500_05} \\
+% \includegraphics[width=8cm]{beta2_t_ratio_200_1} & \includegraphics[width=8cm]{beta2_t_ratio_500_1} \\
+% \end{tabular}
+% }
+% \end{table}
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Estimate and 95\% Confidence Interval of $\hat{\al}_n$}
+% \label{alpha_plot} \center{
+% \begin{tabular}{c}
+% \includegraphics[width=16cm]{a_plot}
+% \end{tabular}
+% }
+% \end{table}
+% 
+% % \begin{table}[!ht]
+% % \selectfont \caption{Estmate and 95\% Confidence Interval of $\hat{\theta}_n = (\hat{\al}_n, \hat{\beta}_{1n}, \hat{\beta}_{2n})$}
+% % \label{GseqTable} \center{
+% % \begin{tabular}{c}
+% % %\includegraphics[width=16cm]{a_plot} \\
+% % \includegraphics[width=16cm]{b_1_plot} \\
+% % \includegraphics[width=16cm]{b_2_plot} \\
+% % \end{tabular}
+% % }
+% % \end{table}
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\alpha}_{n}$.}
+% \label{alpha_est} \center{
+% \begin{tabular}{|c |c  c  c|}
+% \hline
+% Country & $\hat{\alpha}_{n}$ & Lower & Upper \\
+% \hline
+% AUS & -57.387 & -58.005 & -56.769 \\
+% AUT & -25.352 & -26.414 & -24.290 \\
+% BEL & -41.632 & -43.144 & -40.121 \\
+% CAN & -44.442 & -45.615 & -43.268 \\
+% CHN & -32.402 & -38.126 & -26.678 \\
+% DEN & -113.670 & -115.375 & -111.965 \\
+% FIN & -91.869 & -94.019 & -89.720 \\
+% FRA & -76.449 & -78.162 & -74.735 \\
+% HOL & -71.892 & -73.439 & -70.344 \\
+% IND & -59.854 & -60.930 & -58.779 \\
+% IRE & -33.058 & -34.265 & -31.851 \\
+% ITA & -71.375 & -72.604 & -70.146 \\
+% JAP & -27.674 & -29.293 & -26.056 \\
+% NOR & -58.519 & -60.442 & -56.597 \\
+% USA & -45.950 & -46.945 & -44.954 \\
+% \hline
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\beta}_{1n}$.}
+% \label{beta1_est} \center{
+% \begin{tabular}{|c |c  c  c|}
+% \hline
+% Country & $\hat{\beta}_{1n}$ & Lower & Upper \\
+% \hline
+% AUS & 11.520 & 10.810 & 12.230 \\
+% AUT & 5.075 & 4.193 & 5.958 \\
+% BEL & 9.116 & 7.922 & 10.310 \\
+% CAN & 9.217 & 8.114 & 10.321 \\
+% CHN & 7.609 & 5.063 & 10.154 \\
+% DEN & 23.724 & 22.242 & 25.205 \\
+% FIN & 18.967 & 17.225 & 20.709 \\
+% FRA & 16.443 & 15.000 & 17.886 \\
+% HOL & 14.921 & 13.579 & 16.262 \\
+% IND & 14.908 & 13.894 & 15.923 \\
+% IRE & 6.816 & 6.062 & 7.570 \\
+% ITA & 14.502 & 13.647 & 15.356 \\
+% JAP & 5.447 & 4.614 & 6.279 \\
+% NOR & 11.802 & 10.555 & 13.050 \\
+% USA & 9.536 & 8.449 & 10.623 \\
+% \hline
+% \end{tabular}
+% }
+% \end{table}
+% 
+% 
+% \begin{table}[!ht]
+% \selectfont \caption{Confidence Intervals (95\% confidence) of $\hat{\beta}_{2n}$.}
+% \label{beta2_est} \center{
+% \begin{tabular}{|c |c  c  c|}
+% \hline
+% Country & $\hat{\beta}_{2n}$ & Lower & Upper \\
+% \hline
+% AUS & -0.562 & -0.730 & -0.394 \\
+% AUT & -0.246 & -0.389 & -0.102 \\
+% BEL & -0.485 & -0.721 & -0.248 \\
+% CAN & -0.462 & -0.732 & -0.192 \\
+% CHN & -0.446 & -0.775 & -0.118 \\
+% DEN & -1.226 & -1.586 & -0.865 \\
+% FIN & -0.967 & -1.256 & -0.678 \\
+% FRA & -0.875 & -1.190 & -0.559 \\
+% HOL & -0.762 & -1.093 & -0.432 \\
+% IND & -0.945 & -1.174 & -0.715 \\
+% IRE & -0.341 & -0.443 & -0.238 \\
+% ITA & -0.729 & -0.882 & -0.576 \\
+% JAP & -0.258 & -0.365 & -0.151 \\
+% NOR & -0.586 & -0.822 & -0.351 \\
+% USA & -0.477 & -0.768 & -0.186 \\
+% \hline
+% \end{tabular}
+% }
+% \end{table}
+% 
 
 
 %%% Local Variables: 
